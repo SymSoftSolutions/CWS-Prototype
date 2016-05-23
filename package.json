@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/SymSoftSolutions/CWS-Prototype/issues"
   },
-  "homepage": "https://github.com/SymSoftSolutions/CWS-Prototype#readme"
+  "homepage": "https://github.com/SymSoftSolutions/CWS-Prototype#readme",
+  "devDependencies": {
+    "cluster": "^0.7.7",
+    "express": "^4.13.4",
+    "socket.io": "^1.4.6"
+  }
 }
