@@ -1,0 +1,45 @@
+/* Application CSS */
+body {
+    background: white;
+    color: #333;
+    line-height: 1.6;
+    font-size: 16px;
+    padding: 20px;
+}
+
+a, a:hover, a:visited, a:focus {
+    color: #3540ff;
+    text-decoration: none;
+}
+
+.jumbotron {
+    padding: 2em;
+    max-width: 700px;
+    margin: 30px auto;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 2px rgba(0,0,0,0.1);
+}
+
+.jumbotron p {
+    text-align: left;
+}
+
+h1 small {
+    color: #999;
+    font-weight: normal;
+}
+
+
+.btn, a.btn {
+    background: transparent;
+    border: 1px solid #3540ff;
+    border-radius: 20px;
+    color: #3540ff;
+    transition: all 0.33s;
+}
+.btn:hover, a.btn:hover,
+.btn:focus, a.btn:focus {
+    background: #3540ff;
+    color: white;
+}
