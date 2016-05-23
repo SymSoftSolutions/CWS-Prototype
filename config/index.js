@@ -5,6 +5,9 @@
 
 var path = require('path');
 module.exports = {
+    strings: {
+      token: 'testing'
+    },
     dirs: {
         pub     : path.resolve('public/'),
         bower   : path.resolve('bower_components/'),
