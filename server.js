@@ -16,6 +16,9 @@ utils        = require('./lib/utils'),
 port         = (process.env.PORT || 8000);
 
 
+// Setting up the connection to the postgres database
+var db  = require('./lib/db');
+
 //Comment out the line below if you want to enable cluster support.
 setupServer();
 
