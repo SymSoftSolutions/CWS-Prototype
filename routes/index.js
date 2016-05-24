@@ -13,6 +13,10 @@ function render(viewName, layoutPath) {
         if (layoutPath) {
             res.locals.layout = layoutPath;
         }
+        if(req.user){
+            res.locals.user = req.user
+        }
+       console.log(req.session.passport);
         res.render(viewName);
     };
 }

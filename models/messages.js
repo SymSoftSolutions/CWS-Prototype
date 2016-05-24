@@ -39,5 +39,3 @@ db.schema.hasTable('message').then(function(exists) {
     }
 });
 
-//db.insert({firstName: 'Tim'}).into('message);
-
