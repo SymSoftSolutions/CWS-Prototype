@@ -12,16 +12,32 @@ db.schema.hasTable('users').then(function(exists) {
     /* Create users table if it doesn't exist. */
     if (!exists) {
         db.schema.createTable('users', function(table) {
+            //bookkeeping
             table.increments('id');
-            table.string('name');
+            table.timestamp('createdAt').notNullable().defaultTo(db.raw('now()'));
+
+            // identification
+            table.string('firstName');
+            table.string('lastName');
+            table.date('dataofbirth');
+
+            // location
+            table.string('address');
+            table.string('city');
+            table.string('state');
+            table.string('zip')
+
+            //contacting
             table.string('email');
-            table.timestamp('created_at').notNullable().defaultTo(db.raw('now()'));
+            table.string('workphone');
+            table.string('homephone');
+
+
         }).then(function(table) {
-            console.log('Created Posts Table');
+            console.log('Created Users Table');
         });
     }
 });
 
-
-//db.insert({name: 'Tim'}).into('users');
+//db.insert({firstName: 'Tim'}).into('users');
 
