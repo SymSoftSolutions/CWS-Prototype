@@ -16,6 +16,9 @@ utils        = require('./lib/utils'),
 port         = (process.env.PORT || 8000);
 
 
+// Setting up the connection to the postgres database
+var db  = require('./lib/db');
+
 //Comment out the line below if you want to enable cluster support.
 setupServer();
 
@@ -26,7 +29,7 @@ setupServer();
 function setupServer (worker) {
     var app = express(),
         server = app.listen(port, function () {
-            console.log("Bedrock App is now listening on port " + server.address().port);
+            console.log("App is now listening on port " + server.address().port);
         }),
         router;
 
@@ -69,7 +72,7 @@ function setupServer (worker) {
     app.use(cookieParser());
 
     // Session Handling
-    app.use(session({secret: 'keyboard cat', resave: true, saveUninitialized: true}));
+    app.use(session({secret: config.strings.token, resave: true, saveUninitialized: true}));
 
 
     // Flash Message Support
@@ -105,7 +108,7 @@ function setupServer (worker) {
 
     // The exposeTemplates() method makes the Handlebars templates that are inside /shared/templates/
     // available to the client.
-    router.get('/', [ middleware.exposeTemplates(), routes.render('home') ]);
+    router.get('/', [routes.render('home') ]);
 
     // Error handling middleware
     app.use(function(req, res, next){

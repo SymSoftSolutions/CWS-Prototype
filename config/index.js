@@ -1,10 +1,20 @@
 /*
    Configuration for paths, and other common configurables
  */
-'use strict';
 
 var path = require('path');
 module.exports = {
+    strings: {
+      token: 'testing'
+    },
+    // TODO: parse these out from environment variables
+    postgres: {
+        host: "localhost",
+        port: "5432",
+        database: "cws",
+        user:"postgres",
+        password: "echopostgres"
+    },
     dirs: {
         pub     : path.resolve('public/'),
         bower   : path.resolve('bower_components/'),
