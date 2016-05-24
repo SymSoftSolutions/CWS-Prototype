@@ -16,6 +16,8 @@ db.schema.hasTable('users').then(function(exists) {
             table.increments('userID'); //automatically the primary key
             table.timestamp('createdAt').notNullable().defaultTo(db.raw('now()'));
 
+            table.string('password');
+
             // identification
             table.string('firstName');
             table.string('lastName');
@@ -35,9 +37,14 @@ db.schema.hasTable('users').then(function(exists) {
 
         }).then(function(table) {
             console.log('Created Users Table');
+        }).then(function(){
+            db.insert({firstName: 'test', password: '123', zip:'95843', email: "test@example.com"}).into('users')
+                .then(function(rows){
+                    console.log("Created " + rows.rowCount + " Users")
+                });
         });
     }
 });
 
-//db.insert({firstName: 'Tim'}).into('users');
+
 
