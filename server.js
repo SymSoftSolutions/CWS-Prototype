@@ -54,13 +54,13 @@ passport.use(new Strategy(
 // serializing, and querying the user record by ID from the database when
 // deserializing.
 passport.serializeUser(function(user, cb) {
-    console.log("Seralize", user.userID, user.email);
+    console.log("Seralize");
 
      cb(null, user.userID);
 });
 
 passport.deserializeUser(function(id, cb) {
-    console.log("Deserialize", id);
+    console.log("Deserialize");
     dbUtils.deserializeUser(id, cb);
 });
 
@@ -77,7 +77,8 @@ function setupServer (worker) {
             console.log("App is now listening on port " + server.address().port);
         }),
         router;
-
+// Specify the public directory.
+    app.use(express.static(config.dirs.pub));
     //Setup Express App
     state.extend(app);
     app.engine(hbs.extname, hbs.engine);
@@ -107,6 +108,7 @@ function setupServer (worker) {
         strict       : app.get('strict routing')
     });
 
+
     // Parse application/x-www-form-urlencoded
     app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -116,15 +118,22 @@ function setupServer (worker) {
     // Parse cookies.
     app.use(cookieParser(config.strings.token));
 
+    // Flash Message Support
+    app.use(flash());
+
+    //GZip Support
+    app.use(compression());
+
     // Session Handling
     app.use(session({
         secret: config.strings.token,
         cookie: {
+            httpOnly: true,
             maxAge: 10000 // ten seconds, for testing
         },
         secure : false,
-        store: store,
-        resave: true,
+        //store: store,
+        resave: false,
         saveUninitialized: false
     }));
 
@@ -133,24 +142,13 @@ function setupServer (worker) {
     app.use(passport.initialize());
     app.use(passport.session());
 
-
-    // Flash Message Support
-    app.use(flash());
-
-    //GZip Support
-    app.use(compression());
-
-    // Specify the public directory.
-    app.use(express.static(config.dirs.pub));
-
-
-    // app.use(csrf());
-    // app.use(function(req, res, next) {
-    //     var token = req.csrfToken();
-    //     res.cookie('XSRF-TOKEN', token);
-    //     res.locals._csrf = token;
-    //     next();
-    // });
+    app.use(csrf());
+    app.use(function(req, res, next) {
+        var token = req.csrfToken();
+        res.cookie('XSRF-TOKEN', token);
+        res.locals._csrf = token;
+        next();
+    });
 
     // Use the router.
     app.use(router);
@@ -172,9 +170,7 @@ function setupServer (worker) {
         failureFlash : true // allow flash messages
     }));
 
-    router.get('/profile',
-                require('connect-ensure-login').ensureLoggedIn(),
-                routes.render('profile'));
+    router.get('/profile', routes.checkAuth, routes.render('profile'));
 
     router.get('/logout',
         function(req, res){
