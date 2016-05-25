@@ -4,6 +4,14 @@
 ## Development Processes
 TODO
 
+### Code Reviews
+TODO
+### Builds
+TODO
+
+### Testing
+TODO
+
 ## Technology Stack
 Listed below are the software tools which we rely on. Chosen for their high performance history when used by private-sector companies creating similar services, their flexibility in their deployment options, and their wealth of documentation and examples for enabling rapid development.
 
