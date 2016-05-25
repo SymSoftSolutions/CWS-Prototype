@@ -1,24 +1,22 @@
 var db = require('../lib/db');
 
-var db = require('../lib/db');
+function dropTables(tableName) {
+    return function () {
+        return db.raw('DROP TABLE IF EXISTS ' + tableName + ' CASCADE')
+            .then(function () {
+                console.log("Conditionally Dropping " + tableName)
+            })
+            .catch(function (e) {
+                // console.log("Conditionally Dropping " + tableName)
+                console.log(e);
+            })
 
-
-db.schema.hasTable('message').then(function(exists) {
-    if (exists) {
-        db.schema.dropTable('message').then(function() {
-            console.log("Removed messages Table");
-        });
     }
-}).then( function(){
-
-    db.schema.hasTable('users').then(function(exists) {
-        /* Drops the table if it exists.  This is useful to uncomment when you are working on editing the schema */
-        if (exists) {
-            db.schema.dropTable('users').then(function() {
-                console.log("Removed User Table");
-            });
-
-        }
+}
+dropTables('cases')().then(dropTables('messages'))
+    .then(dropTables('users'))
+    .finally(function () {
+        console.log("\nDone Dropping Tables");
+        process.exit();
     });
-})
 
