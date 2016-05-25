@@ -107,8 +107,7 @@ function setupServer (worker) {
         caseSensitive: app.get('case sensitive routing'),
         strict       : app.get('strict routing')
     });
-
-
+    
     // Parse application/x-www-form-urlencoded
     app.use(bodyParser.urlencoded({ extended: false }))
 
