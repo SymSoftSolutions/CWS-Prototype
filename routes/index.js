@@ -33,6 +33,7 @@ function checkAuth(req, res, next) {
         return next();
     }
     else {
+        req.session.returnTo = req.url;
         res.redirect('/login');
     }
 

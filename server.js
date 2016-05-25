@@ -64,8 +64,9 @@ passport.deserializeUser(function(id, cb) {
     dbUtils.deserializeUser(id, cb);
 });
 
-//Comment out the line below if you want to enable cluster support.
-setupServer();
+// will conditionally create our models if not already, then start our server
+require('./models/createAll').createAll().then(setupServer);
+
 
 //Uncomment the line below if you want to enable cluster support.
 //cluster(setupServer);
@@ -107,7 +108,6 @@ function setupServer (worker) {
         caseSensitive: app.get('case sensitive routing'),
         strict       : app.get('strict routing')
     });
-
 
     // Parse application/x-www-form-urlencoded
     app.use(bodyParser.urlencoded({ extended: false }))
