@@ -13,6 +13,7 @@ function dropTables(tableName) {
 
     }
 }
+
 dropTables('cases')().then(dropTables('messages'))
     .then(dropTables('users'))
     .finally(function () {
