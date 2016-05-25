@@ -27,12 +27,14 @@ function redirect(url, status) {
     };
 }
 
-function checkAuth(req, res, next) {
-    if (req.isAuthenticated()) {
 
+function checkAuth(req, res, next) {
+    // Set through Passport lib
+    if (req.isAuthenticated()) {
         return next();
     }
     else {
+        // Force user to login, and then Passport will return to the previous page
         req.session.returnTo = req.url;
         res.redirect('/login');
     }
