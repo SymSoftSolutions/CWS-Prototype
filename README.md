@@ -1,5 +1,9 @@
 # CWS-Prototype
 
+
+## Development Processes
+TODO
+
 ## Technology Stack
 Listed below are the software tools which we rely on. Chosen for their high performance history when used by private-sector companies creating similar services, their flexibility in their deployment options, and their wealth of documentation and examples for enabling rapid development.
 
@@ -13,3 +17,6 @@ For templating we use [handlebarsjs]() as it provides the right balance between 
 ### Database
 We utilize the enterprise class database, [PostgreSQL](https://www.postgresql.org,) for our data persistence needs. Being a battle tested object-relational database, Postgres provides the data integrity features required for any reliable system. With geospatial features and native json and binary json columns, postgres has excellent support for marshalling user configuration and other objects between our applications components.
 
+
+## Hosting & Environment
+TODO
