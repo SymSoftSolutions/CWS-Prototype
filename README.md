@@ -1,7 +1,7 @@
 # CWS-Prototype
 
 ## Technology Stack
-Listed is below are the software tools which we rely on. Chosen for their high performance history when used by private-sector companies creating similar services, their flexibility in their deployment options, and their wealth of documentation and examples for enabling rapid development.
+Listed below are the software tools which we rely on. Chosen for their high performance history when used by private-sector companies creating similar services, their flexibility in their deployment options, and their wealth of documentation and examples for enabling rapid development.
 
 ### Frameworks
 [Express](http://expressjs.com/) provides our web application with a robust set of features and utility methods for creating web applications. Used internally at Netflix and commonly used as the _E_ in the [MEAN](https://en.wikipedia.org/wiki/MEAN_(software_bundle)) software stack, Express.js is the de facto server framework for node.js.
