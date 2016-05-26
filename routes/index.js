@@ -57,17 +57,15 @@ function createErrorHandling(router){
 
 // -----------------------------------------------------------------------------
 
-function render(viewName, layoutPath) {
+function render(viewName) {
     return function (req, res) {
-
         // add our user object
         if (req.user) {
             res.locals.user = req.user
         }
-        // add our flash messages
-        res.locals.messages = req.flash();
-        console.log(res.locals.messages);
-        res.render(viewName);
+        res.render(viewName, {
+            title: viewName
+        });
     };
 }
 

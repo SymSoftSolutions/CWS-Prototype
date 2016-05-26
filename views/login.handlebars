@@ -1,7 +1,5 @@
 {{!-- Let our user know some thing went wrong --}}
-{{#each messages.error}}
-   <strong>{{this}}</strong>
-{{/each}}
+{{> flash}}
 <form action="/login" method="post">
     <input type="hidden" name="_csrf" value="{{_csrf }}">
 <div>
@@ -16,3 +14,4 @@
     <input type="submit" value="Submit"/>
 </div>
 </form>
+

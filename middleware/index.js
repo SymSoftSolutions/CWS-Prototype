@@ -6,7 +6,15 @@
 var config = require('../config');
 
 // templating and response handling
-var hbs = require('../lib/exphbs');
+var exphbs = require('express-handlebars');
+var helpers = require('../lib/helpers');
+var hbs = exphbs.create({
+    defaultLayout: 'main',
+    helpers: helpers,
+    layoutsDir: config.dirs.layouts,
+    partialsDir: [config.dirs.partials, config.dirs.shared]
+});
+
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 
@@ -29,8 +37,6 @@ var store = new pgSession({
 // messages to our views
 var flash = require('express-flash');
 
-// general utils
-var utils = require('../lib/utils');
 
 exports.initGlobalMiddleware = initGlobalMiddleware;
 
@@ -76,9 +82,10 @@ passport.deserializeUser(dbUtils.deserializeUser);
 function initGlobalMiddleware(app) {
     //Setup Express App
     state.extend(app);
-    app.engine(hbs.extname, hbs.engine);
-    app.set('view engine', hbs.extname);
-    app.enable('view cache');
+    // Register `hbs.engine` with the Express app.
+    app.engine('handlebars', hbs.engine);
+    app.set('view engine', 'handlebars');
+
 
     //Uncomment this if you want strict routing (ie: /foo will not resolve to /foo/)
     //app.enable('strict routing');
@@ -107,8 +114,6 @@ function initGlobalMiddleware(app) {
     // Parse cookies.
     app.use(cookieParser(config.strings.token));
 
-    // Flash Message Support
-    app.use(flash());
 
     //GZip Support
     app.use(compression());
@@ -125,6 +130,10 @@ function initGlobalMiddleware(app) {
         resave: false,
         saveUninitialized: false
     }));
+
+
+    // Flash Message Support
+    app.use(flash());
 
     // Initialize Passport and restore authentication state, if any
     app.use(passport.initialize());
