@@ -4,7 +4,9 @@
   "description": "an application that will allow parents of foster kids to establish and manage their profile, and view children's residential facilities in their zip code, and communicate with the case worker via a private inbox",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -37,6 +39,7 @@
     "handlebars": "^2.0.0-alpha.4",
     "knex": "^0.11.4",
     "morgan": "^1.2.2",
+    "nodemon": "^1.9.2",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "permission": "^1.0.4",

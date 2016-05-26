@@ -9,7 +9,6 @@ var middleware = require('./middleware');
 //     cluster(setupServer);
 // })
 
-
 // will conditionally create our models if not already, then start our server
 require('./models/createAll').createAll().then(setupServer);
 
@@ -27,15 +26,14 @@ function setupServer(worker) {
     // Specify the public directory.
     app.use(express.static(config.dirs.pub));
 
-
     // setup middle across all routes
     middleware.initGlobalMiddleware(app);
 
-    // Use the router.
-    app.use(router);
-
     // create a router covering all app's routes
     routes.createAllRoutes(router);
+
+    // Use the router.
+    app.use(router);
 
     // error handling for all routes
     routes.createErrorHandling(app);
