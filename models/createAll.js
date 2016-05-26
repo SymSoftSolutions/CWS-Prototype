@@ -1,6 +1,6 @@
 var db = require('../lib/db');
 var tables = require('./tables');
-
+var dbUtils = require('../lib/dbUtils');
 exports.createAll = createAll;
 
 function createTable(tableName, func) {
@@ -21,17 +21,17 @@ function createTable(tableName, func) {
     }
 }
 
-
 function createTestObjects() {
 
     function testUser(result) {
+        var user = {
+            firstName: 'test',
+            password: '123',
+            zip: '95843',
+            email: "test@example.com"
+        };
         if (!result.length) {
-            return db.insert({
-                firstName: 'test',
-                password: '123',
-                zip: '95843',
-                email: "test@example.com"
-            }).into('users')
+            return dbUtils.insertUser(user);
         }
     }
 
@@ -44,11 +44,12 @@ function createTestObjects() {
 
 }
 
-
 function createAll() {
     return createTable('users', tables.createUserTable)()
+        .then(createTable('caseworkers', tables.createCaseWorkerTable))
         .then(createTable('cases', tables.createCaseTable))
         .then(createTable('messages', tables.createMessageTable))
+        .then(createTable('notes', tables.createCaseNotesTable))
         .finally(createTestObjects);
 }
 
