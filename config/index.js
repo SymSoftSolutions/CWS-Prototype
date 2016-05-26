@@ -7,6 +7,9 @@ module.exports = {
     strings: {
       token: 'testing'
     },
+    server: {
+        port: 8000
+    },
     // TODO: parse these out from environment variables
     postgres: {
         host: "localhost",
