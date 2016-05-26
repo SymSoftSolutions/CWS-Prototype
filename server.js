@@ -1,33 +1,32 @@
 //setup Dependencies
-var express  = require('express'),
-bodyParser   = require('body-parser'),
-cookieParser = require('cookie-parser'),
-csrf         = require('csurf'),
-state        = require('express-state'),
-flash        = require('express-flash'),
-cluster      = require('express-cluster'),
-compression  = require('compression'),
-hbs          = require('./lib/exphbs'),
-routes       = require('./routes'),
-middleware   = require('./middleware'),
-config       = require('./config'),
-utils        = require('./lib/utils'), 
-dbUtils      = require('./lib/dbUtils'),
-port         = (process.env.PORT || 8000);
-
-var session          = require('express-session');
-var pg = require('pg');
-var  pgSession = require('connect-pg-simple')(session);
-
+var express = require('express'),
+    bodyParser = require('body-parser'),
+    cookieParser = require('cookie-parser'),
+    csrf = require('csurf'),
+    session = require('express-session'),
+    pg = require('pg'),
+    pgSession = require('connect-pg-simple')(session),
+    db = require('./lib/db'),
+    state = require('express-state'),
+    flash = require('express-flash'),
+    cluster = require('express-cluster'),
+    compression = require('compression'),
+    hbs = require('./lib/exphbs'),
+    routes = require('./routes'),
+    middleware = require('./middleware'),
+    config = require('./config'),
+    utils = require('./lib/utils'),
+    dbUtils = require('./lib/dbUtils'),
+    port = (process.env.PORT || 8000);
 
 
 // Setting up the connection to the postgres database
-var db  = require('./lib/db');
+var db = require('./lib/db');
 
-var store  = new pgSession({
-    pg : pg,
-    conString :config.postgres,
-    tableName : 'session'
+var store = new pgSession({
+    pg: pg,
+    conString: config.postgres,
+    tableName: 'session'
 });
 
 var passport = require('passport');
@@ -41,7 +40,7 @@ var Strategy = require('passport-local').Strategy;
 // that the password is correct and then invoke `cb` with a user object, which
 // will be set at `req.user` in route handlers after authentication.
 passport.use(new Strategy(
-    function( username, password, cb) {
+    function (username, password, cb) {
         return dbUtils.userCheck(username, password, cb);
     })
 );
@@ -53,13 +52,13 @@ passport.use(new Strategy(
 // typical implementation of this is as simple as supplying the user ID when
 // serializing, and querying the user record by ID from the database when
 // deserializing.
-passport.serializeUser(function(user, cb) {
+passport.serializeUser(function (user, cb) {
     console.log("Seralize");
 
-     cb(null, user.userID);
+    cb(null, user.userID);
 });
 
-passport.deserializeUser(function(id, cb) {
+passport.deserializeUser(function (id, cb) {
     console.log("Deserialize");
     dbUtils.deserializeUser(id, cb);
 });
@@ -72,7 +71,7 @@ require('./models/createAll').createAll().then(setupServer);
 //cluster(setupServer);
 
 
-function setupServer (worker) {
+function setupServer(worker) {
     var app = express(),
         server = app.listen(port, function () {
             console.log("App is now listening on port " + server.address().port);
@@ -98,7 +97,7 @@ function setupServer (worker) {
     //app.expose({}, 'Data');
 
     if (app.get('env') === 'development') {
-      app.use(middleware.logger('tiny'));
+        app.use(middleware.logger('tiny'));
     }
 
     // Set default views directory. 
@@ -106,11 +105,11 @@ function setupServer (worker) {
 
     router = express.Router({
         caseSensitive: app.get('case sensitive routing'),
-        strict       : app.get('strict routing')
+        strict: app.get('strict routing')
     });
 
     // Parse application/x-www-form-urlencoded
-    app.use(bodyParser.urlencoded({ extended: false }))
+    app.use(bodyParser.urlencoded({extended: false}))
 
     // Parse application/json
     app.use(bodyParser.json())
@@ -131,7 +130,7 @@ function setupServer (worker) {
             httpOnly: true,
             maxAge: 10000 // ten seconds, for testing
         },
-        secure : false,
+        secure: false,
         //store: store,
         resave: false,
         saveUninitialized: false
@@ -143,7 +142,7 @@ function setupServer (worker) {
     app.use(passport.session());
 
     app.use(csrf());
-    app.use(function(req, res, next) {
+    app.use(function (req, res, next) {
         var token = req.csrfToken();
         res.cookie('XSRF-TOKEN', token);
         res.locals._csrf = token;
@@ -161,25 +160,25 @@ function setupServer (worker) {
     /////// ADD ALL YOUR ROUTES HERE  /////////
 
 
-    router.get('/', routes.render('home') );
+    router.get('/', routes.render('home'));
 
     router.get('/login', routes.render('login'));
     router.post('/login', passport.authenticate('local', {
-        successRedirect : '/profile', // redirect to the secure profile section
-        failureRedirect : '/login', // redirect back to the signup page if there is an error
-        failureFlash : true // allow flash messages
+        successRedirect: '/profile', // redirect to the secure profile section
+        failureRedirect: '/login', // redirect back to the signup page if there is an error
+        failureFlash: true // allow flash messages
     }));
 
     router.get('/profile', routes.checkAuth, routes.render('profile'));
 
     router.get('/logout',
-        function(req, res){
+        function (req, res) {
             req.logout();
             res.redirect('/');
         });
 
     // testing session
-    router.get('/session', function(req, res) {
+    router.get('/session', function (req, res) {
         var n = req.session.views || 0
         req.session.views = ++n
         res.end(n + ' views')
@@ -187,11 +186,11 @@ function setupServer (worker) {
 
 
     // Error handling middleware
-    app.use(function(req, res, next){
-        res.render('404', { status: 404, url: req.url });
+    app.use(function (req, res, next) {
+        res.render('404', {status: 404, url: req.url});
     });
 
-    app.use(function(err, req, res, next){
+    app.use(function (err, req, res, next) {
         res.render('500', {
             status: err.status || 500,
             error: err
