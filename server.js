@@ -31,6 +31,7 @@ var store = new pgSession({
 
 var passport = require('passport');
 var Strategy = require('passport-local').Strategy;
+var permission = require('permission');
 
 
 // Configure the local strategy for use by Passport.
@@ -53,15 +54,10 @@ passport.use(new Strategy(
 // serializing, and querying the user record by ID from the database when
 // deserializing.
 passport.serializeUser(function (user, cb) {
-    console.log("Seralize");
-
     cb(null, user.userID);
 });
 
-passport.deserializeUser(function (id, cb) {
-    console.log("Deserialize");
-    dbUtils.deserializeUser(id, cb);
-});
+passport.deserializeUser(dbUtils.deserializeUser);
 
 // will conditionally create our models if not already, then start our server
 require('./models/createAll').createAll().then(setupServer);
@@ -141,13 +137,29 @@ function setupServer(worker) {
     app.use(passport.initialize());
     app.use(passport.session());
 
-    app.use(csrf());
-    app.use(function (req, res, next) {
-        var token = req.csrfToken();
-        res.cookie('XSRF-TOKEN', token);
-        res.locals._csrf = token;
-        next();
+    var notAuthenticated = {
+        flashType: 'error',
+        message: 'The entered credentials are incorrect',
+        redirect: '/login'
+    };
+
+    var notAuthorized = {
+        redirect: '/'
+    };
+
+    app.set('permission', {
+        notAuthenticated: notAuthenticated,
+        notAuthorized: notAuthorized
     });
+
+    // app.use(csrf());
+    // app.use(function (req, res, next) {
+    //     var token = req.csrfToken();
+    //     res.cookie('XSRF-TOKEN', token);
+    //     res.locals._csrf = token;
+    //     next();
+    // });
+
 
     // Use the router.
     app.use(router);
@@ -160,7 +172,7 @@ function setupServer(worker) {
     /////// ADD ALL YOUR ROUTES HERE  /////////
 
 
-    router.get('/', routes.render('home'));
+    router.get('/',  routes.render('home'));
 
     router.get('/login', routes.render('login'));
     router.post('/login', passport.authenticate('local', {
@@ -169,7 +181,7 @@ function setupServer(worker) {
         failureFlash: true // allow flash messages
     }));
 
-    router.get('/profile', routes.checkAuth, routes.render('profile'));
+    router.get('/profile', permission('fosterParent'), routes.render('profile'));
 
     router.get('/logout',
         function (req, res) {
@@ -193,7 +205,8 @@ function setupServer(worker) {
     app.use(function (err, req, res, next) {
         res.render('500', {
             status: err.status || 500,
-            error: err
+            error: err,
+            stack: err.stack
         });
     });
 

@@ -28,7 +28,8 @@ function createTestObjects() {
             firstName: 'test',
             password: '123',
             zip: '95843',
-            email: "test@example.com"
+            email: "test@example.com",
+            role: 'fosterParent'
         };
         if (!result.length) {
             return dbUtils.insertUser(user);
@@ -39,14 +40,11 @@ function createTestObjects() {
     return db('users').whereExists(db.select('*').from('users').where('email', "test@example.com"))
         .then(testUser).catch(function (e) {
             console.log(e);
-        })
-
-
+        });
 }
 
 function createAll() {
     return createTable('users', tables.createUserTable)()
-        .then(createTable('caseworkers', tables.createCaseWorkerTable))
         .then(createTable('cases', tables.createCaseTable))
         .then(createTable('messages', tables.createMessageTable))
         .then(createTable('notes', tables.createCaseNotesTable))

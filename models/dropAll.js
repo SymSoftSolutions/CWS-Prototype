@@ -17,7 +17,6 @@ function dropTables(tableName) {
 dropTables('notes')()
     .then(dropTables('cases'))
     .then(dropTables('messages'))
-    .then(dropTables('caseworkers'))
     .then(dropTables('users'))
     .finally(function () {
         console.log("\nDone Dropping Tables");

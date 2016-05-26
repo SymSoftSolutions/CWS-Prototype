@@ -3,7 +3,6 @@ var db = require('../lib/db');
 exports.createUserTable = createUserTable;
 exports.createMessageTable = createMessageTable;
 exports.createCaseTable = createCaseTable;
-exports.createCaseWorkerTable =createCaseWorkerTable;
 exports.createCaseNotesTable = createCaseNotesTable;
 
 
@@ -34,21 +33,11 @@ function createUserTable(table) {
     //contacting
     table.string('workPhone');
     table.string('homePhone');
+
+    // simple roles
+    table.enu('role', ['fosterParent', 'caseWorker']).notNullable();
 }
 
-/**
- * Creates the columns required for modeling a case worker in the system
- * @param table The table which the columns will be created on
- */
-function createCaseWorkerTable(table) {
-    //bookkeeping
-    table.increments('userID'); //automatically the primary key
-    table.timestamp('createdAt').notNullable().defaultTo(db.raw('now()'));
-
-    // auth pair
-    table.string('email').notNullable().unique();
-    table.string('password').notNullable();
-}
 
 /**
  * Creates the columns required for modeling messages across the system.
@@ -60,15 +49,16 @@ function createMessageTable(table) {
     table.timestamp('createdAt').notNullable().defaultTo(db.raw('now()'));
 
     // identification
-    //TODO: Enforce constraints
     table.integer('fromID')
         .unsigned()
-        .notNullable();
+        .notNullable()
+        .references('userID').inTable('users');
 
 
-    //TODO: Enforce constraints
+    // identification
+    //TODO: Enforce constraint of userID
     table.specificType('recipientID', 'INTEGER[]')
-        .notNullable();
+        .notNullable()
 
     table.integer('caseID')
         .unsigned()
@@ -91,9 +81,10 @@ function createCaseTable(table){
     table.timestamp('createdAt').notNullable().defaultTo(db.raw('now()'));
 
     // identification
-    //TODO: Enforce constraints
-    table.specificType('recipients', 'INTEGER[]')
+    //TODO: Enforce constraint of caseWorker role
+    table.specificType('caseWorkers', 'INTEGER[]')
         .notNullable();
+
 
     // identification
     table.integer('fosterParent')
