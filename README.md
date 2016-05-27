@@ -24,6 +24,8 @@ createdb cws
 
 That creates the database `cws` using the default database server
 
+TODO: Describe Config
+
 Assuming all goes well we can now run the project with:
 ```
 npm start

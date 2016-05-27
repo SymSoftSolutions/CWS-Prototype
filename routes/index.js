@@ -17,8 +17,10 @@ function createAllRoutes(router){
     
     router.get('/',  render('home'));
 
-    router.get('/login', render('login'));
-    router.post('/login', passport.authenticate('local', {
+    router.get('/login', redirectToProfile, render('login'));
+
+
+    router.post('/auth', passport.authenticate('local', {
         successRedirect: '/profile', // redirect to the secure profile section
         failureRedirect: '/login', // redirect back to the signup page if there is an error
         failureFlash: true // allow flash messages
@@ -38,6 +40,15 @@ function createAllRoutes(router){
         req.session.views = ++n
         res.end(n + ' views')
     });
+}
+
+
+function redirectToProfile(req, res, next){
+    if(req.user){
+        res.redirect('/profile');
+    } else {
+        next();
+    }
 }
 
 function createErrorHandling(router){

@@ -1,6 +1,6 @@
 {{!-- Let our user know some thing went wrong --}}
 {{> flash}}
-<form action="/login" method="post">
+<form action="/auth" method="post">
     <input type="hidden" name="_csrf" value="{{_csrf }}">
 <div>
     <label>Username:</label>

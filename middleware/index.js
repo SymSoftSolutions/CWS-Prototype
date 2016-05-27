@@ -18,8 +18,6 @@ var hbs = exphbs.create({
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 
-// logging
-var morgan = require('morgan');
 
 
 // database and persistence
@@ -27,6 +25,7 @@ var pg = require('pg')
 var session = require('express-session');
 var pgSession = require('connect-pg-simple')(session);
 var dbUtils = require('../lib/dbUtils');
+var db = require('../lib/db');
 var state = require('express-state');
 
 // var store = new pgSession({
@@ -40,6 +39,10 @@ var flash = require('express-flash');
 
 var static = require('express').static;
 
+
+// logging
+var morgan = require('morgan');
+var dbLogger = dbUtils.logQueries;
 
 exports.initGlobalMiddleware = initGlobalMiddleware;
 
@@ -57,8 +60,9 @@ var compression = require('compression');
 // (`username` and `password`) submitted by the user.  The function must verify
 // that the password is correct and then invoke `cb` with a user object, which
 // will be set at `req.user` in route handlers after authentication.
-passport.use(new Strategy(
-    function (username, password, cb) {
+passport.use(new Strategy({ passReqToCallback: true,},
+    function (req, username, password, cb) {
+
         return dbUtils.userCheck(username, password, cb);
     })
 );
@@ -75,7 +79,6 @@ passport.serializeUser(function (user, cb) {
 });
 
 passport.deserializeUser(dbUtils.deserializeUser);
-
 
 /**
  * Given an express app object this function will setup the app with middleware across all of
@@ -105,14 +108,17 @@ function initGlobalMiddleware(app) {
     // Logging
     // ------------------------------------
     if (app.get('env') === 'development') {
-        app.use(morgan('tiny'));
+        app.use(morgan('dev'));
+        app.use(dbLogger(db));
     } else {
         var fs = require('fs');
         // create a write stream (in append mode)
         var accessLogStream = fs.createWriteStream(__dirname + '/logs/access.log', {flags: 'a'})
         // setup the logger
         app.use(morgan('combined', {stream: accessLogStream}))
+        // TODO: Log db queries too
     }
+
 
 
     // Static Assets
