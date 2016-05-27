@@ -12,7 +12,6 @@ function createTable(tableName, func) {
                         console.log("Conditionally Creating " + tableName)
                     })
                     .catch(function (e) {
-
                         console.log(e);
                     })
             }
@@ -27,16 +26,15 @@ function createTestObjects() {
         var user = {
             firstName: 'test',
             password: '123',
-            zip: '95843',
             email: "test@example.com",
             role: 'fosterParent'
         };
         if (!result.length) {
+            console.log("Creating Test Objects")
             return dbUtils.insertUser(user);
         }
     }
 
-    console.log("Creating Test Objects")
     return db('users').whereExists(db.select('*').from('users').where('email', "test@example.com"))
         .then(testUser).catch(function (e) {
             console.log(e);

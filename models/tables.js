@@ -15,24 +15,15 @@ function createUserTable(table) {
     table.increments('userID'); //automatically the primary key
     table.timestamp('createdAt').notNullable().defaultTo(db.raw('now()'));
 
-    // auth pair
+    // Simple auth and  identification
     table.string('email').notNullable().unique();
     table.string('password').notNullable();
-
-    // identification
     table.string('firstName');
     table.string('lastName');
-    table.date('dateOfBirth');
+    
+    // User configuration across roles
+    table.jsonb("userDetails");
 
-    // location
-    table.string('address');
-    table.string('city');
-    table.string('state');
-    table.string('zip');
-
-    //contacting
-    table.string('workPhone');
-    table.string('homePhone');
 
     // simple roles
     table.enu('role', ['fosterParent', 'caseWorker']).notNullable();

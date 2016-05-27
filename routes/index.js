@@ -1,6 +1,7 @@
 'use strict';
 
 var utils = require('../lib/utils');
+var dbUtils = require('../lib/dbUtils');
 var exports = module.exports = utils.requireDir(__dirname);
 // var middleware = require('../middleware');
 
@@ -13,9 +14,9 @@ exports.redirect = redirect;
 exports.createAllRoutes = createAllRoutes;
 exports.createErrorHandling = createErrorHandling;
 
-function createAllRoutes(router){
-    
-    router.get('/',  render('home'));
+function createAllRoutes(router) {
+
+    router.get('/', render('home'));
 
     router.get('/login', redirectToProfile, render('login'));
 
@@ -40,18 +41,52 @@ function createAllRoutes(router){
         req.session.views = ++n
         res.end(n + ' views')
     });
+
+    createNewProfiles(router);
 }
 
 
-function redirectToProfile(req, res, next){
-    if(req.user){
+/**
+ * Adds routes for handling new user creation
+ * @param router
+ */
+function createNewProfiles(router) {
+
+    /**
+     * Present to the user a form for entering in basic user details
+     */
+    router.get('/newprofile', function newProfileForm(req, res, next) {
+
+        dbUtils.listTableColumns('users').then((data) => {
+            console.log(data);
+            res.render('forms/newprofile');
+        });
+    });
+
+
+    /**
+     * Take user details, and if all entered in properly save user to the database.
+     * If something goes wrong we redirect back to the forms to try again, but with a message to the user too.
+     */
+    router.post('/newprofile', function newProfileSave(req, res, next) {
+
+        dbUtils.listTableColumns('users').then((data) => {
+            res.render('501', {status: 501, url: req.url});
+        });
+    });
+
+}
+
+
+function redirectToProfile(req, res, next) {
+    if (req.user) {
         res.redirect('/profile');
     } else {
         next();
     }
 }
 
-function createErrorHandling(router){
+function createErrorHandling(router) {
     // Error handling middleware
     router.use(function (req, res, next) {
         res.render('404', {status: 404, url: req.url});

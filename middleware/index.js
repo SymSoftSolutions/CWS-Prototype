@@ -155,8 +155,7 @@ function initGlobalMiddleware(app) {
 
     // Parse cookies.
     app.use(cookieParser(config.strings.token));
-
-
+    
     //GZip Support
     app.use(compression());
 
