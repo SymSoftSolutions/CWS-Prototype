@@ -23,8 +23,7 @@ function setupServer(worker) {
         caseSensitive: app.get('case sensitive routing'),
         strict: app.get('strict routing')
     });
-    // Specify the public directory.
-    app.use(express.static(config.dirs.pub));
+
 
     // setup middle across all routes
     middleware.initGlobalMiddleware(app);

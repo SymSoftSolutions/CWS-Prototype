@@ -3,6 +3,7 @@
  */
 
 var path = require('path');
+
 module.exports = {
     strings: {
       token: 'testing'
@@ -19,7 +20,7 @@ module.exports = {
         password: "echopostgres"
     },
     dirs: {
-        pub     : path.resolve('public/'),
+        pub     : '/public',
         bower   : path.resolve('bower_components/'),
         views   : path.resolve('views/'),
         layouts : path.resolve('views/layouts/'),

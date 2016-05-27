@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js",
+    "dev": "nodemon server.js --ignore frontend/",
     "start": "node server.js"
   },
   "repository": {
@@ -18,12 +18,11 @@
     "url": "https://github.com/SymSoftSolutions/CWS-Prototype/issues"
   },
   "homepage": "https://github.com/SymSoftSolutions/CWS-Prototype#readme",
-  "devDependencies": {
+  "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.6.3",
     "cluster": "^0.7.7",
     "compression": "^1.4.0",
-    "connect-ensure-login": "^0.1.1",
     "connect-flash": "^0.1.1",
     "connect-pg-simple": "^3.1.0",
     "connect-session-knex": "^1.0.23",
@@ -34,7 +33,6 @@
     "express-flash": "0.0.2",
     "express-handlebars": "1.0.1",
     "express-session": "^1.7.5",
-    "express-slash": "^2.0.1",
     "express-state": "latest",
     "handlebars": "^2.0.0-alpha.4",
     "knex": "^0.11.4",
@@ -45,5 +43,19 @@
     "permission": "^1.0.4",
     "pg": "^4.5.5",
     "ypromise": "^0.2.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.3.6",
+    "babel-core": "^6.9.0",
+    "babel-loader": "^6.2.4",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.5",
+    "node-sass": "^3.7.0",
+    "postcss-loader": "^0.9.1",
+    "sass-loader": "^3.2.0",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.1",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-hot-middleware": "^2.10.0"
   }
 }

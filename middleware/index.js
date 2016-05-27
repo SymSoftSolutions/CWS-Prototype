@@ -21,6 +21,7 @@ var cookieParser = require('cookie-parser');
 // logging
 var morgan = require('morgan');
 
+
 // database and persistence
 var pg = require('pg')
 var session = require('express-session');
@@ -36,6 +37,8 @@ var store = new pgSession({
 
 // messages to our views
 var flash = require('express-flash');
+
+var static = require('express').static;
 
 
 exports.initGlobalMiddleware = initGlobalMiddleware;
@@ -98,9 +101,42 @@ function initGlobalMiddleware(app) {
     //This is just an example, so feel free to remove this.
     //app.expose({}, 'Data');
 
+
+    // Logging
+    // ------------------------------------
     if (app.get('env') === 'development') {
         app.use(morgan('tiny'));
+    } else {
+        var fs = require('fs');
+        // create a write stream (in append mode)
+        var accessLogStream = fs.createWriteStream(__dirname + '/logs/access.log', {flags: 'a'})
+        // setup the logger
+        app.use(morgan('combined', {stream: accessLogStream}))
     }
+
+
+    // Static Assets
+    // ------------------------------------
+    if (app.get('env') === 'development') {
+        var webpackDevMiddleware = require("webpack-dev-middleware");
+        var webpack = require("webpack");
+        var webpackConfig = require('../config/webpack.config.dev.js');
+        var compiler = webpack(webpackConfig);
+        app.use(webpackDevMiddleware(compiler, {
+            publicPath: webpackConfig.output.publicPath,
+            stats: {
+                // Do not show list of hundreds of files included in a bundle
+                chunkModules: false,
+                colors: true
+            }
+        }));
+
+        app.use(require("webpack-hot-middleware")(compiler));
+    } else {
+        // Specify the public directory.
+        app.use(express.static(config.dirs.pub));
+    }
+
 
     // Set default views directory.
     app.set('views', config.dirs.views);
