@@ -41,8 +41,8 @@ module.exports = {
         // Add the client which connects to our middleware
         // You can use full urls like 'webpack-hot-middleware/client?path=http://localhost:3000/__webpack_hmr'
         // useful if you run your app from another point like django
-        'webpack/hot/only-dev-server',
-        'webpack-hot-middleware/client',
+        'webpack/hot/dev-server',
+        'webpack-hot-middleware/client?reload=true',
          path.join('..', 'frontend','js','index.js')
     ],
     watch: true,

@@ -29,11 +29,11 @@ var pgSession = require('connect-pg-simple')(session);
 var dbUtils = require('../lib/dbUtils');
 var state = require('express-state');
 
-var store = new pgSession({
-    pg: pg,
-    conString: config.postgres,
-    tableName: 'session'
-});
+// var store = new pgSession({
+//     pg: pg,
+//     conString: config.postgres,
+//     tableName: 'session'
+// });
 
 // messages to our views
 var flash = require('express-flash');
@@ -133,10 +133,10 @@ function initGlobalMiddleware(app) {
 
         app.use(require("webpack-hot-middleware")(compiler));
     } else {
-        // Specify the public directory.
-        app.use(express.static(config.dirs.pub));
-    }
 
+    }
+    // Specify the public directory.
+    app.use(require('express').static(config.dirs.pub));
 
     // Set default views directory.
     app.set('views', config.dirs.views);

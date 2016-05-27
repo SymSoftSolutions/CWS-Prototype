@@ -20,7 +20,7 @@ module.exports = {
         password: "echopostgres"
     },
     dirs: {
-        pub     : '/public',
+        pub     : 'public',
         bower   : path.resolve('bower_components/'),
         views   : path.resolve('views/'),
         layouts : path.resolve('views/layouts/'),
