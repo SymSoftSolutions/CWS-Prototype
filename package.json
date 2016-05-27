@@ -4,9 +4,14 @@
   "description": "an application that will allow parents of foster kids to establish and manage their profile, and view children's residential facilities in their zip code, and communicate with the case worker via a private inbox",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js --ignore frontend/",
-    "start": "node server.js"
+
+
+    "dev-framework": "watch \"npm run build-framework\" frontend/framework/",
+    "build-framework": "node-sass frontend/framework/framework.scss frontend/dist/framework.css | postcss --use autoprefixer < frontend/dist/framework.css -b \"last 2 versions\" | cssmin > frontend/dist/framework.min.css",
+     "stats-framework": "stylestats frontend/dist/framework.css"
   },
   "repository": {
     "type": "git",
@@ -48,12 +53,16 @@
     "autoprefixer": "^6.3.6",
     "babel-core": "^6.9.0",
     "babel-loader": "^6.2.4",
+    "cssmin": "^0.4.3",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "node-sass": "^3.7.0",
+    "postcss-cli": "^2.5.2",
     "postcss-loader": "^0.9.1",
     "sass-loader": "^3.2.0",
+    "stylestats": "^6.3.0",
     "url-loader": "^0.5.7",
+    "watch": "^0.18.0",
     "webpack": "^1.13.1",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.10.0"
