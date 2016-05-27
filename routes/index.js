@@ -1,6 +1,7 @@
 'use strict';
 
 var utils = require('../lib/utils');
+var config = require('../config');
 var dbUtils = require('../lib/dbUtils');
 var exports = module.exports = utils.requireDir(__dirname);
 // var middleware = require('../middleware');
@@ -43,6 +44,8 @@ function createAllRoutes(router) {
     });
 
     createNewProfiles(router);
+
+
 }
 
 
@@ -74,7 +77,6 @@ function createNewProfiles(router) {
             res.render('501', {status: 501, url: req.url});
         });
     });
-
 }
 
 
@@ -87,18 +89,38 @@ function redirectToProfile(req, res, next) {
 }
 
 function createErrorHandling(router) {
+
+    router.get('/public*', function(req,res,next){
+        res.sendStatus(404).end();
+        return;
+    });
+
     // Error handling middleware
     router.use(function (req, res, next) {
-        res.render('404', {status: 404, url: req.url});
+
+        // respond with html page
+        if (req.accepts('text/html')) {
+            res.render('404', { url: req.url });
+            return;
+        }
+
+        // respond with json
+        if (req.accepts('json')) {
+            res.send({ error: 'Not found' });
+            return;
+        }
+
     });
 
     router.use(function (err, req, res, next) {
+
         res.render('500', {
             status: err.status || 500,
             error: err,
             stack: err.stack
         });
     });
+
 }
 
 // -----------------------------------------------------------------------------

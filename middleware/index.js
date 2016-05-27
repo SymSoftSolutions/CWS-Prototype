@@ -2,7 +2,7 @@
  * We utilize a number of express utilities in our app. These are attached as "middleware" and enhance
  * our servers capabilities.
  */
-
+var path = require('path');
 var config = require('../config');
 
 // templating and response handling
@@ -119,8 +119,6 @@ function initGlobalMiddleware(app) {
         // TODO: Log db queries too
     }
 
-
-
     // Static Assets
     // ------------------------------------
     if (app.get('env') === 'development') {
@@ -142,7 +140,7 @@ function initGlobalMiddleware(app) {
 
     }
     // Specify the public directory.
-    app.use(require('express').static(config.dirs.pub));
+    app.use("/"+ config.dirs.pub, require('express').static(config.dirs.pub));
 
     // Set default views directory.
     app.set('views', config.dirs.views);

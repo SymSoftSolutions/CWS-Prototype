@@ -43,11 +43,11 @@ module.exports = {
         // useful if you run your app from another point like django
         'webpack/hot/dev-server',
         'webpack-hot-middleware/client?reload=true',
-         path.join('..', 'frontend','js','index.js')
+         path.join('..', 'frontend','index.js')
     ],
     watch: true,
     output: {
-        publicPath: '/js',
+        publicPath: '/public/js',
         path: __dirname,
         filename: 'script.js',
     },
@@ -57,6 +57,10 @@ module.exports = {
             'process.env': {
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV)
             }
+        }),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
         }),
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
@@ -69,7 +73,7 @@ module.exports = {
     },
     resolve: {
         root: path.resolve(__dirname),
-        extensions: ['', '.js','.scss']
+        extensions: ['', '.js','.scss','.css']
     },
     postcss: function () {
         return [
