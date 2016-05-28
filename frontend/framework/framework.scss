@@ -1,11 +1,17 @@
-
-// Globals
-@import 'core/globals/globals';
 @import 'core/globals/functions';
 @import 'core/globals/mixins';
 
 // Custom globals
 @import 'custom/globals';
+
+// Custom styles
+@import 'custom/custom';
+
+// Globals
+@import 'core/globals/globals';
+
+
+
 
 // Natives
 @import 'core/layout/base';
@@ -27,5 +33,3 @@
 // Add-Ons
 @import 'addons/framework-ui/framework-ui';
 
-// Custom styles
-@import 'custom/custom';

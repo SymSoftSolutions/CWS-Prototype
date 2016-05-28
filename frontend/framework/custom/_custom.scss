@@ -1,3 +1,12 @@
 //
 // <Project name>
 // =============================================================================
+.toolbar {
+  display:block;
+  background: getColor(toolbar, background);
+width: 100%;
+}
+
+.account-management {
+  list-style: none;
+}

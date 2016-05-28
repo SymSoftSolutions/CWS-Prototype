@@ -82,3 +82,47 @@ $base-unit: 8 !default;
 @function getColor($color, $value: "base") {
   @return map-get(map-get($colors, $color), $value);
 }
+
+/// jQuery-style extend function
+/// About `map-merge()`:
+/// * only takes 2 arguments
+/// * is not recursive
+/// @param {Map} $object - first map
+/// @param {ArgList} $objects - other maps
+/// @param {Bool} $deep - recursive mode
+/// @return {Map}
+@function extend($object, $objects.../*, $deep */) {
+  $last: nth($objects, -1);
+  $deep: $last == true;
+  $max: if($deep, length($objects) - 1, length($objects));
+
+  // Loop through all maps in $objects...
+  @for $i from 1 through $max {
+    // Store current map
+    $current: nth($objects, $i);
+
+    // If not in deep mode, simply merge current map with object
+    @if not $deep {
+      $object: map-merge($object, $current);
+    }
+
+      // If in deep mode
+    @else {
+      // Loop through all tuples in current map
+      @each $key, $value in $current {
+        // If value is a nested map and same key from object is a nested map as well
+        @if type-of($value) == "map" and type-of(map-get($object, $key)) == "map" {
+          // Recursive extend
+          $value: extend(map-get($object, $key), $value, true);
+        }
+        // Merge current tuple with object
+        $object: map-merge($object, ($key: $value));
+      }
+    }
+  }
+
+  @return $object;
+}
+
+
+

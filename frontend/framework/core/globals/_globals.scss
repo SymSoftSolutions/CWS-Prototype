@@ -32,7 +32,7 @@ $spacing-xl: unitSize(5) !default;
 // -------------
 
 // Colors
-$colors: (
+$colors-default: (
   base: (
     "primary":   #4591aa,
     "selection": #d6d6d6,
@@ -99,4 +99,6 @@ $colors: (
     "light":   #808080,
     "lighter": #999999
   )
-) !default;
+);
+
+$colors: extend($colors-default, $colors, true);

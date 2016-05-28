@@ -91,7 +91,8 @@ function initGlobalMiddleware(app) {
     // Register `hbs.engine` with the Express app.
     app.engine('handlebars', hbs.engine);
     app.set('view engine', 'handlebars');
-
+    // let our templates know what our enviroment is
+    app.locals.env = app.get('env');
 
     //Uncomment this if you want strict routing (ie: /foo will not resolve to /foo/)
     //app.enable('strict routing');
