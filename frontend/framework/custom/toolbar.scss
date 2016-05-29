@@ -61,6 +61,7 @@
         //font-weight: bolder;
     }
     .account-management-create {
-        color: getColor(state, muted);
+        font-weight: 300;
+        //color: getColor(state, muted);
     }
 }

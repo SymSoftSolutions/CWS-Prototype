@@ -305,7 +305,8 @@ var jQuery = require('./jquery-2.2.4');
          * @private
          */
         clickHandler = function(event) {
-          if(window.innerWidth >= this.settings.mobileBreakpoint){
+          // if(window.innerWidth >= this.settings.mobileBreakpoint){
+            if($(this.settings.navToggle).is(":visible")) {
             var target = $(event.currentTarget).closest(':tabbable'),
                 topli = target.closest('.' + this.settings.topNavItemClass),
                 panel = target.closest('.' + this.settings.panelClass);
@@ -341,7 +342,8 @@ var jQuery = require('./jquery-2.2.4');
          * @private
          */
         clickOutsideHandler = function(event) {
-          if(window.innerWidth >= this.settings.mobileBreakpoint){
+          // if(window.innerWidth >= this.settings.mobileBreakpoint){
+            if(!$(this.settings.navToggle).is(":visible")) {
             if ($(event.target).closest(this.menu).length === 0) {
                 event.preventDefault();
                 event.stopPropagation();
@@ -671,7 +673,8 @@ var jQuery = require('./jquery-2.2.4');
          * @private
          */
         mouseOverHandler = function(event) {
-            if(window.innerWidth >= this.settings.mobileBreakpoint){
+            // if(window.innerWidth >= this.settings.mobileBreakpoint){
+            if(!$(this.settings.navToggle).is(":visible")) {
               clearTimeout(this.mouseTimeoutID);
               $(event.target)
                   .addClass(this.settings.hoverClass);
@@ -717,7 +720,8 @@ var jQuery = require('./jquery-2.2.4');
          * @private
          */
         mouseOutHandler = function(event) {
-          if(window.innerWidth >= this.settings.mobileBreakpoint){
+          // if(window.innerWidth >= this.settings.mobileBreakpoint){
+              if(!$(this.settings.navToggle).is(":visible")) {
             var that = this;
             $(event.target)
                 .removeClass(that.settings.hoverClass);
@@ -823,8 +827,8 @@ var jQuery = require('./jquery-2.2.4');
                 // Ensure subnavs hide if browser is expanded to desktop
                 $(window).bind('resize', function() {
 
-                  if($(window).width() >= settings.mobileBreakpoint){
-
+                  // if($(window).width() >= settings.mobileBreakpoint){
+                    if(!$(settings.navToggle).is(":visible")) {
                     // hide all other subnavs
                     $('.' + settings.topNavItemClass)
                         .find('[aria-expanded]')
@@ -833,6 +837,7 @@ var jQuery = require('./jquery-2.2.4');
                         .filter('.' + settings.panelClass)
                         .attr('aria-hidden', 'true');
 
+                        $(settings.navToggle).removeClass('active');
                     // remove open class from all icons
                     $('.' + settings.topNavItemClass)
                         .find(settings.topNavIconClass)
@@ -840,17 +845,14 @@ var jQuery = require('./jquery-2.2.4');
                   }
                   // remove active class from navId
                   $(settings.navId).removeClass('active');
+                    $(settings.navToggle).removeClass('active');
                 });
                 // sets navigation to active and changes label
                 $(settings.navToggle).click(function(event) {
                   event.preventDefault();
                   $(settings.navId).toggleClass('active');
+                    $(this).toggleClass('active');
 
-                  if($(settings.navId).hasClass('active')){
-                    $(settings.navToggle).html('CLOSE');
-                  }else{
-                    $(settings.navToggle).html('MENU');
-                  }
                 });
             },
 

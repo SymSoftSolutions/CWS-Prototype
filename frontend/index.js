@@ -12,17 +12,18 @@ require('./framework/framework.scss');
 
 jQuery("#primary-nav").accessibleMegaMenu({
 
-    /* Button that toggles navigation at mobile */
+    /* Button that toggles navigation at mobile
+     * When this is visible then it is assumed to be in the mobile view */
     navToggle: '#nav-toggle',
 
     /* Id of navigation */
     navId: '#primary-nav',
 
     /* mobile breakpoint in pixels that determines when the menu goes to mobile */
-    mobileBreakpoint: '900',
+    // mobileBreakpoint: '900',
     /* prefix for generated unique id attributes, which are required
      to indicate aria-owns, aria-controls and aria-labelledby */
-    uuidPrefix: 'accessible-megamenu',
+    uuidPrefix: 'menu',
 
     /* css class used to define the megamenu styling */
     menuClass: 'nav-menu',
