@@ -1,13 +1,12 @@
 [role="navigation"] {
     transition: all 0.4s;
     @media (max-width: $mobile-nav-bp) {
-        & {
             max-height: 0;
             overflow: hidden;
-        }
     }
+
     &.active {
-        max-height: 5000px;
+        max-height: 100vh;
     }
 }
 
@@ -22,7 +21,9 @@
     z-index: 1;
     background: getColor(toolbar, background);
     border-bottom: 3px solid getColor(siteheader, bottomborder);
-    @include clearfix();
+    @media (max-width: $mobile-nav-bp) {
+        flex-direction:column;
+    }
 }
 
 /* a top level navigation item in the mega menu */
@@ -32,6 +33,31 @@
     padding: 0;
     margin: 0;
 
+    @media (max-width: $mobile-nav-bp) {
+        position: relative;
+    }
+
+    .expand-nav {
+        position: absolute;
+        right: 0;
+        top: 0;
+        fill: getColor(text, ui);
+        height: 3em;
+
+        margin-right: 1em;
+        cursor: pointer;
+          pointer-events: none;
+        display: none;
+        transition: transform 0.3s;
+        transform: rotate(-90deg);
+        @media (max-width: $mobile-nav-bp) {
+            display: inline;
+        }
+    }
+
+    a.open + .expand-nav {
+          transform: rotate(0deg);
+    }
 }
 
 @media (max-width: $mobile-nav-bp) {
@@ -40,35 +66,9 @@
     }
 }
 
-.nav-item .icon {
-    cursor: pointer;
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 100;
-    text-align: center;
-    font-weight: bold;
-    font-style: normal;
-    color: #fff;
-    background-color: darkgray;
-}
 
-.nav-item .icon:before {
-    content: '+';
-}
 
-.nav-item .icon.icon--open:before {
-    content: '-';
-}
 
-@media (max-width: $mobile-nav-bp) {
-    .nav-item .icon {
-        display: block;
-        width: 30px;
-        height: 30px;
-    }
-}
 
 /* first descendant link within a top level navigation item */
 .nav-item > a {
@@ -83,7 +83,9 @@
 
 @media (max-width: $mobile-nav-bp) {
     .nav-item > a {
-        display: inline-block;
+        display: block;
+        width: 100%;
+
     }
 }
 
@@ -111,12 +113,14 @@
     background-color: #fff;
     transition: all 0.4s;
     column-count: 3;
-
+    box-shadow: 0 2px 15px opacify(getColor(siteheader, title-shadow),0.2);
+    left: 0;
+    right: 0;
+    margin: 3px 1em;
     &.open {
         display: block;
-        left: 0;
-        right: 0;
-        margin: 0 1em;
+
+        max-height: 100vh;
     }
 
     @media (max-width: $mobile-nav-bp) {
@@ -126,6 +130,11 @@
         position: relative;
         max-height: 0;
 
+        border:none;
+        margin:0;
+        column-count: 1;
+
+        overflow: hidden;
     }
     ul {
         display: block;

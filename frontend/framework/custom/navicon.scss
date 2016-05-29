@@ -1,6 +1,6 @@
 
 .site-nav-icon {
-    font-size: 1em;
+    font-size: 0.8em;
     width: 2.5em;
     height: 2em;
     position: relative;
@@ -14,16 +14,15 @@
  .site-nav-icon span {
     display: block;
     position: absolute;
-    height: pxToEm(6);
+    height: 5px;
     width: 100%;
     background: getColor(text, ui);
-    border-radius: pxToEm(6);
+    border-radius: 5px;
     opacity: 1;
     left: 0;
     transform: rotate(0deg);
     transition: .25s ease-in-out;
 }
-
 
 
 /* Icon 3 */
