@@ -35,7 +35,7 @@ const assetsLoaders = [
 
 module.exports = {
     context: __dirname,
-    devtool: 'cheap-module-eval-source-map',
+    devtool: 'source-map',
 
     entry: [
         // Add the client which connects to our middleware
@@ -77,7 +77,7 @@ module.exports = {
     },
     postcss: function () {
         return [
-            autoprefixer
+            autoprefixer({ browsers: ['last 2 versions'] })
 
         ];
     }
