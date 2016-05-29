@@ -1,0 +1,69 @@
+
+@font-face {
+    font-family: 'aleobold';
+    src: url('aleo/aleo-bold-webfont.woff2') format('woff2'),
+    url('aleo/aleo-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'aleobolditalic';
+    src: url('aleo/aleo-bolditalic-webfont.woff2') format('woff2'),
+    url('aleo/aleo-bolditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'aleoitalic';
+    src: url('aleo/aleo-italic-webfont.woff2') format('woff2'),
+    url('aleo/aleo-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'aleolight';
+    src: url('aleo/aleo-light-webfont.woff2') format('woff2'),
+    url('aleo/aleo-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'aleolightitalic';
+    src: url('aleo/aleo-lightitalic-webfont.woff2') format('woff2'),
+    url('aleo/aleo-lightitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'aleoregular';
+    src: url('aleo/aleo-regular-webfont.woff2') format('woff2'),
+    url('aleo/aleo-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}

@@ -2,7 +2,6 @@
 // Custom Global Variables
 // =============================================================================
 
-
 //
 // Base
 // ----
@@ -30,7 +29,6 @@
 // $spacing-l:  unitSize(4);
 // $spacing-xl: unitSize(5);
 
-
 //
 // Grid
 // ----
@@ -50,17 +48,13 @@
 // If you only want to use the mixins for "semantic grids" set this to true
 // $only-semantic: false;
 
-
 //
 // Typography
 // ----------
 
-// $font-family:          "Helvetica", "Arial", sans-serif;
-// $font-family-headings: "Helvetica", "Arial", sans-serif;
-// $font-family-print:    "Georgia", "Times New Roman", "Times", serif;
-// $font-family-mono:     "Consolas", monospace;
-// $font-base-size:       16;
-
+$font-family: 'Lato', sans-serif;
+$font-family-headings: "aleoregular", "Arial", sans-serif;
+$font-family-print: 'Lato', sans-serif;
 
 //
 // Heading sizes
@@ -76,14 +70,17 @@
 // $mega-size: 64;
 // $kilo-size: 52;
 
-
 //
 // Color Palette
 // -------------
 
 // Colors
- $colors: (
-   "toolbar": (
-    "background": grey
-   )
- );
+$colors: (
+    "siteheader": (
+        title: #fdfdfd,
+        title-shadow: #181d31
+    ),
+    "toolbar": (
+        "background": #2a4b78
+    )
+);

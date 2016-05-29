@@ -1,0 +1,39 @@
+.toolbar {
+    display: inline-block;
+    background: getColor(toolbar, background);
+    color: getColor(text, ui);
+    width: 100%;
+}
+
+.account-management {
+    text-align: right;
+    list-style: none;
+    font-size: 0.8em;
+    margin-bottom: 0;
+    li {
+        display: inline-block;
+        margin: 0.5em;
+    }
+    li + li {
+        // reduce spacing to the left of the separator to match margin
+        margin-left: 0;
+        :before {
+            content: "|";
+            // add spacing after the separator to match margin
+            padding-right: 0.5em;
+        }
+    }
+    a {
+        color: getColor(text, ui);
+
+    }
+
+    // link specific
+
+    .account-management-login {
+        font-weight: bolder;
+    }
+    .account-management-create {
+        color: getColor(state, muted);
+    }
+}

@@ -9,6 +9,7 @@
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <title>CWS - {{title}}</title>
 
+    {{! Our js will automatically pull in styles during development }}
     {{#if production}}
     <link rel="stylesheet" href="/public/css/framework.css">
     <link rel="stylesheet" href="/public/css/app.css">
@@ -16,26 +17,11 @@
 </head>
 
 <body lang="en">
-<div class="toolbar">
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/login">Login</a></li>
-    </ul>
-</div>
+
+ {{> siteheader }}
+{{!> nav}}
 <div container>
 
-    <header row class="siteHeader">
-        <div column=4>
-            <h1 class="logo">CWS-Prototype</h1>
-        </div>
-
-        <nav column=8 class="nav">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/login">Login</a></li>
-            </ul>
-        </nav>
-    </header>
     <main class="siteContent">
         {{{body}}}
     </main>
@@ -51,7 +37,6 @@
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="/public/js/script.js"></script>
-
 </body>
 
 </html>

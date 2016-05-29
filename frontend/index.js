@@ -8,9 +8,6 @@ require('./js/megaMenuMain');
 
 
 // import our stylesheets
-require('./sass/app.css');
-require('./sass/megamenu');
-require('./sass/nav-styles');
 require('./framework/framework.scss');
 
 jQuery("#primary-nav").accessibleMegaMenu({

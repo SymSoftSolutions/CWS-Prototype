@@ -1,0 +1,35 @@
+.site-header {
+    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    background-image: url(/public/assets/header-background.jpg);
+    background-size: cover;
+    text-align: center;
+
+    .site-header-title-container {
+        flex: 1;
+        text-align: center;
+    }
+    .site-header-title {
+        $size: 1.8em;
+        display: inline-block;
+        color: getColor(siteheader, title);
+        /* color | offset-x | offset-y | blur-radius */
+        text-shadow: 0 0px 6px getColor(siteheader, title-shadow),
+                0 1px 8px lighten(getColor(siteheader, title-shadow),40);
+        font-size: $size;
+          text-align: left;
+        line-height: 0.95;
+    }
+}
+
+.site-logo {
+    margin: 1.5em;
+    max-width:100% !important;
+    height:auto;
+    display:block;
+    width: 80px;
+}
