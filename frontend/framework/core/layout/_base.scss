@@ -40,7 +40,8 @@ input {
 }
 
 main,
-summary { display: block; }
+summary { display: block;
+overflow-x: hidden;}
 
 pre { overflow: auto; }
 

@@ -22,8 +22,11 @@
 @import 'core/layout/tables';
 @import 'core/layout/type';
 
+// grid
+
+@import 'core/grid/index';
+
 // Utils
-@import 'core/utils/atgrid';
 @import 'core/utils/colors';
 @import 'core/utils/conditional-styling';
 @import 'core/utils/helpers';

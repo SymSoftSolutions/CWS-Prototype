@@ -20,3 +20,112 @@
     &:after { clear: both; }
   }
 }
+
+
+/// Replace `$search` with `$replace` in `$string`
+///
+/// @param {String} $string - Initial string
+/// @param {String} $search - Substring to replace
+/// @param {String} $replace ('') - New value
+/// @return {String} - Updated string
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+
+/// Responsive breakpoint manager
+/// @access public
+/// @param {String} $breakpoint - Breakpoint
+/// @requires $breakpoints
+@mixin respond-to($breakpoint) {
+  $raw-query: map-get($breakpoints, $breakpoint);
+
+  @if $raw-query {
+    $query: if(
+            type-of($raw-query) == 'string',
+            unquote($raw-query),
+            inspect($raw-query)
+    );
+
+    @media #{$query} {
+      @content;
+    }
+  } @else {
+    @error 'No value found for `#{$breakpoint}`. '
+         + 'Please make sure it is defined in `$breakpoints` map.';
+  }
+}
+
+
+/// Size an element
+///
+/// @param {Number} $width
+/// @param {Number} $height ($width)
+///
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+/// Clamp `$value` between `$min` and `$max`
+///
+/// @param {Number} $value
+/// @param {Number} $min
+/// @param {Number} $max
+/// @return {Number}
+///
+@function clamp($value, $min, $max) {
+  @return if($value > $max, $max, if($value < $min, $min, $value));
+}
+
+// ------------------------
+// An Intrinsic Ratio Component
+// ---------------------------------------
+
+
+// Default ratio is a square
+@mixin img-ratio($width: 1, $height: 1, $child-selector: img){
+
+
+  // Make sure the wrapper is set to block
+  // Max-width is governed by parentNode
+  display: block;
+
+  // Intrinsic Ratio Box
+  position: relative;
+  height: 0;
+  width: 100%;
+
+  // Ratio
+  padding-top: percentage($width / $height);
+
+  // Force the item to fill the intrinsic box
+  #{$child-selector} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  // Custom Styling  of container
+  @content;
+}
+
+
+%img-ratio-4x3 {
+  @include img-ratio(4,3,img);
+}
+
+
+
+
+
+
+

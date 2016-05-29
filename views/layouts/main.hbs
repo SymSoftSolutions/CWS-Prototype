@@ -17,24 +17,29 @@
 </head>
 
 <body lang="en">
-{{> siteheader }}
-{{> nav}}
-<div container>
 
+    <!-- Nav Outer Layout -->
+    {{> siteheader }}
+    {{> nav}}
+    <!-- End Nav Outer Layout -->
+
+    <!-- Main Content -->
     <main class="siteContent">
         {{{body}}}
     </main>
+
+    <!-- Footer Outer Layout -->
     <footer class="siteFooter">
         <p>Copyright &copy; 2016 by Symsoft Solutions, LLC</p>
     </footer>
-</div>
+    <!--End Footer Outer Layout -->
 
-<script>
-    // data exposed by express-state
-        {{{state}}}
-</script>
-
-<script src="/public/js/script.js"></script>
+    <!-- Begin Scripts-->
+    <script>
+        // data exposed by express-state
+            {{{state}}}
+    </script>
+    <script src="/public/js/script.js"></script>
 </body>
 
 </html>
