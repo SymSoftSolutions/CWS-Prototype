@@ -1,35 +1,89 @@
 .site-header {
-    display: inline-block;
+
+    // utilize flex for its vertical center, reordering, and auto spacing
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
+
     width: 100%;
 
+    // default to a nice flowing background image
     background-image: url(/public/assets/header-background.jpg);
     background-size: cover;
-    text-align: center;
 
-    .site-header-title-container {
-        flex: 1;
-        text-align: center;
+    // keep our headings and logo's vertically aligned
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+    // on mobile we go down to a single color background
+    @media (max-width: $mobile-nav-bp) {
+       background: getColor(toolbar, background);
+        // give some breathing room for elements
+        padding: 0.3em;
     }
+
+    // holds our image, title, and nav button(on mobile)
+    .site-header-title-container {
+        // take up the maximum width possible
+        flex: 1 0 auto;
+        text-align: center;
+
+        vertical-align: middle;
+
+        // auto the width to give room for our tool bar to nest next to this
+        @media (max-width: $mobile-nav-bp) {
+           width: auto;
+            text-align: left;
+        }
+    }
+
     .site-header-title {
-        $size: 1.8em;
+        // not too big, to fit with two lines
+        font-size:  1.8em;
+        line-height: 0.95;
+        text-align: left;
+        margin: 0;
         display: inline-block;
+
         color: getColor(siteheader, title);
-        /* color | offset-x | offset-y | blur-radius */
+
+        // we double up the shadow for a nicer effect
         text-shadow: 0 0px 6px getColor(siteheader, title-shadow),
                 0 1px 8px lighten(getColor(siteheader, title-shadow),40);
-        font-size: $size;
-          text-align: left;
-        line-height: 0.95;
+
+        // bring our size way down for mobile
+        @media (max-width: $mobile-nav-bp) {
+            font-size:  1.2em;
+            line-height: 1;
+            font-weight: 400;
+
+        }
     }
 }
 
 .site-logo {
-    margin: 1.5em;
+    display:block;
+    // responsive to a degree but we keep the total size in check
     max-width:100% !important;
     height:auto;
-    display:block;
     width: 80px;
+
+    // keep it away from the page edge
+    margin: 1.5em;
+
+    // on mobile we hide to make room for other header elements
+    @media (max-width: $mobile-nav-bp) {
+        display: none;
+    }
+}
+
+.site-nav-icon {
+    // mobile default is to not show
+    display: none;
+
+    // mobile is where this little one gets some action
+    @media (max-width: $mobile-nav-bp) {
+
+        display: inline-block;
+    }
 }

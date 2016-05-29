@@ -1,35 +1,62 @@
 .toolbar {
-    display: inline-block;
+    // fill up the entire width
+    display: block;
+    width: 100%;
+    flex: 1 0 auto;
+
     background: getColor(toolbar, background);
     color: getColor(text, ui);
-    width: 100%;
+
+    // switch its position to the right of the heading when in mobile
+    @media (max-width: $mobile-nav-bp) {
+        width: auto;
+        order:1;
+    }
 }
 
 .account-management {
+    // keep our account stuff on the far right
     text-align: right;
-    list-style: none;
+
+    // minimize the toolbars overall height with less text
     font-size: 0.8em;
+
+    // framework & html overrides
     margin-bottom: 0;
+    list-style: none;
     li {
         display: inline-block;
         margin: 0.5em;
+
+        @media (max-width: $mobile-nav-bp) {
+            display: block;
+            font-size: 1.1em;
+        }
     }
+
+    // giving our account list a nice vertical separator
     li + li {
         // reduce spacing to the left of the separator to match margin
         margin-left: 0;
-        :before {
+        &:before {
             content: "|";
             // add spacing after the separator to match margin
             padding-right: 0.5em;
+            // make it subtle
+            font-weight: 300;
+            @media (max-width: $mobile-nav-bp) {
+                display: none;
+            }
         }
     }
-    a {
-        color: getColor(text, ui);
 
+    a {
+        // framework & html overrides
+        color: getColor(text, ui);
+        text-decoration: underline;
     }
 
     // link specific
-
     .account-management-login {
         font-weight: bolder;
     }

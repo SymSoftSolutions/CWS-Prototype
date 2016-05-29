@@ -1,9 +1,10 @@
 
 .site-nav-icon {
-    width: 60px;
-    height: 45px;
+    font-size: 1em;
+    width: 2.5em;
+    height: 2em;
     position: relative;
-    margin: 50px auto;
+    margin: 0.5em;
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -o-transform: rotate(0deg);
@@ -19,10 +20,10 @@
  .site-nav-icon span {
     display: block;
     position: absolute;
-    height: 9px;
+    height: pxToEm(6);
     width: 100%;
-    background: #d3531a;
-    border-radius: 9px;
+    background: getColor(text, ui);
+    border-radius: pxToEm(6);
     opacity: 1;
     left: 0;
     -webkit-transform: rotate(0deg);
@@ -40,19 +41,19 @@
 /* Icon 3 */
 
 .site-nav-icon span:nth-child(1) {
-    top: 0px;
+    top: pxToEm(0);
 }
 
 .site-nav-icon span:nth-child(2),.site-nav-icon span:nth-child(3) {
-    top: 18px;
+    top: pxToEm(12);
 }
 
 .site-nav-icon span:nth-child(4) {
-    top: 36px;
+    top: pxToEm(24);
 }
 
 .site-nav-icon.open span:nth-child(1) {
-    top: 18px;
+    top: pxToEm(12);
     width: 0%;
     left: 50%;
 }
@@ -72,7 +73,7 @@
 }
 
 .site-nav-icon.open span:nth-child(4) {
-    top: 18px;
+    top: pxToEm(12);
     width: 0%;
     left: 50%;
 }

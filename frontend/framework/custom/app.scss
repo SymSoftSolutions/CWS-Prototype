@@ -1,9 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
 @import url(/public/assets/aleo.css);
 
+$mobile-nav-bp : $bp-small;
 
 @import "custom/toolbar";
 @import "custom/megamenu";
 @import "custom/siteheader";
+@import "custom/navicon";
 
 
