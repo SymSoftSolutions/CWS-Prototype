@@ -13,11 +13,11 @@ $non-responsive: true !default;
 $transition-duration: 150ms !default;
 
 // Breakpoints
-$bp-extra-small: 30em !default;
-$bp-small: 48em !default;
-$bp-medium: 60em !default;
-$bp-large: 70em !default;
-$bp-extra-large: 80em !default;
+$width-xs: 30em !default;
+$width-sm: 48em !default;
+$width-md: 60em !default;
+$width-lg: 70em !default;
+$width-xg: 80em !default;
 
 // Spacing
 $spacing-xs: unitSize(1) !default;
@@ -30,23 +30,33 @@ $spacing-xl: unitSize(5) !default;
 // Color Palette
 // -------------
 
+$gray: (
+    darker: #333333,
+    dark: #4d4d4d,
+    base: #666666,
+    light: #808080,
+    lighter: #999999
+) !default;
+
 // Colors
 $colors-default: (
     base: (
-        "primary": #4591aa,
-        "selection": #d6d6d6,
+        "primary": #555,
         "lines": #e0e0e0
     ),
     text: (
         "primary": #555,
         "secondary": #666,
-        "heading": #222,
-        "emphasis": #4f8dc8,
+        "heading": #333333,
+        "links": map_get($gray, base),
+        "emphasis": map_get($gray, base),
+        "selection": black,
+        "selection-text": white,
         "ui": white
     ),
     background: (
-        "dark": #282E31,
-        "light": #f5f5f5,
+        "dark": map_get($gray, dark),
+        "light": map_get($gray,light),
         "body": white
     ),
     state: (
@@ -56,41 +66,6 @@ $colors-default: (
         "warning": #ffb800,
         "error": #ca4829
     ),
-    blue: (
-        "darker": #495b61,
-        "dark": #447281,
-        "base": #4591aa,
-        "light": #5ab0cc,
-        "lighter": #74cbe8
-    ),
-    green: (
-        "darker": #3b6e6e,
-        "dark": #3b8686,
-        "base": #37a1a1,
-        "light": #2dbaba,
-        "lighter": #69d1d1
-    ),
-    cream: (
-        "darker": #c47858,
-        "dark": #e29372,
-        "base": #ecac91,
-        "light": #f9c2ab,
-        "lighter": #fdd5c3
-    ),
-    red: (
-        "darker": #653131,
-        "dark": #b73333,
-        "base": #da3c3c,
-        "light": #f25a5a,
-        "lighter": #fa8181
-    ),
-    gray: (
-        "darker": #333333,
-        "dark": #4d4d4d,
-        "base": #666666,
-        "light": #808080,
-        "lighter": #999999
-    )
 );
 
 $colors: extend($colors-default, $colors, true);

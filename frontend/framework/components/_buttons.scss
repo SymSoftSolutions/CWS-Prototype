@@ -10,10 +10,11 @@
   background-color: transparent;
   border: 1px solid getColor(base, primary);
   color: getColor(base, primary);
-
+  transition: background-color 0.2s ease-out,
+  color 0.2s ease-out;
   &:hover,
   &:focus {
-    background-color: getColor(base, primary);
+    background-color: desaturate(getColor(base, primary), 10%);
     color: getColor(text, ui);
   }
 }

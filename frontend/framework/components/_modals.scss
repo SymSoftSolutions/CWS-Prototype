@@ -28,13 +28,13 @@
   position: relative;
   width: 90%;
 
-  @media (min-width: $bp-small) { width: 526px; }
+  @media (min-width: $width-sm) { width: 526px; }
 
-  @media (min-height: $bp-extra-small) {
+  @media (min-height: $width-xs) {
     margin: 10% auto;
   }
 
-  @media (min-height: $bp-small) {
+  @media (min-height: $width-sm) {
     margin: 15% auto;
   }
 }
@@ -101,21 +101,21 @@
 // Small
 .modal--small {
   .modal-container {
-    @media (min-width: $bp-small) { width: 360px; }
+    @media (min-width: $width-sm) { width: 360px; }
   }
 }
 
 // Large
 .modal--large {
   .modal-container {
-    @media (min-width: $bp-small) { width: 760px; }
+    @media (min-width: $width-sm) { width: 760px; }
   }
 }
 
 // Full-width
 .modal--full {
   .modal-container {
-    @media (min-width: $bp-small) { width: 90%; }
+    @media (min-width: $width-sm) { width: 90%; }
   }
 }
 

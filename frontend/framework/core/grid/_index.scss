@@ -11,17 +11,6 @@
     @include row();
 }
 
-//.row + .row {
-//  margin-top: $gutter-width;
-//}
-
-.row-top-gutter {
-    margin-top: $outer-margin;
-}
-
-.row-bottom-gutter {
-    margin-bottom: $outer-margin;
-}
 
 %column {
     @include column();

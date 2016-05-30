@@ -2,51 +2,6 @@
 // Custom Global Variables
 // =============================================================================
 
-//
-// Base
-// ----
-
-// Non-responsive website
-// $non-responsive: true !default;
-
-// Transition duration
-// $transition-duration: 150ms;
-
-// Breakpoints
-// $bp-extra-small: 30em;
-// $bp-small:       48em;
-// $bp-medium:      60em;
-// $bp-large:       70em;
-// $bp-extra-large: 80em;
-
-// Base Size (used in unitSize() for proportions)
-// $base-unit: 8;
-
-// Spacing
-// $spacing-xs: unitSize(1);
-// $spacing-s:  unitSize(2);
-// $spacing-m:  unitSize(3);
-// $spacing-l:  unitSize(4);
-// $spacing-xl: unitSize(5);
-
-//
-// Grid
-// ----
-
-// Prefix for the attributes, you can use 'data-' to make your markup valid
-// $prefix: "";
-
-// Max width for container
-// $container-width: 1200px;
-
-// Gutter size in pixels (without the unit we can do math easily)
-// $gutter: 30;
-
-// Number of columns in a row
-// $num-columns: 12;
-
-// If you only want to use the mixins for "semantic grids" set this to true
-// $only-semantic: false;
 
 //
 // Typography
@@ -74,20 +29,32 @@ $font-family-print: 'Lato', sans-serif;
 // Color Palette
 // -------------
 
+$primary-blue: #2a4b78;
+$secondary-blue: #4f8dc8;
 // Colors
 $colors: (
-    "siteheader": (
-        title: #fdfdfd,
-        title-shadow: #181d31,
-        bottomborder:  #f7b647
-    ),
-    "toolbar": (
-        "background": #2a4b78
-    ),
-    "feature" :(
-      background : #DDEAFA
+    // Base Overrides
+    base: (
+     primary: $primary-blue,
     ),
     text: (
-    heading: #0E2B54
-    )
+        "heading": #0E2B54,
+        "emphasis": $secondary-blue,
+        "selection": $primary-blue,
+        "links": $secondary-blue,
+    ),
+
+    // Component Specific
+    siteheader: (
+        "title": #fdfdfd,
+        "title-shadow": #181d31,
+        "bottomborder":  #f7b647
+    ),
+    toolbar: (
+        "background": $primary-blue
+    ),
+    feature :(
+      "background" : #DDEAFA
+    ),
+
 );

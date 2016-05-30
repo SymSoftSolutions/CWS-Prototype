@@ -32,12 +32,12 @@
     margin-top: 200px;
     text-align: center;
     width: 100%;
-    @media (min-width: $bp-large) {
+    @media (min-width: $width-lg) {
         margin-top: 300px;
         text-align: end;
     }
 
-    @media (min-width: $bp-extra-large) {
+    @media (min-width: $width-xg) {
         margin-top: 500px;
         text-align: end;
 

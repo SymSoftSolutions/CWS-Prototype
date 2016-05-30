@@ -116,6 +116,12 @@
     flex-wrap: wrap;
     margin-right: $gutter-compensation;
     margin-left: $gutter-compensation;
+    margin-bottom: $row-margin;
+
+    &:first-child {
+        margin-top: $row-margin;
+    }
+
 }
 
 @mixin column() {
