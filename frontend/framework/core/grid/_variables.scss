@@ -2,8 +2,8 @@ $column-count: 12 !default;
 $column-selector: '.col' !default;
 $offset-modifier: 'offset' !default;
 
-$gutter-width: 1rem !default;
-$outer-margin: 1rem !default;
+$gutter-width: 5rem !default;
+$outer-margin: 2rem !default;
 $gutter-compensation: (($gutter-width / 2) * -1) !default;
 $half-gutter-width: ($gutter-width / 2) !default;
 
