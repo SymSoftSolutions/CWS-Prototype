@@ -1,3 +1,5 @@
+var expect = require('chai').expect;
+
 describe('stub', function(){
 	
 	describe('#test', function(){
