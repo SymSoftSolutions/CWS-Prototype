@@ -19,8 +19,7 @@ require('./models/createAll').createAll().then(setupServer);
  */
 function setupServer(worker) {
     var app = express();
-
-
+    
     var router = express.Router({
         caseSensitive: app.get('case sensitive routing'),
         strict: app.get('strict routing')
