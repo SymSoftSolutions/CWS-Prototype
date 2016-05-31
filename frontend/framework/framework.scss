@@ -1,11 +1,15 @@
-
-// Globals
-@import 'core/globals/globals';
+// Functions ans sass extensions
 @import 'core/globals/functions';
 @import 'core/globals/mixins';
 
-// Custom globals
+// Custom globals before defaults so
+// unchanged defaults can be merged
 @import 'custom/globals';
+
+
+
+// Globals
+@import 'core/globals/globals';
 
 // Natives
 @import 'core/layout/base';
@@ -18,14 +22,33 @@
 @import 'core/layout/tables';
 @import 'core/layout/type';
 
+// grid
+
+@import 'core/grid/index';
+
 // Utils
-@import 'core/utils/atgrid';
 @import 'core/utils/colors';
 @import 'core/utils/conditional-styling';
 @import 'core/utils/helpers';
 
-// Add-Ons
-@import 'addons/framework-ui/framework-ui';
+// Components
+@import 'components/alerts';
+@import 'components/badges';
+@import 'components/breadcrumbs';
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/collections';
+@import 'components/dropdowns';
+@import 'components/groups';
+@import 'components/labels';
+@import 'components/modals';
+@import 'components/progress';
+@import 'components/spinner';
+@import 'components/tooltips';
 
-// Custom styles
-@import 'custom/custom';
+
+
+// Custom app specific styles and components
+@import 'custom/app';
+
+

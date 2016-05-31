@@ -1,0 +1,36 @@
+<h1>New Profile</h1>
+
+{{!-- Let our user know some thing went wrong --}}
+{{> flash}}
+<form action="/newprofile" method="post">
+    <input type="hidden" name="_csrf" value="{{_csrf }}">
+    <strong>
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="example@email.com" class="input--flat">
+        <span class="input--help">Will be used for logging in.</span>
+    </strong>
+
+
+    <strong>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" placeholder="John" class="input--flat">
+    </strong>
+
+    <strong>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" placeholder="Doe" class="input--flat">
+    </strong>
+
+
+    <strong>
+        <label for="password">Password:</label>
+        <input type="text" id="password"  class="input--flat">
+    </strong>
+
+    <strong>
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="text" id="confirmPassword"  class="input--flat">
+    </strong>
+</form>
+
+

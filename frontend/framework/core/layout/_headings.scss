@@ -44,7 +44,7 @@ h1, h2, h3, h4, h5, h6,
 h1, h2, h3,
 .h1, .h2, .h3,
 .giga, .mega, .kilo {
-  margin: unitSize(3, -4) 0 unitSize(1, 2);
+  //margin: unitSize(3, -4) 0 unitSize(1, 2);
 
   small,
   .small { font-size: 65%; }
@@ -52,7 +52,7 @@ h1, h2, h3,
 
 h4, h5, h6,
 .h4, .h5, .h6 {
-  margin: unitSize(1, 2) 0;
+  //margin: unitSize(1, 2) 0;
 
   small,
   .small { font-size: 75%; }
@@ -62,7 +62,7 @@ h1,
 .h1 {
   font-size: pxToEm($h1-size * .75);
 
-  @media (min-width: $bp-small) {
+  @media (min-width: $width-sm) {
     font-size: pxToEm($h1-size);
   }
 }
@@ -71,7 +71,7 @@ h2,
 .h2 {
   font-size: pxToEm($h2-size * .75);
 
-  @media (min-width: $bp-small) {
+  @media (min-width: $width-sm) {
     font-size: pxToEm($h2-size);
   }
 }
@@ -80,7 +80,7 @@ h3,
 .h3 {
   font-size: pxToEm($h3-size * .75);
 
-  @media (min-width: $bp-small) {
+  @media (min-width: $width-sm) {
     font-size: pxToEm($h3-size);
   }
 }
@@ -103,7 +103,7 @@ h6,
 .giga {
   font-size: pxToEm($giga-size * .75);
 
-  @media (min-width: $bp-small) {
+  @media (min-width: $width-sm) {
     font-size: pxToEm($giga-size);
   }
 }
@@ -112,7 +112,7 @@ h6,
 .mega {
   font-size: pxToEm($mega-size * .75);
 
-  @media (min-width: $bp-small) {
+  @media (min-width: $width-sm) {
     font-size: pxToEm($mega-size);
   }
 }
@@ -121,7 +121,7 @@ h6,
 .kilo {
   font-size: pxToEm($kilo-size * .75);
 
-  @media (min-width: $bp-small) {
+  @media (min-width: $width-sm) {
     font-size: pxToEm($kilo-size);
   }
 }

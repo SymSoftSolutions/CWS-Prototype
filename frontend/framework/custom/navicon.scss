@@ -1,0 +1,61 @@
+
+.site-nav-icon {
+    font-size: 0.8em;
+    width: 2.5em;
+    height: 2em;
+    position: relative;
+    margin: 0.5em;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+
+
+ .site-nav-icon span {
+    display: block;
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    background: getColor(text, ui);
+    border-radius: 5px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+
+/* Icon 3 */
+
+.site-nav-icon span:nth-child(1) {
+    top: pxToEm(0);
+}
+
+.site-nav-icon span:nth-child(2),.site-nav-icon span:nth-child(3) {
+    top: pxToEm(12);
+}
+
+.site-nav-icon span:nth-child(4) {
+    top: pxToEm(24);
+}
+
+.site-nav-icon.active span:nth-child(1) {
+    top: pxToEm(12);
+    width: 0%;
+    left: 50%;
+}
+
+.site-nav-icon.active span:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+.site-nav-icon.active span:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+.site-nav-icon.active span:nth-child(4) {
+    top: pxToEm(12);
+    width: 0%;
+    left: 50%;
+}
+

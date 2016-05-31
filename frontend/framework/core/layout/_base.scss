@@ -40,7 +40,8 @@ input {
 }
 
 main,
-summary { display: block; }
+summary { display: block;
+overflow-x: hidden;}
 
 pre { overflow: auto; }
 
@@ -69,7 +70,7 @@ template,
   text-rendering: optimizeLegibility;
   vertical-align: top;
 
-  @media (min-width: $bp-extra-small) {
+  @media (min-width: $width-xs) {
     font-size: $font-base-size + px;
   }
 
@@ -141,6 +142,7 @@ figcaption {
 }
 
 // Selection
-::selection { background-color: getColor(base, selection); }
-
-::-moz-selection { background-color: getColor(base, selection); }
+::selection {
+  background-color: getColor(text, selection);
+  color: getColor(text, selection-text);
+}

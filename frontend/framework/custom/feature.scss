@@ -1,0 +1,66 @@
+.feature {
+    min-height: 300px;
+    background-image: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0.2)
+    ), url(/public/assets/child.jpeg);
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+
+    @media (max-width: $mobile-nav-bp) {
+        align-items: flex-end;
+        justify-content: center;
+        background-image: linear-gradient(
+                to right,
+                rgba(0, 0, 0, 0),
+                rgba(0, 0, 0, 0.2)
+        ), url(/public/assets/child.jpeg);
+    }
+
+}
+
+.feature-title {
+    color: getColor(text, ui);
+    padding: 0.5em;
+    text-shadow: 0 1px 0 black;
+    margin-top: 200px;
+    text-align: center;
+    width: 100%;
+    @media (min-width: $width-lg) {
+        margin-top: 300px;
+        text-align: end;
+    }
+
+    @media (min-width: $width-xg) {
+        margin-top: 500px;
+        text-align: end;
+
+    }
+
+    @media (max-width: $mobile-nav-bp) {
+        margin-top: 60px;
+        margin-bottom: 60px;
+        text-align: right;
+        width: 50%;
+    }
+
+}
+
+.feature-info {
+    width: 100%;
+    margin: 0;
+    padding: 1em 2em;
+    background: rgba(getColor(feature, background), 0.85);
+
+}
+
+.feature-description {
+    text-align: center;
+    margin: 0;
+}

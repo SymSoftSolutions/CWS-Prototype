@@ -1,0 +1,19 @@
+{{!-- Let our user know some thing went wrong --}}
+{{> flash}}
+<form action="/auth" method="post">
+    <input type="hidden" name="_csrf" value="{{_csrf }}">
+<div>
+    <label>Username:</label>
+    <input type="text" name="username"/><br/>
+</div>
+<div>
+    <label>Password:</label>
+    <input type="password" name="password"/>
+</div>
+<div>
+    <input type="submit" value="Submit"/>
+</div>
+</form>
+
+<a href="/newprofile">Don't have an account?</a>
+

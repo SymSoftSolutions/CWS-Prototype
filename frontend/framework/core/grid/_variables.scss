@@ -1,0 +1,49 @@
+$column-count: 12 !default;
+$column-selector: '.col' !default;
+$offset-modifier: 'offset' !default;
+
+$row-margin: 2rem !default;
+$gutter-width: 5rem !default;
+$outer-margin: 2rem !default;
+$gutter-compensation: (($gutter-width / 2) * -1) !default;
+$half-gutter-width: ($gutter-width / 2) !default;
+
+
+
+$viewport-xs: strip-unit($width-xs) * 1em !default;
+$viewport-sm: strip-unit($width-sm) * 1em !default;
+$viewport-md: strip-unit($width-md) * 1em !default;
+$viewport-lg: strip-unit($width-lg) * 1em !default;
+$viewport-xg: strip-unit($width-xg) * 1em !default;
+
+
+
+$container-xs: strip-unit($width-xs) * 1rem + $gutter-width !default;
+$container-sm: strip-unit($width-sm) * 1rem + $gutter-width !default;
+$container-md: strip-unit($width-md) * 1rem + $gutter-width !default;
+$container-lg: strip-unit($width-lg) * 1rem + $gutter-width !default;
+$container-xg: strip-unit($width-xg) * 1rem + $gutter-width !default;
+
+//-- grid:sizenames:start --//
+$xs: 'xs' !default;
+$sm: 'sm' !default;
+$md: 'md' !default;
+$lg: 'lg' !default;
+$xg: 'xg' !default;
+//-- grid:sizenames:end --//
+
+$block-delimiter: '-' !default;
+$element-delimiter: '-' !default;
+$modifier-delimiter: '-' !default;
+
+$default-query: $viewport-xs !default;
+$queries: (
+    $xs: $viewport-xs,
+    $sm: $viewport-sm,
+    $md: $viewport-md,
+    $lg: $viewport-lg,
+    $xg: $viewport-xg
+) !default;
+
+$column-properties: 'flex-basis', 'max-width' !default;
+$offset-properties: 'margin-left' !default;

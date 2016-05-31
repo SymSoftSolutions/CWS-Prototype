@@ -1,0 +1,19 @@
+.accordion-item {
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+.target {
+    //margin: 10px 0;
+    // if we have any margin our height transition will be jumpy
+    //margin:0 !important;
+    // but we still need to show our focus lines so make sure we
+    // have enough height so they are visible
+    //min-height: 2em;
+
+}
+
+.accordion-panel[aria-hidden="true"],
+[data-status="disabled"] .accordion-panel {
+    display: none;
+}

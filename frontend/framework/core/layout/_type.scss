@@ -48,27 +48,27 @@ p:not(:last-child) { margin-bottom: unitSize(3, -4); }
 
 a {
   background-color: transparent;
-  color: getColor(base, primary);
+  color: getColor(text, links);
   cursor: pointer;
   text-decoration: none;
   transition: $transition-duration;
 
   &:hover,
-  &:focus { color: darken(getColor(base, primary), 15%); }
+  &:focus { color: darken(getColor(text, links), 15%); }
 }
 
-h1, h2, h3,
-.h1, .h2, .h3 {
-  a {
-    color: getColor(text, primary);
-
-    &:hover,
-    &:focus {
-      color: getColor(base, primary);
-      text-decoration: none;
-    }
-  }
-}
+//h1, h2, h3,
+//.h1, .h2, .h3 {
+//  a {
+//    color: getColor(text, primary);
+//
+//    &:hover,
+//    &:focus {
+//      color: getColor(base, primary);
+//      text-decoration: none;
+//    }
+//  }
+//}
 
 
 //

@@ -2,7 +2,7 @@
  * We utilize a number of express utilities in our app. These are attached as "middleware" and enhance
  * our servers capabilities.
  */
-
+var path = require('path');
 var config = require('../config');
 
 // templating and response handling
@@ -10,6 +10,7 @@ var exphbs = require('express-handlebars');
 var helpers = require('../lib/helpers');
 var hbs = exphbs.create({
     defaultLayout: 'main',
+    extname: '.hbs',
     helpers: helpers,
     layoutsDir: config.dirs.layouts,
     partialsDir: [config.dirs.partials, config.dirs.shared]
@@ -89,9 +90,10 @@ function initGlobalMiddleware(app) {
     //Setup Express App
     state.extend(app);
     // Register `hbs.engine` with the Express app.
-    app.engine('handlebars', hbs.engine);
-    app.set('view engine', 'handlebars');
-
+    app.engine('.hbs', hbs.engine);
+    app.set('view engine', '.hbs');
+    // let our templates know what our enviroment is
+    app.locals.env = app.get('env');
 
     //Uncomment this if you want strict routing (ie: /foo will not resolve to /foo/)
     //app.enable('strict routing');
@@ -119,9 +121,7 @@ function initGlobalMiddleware(app) {
         // TODO: Log db queries too
     }
 
-
-
-    // Static Assets
+    // Static Assets  & reload of js and sass
     // ------------------------------------
     if (app.get('env') === 'development') {
         var webpackDevMiddleware = require("webpack-dev-middleware");
@@ -138,11 +138,13 @@ function initGlobalMiddleware(app) {
         }));
 
         app.use(require("webpack-hot-middleware")(compiler));
-    } else {
 
     }
+
+
+
     // Specify the public directory.
-    app.use(require('express').static(config.dirs.pub));
+    app.use("/"+ config.dirs.pub, require('express').static(config.dirs.pub));
 
     // Set default views directory.
     app.set('views', config.dirs.views);
@@ -155,7 +157,6 @@ function initGlobalMiddleware(app) {
 
     // Parse cookies.
     app.use(cookieParser(config.strings.token));
-
 
     //GZip Support
     app.use(compression());
