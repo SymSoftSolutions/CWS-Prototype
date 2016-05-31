@@ -1,19 +1,38 @@
-{{!-- Let our user know some thing went wrong --}}
-{{> flash}}
-<form action="/auth" method="post">
-    <input type="hidden" name="_csrf" value="{{_csrf }}">
-<div>
-    <label>Username:</label>
-    <input type="text" name="username"/><br/>
+<div class="container-fluid">
+    <div class="row center-xs">
+        <div class="col-xs-12 col-sm-9 col-md-7 col-lg-5">
+            <h1>Login</h1>
+        </div>
+    </div>
 </div>
-<div>
-    <label>Password:</label>
-    <input type="password" name="password"/>
-</div>
-<div>
-    <input type="submit" value="Submit"/>
-</div>
+<form action="/auth" method="post" class="container-fluid">
+    <div class="row center-xs">
+        <div class="col-xs-12 col-sm-9 col-md-7 col-lg-5">
+            {{> flash}}
+            <input type="hidden" name="_csrf" value="{{_csrf }}">
+            <div>
+                <label>Username:</label>
+                <input type="text" name="username"/><br/>
+            </div>
+            <div>
+                <label>Password:</label>
+                <input type="password" name="password"/>
+            </div>
+        </div>
+    </div>
+    {{!-- Let our user know some thing went wrong --}}
+    <div class="row center-xs">
+
+        <div class="col-xs-12 col-sm-9 col-md-7 col-lg-5">
+
+            <input type="submit" value="Submit"/>
+            <div>
+                <a href="/newprofile">Don't have an account?</a>
+            </div>
+        </div>
+
+    </div>
 </form>
 
-<a href="/newprofile">Don't have an account?</a>
+
 

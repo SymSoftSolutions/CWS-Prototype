@@ -3,7 +3,7 @@
 // =============================================================================
 
 form,
-form [row] {
+form {
   @media (min-width: $width-xs) {
     margin-bottom: unitSize(3);
   }
@@ -71,6 +71,10 @@ fieldset {
   border-radius: 3px;
   padding: unitSize(3) 1em;
   margin-bottom: unitSize(3);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 legend {

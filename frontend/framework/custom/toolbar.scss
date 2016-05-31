@@ -11,6 +11,8 @@
     @media (max-width: $mobile-nav-bp) {
         width: auto;
         order:1;
+        // keep our tool bar text on the left hand side of the screen
+        max-width: 30%;
     }
 }
 
@@ -31,6 +33,7 @@
         @media (max-width: $mobile-nav-bp) {
             display: block;
             font-size: 1.1em;
+
         }
     }
 

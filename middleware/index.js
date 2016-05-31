@@ -189,7 +189,8 @@ function initGlobalMiddleware(app) {
     };
 
     var notAuthorized = {
-        redirect: '/'
+        redirect: '/',
+        message: 'The entered credentials are incorrect',
     };
 
     app.set('permission', {
