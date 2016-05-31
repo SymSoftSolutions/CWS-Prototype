@@ -29,7 +29,7 @@ $font-family-print: 'Lato', sans-serif;
 // Color Palette
 // -------------
 
-$primary-blue: #2a4b78;
+$primary-blue: #0E2B54;
 $secondary-blue: #4f8dc8;
 // Colors
 $colors: (
@@ -38,7 +38,7 @@ $colors: (
      primary: $primary-blue,
     ),
     text: (
-        "heading": #0E2B54,
+        "heading": $primary-blue,
         "emphasis": $secondary-blue,
         "selection": $primary-blue,
         "links": $secondary-blue,
