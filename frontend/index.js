@@ -1,6 +1,7 @@
 var jQuery = require('./libraries/jquery-2.2.4.js');
 //test
 var helpers = require('./js/helpers');
+require('./js/profile-updating');
 
 // bring them in for their global code
 require('./libraries/jquery-accessibleMegaMenu');
@@ -89,21 +90,16 @@ $('#nav-toggle').on('keydown', function (e) {
 require('./libraries/selectize/selectize.js');
 require('./libraries/selectize/selectize.css');
 
-$('#select-state').selectize({
+// Initialize the advanced select inputs and set their default values
+$('.js-select-simple').selectize({
     create: false
-});
-
-
-
-// Form Date Pickers
-require('./libraries/pika/pikaday.scss');
-require('./libraries/pika/theme.css')
-var pikaday = require('./libraries/pika/pikaday.js');
-
-$('.date-picker').each(function(){
-    console.log(this);
-    var picker = new pikaday({ field: this
-    });
+}).each(function(){
+    var $select = $(this).selectize();
+    var selected = $(this).data('selected');
+    $select[0].selectize.setValue(selected);
 })
+
+
+
 
 

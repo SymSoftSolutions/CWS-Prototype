@@ -24,6 +24,19 @@
     @extend %column;
 }
 
+
+@include breakpoints('.small-pad') {
+    // convert from selector to attribute prefix
+    $selctor: str-replace($column-selector, ".", '');
+    & > [class^="#{$selctor}-"] {
+        padding-left: 0;
+        padding-right:0;
+    }
+    & > [class^="#{$selctor}-"] + [class^="#{$selctor}-"] {
+        padding-left: 0.5em;
+    }
+}
+
 @include breakpoints('.eq-height') {
     // convert from selector to attribute prefix
     $selctor: str-replace($column-selector, ".", '');

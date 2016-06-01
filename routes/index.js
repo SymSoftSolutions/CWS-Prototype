@@ -36,7 +36,7 @@ function createAllRoutes(router) {
         failureFlash: true // allow flash messages
     }));
 
-    router.get('/profile', permission('fosterParent'), render('profile'));
+
 
     router.get('/logout',
         function (req, res) {
