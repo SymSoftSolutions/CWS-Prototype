@@ -75,15 +75,15 @@ describe('profile functionality', function () {
         it('can be updated on the database', function (done) {
             testUser.firstName = 'name change';
             dbUtils.updateBasicProfile(testUser)
-              .then(function (numberOfModifiedRows) {
-                  expect(numberOfModifiedRows).to.equal(1);
-              })
-              .then(dbUtils.retrieveUser.bind(null, testUser))
-              .then(function (user) {
-                  expect(user).not.undefined;
-                  expect(user.firstName).to.equal(testUser.firstName);
-                  done();
-              })
+                .then(function (numberOfModifiedRows) {
+                    expect(numberOfModifiedRows).to.equal(1);
+                })
+                .then(dbUtils.retrieveUser.bind(null, testUser))
+                .then(function (user) {
+                    expect(user).not.undefined;
+                    expect(user.firstName).to.equal(testUser.firstName);
+                    done();
+                })
         });
 
         it('all form fields are shown in the view', function (done) {
@@ -94,4 +94,40 @@ describe('profile functionality', function () {
             done();
         });
     });
+
+    describe('user details', function () {
+        var updateQuery;
+        before(function (done) {
+            updateQuery = dbUtils.updateUserDetails(testUser, {testDetail: 2, details: [1, 2, 3]})
+                .finally(function () {
+                    done();
+                })
+
+        });
+        it('can be updated on the database', function (done) {
+            updateQuery.then(function (numberOfModifiedRows) {
+                expect(numberOfModifiedRows).to.equal(1);
+                done();
+            });
+        });
+
+        it('updates old properties', function (done) {
+            dbUtils.retrieveUser(testUser)
+                .then(function (user) {
+                    expect(user).not.undefined;
+                    expect(user.userDetails.testDetail).to.equal(2);
+                    done();
+                })
+        });
+        
+        it('adds new  properties', function (done) {
+            dbUtils.retrieveUser(testUser)
+                .then(function (user) {
+                    expect(user).not.undefined;
+                    expect(user.userDetails.details).to.deep.equal([1, 2, 3]);
+                    done();
+                })
+        });
+    })
+
 });
