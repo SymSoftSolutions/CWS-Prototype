@@ -35,15 +35,6 @@ function createNewProfiles(router) {
         passwordsMatch = true;
 
         // Check if required fields exist
-        if(req.body.email != null) {
-            // Check if email is already in system
-            if(dbUtils.checkExist('users', {'email': req.body.email})) {
-                emailValid = false;
-            }
-        } else {
-            allFieldsExist = false;
-        }
-
         if(req.body.firstName == null ||
            req.body.lastName  == null
           ) {
@@ -53,27 +44,62 @@ function createNewProfiles(router) {
         if(req.body.password == null) {
             allFieldsExist = false;
         } else {
-            if(req.body.confirmpassword == null) {
+            if(req.body.confirmPassword == null) {
                 allFieldsExist = false;
             } else {
-                passwordsMatch = (req.body.password == req.body.confirmpassword);
+                // Check that passwords match
+                passwordsMatch = (req.body.password == req.body.confirmPassword);
             }
         }
 
-        var formIsValid = allFieldsExist && emailValid && passwordsMatch;
+            if(req.body.email != null) {
+                // Check if email is already in system - requires callback function;
+                dbUtils.checkExist('users', {'email': req.body.email}, function(err, emailExists) {
+                    if(err) {
+                        console.log(err);
+                        res.render('501', {status: 501, url: req.url});
+                    } else {
+                        var formIsValid = allFieldsExist && (!emailExists) && passwordsMatch;
+                        if(emailExists) {
+                            console.log('email is taken');
+                            req.flash('error', 'Email is already registered');
+                        }
+                        if(!allFieldsExist) {
+                            console.log('some fields don\'t exist');
+                            req.flash('error', 'Required fields not filled');
+                        }
+                        if(!passwordsMatch) {
+                            console.log('passwords don\'t match');
+                            req.flash('error', 'Password confirmation does not match password');
+                        }
+                        respondToNewUser(formIsValid, req, res, next);
+                    }
+                });
+            }
+        });
+}
 
+function respondToNewUser(formIsValid, req, res, next) {
         // If all good, insert user into db, then redirect to profile page
         if(formIsValid) {
             console.log('form is valid');
-            //TODO: insert logic for placing into database
-            var user = req.body;
+            var user = {
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                email: req.body.email,
+                password: req.body.password,
+                role: 'fosterParent'
+            }
             user['role'] = 'fosterParent';
             console.log(user);
             
             dbUtils.insertUser(user, function(err) {
+                console.log('error occured');
+                console.log(err);
             });
-            res.render('forms/newprofile');
+            res.redirect('/login');
+        } else {
+            console.log('form is invalid');
+            res.redirect('/newprofile');
         }
-
-    });
 }
