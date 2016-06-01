@@ -9,8 +9,12 @@ form {
   }
 
   @if $non-responsive == true {
-    .nonresponsive & { margin-bottom: unitSize(3); }
+    .nonresponsive & {
+      margin-bottom: unitSize(3);
+    }
   }
+
+
 }
 
 input:not([type="submit"]),
@@ -27,7 +31,7 @@ textarea {
   &:focus {
     border-color: getColor(text, emphasis);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075),
-                      0 0 6px rgba(getColor(text, emphasis), .5);
+    0 0 6px rgba(getColor(text, emphasis), .5);
     outline: none;
   }
 
@@ -64,6 +68,9 @@ input[type="submit"] {
 label {
   display: block;
   font-size: pxToEm(14);
+  &.label--bold {
+    font-weight: bolder;
+  }
 }
 
 fieldset {
@@ -73,6 +80,21 @@ fieldset {
   margin-bottom: unitSize(3);
 
   &:last-child {
+    margin-bottom: 0;
+  }
+
+  input {
+    & + label, & + div.row {
+      margin-top: unitSize(1);
+    }
+  }
+  div {
+
+    & + label {
+      margin-top: unitSize(1);
+    }
+  }
+  div.row {
     margin-bottom: 0;
   }
 }
@@ -129,15 +151,25 @@ select {
   border-radius: 5px;
   padding: 0;
 
-  &[disabled] { color: getColor(text, secondary); }
+  &[disabled] {
+    color: getColor(text, secondary);
+  }
 
-  &[multiple] { height: auto; }
+  &[multiple] {
+    height: auto;
+  }
 
-  &::-ms-expand { display: none; }
+  &::-ms-expand {
+    display: none;
+  }
 
-  &::-ms-value { color: currentColor; }
+  &::-ms-value {
+    color: currentColor;
+  }
 
-  option { padding: 0 .75em }
+  option {
+    padding: 0 .75em
+  }
 }
 
 // Range input
@@ -147,7 +179,9 @@ input[type="range"] {
   width: 100%;
   -webkit-appearance: none;
 
-  &:focus { outline: none; }
+  &:focus {
+    outline: none;
+  }
 
   &::-webkit-slider-runnable-track {
     background-color: darken(getColor(background, light), 10%);
@@ -200,7 +234,6 @@ input[type="range"] {
   }
 }
 
-
 //
 // Descendents
 // -----------
@@ -214,7 +247,6 @@ input[type="range"] {
   margin-top: unitSize(1);
 }
 
-
 //
 // Form Modifiers
 // --------------
@@ -223,7 +255,9 @@ input[type="range"] {
 .form--inline {
   input,
   select,
-  textarea { margin-bottom: unitSize(3, -4); }
+  textarea {
+    margin-bottom: unitSize(3, -4);
+  }
 
   @media (min-width: $width-xs) {
     input,
@@ -241,7 +275,9 @@ input[type="range"] {
       vertical-align: middle;
     }
 
-    input + label { margin-left: 1em; }
+    input + label {
+      margin-left: 1em;
+    }
   }
 }
 
@@ -263,11 +299,12 @@ input[type="range"] {
         vertical-align: middle;
       }
 
-      input + label { margin-left: 1em; }
+      input + label {
+        margin-left: 1em;
+      }
     }
   }
 }
-
 
 //
 // Input Modifiers
@@ -291,7 +328,9 @@ input[type="range"] {
   border-color: transparent;
   box-shadow: none;
 
-  &:focus { border-color: getColor(text, emphasis); }
+  &:focus {
+    border-color: getColor(text, emphasis);
+  }
 }
 
 // Success
@@ -299,7 +338,9 @@ input[type="range"] {
   background-color: rgba(getColor(state, success), .15);
   border-color: getColor(state, success);
 
-  &:focus { border-color: getColor(state, success); }
+  &:focus {
+    border-color: getColor(state, success);
+  }
 }
 
 // Warning
@@ -307,7 +348,9 @@ input[type="range"] {
   background-color: rgba(getColor(state, warning), .15);
   border-color: getColor(state, warning);
 
-  &:focus { border-color: getColor(state, warning); }
+  &:focus {
+    border-color: getColor(state, warning);
+  }
 }
 
 // Warning
@@ -315,5 +358,7 @@ input[type="range"] {
   background-color: rgba(getColor(state, error), .15);
   border-color: getColor(state, error);
 
-  &:focus { border-color: getColor(state, error); }
+  &:focus {
+    border-color: getColor(state, error);
+  }
 }

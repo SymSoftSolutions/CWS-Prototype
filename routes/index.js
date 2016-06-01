@@ -6,8 +6,6 @@ var dbUtils = require('../lib/dbUtils');
 var exports = module.exports = utils.requireDir(__dirname);
 
 
-var newProfileRoutes = require('./newprofile');
-
 
 
 // var middleware = require('../middleware');
@@ -15,8 +13,12 @@ var newProfileRoutes = require('./newprofile');
 var passport = require('passport');
 var permission = require('permission');
 
-exports.render = render;
-exports.redirect = redirect;
+
+
+// Domain Specific Routes
+var newProfileRoutes = require('./newprofile');
+var profileRoutes = require('./profile');
+
 
 exports.createAllRoutes = createAllRoutes;
 exports.createErrorHandling = createErrorHandling;
@@ -51,11 +53,9 @@ function createAllRoutes(router) {
 
     newProfileRoutes.createNewProfiles(router);
 
+    profileRoutes.init(router);
 
 }
-
-
-
 
 function redirectToProfile(req, res, next) {
     if (req.user) {

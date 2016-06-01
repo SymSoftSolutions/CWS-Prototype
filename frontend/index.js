@@ -12,24 +12,7 @@ require('./framework/framework.scss');
 
 
 // Init Our Accordion
-import Accordion from './js/accordion';
-// This wouldn't be necessary since all these options are the defaults
-var options = {
-    item: '.accordion-item',
-    target: '.target',
-    control: '.target', // in this case the target is also acting as the control
-    panel: '.accordion-panel',
-    allowMultiple: true,
-    attribute: 'data-status',
-    expanded: 'expanded',
-    contracted: 'contracted',
-    prefix: 'Accordion-',
-    transition: 'height .5s',
-    transitionSupport: false,
-    setFocus: 'none' // options: none, item, panel, target, control, first
-};
-
-// new Accordion('.accordion', options);
+require('./js/accordion');
 
 if (jQuery) {
     (function ($) {
@@ -99,3 +82,28 @@ $('#nav-toggle').on('keydown', function (e) {
 
     }
 });
+
+
+
+// Form AutoCompletes
+require('./components/selectize/selectize.js');
+require('./components/selectize/selectize.css');
+
+$('#select-state').selectize({
+    create: false
+});
+
+
+
+// Form Date Pickers
+require('./components/pika/pikaday.scss');
+require('./components/pika/theme.css')
+var pikaday = require('./components/pika/pikaday.js');
+
+$('.date-picker').each(function(){
+    console.log(this);
+    var picker = new pikaday({ field: this
+    });
+})
+
+
