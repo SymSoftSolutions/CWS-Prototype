@@ -1,19 +1,56 @@
-.accordion-item {
-    overflow: hidden;
-    margin-bottom: 0;
-}
-
-.target {
-    //margin: 10px 0;
-    // if we have any margin our height transition will be jumpy
-    //margin:0 !important;
-    // but we still need to show our focus lines so make sure we
-    // have enough height so they are visible
-    //min-height: 2em;
-
-}
-
-.accordion-panel[aria-hidden="true"],
-[data-status="disabled"] .accordion-panel {
+.animated-accordion__panel[aria-hidden=true] {
     display: none;
+}
+
+.animated-accordion__header {
+    display: block;
+
+
+    &:not(:first-child):not(:last-child) {
+        margin-top: unitSize(3);
+        margin-bottom: unitSize(2);
+    }
+}
+
+/* title opened */
+.animated-accordion__header[aria-expanded="true"]:before {
+    content: "- ";
+}
+/* title closed */
+.animated-accordion__header[aria-expanded="false"]:before {
+    content: "+ ";
+}
+
+/* title selected */
+.animated-accordion__header[aria-expanded="true"]:after {
+    content: "";
+}
+/* title non selected */
+.animated-accordion__header[aria-expanded="false"]:after {
+    content: " (view more)";
+    font-size: 0.7em;
+    color: getColor(text, muted);
+}
+
+.animated-accordion__panel {
+    display: block;
+    overflow: hidden;
+    opacity: 1;
+    transition: visibility 0s ease, max-height 0.5s ease, opacity 0.5s ease ;
+    max-height: 100em;
+    /* magic number for max-height = enough height */
+    visibility: visible;
+    transition-delay: 0s;
+    margin: 0;
+    padding: 0;
+}
+/* This is the hidden state */
+[aria-hidden=true].animated-accordion__panel {
+    display: block;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition-delay: 1s, 0s, 0s;
+    margin: 0;
+    padding: 0;
 }

@@ -1,9 +1,10 @@
-var jQuery = require('./js/jquery-2.2.4.js');
+var jQuery = require('./libraries/jquery-2.2.4.js');
 //test
 var helpers = require('./js/helpers');
+require('./js/profile-updating');
 
 // bring them in for their global code
-require('./js/jquery-accessibleMegaMenu');
+require('./libraries/jquery-accessibleMegaMenu');
 
 
 
@@ -12,24 +13,7 @@ require('./framework/framework.scss');
 
 
 // Init Our Accordion
-import Accordion from './js/accordion';
-// This wouldn't be necessary since all these options are the defaults
-var options = {
-    item: '.accordion-item',
-    target: '.target',
-    control: '.target', // in this case the target is also acting as the control
-    panel: '.accordion-panel',
-    allowMultiple: true,
-    attribute: 'data-status',
-    expanded: 'expanded',
-    contracted: 'contracted',
-    prefix: 'Accordion-',
-    transition: 'height .5s',
-    transitionSupport: false,
-    setFocus: 'none' // options: none, item, panel, target, control, first
-};
-
-// new Accordion('.accordion', options);
+require('./libraries/accordion');
 
 if (jQuery) {
     (function ($) {
@@ -99,3 +83,23 @@ $('#nav-toggle').on('keydown', function (e) {
 
     }
 });
+
+
+
+// Form AutoCompletes
+require('./libraries/selectize/selectize.js');
+require('./libraries/selectize/selectize.css');
+
+// Initialize the advanced select inputs and set their default values
+$('.js-select-simple').selectize({
+    create: false
+}).each(function(){
+    var $select = $(this).selectize();
+    var selected = $(this).data('selected');
+    $select[0].selectize.setValue(selected);
+})
+
+
+
+
+

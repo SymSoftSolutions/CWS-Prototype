@@ -68,7 +68,7 @@ module.exports = {
     ],
     module: {
         loaders: assetsLoaders.concat([
-            {test: /\.js$/, loaders: ['babel-loader']}
+            {test: /\.js$/, loaders: ['babel-loader'], exclude: /(node_modules|bower_components|libraries)/}
         ])
     },
     resolve: {
