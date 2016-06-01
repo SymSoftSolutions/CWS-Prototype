@@ -35,6 +35,7 @@
     "express-handlebars": "1.0.1",
     "express-session": "^1.7.5",
     "express-state": "latest",
+    "express-validator": "^2.20.5",
     "handlebars": "^2.0.0-alpha.4",
     "knex": "^0.11.4",
     "morgan": "^1.2.2",
@@ -43,6 +44,7 @@
     "passport-local": "^1.0.0",
     "permission": "^1.0.4",
     "pg": "^4.5.5",
+    "pikaday": "^1.4.0",
     "ypromise": "^0.2.3"
   },
   "devDependencies": {
