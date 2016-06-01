@@ -7,21 +7,21 @@
 
         <h4 class="js-accordion__header" data-accordion-opened="true">About your Residence</h4>
         <div class="js-accordion__panel">
-            {{> profile/residence residence = user.userDetails.residence}}
+            {{> profile/residence residence = user.userDetails.residence }}
         </div>
 
         <h4 class="js-accordion__header" data-accordion-opened="true">Adults at your Home</h4>
         <div class="js-accordion__panel">
-           {{> profile/adults }}
+           {{> profile/adults index=1}}
         </div>
 
         <h4 class="js-accordion__header" data-accordion-opened="true">Children at your Home</h4>
         <div class="js-accordion__panel">
-           {{> profile/children}}
+           {{> profile/children this index=1}}
         </div>
         <h4 class="js-accordion__header" data-accordion-opened="true">Children Preferences</h4>
         <div class="js-accordion__panel">
-            {{> profile/childrenpreferences}}
+            {{> profile/childrenpreferences this}}
         </div>
     </div>
 </div>

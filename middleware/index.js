@@ -140,7 +140,7 @@ function initGlobalMiddleware(app) {
     app.set('views', config.dirs.views);
 
     // Parse application/x-www-form-urlencoded
-    app.use(bodyParser.urlencoded({extended: false}))
+    app.use(bodyParser.urlencoded({extended: true}))
 
     // Parse application/json
     app.use(bodyParser.json())

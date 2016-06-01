@@ -26,6 +26,10 @@ function init(router){
         console.log( res.locals.user)
         res.render('profile');
     });
+
+    router.post('/updateprofile', function(req, res){
+           console.log(req.body)
+    })
 }
 
 /**
