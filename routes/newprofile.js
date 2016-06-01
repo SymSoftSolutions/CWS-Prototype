@@ -2,6 +2,7 @@ var utils = require('../lib/utils');
 var config = require('../config');
 var dbUtils = require('../lib/dbUtils');
 
+exports.checkAllFieldsExist = checkAllFieldsExist;
 
 // var middleware = require('../middleware');
 
@@ -24,33 +25,42 @@ function createNewProfiles(router) {
         res.render('forms/newprofile');
     });
 
-
     /**
      * Take user details, and if all entered in properly save user to the database.
      * If something goes wrong we redirect back to the forms to try again, but with a message to the user too.
      */
     router.post('/newprofile', function newProfileSave(req, res, next) {
-        allFieldsExist = true;
-        emailValid = true;
-        passwordsMatch = true;
+        respondToFormRequest(req, rest, next)
+    });
+}
 
+function checkAllFieldsExist(body) {
         // Check if required fields exist
-        if(req.body.firstName == null ||
-           req.body.lastName  == null
+        if(body.firstName == '' || !(body.firstName) ||
+           body.lastName  == '' || !(body.lastName)
           ) {
-            allFieldsExist = false;
+            return false;
         }
 
-        if(req.body.password == null) {
-            allFieldsExist = false;
+        if(body.password == '' || !(body.password)
+        ) {
+            return false;
         } else {
-            if(req.body.confirmPassword == null) {
-                allFieldsExist = false;
+            if(body.confirmPassword == '' || !(body.confirmPassword)
+            ) {
+                return false
             } else {
                 // Check that passwords match
-                passwordsMatch = (req.body.password == req.body.confirmPassword);
+                passwordsMatch = (body.password == body.confirmPassword);
             }
         }
+        return passwordsMatch;
+}
+
+function respondToFormRequest(req, res, next) {
+        emailValid = true;
+        passwordsMatch = true;
+        allFieldsExist = checkAllFieldsExist(req.body);
 
             if(req.body.email != null) {
                 // Check if email is already in system - requires callback function;
@@ -76,7 +86,6 @@ function createNewProfiles(router) {
                     }
                 });
             }
-        });
 }
 
 function respondToNewUser(formIsValid, req, res, next) {
