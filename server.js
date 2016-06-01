@@ -2,6 +2,8 @@ var express = require('express');
 var routes = require('./routes');
 var config = require('./config');
 var middleware = require('./middleware');
+
+var app = express();
 // var cluster = require('express-cluster');
 
 //Uncomment the line below if you want to enable cluster support.
@@ -9,8 +11,7 @@ var middleware = require('./middleware');
 //     cluster(setupServer);
 // })
 
-// will conditionally create our models if not already, then start our server
-require('./models/createAll').createAll().then(setupServer);
+
 
 /**
  * Initialization, attaching of routes and middleware and starting of server
@@ -18,7 +19,6 @@ require('./models/createAll').createAll().then(setupServer);
  * @returns {*}
  */
 function setupServer(worker) {
-    var app = express();
 
 
     var router = express.Router({
@@ -45,4 +45,12 @@ function setupServer(worker) {
     });
 
     return server;
+}
+
+exports.setupServer = setupServer;
+exports.app = app;
+
+if (require.main === module) {
+    // will conditionally create our models if not already, then start our server
+    require('./models/createAll').createAll().then(setupServer);
 }

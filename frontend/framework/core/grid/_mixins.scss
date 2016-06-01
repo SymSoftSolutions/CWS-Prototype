@@ -114,8 +114,13 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-right: $gutter-compensation;
-    margin-left: $gutter-compensation;
+
+    //.container-fluid > & {
+    //    margin-right: $gutter-compensation;
+    //    margin-left: $gutter-compensation;
+    //}
+
+
     margin-bottom: $row-margin;
 
     &:first-child {
