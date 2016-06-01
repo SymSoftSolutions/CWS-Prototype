@@ -16,6 +16,12 @@
     }
 }
 
+.svg-icon {
+    fill: getColor(text, ui);
+    width: 24px;
+    height: 24px;
+}
+
 .account-management {
     // keep our account stuff on the far right
     text-align: right;
@@ -56,6 +62,9 @@
     a {
         // framework & html overrides
         color: getColor(text, ui);
+    }
+
+    .account-management-create, .account-management-login {
         text-decoration: underline;
     }
 
@@ -66,5 +75,16 @@
     .account-management-create {
         font-weight: 300;
         //color: getColor(state, muted);
+    }
+    
+    .account-management-messages,.account-management-user {
+        white-space: nowrap;
+        line-height: 24px;
+    }
+
+
+
+    .account-management-user {
+        font-size: 1.5em;
     }
 }
