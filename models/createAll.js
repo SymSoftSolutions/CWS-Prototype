@@ -41,6 +41,7 @@ function createTestObjects() {
         });
 }
 
+
 function createAll() {
     return createTable('users', tables.createUserTable)()
         .then(createTable('cases', tables.createCaseTable))
