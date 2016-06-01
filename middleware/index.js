@@ -30,9 +30,6 @@ var state = require('express-state');
 // messages to our views
 var flash = require('express-flash');
 
-var static = require('express').static;
-
-
 // logging
 var morgan = require('morgan');
 var dbLogger = dbUtils.logQueries;
@@ -150,8 +147,6 @@ function initGlobalMiddleware(app) {
 
     // Parse cookies.
     app.use(cookieParser(config.strings.token));
-
-
 
     // Session Handling
     app.use(session({

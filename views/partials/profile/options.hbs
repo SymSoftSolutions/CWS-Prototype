@@ -2,12 +2,12 @@
     <div class="js-accordion " data-accordion-prefix-classes="animated-accordion">
         <h4 class=" js-accordion__header" data-accordion-opened="true">Basic Profile</h4>
         <div class="js-accordion__panel">
-            {{> profile/create}}
+            {{> profile/basic this}}
         </div>
 
         <h4 class="js-accordion__header" data-accordion-opened="true">About your Residence</h4>
         <div class="js-accordion__panel">
-            {{> profile/residence}}
+            {{> profile/residence residence = user.userDetails.residence}}
         </div>
 
         <h4 class="js-accordion__header" data-accordion-opened="true">Adults at your Home</h4>

@@ -21,15 +21,10 @@ function init(router){
     router.use(permission('fosterParent'));
     router.use(setUser);
 
-    // TODO: Basic information updating
 
-    router.get('/info:id')
-    router.get('/info',  function (req, res) {
-        // add our user object
-        if (req.user) {
-            res.locals.user = req.user
-        }
-        res.render('');
+    router.get('/profile',  function (req, res) {
+        console.log( res.locals.user)
+        res.render('profile');
     });
 }
 

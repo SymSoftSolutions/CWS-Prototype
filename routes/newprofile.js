@@ -21,11 +21,7 @@ function createNewProfiles(router) {
      * Present to the user a form for entering in basic user details
      */
     router.get('/newprofile', function newProfileForm(req, res, next) {
-
-        dbUtils.listTableColumns('users').then((data) => {
-            console.log(data);
-            res.render('forms/newprofile');
-        });
+        res.render('forms/newprofile');
     });
 
 

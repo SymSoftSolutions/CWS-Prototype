@@ -27,7 +27,18 @@ function createTestObjects() {
             firstName: 'test',
             password: '123',
             email: "test@example.com",
-            role: 'fosterParent'
+            role: 'fosterParent',
+            userDetails: {
+                residence: {
+                    address: "1234 no where",
+                    city: "sac",
+                    zipcode: '95843',
+                    phone: '123-456-7890',
+                    state: 'CA',
+                    type: 'lease',
+                    weapons: 'true'
+                }
+            }
         };
         if (!result.length) {
             console.log("Creating Test Objects")

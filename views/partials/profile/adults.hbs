@@ -6,7 +6,14 @@
     <input type="text" id="lastName" placeholder="Doe" class="input--flat">
 
     <strong> <label for="dateofbirth">Date of Birth:</label></strong>
-    <input type="text" id="dateofbirth" class="date-picker input--flat">
+    <div class="row small-pad-xs">
+        <div class="col-xs">{{> months selected=adult.dob.month name="adult[][dob][month]"}}</div>
+        <div class="col-xs"><input type="text" name="adult[][dob][day]" placeholder="day"></div>
+        <div class="col-xs"><input type="text" name="adult[][dob][year]" placeholder="year"></div>
+
+
+    </div>
+
 
     <strong><label for="relationship">Relationship with You?</label></strong>
     <input type="text" id="relationship" class="input--flat">

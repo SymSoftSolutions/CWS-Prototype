@@ -21,14 +21,16 @@
     content: "+ ";
 }
 
-///* title selected */
-//.animated-accordion__header[aria-selected="true"]:after {
-//    content: "";
-//}
-///* title non selected */
-//.animated-accordion__header[aria-selected="false"]:after {
-//    content: " (Select)";
-//}
+/* title selected */
+.animated-accordion__header[aria-expanded="true"]:after {
+    content: "";
+}
+/* title non selected */
+.animated-accordion__header[aria-expanded="false"]:after {
+    content: " (view more)";
+    font-size: 0.7em;
+    color: getColor(text, muted);
+}
 
 .animated-accordion__panel {
     display: block;

@@ -76,7 +76,7 @@ label {
 fieldset {
   border: 1px solid getColor(base, lines);
   border-radius: 3px;
-  padding: unitSize(3) 1em;
+  padding: unitSize(2) 1em;
   margin-bottom: unitSize(3);
 
   &:last-child {
@@ -85,13 +85,13 @@ fieldset {
 
   input {
     & + label, & + div.row {
-      margin-top: unitSize(1);
+      margin-top: unitSize(2);
     }
   }
   div {
 
     & + label {
-      margin-top: unitSize(1);
+      margin-top: unitSize(2);
     }
   }
   div.row {
