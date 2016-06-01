@@ -1,9 +1,9 @@
-var jQuery = require('./js/jquery-2.2.4.js');
+var jQuery = require('./libraries/jquery-2.2.4.js');
 //test
 var helpers = require('./js/helpers');
 
 // bring them in for their global code
-require('./js/jquery-accessibleMegaMenu');
+require('./libraries/jquery-accessibleMegaMenu');
 
 
 
@@ -12,7 +12,7 @@ require('./framework/framework.scss');
 
 
 // Init Our Accordion
-require('./js/accordion');
+require('./libraries/accordion');
 
 if (jQuery) {
     (function ($) {
@@ -86,8 +86,8 @@ $('#nav-toggle').on('keydown', function (e) {
 
 
 // Form AutoCompletes
-require('./components/selectize/selectize.js');
-require('./components/selectize/selectize.css');
+require('./libraries/selectize/selectize.js');
+require('./libraries/selectize/selectize.css');
 
 $('#select-state').selectize({
     create: false
@@ -96,9 +96,9 @@ $('#select-state').selectize({
 
 
 // Form Date Pickers
-require('./components/pika/pikaday.scss');
-require('./components/pika/theme.css')
-var pikaday = require('./components/pika/pikaday.js');
+require('./libraries/pika/pikaday.scss');
+require('./libraries/pika/theme.css')
+var pikaday = require('./libraries/pika/pikaday.js');
 
 $('.date-picker').each(function(){
     console.log(this);

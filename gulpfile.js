@@ -6,7 +6,8 @@ var nodemon = require('gulp-nodemon');
 var config = require('./config');
 
 
-var backendTests = 'test/**';
+var backendTests = 'test/*.unit.test.js';
+var frontendTests = 'test/*.e2e.test.js';
 
 gulp.task('default', ['browser-sync']);
 gulp.task('test', ['test-backend', 'watch-backend']);
@@ -35,15 +36,13 @@ gulp.task('nodemon', function (cb) {
 });
 
 
-
-gulp.task('test-backend', function(cb){
+gulp.task('test-backend', function(){
   gulp.src(backendTests)
       .pipe(mocha({
         reporter: 'spec',
-        istanbul: false
+        istanbul: false,
       }));
 });
-
 
 
 var backendFiles = ['middleware/**/*.js',  'server.js', 'lib/**/*.js', backendTests, 'models/**/*.js'];

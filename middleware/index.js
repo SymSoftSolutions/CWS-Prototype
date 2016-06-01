@@ -7,7 +7,7 @@ var config = require('../config');
 
 // templating and response handling
 var exphbs = require('express-handlebars');
-var helpers = require('../lib/helpers');
+var helpers = require('../lib/viewUtils');
 var hbs = exphbs.create({
     defaultLayout: 'main',
     extname: '.hbs',
@@ -20,20 +20,12 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 
 
-
 // database and persistence
 var pg = require('pg')
 var session = require('express-session');
-var pgSession = require('connect-pg-simple')(session);
 var dbUtils = require('../lib/dbUtils');
 var db = require('../lib/db');
 var state = require('express-state');
-
-// var store = new pgSession({
-//     pg: pg,
-//     conString: config.postgres,
-//     tableName: 'session'
-// });
 
 // messages to our views
 var flash = require('express-flash');
@@ -123,7 +115,7 @@ function initGlobalMiddleware(app) {
 
     // Static Assets  & reload of js and sass
     // ------------------------------------
-    if (app.get('env') === 'development') {
+    if (app.get('env') === 'development' && app.get('is-testing') === undefined) {
         var webpackDevMiddleware = require("webpack-dev-middleware");
         var webpack = require("webpack");
         var webpackConfig = require('../config/webpack.config.dev.js');
@@ -141,7 +133,8 @@ function initGlobalMiddleware(app) {
 
     }
 
-
+    //GZip Support for all routes
+    app.use(compression());
 
     // Specify the public directory.
     app.use("/"+ config.dirs.pub, require('express').static(config.dirs.pub));
@@ -158,8 +151,7 @@ function initGlobalMiddleware(app) {
     // Parse cookies.
     app.use(cookieParser(config.strings.token));
 
-    //GZip Support
-    app.use(compression());
+
 
     // Session Handling
     app.use(session({

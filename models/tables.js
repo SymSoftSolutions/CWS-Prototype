@@ -1,5 +1,14 @@
 var db = require('../lib/db');
 
+/**
+ * Provides a global mapping for other functions to utilize across the app.
+ * @type {{fosterParent: string, caseWorker: string}}
+ */
+exports.roles = {
+    fosterParent: 'fosterParent',
+    caseWorker: 'caseWorker'
+}
+
 exports.createUserTable = createUserTable;
 exports.createMessageTable = createMessageTable;
 exports.createCaseTable = createCaseTable;
@@ -15,18 +24,17 @@ function createUserTable(table) {
     table.increments('userID'); //automatically the primary key
     table.timestamp('createdAt').notNullable().defaultTo(db.raw('now()'));
 
-    // Simple auth and  identification
+    // Simple auth and identification
     table.string('email').notNullable().unique();
     table.string('password').notNullable();
     table.string('firstName');
     table.string('lastName');
-    
+
     // User configuration across roles
     table.jsonb("userDetails");
 
-
     // simple roles
-    table.enu('role', ['fosterParent', 'caseWorker']).notNullable();
+    table.enu('role', [exports.roles.caseWorker, exports.roles.fosterParent]).notNullable();
 }
 
 

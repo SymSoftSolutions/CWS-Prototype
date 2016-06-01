@@ -1,5 +1,5 @@
 
-var jQuery = require('./jquery-2.2.4');
+var jQuery = require('./jquery-2.2.4.js');
 
 (function($, window, document) {
 

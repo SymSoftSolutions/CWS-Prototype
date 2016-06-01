@@ -14,5 +14,5 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-var jQuery = require('./jquery-2.2.4');
+var jQuery = require('./jquery-2.2.4.js');
 
