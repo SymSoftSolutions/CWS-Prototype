@@ -30,15 +30,50 @@ function createNewProfiles(router) {
      * If something goes wrong we redirect back to the forms to try again, but with a message to the user too.
      */
     router.post('/newprofile', function newProfileSave(req, res, next) {
-        // Check if required fields exist
+        allFieldsExist = true;
+        emailValid = true;
+        passwordsMatch = true;
 
-        // Check if email is already in system
+        // Check if required fields exist
+        if(req.body.email != null) {
+            // Check if email is already in system
+            if(dbUtils.checkExist('users', {'email': req.body.email})) {
+                emailValid = false;
+            }
+        } else {
+            allFieldsExist = false;
+        }
+
+        if(req.body.firstName == null ||
+           req.body.lastName  == null
+          ) {
+            allFieldsExist = false;
+        }
+
+        if(req.body.password == null) {
+            allFieldsExist = false;
+        } else {
+            if(req.body.confirmpassword == null) {
+                allFieldsExist = false;
+            } else {
+                passwordsMatch = (req.body.password == req.body.confirmpassword);
+            }
+        }
+
+        var formIsValid = allFieldsExist && emailValid && passwordsMatch;
 
         // If all good, insert user into db, then redirect to profile page
+        if(formIsValid) {
+            console.log('form is valid');
+            //TODO: insert logic for placing into database
+            var user = req.body;
+            user['role'] = 'fosterParent';
+            console.log(user);
+            
+            dbUtils.insertUser(user, function(err) {
+            });
+            res.render('forms/newprofile');
+        }
 
-
-        // dbUtils.listTableColumns('users').then((data) => {
-        //     res.render('501', {status: 501, url: req.url});
-        // });
     });
 }

@@ -7,41 +7,15 @@
 </div>
 
 <form action="/newprofile" method="post" class="container-fluid">
+                <input type="email" id="email" name="email" placeholder="example@email.com" class="input--flat">
 
-    <div class="row center-xs">
-        <div class="col-xs-12 col-sm-9 col-md-7 col-lg-5">
+                <input type="text" id="firstName" name="firstName" placeholder="John" class="input--flat">
+                <input type="text" id="lastName" name="lastName" placeholder="Doe" class="input--flat">
 
-            {{> flash}}
-            <input type="hidden" name="_csrf" value="{{_csrf }}">
-            <fieldset>
-                <strong> <label for="email">Email:</label></strong>
-                <input type="email" id="email" placeholder="example@email.com" class="input--flat">
-                <span class="input--help">Will be used for your unique identifier.</span>
-            </fieldset>
+                <input type="text" id="password" name="password" class="input--flat">
 
-            <fieldset>
-                <strong><label for="firstName">First Name:</label></strong>
-                <input type="text" id="firstName" placeholder="John" class="input--flat">
-                <strong><label for="lastName">Last Name:</label></strong>
-                <input type="text" id="lastName" placeholder="Doe" class="input--flat">
-
-                <strong> <label for="password">Password:</label></strong>
-                <input type="text" id="password" class="input--flat">
-
-                <strong><label for="confirmPassword">Confirm Password:</label></strong>
-                <input type="text" id="confirmPassword" class="input--flat">
-            </fieldset>
-        </div>
-
-    </div>
-    <div class="row center-xs">
-        <div class="col-xs-12 col-sm-9 col-md-7 col-lg-5">
+                <input type="text" id="confirmPassword" name="confirmpassword" class="input--flat">
             <input type="submit" value="Submit"/>
-            <div>
-                <a href="/login">Already have an account?</a>
-            </div>
-        </div>
-    </div>
 </form>
 
 

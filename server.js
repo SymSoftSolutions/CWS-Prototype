@@ -28,7 +28,7 @@ function setupServer(worker) {
 
 
     // setup middle across all routes
-    middleware.initGlobalMiddleware(app);
+    app = middleware.initGlobalMiddleware(app);
 
     // create a router covering all app's routes
     routes.createAllRoutes(router);
