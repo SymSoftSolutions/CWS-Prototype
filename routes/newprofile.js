@@ -35,16 +35,17 @@ function createNewProfiles(router) {
         passwordsMatch = true;
 
         // Check if required fields exist
-        if(req.body.firstName == null ||
-           req.body.lastName  == null
+        if(req.body.firstName == '' ||
+           req.body.lastName  == ''
           ) {
+            console.log('first name is nonexistent');
             allFieldsExist = false;
         }
 
-        if(req.body.password == null) {
+        if(req.body.password == '') {
             allFieldsExist = false;
         } else {
-            if(req.body.confirmPassword == null) {
+            if(req.body.confirmPassword == '') {
                 allFieldsExist = false;
             } else {
                 // Check that passwords match
