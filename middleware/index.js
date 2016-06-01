@@ -95,6 +95,15 @@ function initGlobalMiddleware(app) {
     // let our templates know what our enviroment is
     app.locals.env = app.get('env');
 
+    // Parse application/x-www-form-urlencoded
+    app.use(bodyParser.urlencoded({extended: false}))
+
+    // Parse application/json
+    app.use(bodyParser.json())
+
+    // Parse cookies.
+    app.use(cookieParser(config.strings.token));
+    
     //Uncomment this if you want strict routing (ie: /foo will not resolve to /foo/)
     //app.enable('strict routing');
 
@@ -149,14 +158,6 @@ function initGlobalMiddleware(app) {
     // Set default views directory.
     app.set('views', config.dirs.views);
 
-    // Parse application/x-www-form-urlencoded
-    app.use(bodyParser.urlencoded({extended: false}))
-
-    // Parse application/json
-    app.use(bodyParser.json())
-
-    // Parse cookies.
-    app.use(cookieParser(config.strings.token));
 
     //GZip Support
     app.use(compression());
