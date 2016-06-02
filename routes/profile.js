@@ -1,10 +1,15 @@
 'use strict';
 
+var roles = require('../models/tables').roles;
 var utils = require('../lib/utils');
 var config = require('../config');
 var dbUtils = require('../lib/dbUtils');
 var permission = require('permission');
+var multer = require('multer')
+var upload = multer()
 
+var path = require('path')
+var fs = require("fs");
 /**
  * The primary export for this file, the init function will set a number of routes required for
  * implementing a user profile page and supporting C.R.U.D. functionality.
@@ -13,23 +18,52 @@ var permission = require('permission');
  */
 exports.init = init;
 
-function init(router){
+
+
+
+function init(router) {
 
     // All of our profile page routes are accessible only by users with the
     // role of `fosterParent`, only after successful permissions will the user object
     // be available to the views.
-    router.use(permission('fosterParent'));
+    router.use(permission(Object.keys(roles).map(function(key){return roles[key]})));
     router.use(setUser);
 
 
-    router.get('/profile',  function (req, res) {
-        console.log( res.locals.user)
-        res.render('profile');
+    router.get('/profile', function (req, res) {
+        if(req.user.role == roles.caseWorker){
+            res.render('caseworker-profile');
+        }
+        if(req.user.role == roles.fosterParent){
+            res.render('profile');
+        }
+
     });
 
-    router.post('/updateprofile', function(req, res){
-           console.log(req.body)
-    })
+    router.post('/updateprofile', function (req, res) {
+        console.log(req.body)
+    });
+
+
+    router.post('/avatar', upload.single(), function (req, res) {
+
+        // png data uri
+        var avatarData = req.body.avatar;
+       dbUtils.updateUserAvatar(req.user, avatarData).then(function(){
+           res.redirect('/profile');
+       }).catch(function (e) {
+          throw e;
+       });
+
+    });
+
+    router.delete('/avatar', function (req, res) {
+        dbUtils.deleteUserAvatar(req.user).then(function () {
+            res.redirect('/profile');
+        }).catch(function (e) {
+           throw e;
+        });
+    });
 }
 
 /**

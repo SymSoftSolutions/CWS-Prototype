@@ -53,9 +53,9 @@ function createAllRoutes(router) {
     });
 
     newProfileRoutes.createNewProfiles(router);
-
     profileRoutes.init(router);
     inboxRoutes.init(router);
+
 
 }
 
