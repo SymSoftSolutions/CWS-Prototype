@@ -3,6 +3,30 @@ var tables = require('./tables');
 var dbUtils = require('../lib/dbUtils');
 exports.createAll = createAll;
 
+exports.testUser =  testUser;
+
+var testUser = {
+    firstName: 'firstTest',
+    lastName: 'lastTest',
+    password: '123',
+    email: "test@example.com",
+    role: 'fosterParent',
+    avatar: 'avatar-1464828717423',
+    userDetails: {
+        residence: {
+            address: "1234 no where",
+            city: "sac",
+            zipcode: '95843',
+            phone: '123-456-7890',
+            state: 'CA',
+            type: 'lease',
+            weapons: 'true'
+        }
+    }
+};
+
+exports.testUser =  testUser;
+
 function createTable(tableName, func) {
     return function () {
         return db.schema.hasTable(tableName).then(function (exists) {
@@ -22,32 +46,15 @@ function createTable(tableName, func) {
 
 function createTestObjects() {
 
-    function testUser(result) {
-        var user = {
-            firstName: 'test',
-            password: '123',
-            email: "test@example.com",
-            role: 'fosterParent',
-            userDetails: {
-                residence: {
-                    address: "1234 no where",
-                    city: "sac",
-                    zipcode: '95843',
-                    phone: '123-456-7890',
-                    state: 'CA',
-                    type: 'lease',
-                    weapons: 'true'
-                }
-            }
-        };
+    function insertTstUser(result) {
         if (!result.length) {
             console.log("Creating Test Objects")
-            return dbUtils.insertUser(user);
+            return dbUtils.insertUser(testUser);
         }
     }
 
     return db('users').whereExists(db.select('*').from('users').where('email', "test@example.com"))
-        .then(testUser).catch(function (e) {
+        .then(insertTstUser).catch(function (e) {
             console.log(e);
         });
 }

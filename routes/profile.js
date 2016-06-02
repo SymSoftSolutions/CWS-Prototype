@@ -4,6 +4,21 @@ var utils = require('../lib/utils');
 var config = require('../config');
 var dbUtils = require('../lib/dbUtils');
 var permission = require('permission');
+var path = require('path')
+var multer = require('multer')
+var storage = multer.diskStorage({
+    destination: config.dirs.avatars,
+    filename: function (req, file, cb) {
+        cb(null, createName(file))
+    }
+});
+
+var upload = multer({
+    storage: storage, limits: {
+        fileSize: 2000000,
+        files: 1
+    }
+}).single('avatar')
 
 /**
  * The primary export for this file, the init function will set a number of routes required for
@@ -13,7 +28,12 @@ var permission = require('permission');
  */
 exports.init = init;
 
-function init(router){
+
+function createName(file) {
+    return file.fieldname + '-' + Date.now() + file.mimetype;
+}
+
+function init(router) {
 
     // All of our profile page routes are accessible only by users with the
     // role of `fosterParent`, only after successful permissions will the user object
@@ -22,13 +42,32 @@ function init(router){
     router.use(setUser);
 
 
-    router.get('/profile',  function (req, res) {
-        console.log( res.locals.user)
+    router.get('/profile', function (req, res) {
+        console.log(res.locals.user)
         res.render('profile');
     });
 
-    router.post('/updateprofile', function(req, res){
-           console.log(req.body)
+    router.post('/updateprofile', function (req, res) {
+        console.log(req.body)
+    })
+
+
+    router.post('/avatar',  function (req, res) {
+        upload(req, res, function (err) {
+            if (err) {
+                console.log(err);
+                return;
+            }
+            if(!req.file){
+                return
+            }
+            dbUtils.updateUserAvater(req.user, req.file.filename).then(function(){
+            }).catch(function(e){
+                res.status(500).send('DB insert of avatar broke');
+            })
+        })
+        res.redirect('/profile');
+
     })
 }
 

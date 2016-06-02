@@ -36,6 +36,7 @@
     "handlebars": "^2.0.0-alpha.4",
     "knex": "^0.11.4",
     "morgan": "^1.2.2",
+    "multer": "^1.1.0",
     "nodemon": "^1.9.2",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
