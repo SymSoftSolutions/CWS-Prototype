@@ -1,6 +1,10 @@
 var expect = require('chai').expect;
 var dbUtils = require('../lib/dbUtils');
 
+var config = require('../config');
+var path = require('path')
+var fs = require("fs");
+
 // var request = require('supertest')
 // var app = require('../server').app;
 // app.set('is-testing', true);
@@ -72,6 +76,7 @@ describe('profile functionality', function () {
 
     describe('basic information', function () {
 
+
         it('can be updated on the database', function (done) {
             testUser.firstName = 'name change';
             dbUtils.updateBasicProfile(testUser)
@@ -91,6 +96,39 @@ describe('profile functionality', function () {
         });
 
         it('form fields from view properly update user row in database', function (done) {
+            done();
+        });
+    });
+
+
+    describe('avatars', function(){
+
+        var dataImage = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAAAAAA6fptVAAAACklEQVQYV2P4DwABAQEAWk1v8QAAAABJRU5ErkJggg==";
+       it('can be created on the database and filesystem', function(done){
+           dbUtils.updateUserAvatar(testUser, dataImage).then(function(name){
+               var filePath = path.resolve(config.dirs.avatars, name);
+               var stat = fs.statSync(filePath);
+               expect(stat.isFile()).to.be.true;
+               dbUtils.retrieveUser(testUser).then(function(user){
+                   expect(user.avatar).to.equal(name);
+                   done();
+               })
+           })
+       });
+
+        xit('will only keep one around per user');
+
+        it('can be deleted from the filesystem and database', function(done){
+            dbUtils.deleteUserAvatar(testUser).then(function(name){
+                var filePath = path.resolve(config.dirs.avatars, name);
+                var stat = fs.statSync(filePath);
+                expect(stat.isFile()).to.be.false;
+                dbUtils.retrieveUser(testUser).then(function(user){
+                    console.log(user);
+                    expect(user.avatar).to.be.undefined;
+                    done();
+                })
+            });
             done();
         });
     });

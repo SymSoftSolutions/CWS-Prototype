@@ -11,7 +11,7 @@ var testUser = {
     password: '123',
     email: "test@example.com",
     role: 'fosterParent',
-    avatar: 'avatar-1464828717423',
+    // empty avatar
     userDetails: {
         residence: {
             address: "1234 no where",

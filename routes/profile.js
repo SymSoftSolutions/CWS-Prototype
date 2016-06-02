@@ -4,22 +4,11 @@ var utils = require('../lib/utils');
 var config = require('../config');
 var dbUtils = require('../lib/dbUtils');
 var permission = require('permission');
-var path = require('path')
 var multer = require('multer')
-var storage = multer.diskStorage({
-    destination: config.dirs.avatars,
-    filename: function (req, file, cb) {
-        cb(null, createName(file))
-    }
-});
+var upload = multer()
 
-var upload = multer({
-    storage: storage, limits: {
-        fileSize: 2000000,
-        files: 1
-    }
-}).single('avatar')
-
+var path = require('path')
+var fs = require("fs");
 /**
  * The primary export for this file, the init function will set a number of routes required for
  * implementing a user profile page and supporting C.R.U.D. functionality.
@@ -29,9 +18,7 @@ var upload = multer({
 exports.init = init;
 
 
-function createName(file) {
-    return file.fieldname + '-' + Date.now() + file.mimetype;
-}
+
 
 function init(router) {
 
@@ -49,26 +36,28 @@ function init(router) {
 
     router.post('/updateprofile', function (req, res) {
         console.log(req.body)
-    })
+    });
 
 
-    router.post('/avatar',  function (req, res) {
-        upload(req, res, function (err) {
-            if (err) {
-                console.log(err);
-                return;
-            }
-            if(!req.file){
-                return
-            }
-            dbUtils.updateUserAvater(req.user, req.file.filename).then(function(){
-            }).catch(function(e){
-                res.status(500).send('DB insert of avatar broke');
-            })
-        })
-        res.redirect('/profile');
+    router.post('/avatar', upload.single(), function (req, res) {
 
-    })
+        // png data uri
+        var avatarData = req.body.avatar;
+       dbUtils.updateUserAvatar(req.user, avatarData).then(function(){
+           res.redirect('/profile');
+       }).catch(function (e) {
+          throw e;
+       });
+
+    });
+
+    router.delete('/avatar', function (req, res) {
+        dbUtils.deleteUserAvatar(req.user).then(function () {
+            res.redirect('/profile');
+        }).catch(function (e) {
+           throw e;
+        });
+    });
 }
 
 /**

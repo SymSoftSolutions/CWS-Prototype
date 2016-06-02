@@ -43,6 +43,7 @@
     "permission": "^1.0.4",
     "pg": "^4.5.5",
     "pikaday": "^1.4.0",
+    "toastr": "^2.1.2",
     "ypromise": "^0.2.3"
   },
   "devDependencies": {

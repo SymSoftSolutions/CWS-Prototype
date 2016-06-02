@@ -1,9 +1,7 @@
 <div class="container-fluid">
-    <img src="{{getAvatarPath user.avatar}}" alt="User Avatar">
-    <form action="avatar" method="post" enctype="multipart/form-data" id="avatarform">
-        <input type="file" name="avatar">
-    </form>
-    <button type="submit" form="avatarform" value="Submit">Save</button>
+
+    {{> profile/avatar this}}
+
     <form action="updateprofile" method="post" class="row center-xs" id="updateprofile">
         {{> profile/options}}
     </form>
