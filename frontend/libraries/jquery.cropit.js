@@ -219,7 +219,6 @@
                         this.$image = (0, _jquery2['default'])('<img />').addClass(_constants.CLASS_NAMES.PREVIEW_IMAGE).attr('alt', '').css({
                             transformOrigin: 'top left',
                             webkitTransformOrigin: 'top left',
-                            willChange: 'transform'
                         });
                         this.$imageContainer = (0, _jquery2['default'])('<div />').addClass(_constants.CLASS_NAMES.PREVIEW_IMAGE_CONTAINER).css({
                             position: 'absolute',
@@ -246,7 +245,6 @@
                                 top: this.bgBorderWidthArray[0],
                                 transformOrigin: 'top left',
                                 webkitTransformOrigin: 'top left',
-                                willChange: 'transform'
                             });
                             this.$bgContainer = (0, _jquery2['default'])('<div />').addClass(_constants.CLASS_NAMES.PREVIEW_BACKGROUND_CONTAINER).css({
                                 position: 'absolute',

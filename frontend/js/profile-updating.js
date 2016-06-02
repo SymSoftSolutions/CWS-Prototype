@@ -18,7 +18,6 @@ $(function() {
         onImageError: function() {
             toastr.error("Please use an image that's at least " + $(".cropit-image-preview").outerWidth() + "px in width and " + $(".cropit-image-preview").outerHeight() + "px in height."), $(".cropit-image-preview")
             $(".cropit-image-preview").removeClass("has-error")
-
         }
     });
 

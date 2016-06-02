@@ -4,10 +4,13 @@
     min-height:100px;
     max-width:150px;
     max-height:150px;
+    border-radius: 50%;
 }
 
 .avatar-placeholder {
     fill: getColor(state, muted);
+    border: 2px solid getColor(state, muted);
+    padding: 1em;
 }
 
 /* Hide file input */
@@ -20,9 +23,16 @@
     margin-top: 7px;
     width: 150px;
     height: 150px;
-
+    border-radius: 50%;
     .cropit-preview-image-container {
         cursor: move;
+        border-radius: 50%;
+    }
+    .cropit-preview {
+border-radius: 50%;
+    }
+    .cropit-preview-image {
+        will-change:  initial;
     }
     .image-size-label {
         margin-top: 10px;
