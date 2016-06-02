@@ -105,8 +105,9 @@ function respondToNewUser(formIsValid, req, res, next) {
             dbUtils.insertUser(user, function(err) {
                 console.log('error occured');
                 console.log(err);
-            });
+            }).then(function() {
             res.redirect('/login');
+            });
         } else {
             console.log('form is invalid');
             res.redirect('/newprofile');
