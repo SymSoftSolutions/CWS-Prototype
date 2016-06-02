@@ -1,16 +1,22 @@
 var jQuery = require('./libraries/jquery-2.2.4.js');
-//test
+
 var helpers = require('./js/helpers');
 require('./js/profile-updating');
+require('./js/inbox');
 
 // bring them in for their global code
 require('./libraries/jquery-accessibleMegaMenu');
 
-
+// import Bootstrap & Datatables stylesheets
+require('./bootstrap/bootstrap.scss');
+require('./css/datatables.css');
 
 // import our stylesheets
 require('./framework/framework.scss');
 
+// import Bootstrap & Datatables libraries
+require('./libraries/bootstrap');
+require('./libraries/datatables');
 
 // Init Our Accordion
 require('./libraries/accordion');
@@ -98,8 +104,3 @@ $('.js-select-simple').selectize({
     var selected = $(this).data('selected');
     $select[0].selectize.setValue(selected);
 })
-
-
-
-
-

@@ -18,6 +18,7 @@ var permission = require('permission');
 // Domain Specific Routes
 var newProfileRoutes = require('./newprofile');
 var profileRoutes = require('./profile');
+var inboxRoutes = require('./inbox');
 
 
 exports.createAllRoutes = createAllRoutes;
@@ -54,6 +55,7 @@ function createAllRoutes(router) {
     newProfileRoutes.createNewProfiles(router);
 
     profileRoutes.init(router);
+    inboxRoutes.init(router);
 
 }
 
