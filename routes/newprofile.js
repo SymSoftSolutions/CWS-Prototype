@@ -30,7 +30,7 @@ function createNewProfiles(router) {
      * If something goes wrong we redirect back to the forms to try again, but with a message to the user too.
      */
     router.post('/newprofile', function newProfileSave(req, res, next) {
-        respondToFormRequest(req, rest, next)
+        respondToFormRequest(req, res, next)
     });
 }
 
