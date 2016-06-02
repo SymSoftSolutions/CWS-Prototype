@@ -1,5 +1,6 @@
 'use strict';
 
+var roles = require('../models/tables').roles;
 var utils = require('../lib/utils');
 var config = require('../config');
 var dbUtils = require('../lib/dbUtils');
@@ -25,13 +26,18 @@ function init(router) {
     // All of our profile page routes are accessible only by users with the
     // role of `fosterParent`, only after successful permissions will the user object
     // be available to the views.
-    router.use(permission('fosterParent'));
+    router.use(permission(Object.keys(roles).map(function(key){return roles[key]})));
     router.use(setUser);
 
 
     router.get('/profile', function (req, res) {
-        console.log(res.locals.user)
-        res.render('profile');
+        if(req.user.role == roles.caseWorker){
+            res.render('caseworker-profile');
+        }
+        if(req.user.role == roles.fosterParent){
+            res.render('profile');
+        }
+
     });
 
     router.post('/updateprofile', function (req, res) {
