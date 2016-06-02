@@ -72,7 +72,9 @@ function init(router) {
  */
 function setUser(req, res, next) {
     if (req.user) {
-        res.locals.user = req.user
+        res.locals.user = req.user;
+        console.log('user data');
+        console.log(req.user);
     }
     next();
 };
