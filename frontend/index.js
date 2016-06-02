@@ -1,8 +1,13 @@
 var jQuery = require('./libraries/jquery-2.2.4.js');
 
 var helpers = require('./js/helpers');
-require('./js/profile-updating');
 require('./js/inbox');
+
+// bring in toaster styles
+import 'toastr/toastr.scss';
+
+// bring in our javascript for targeting our profile page elements
+require('./js/profile-updating.js');
 
 // bring them in for their global code
 require('./libraries/jquery-accessibleMegaMenu');

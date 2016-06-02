@@ -1,7 +1,40 @@
 var db = require('../lib/db');
 var tables = require('./tables');
 var dbUtils = require('../lib/dbUtils');
+
 exports.createAll = createAll;
+
+var testUser = {
+    firstName: 'John',
+    lastName: 'Doe',
+    password: '123',
+    email: "test@example.com",
+    role: tables.roles.fosterParent,
+    // empty avatar
+    userDetails: {
+        residence: {
+            address: "1234 no where",
+            city: "sac",
+            zipcode: '95843',
+            phone: '123-456-7890',
+            state: 'CA',
+            type: 'lease',
+            weapons: 'true'
+        }
+    }
+};
+exports.testUser =  testUser;
+
+var testCaseWorker = {
+    firstName: 'Jane',
+    lastName: 'Doe',
+    password: '123',
+    email: "case@example.com",
+    role: tables.roles.caseWorker
+};
+
+exports.testCaseWorker =  testCaseWorker;
+
 
 function createTable(tableName, func) {
     return function () {
@@ -21,35 +54,23 @@ function createTable(tableName, func) {
 }
 
 function createTestObjects() {
+    var users = [testUser, testCaseWorker];
 
-    function testUser(result) {
-        var user = {
-            firstName: 'test',
-            password: '123',
-            email: "test@example.com",
-            role: 'fosterParent',
-            userDetails: {
-                residence: {
-                    address: "1234 no where",
-                    city: "sac",
-                    zipcode: '95843',
-                    phone: '123-456-7890',
-                    state: 'CA',
-                    type: 'lease',
-                    weapons: 'true'
-                }
+
+    var promises = users.map(function(user){
+        function insertTstUser(result) {
+            if (!result.length) {
+                console.log("Creating Test Objects")
+                return dbUtils.insertUser(user);
             }
-        };
-        if (!result.length) {
-            console.log("Creating Test Objects")
-            return dbUtils.insertUser(user);
         }
-    }
+        var checkExist = db.select('*').from('users').where('email', user.email)
+        return db('users').whereExists(checkExist).then(insertTstUser)
 
-    return db('users').whereExists(db.select('*').from('users').where('email', "test@example.com"))
-        .then(testUser).catch(function (e) {
-            console.log(e);
-        });
+    })
+    return Promise.all(promises).catch(function (e) {
+        console.log(e);
+    });
 }
 
 

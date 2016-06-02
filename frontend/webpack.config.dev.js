@@ -3,7 +3,7 @@ process.env.NODE_ENV = 'development';
 
 const webpack = require('webpack');
 
-const config = require('./index');
+const config = require('./../config/index');
 
 const path = require('path');
 
