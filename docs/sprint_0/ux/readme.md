@@ -25,7 +25,7 @@ After our interview with Chris, we created User Personas. These personas map out
 - [Social Worker User Persona] (https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint_0/ux/photos/WebsitePersona_2-case-worker.pdf)
 
 ##3.	Product Wireframes
-![Photos & links to product wireframes](https://raw.githubusercontent.com/SymSoftSolutions/CWS-Prototype/2e3ceb04fa14e33d9181e88850c79cff4b9d95ac/docs/sprint_0/ux/photos/03_symsoft-solutions-chhs-rfi-75001_wireframes.jpg?token=AIBSn3kHL-ZDFmIlVOc-pZpn-f_H0VQWks5XUfg4wA%3D%3D)
+![Photos & links to product wireframes](https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint_0/ux/photos/03_symsoft-solutions-chhs-rfi-75001_wireframes.jpg)
 
 Prior to our interview with Chris, we created some quick, rough wireframes to use as discussion points during the interview. These wireframes helped us to have a visual reference to understand how Chris might look for foster family agencies, or how he might communicate with a case worker. After our interview, we created more wireframes to incorporate the feedback provided by Chris.
 
