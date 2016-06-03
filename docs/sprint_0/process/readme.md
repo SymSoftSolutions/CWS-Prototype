@@ -62,5 +62,19 @@ Content here
 ## Continuous Integration & Deployment <a id="ci_cd"></a>
 Content here
 
-## Application Architecture and Technologies Used <a id="arch-tech"></a> 
-Content here
+## Application Architecture and Technology Stack <a id="arch-tech"></a> 
+
+![Technology Stack](/docs/sprint_0/process/images/logocollage.png)
+The software tools which we rely on are listed in the following sections. These tools were chosen because of their excellent performance characteristics, robust API's, healthy open source communities, histories within the private-sector, flexible deployment options, a wealth of documentation, and much more such criteria.
+
+**Frameworks**
+
+Express provides our web application with a robust set of features and utility methods for creating web applications. Used internally at Netflix and commonly used as the E in the MEAN software stack, Express has an extensive history and is the de facto server framework for Node.js.
+
+For templating we use handlebarsjs as it provides the right balance between its syntax, logic primitives, and ease of use. Handlebar's strength comes from how its limited looping and primitives force onto developers the best practice of minimizing logic in views when possible.
+
+Knex.js is an SQL query builder for many SQL databases. It is designed to be flexible, and portable, and provides a full featured query and schema builder. Knex.js provides us the flexibility to iterate in a fast Agile Development model, while still providing clean and a maintainable API for long term maintenance.
+
+**Databases**
+
+We utilize the enterprise class database, PostgreSQL for our data persistence needs. Being a battle tested object-relational database, Postgres provides the data integrity features required for any reliable system. With geospatial features and native JSON and binary JSON columns, Postgres has excellent support for marshalling user configuration and other objects between our applications components.
