@@ -25,17 +25,18 @@ After our interview with Chris, we created User Personas. These personas map out
 - [Social Worker User Persona] (https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint_0/ux/photos/WebsitePersona_2-case-worker.pdf)
 
 ##3.	Product Wireframes
-![Photos & links to product wireframes](http://placehold.it/850x300)
+![Photos & links to product wireframes](https://raw.githubusercontent.com/SymSoftSolutions/CWS-Prototype/2e3ceb04fa14e33d9181e88850c79cff4b9d95ac/docs/sprint_0/ux/photos/03_symsoft-solutions-chhs-rfi-75001_wireframes.jpg?token=AIBSn3kHL-ZDFmIlVOc-pZpn-f_H0VQWks5XUfg4wA%3D%3D)
 
 Prior to our interview with Chris, we created some quick, rough wireframes to use as discussion points during the interview. These wireframes helped us to have a visual reference to understand how Chris might look for foster family agencies, or how he might communicate with a case worker. After our interview, we created more wireframes to incorporate the feedback provided by Chris.
 
-Links to wireframes
+- [Mobile wireframes (paper prototypes)] (https://popapp.in/w/projects/5745c12893a88e0830a4a87b/preview/574748c6646e073324c0dcf3)
+- [Desktop wireframes] (https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint_0/ux/photos/CSS%20First%20Version%20of%20Web%20-%20wireframes.pdf)
 
 Tools used:
 - Pencil & Paper 
 - White board
-- PopApp
-- Balsamiq
+- [PopApp] (https://popapp.in/)
+- [Balsamiq] (https://balsamiq.com/products/mockups/)
 
 ##4.	Design reviews / feedback with user (Performed usability tests with people.)
 ![Photos & links to product wireframes](http://placehold.it/850x300)
