@@ -76,7 +76,6 @@ describe('profile functionality', function () {
 
     describe('basic information', function () {
 
-
         it('can be updated on the database', function (done) {
             testUser.firstName = 'name change';
             dbUtils.updateBasicProfile(testUser)
@@ -100,8 +99,6 @@ describe('profile functionality', function () {
         });
     });
 
-
-
     describe('avatars', function(){
 
         var dataImage = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAAAAAA6fptVAAAACklEQVQYV2P4DwABAQEAWk1v8QAAAABJRU5ErkJggg==";
@@ -117,7 +114,7 @@ describe('profile functionality', function () {
            })
        });
 
-        xit('will only keep one around per user');
+        xit('will only keep one per user');
 
         it('can be deleted from the filesystem and database', function(done){
             dbUtils.deleteUserAvatar(testUser).then(function(name){
@@ -133,15 +130,14 @@ describe('profile functionality', function () {
             done();
         });
     });
-    
+
     describe('user details', function () {
         var updateQuery;
         before(function (done) {
             updateQuery = dbUtils.updateUserDetails(testUser, {testDetail: 2, details: [1, 2, 3]})
                 .finally(function () {
                     done();
-                })
-
+                });
         });
         it('can be updated on the database', function (done) {
             updateQuery.then(function (numberOfModifiedRows) {

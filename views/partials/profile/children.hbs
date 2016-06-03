@@ -1,20 +1,20 @@
 <fieldset>
     <legend>Child # {{index}}</legend>
     <strong><label for="relationship">Relationship with You?</label></strong>
-    <input type="text" id="relationship" name="children[][relationship]" class="input--flat">
+    <input type="text" id="relationship" name="userDetails[children][][relationship]" class="input--flat">
 
     <strong> <label for="dateofbirth">Date of Birth:</label></strong>
     <div class="row small-pad-xs">
-        <div class="col-xs">{{> months selected=child.dob.month name="children[][dob][month]"}}</div>
-        <div class="col-xs"><input type="text" name="children[][dob][day]" placeholder="day"></div>
-        <div class="col-xs"><input type="text" name="children[][dob][year]" placeholder="year"></div>
+        <div class="col-xs">{{> months selected=child.dob.month name="userDetails[children][][dob][month]"}}</div>
+        <div class="col-xs"><input type="text" name="userDetails[children][][dob][day]" placeholder="day"></div>
+        <div class="col-xs"><input type="text" name="userDetails[children][][dob][year]" placeholder="year"></div>
     </div>
 
     <label for="sex">Sex:</label>
     <div class="form--inline">
         <label for="sex-male">Male</label>
-        <input type="radio" name="children[][sex]" value="male" id="sex-male" />
+        <input type="radio" name="userDetails[children][][sex]" value="male" id="sex-male" />
         <label for="sex-male">Female</label>
-        <input type="radio" name="children[][sex]" value="female" id="sex-female" />
+        <input type="radio" name="userDetails[children][][sex]" value="female" id="sex-female" />
     </div>
 </fieldset>

@@ -18,9 +18,6 @@ var fs = require("fs");
  */
 exports.init = init;
 
-
-
-
 function init(router) {
 
     // All of our profile page routes are accessible only by users with the
@@ -42,6 +39,10 @@ function init(router) {
 
     router.post('/updateprofile', function (req, res) {
         console.log(req.body)
+        dbUtils.updateUserDetails(req.user, req.body ).then(function(){
+            res.redirect('/profile');
+        });
+
     });
 
 
@@ -73,8 +74,6 @@ function init(router) {
 function setUser(req, res, next) {
     if (req.user) {
         res.locals.user = req.user;
-        console.log('user data');
-        console.log(req.user);
     }
     next();
 };
