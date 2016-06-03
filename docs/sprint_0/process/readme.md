@@ -11,7 +11,18 @@
   * [Application Architecture and Technologies Used ](#arch-tech)
   
 ##Sprint Level Definition of Done <a id="sprint-done-definition"></a>
-Content here
+
+The sprint will be considered as done only when the following milestones and tasks are fully completed: 
+
+1. All the committed items for the Sprint are completed
+2. Unit tests were written and are passing
+3. Code reviews and resulting corrections to meet code standards have been performed
+4. All the code has been pushed to the master branch and it included relevant comments
+5. The builds are generated without errors
+6. Regression testing is completed
+7. Application has been deployed to test environment 
+8. Released version passed Product Manager Acceptance testing
+9. Relevant documentation has been produced or updated
 
 ## User Stories and Acceptance Criteria <a id="user-stories"></a>
 Content here
