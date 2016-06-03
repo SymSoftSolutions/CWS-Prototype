@@ -7,7 +7,6 @@
 @import 'custom/globals';
 
 
-
 // Globals
 @import 'core/globals/globals';
 
@@ -41,12 +40,10 @@
 @import 'components/dropdowns';
 @import 'components/groups';
 @import 'components/labels';
-@import 'components/modals';
+//@import 'components/modals';
 @import 'components/progress';
 @import 'components/spinner';
 @import 'components/tooltips';
-
-
 
 // Custom app specific styles and components
 @import 'custom/app';

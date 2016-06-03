@@ -115,7 +115,7 @@ function initGlobalMiddleware(app) {
     if (app.get('env') === 'development' && app.get('is-testing') === undefined) {
         var webpackDevMiddleware = require("webpack-dev-middleware");
         var webpack = require("webpack");
-        var webpackConfig = require('../config/webpack.config.dev.js');
+        var webpackConfig = require('../frontend/webpack.config.dev.js');
         var compiler = webpack(webpackConfig);
         app.use(webpackDevMiddleware(compiler, {
             publicPath: webpackConfig.output.publicPath,
@@ -154,7 +154,7 @@ function initGlobalMiddleware(app) {
         cookie: {
             httpOnly: true,
             // 1 minute, for testing, 4 hours for deploy
-            maxAge: (app.get('env') === 'development') ? 60000 : (60000 * 60 * 4)
+            maxAge: (app.get('env') === 'development') ? 600000 : (60000 * 60 * 4)
         },
         secure: false,
         rolling: true,

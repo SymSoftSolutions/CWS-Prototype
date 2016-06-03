@@ -52,8 +52,8 @@ function createAllRoutes(router) {
     });
 
     newProfileRoutes.createNewProfiles(router);
-
     profileRoutes.init(router);
+
 
 }
 

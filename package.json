@@ -36,12 +36,14 @@
     "handlebars": "^2.0.0-alpha.4",
     "knex": "^0.11.4",
     "morgan": "^1.2.2",
+    "multer": "^1.1.0",
     "nodemon": "^1.9.2",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "permission": "^1.0.4",
     "pg": "^4.5.5",
     "pikaday": "^1.4.0",
+    "toastr": "^2.1.2",
     "ypromise": "^0.2.3"
   },
   "devDependencies": {
