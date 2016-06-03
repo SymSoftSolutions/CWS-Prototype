@@ -30,6 +30,10 @@ function createUserTable(table) {
     table.string('firstName');
     table.string('lastName');
 
+    // avatar filename
+    table.string('avatar');
+
+
     // User configuration across roles
     table.jsonb("userDetails");
 

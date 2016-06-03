@@ -53,8 +53,8 @@ function createAllRoutes(router) {
 
     newProfileRoutes.createNewProfiles(router);
     messagingRoutes.processMessages(router);
-
     profileRoutes.init(router);
+
 
 }
 

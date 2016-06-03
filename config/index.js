@@ -38,7 +38,8 @@ module.exports = {
     views: path.resolve('views/'),
     layouts: path.resolve('views/layouts/'),
     partials: path.resolve('views/partials/'),
-    shared: path.resolve('shared/templates/')
+    shared: path.resolve('shared/templates/'),
+    avatars: path.resolve('public','avatars')
   },
 
   /**

@@ -1,7 +1,14 @@
 var jQuery = require('./libraries/jquery-2.2.4.js');
 //test
 var helpers = require('./js/helpers');
-require('./js/profile-updating');
+
+
+// bring in toaster styles
+import 'toastr/toastr.scss';
+
+
+// bring in our javascript for targeting our profile page elements
+require('./js/profile-updating.js');
 
 // bring them in for their global code
 require('./libraries/jquery-accessibleMegaMenu');
@@ -95,7 +102,7 @@ $('.js-select-simple').selectize({
     create: false
 }).each(function(){
     var $select = $(this).selectize();
-    var selected = $(this).data('selected');
+    var selected = $(this).data('selected').replace(',','');
     $select[0].selectize.setValue(selected);
 })
 
