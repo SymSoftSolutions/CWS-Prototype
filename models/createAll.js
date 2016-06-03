@@ -84,7 +84,7 @@ function createAll() {
 
 
 if (require.main === module) {
-    createAll().finally(createTestObjects).finally(function () {
+    createAll().finally(function () {
         console.log("\nDone Creating Tables");
         process.exit();
     })

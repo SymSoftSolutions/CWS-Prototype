@@ -8,6 +8,32 @@ var toastr = require('toastr');
 
 require('../libraries/jquery.cropit.js');
 
+
+// profile modifications
+
+$('.js-profile-add-adult').on('click touchstart', function(){
+     $.ajax({
+        'type':'GET',
+        'url':'/add/adults',
+        'cache':false
+    }).then(function(data){
+         $('.js-profile-adult-container').append(data);
+        })
+})
+
+$('.js-profile-add-children').on('click touchstart', function(){
+    $.ajax({
+        'type':'GET',
+        'url':'/add/children',
+        'cache':false
+    }).then(function(data){
+        $('.js-profile-children-container').append(data);
+    })
+})
+
+
+
+// Avatar
 $(function() {
     var $imageCropper = $('.image-editor').cropit({
         smallImage: 'stretch',
@@ -39,7 +65,7 @@ $(function() {
             'url':'/avatar',
             'cache':false,
         })
-        
+
         update.then(function() {
             // Display a success toast, with a title
             toastr.info('Avatar Updated')

@@ -29,12 +29,10 @@ function createUserTable(table) {
     table.string('password').notNullable();
     table.string('firstName');
     table.string('lastName');
-    
-    // avatar filename
-    table.string('avatar');
 
     // avatar filename
     table.string('avatar');
+
 
     // User configuration across roles
     table.jsonb("userDetails");
