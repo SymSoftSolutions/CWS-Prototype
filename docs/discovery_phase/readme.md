@@ -43,6 +43,11 @@ It helped us to understand the responsibilities and duties of a case worker and 
 
 We learn more about case workers interactions with foster parents and in which part of the process of getting a foster care license case workers are involved. 
 
+
+[The Guardian: A year in the life of a foster parent](http://www.theguardian.com/society/2010/nov/27/diary-of-a-foster-parent)
+
+This was really useful for understanding Foster Parents challenges and experiences. it helped a lot for preparing the interview questions we asked our potential user
+
 Initial Backlog
 ---------------
 After the initial analysis, we created the first version of the product backlog which was later refined during next Sprints
