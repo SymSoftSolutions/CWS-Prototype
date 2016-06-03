@@ -39,18 +39,22 @@ Tools used:
 - [Balsamiq] (https://balsamiq.com/products/mockups/)
 
 ##4.	Design reviews / feedback with user (Performed usability tests with people.)
-![Photos & links to product wireframes](http://placehold.it/850x300)
+![Photos & links to product wireframes](https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint_0/ux/photos/04_symsoft-solutions-chhs-rfi-75001_design-comps.jpg)
 
 After creating the rough wireframes, we designed a quick visual mockup for the visual style of the application. We took a mobile first approach, and used the CA.gov template as a framework for the design.
 
 We reviewed the design internally, starting with the home page design as a basis, and then created more mockups to illustrate additional functionality as needed.)
 
-(show mockups of all the images aligned)
+Mockups:
+- [Homepage (Mobile)] (https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint_0/ux/photos/mobile01.png)
+- [Homepage (Desktop)] (https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint_0/ux/photos/desktop.png)
+- [Inbox (Mobile & Desktop)] (https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint_0/ux/photos/inbox_mockups-all.pdf)
+- [User profile (Mobile & Desktop)] (https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint_0/ux/photos/profile_mockups_all.pdf)
 
 Tools used:
-- Unsplash (photo source)
-- Sketch 
-- http://template.webtools.ca.gov/
+- [Unsplash (photo source)] (https://unsplash.com/)
+- [Sketch App] (https://www.sketchapp.com/)
+- [ca.gov State Template] (http://template.webtools.ca.gov)
 
 ##5.	Created or used a design style guide and/or a pattern library. 
 ![Photos & links to product wireframes](http://placehold.it/850x300)
