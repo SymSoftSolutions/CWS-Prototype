@@ -6,6 +6,9 @@ var nodemon = require('gulp-nodemon');
 var config = require('./config');
 
 
+
+
+
 var backendTests = 'test/*.unit.test.js';
 var frontendTests = 'test/*.e2e.test.js';
 
@@ -48,11 +51,13 @@ function onError(err) {
 }
 
 gulp.task('test-backend', function () {
+
+
     gulp.src(backendTests)
         .pipe(mocha({
             reporter: 'spec',
             istanbul: false,
-        })).on("error", onError)
+        }))
 })
 
 

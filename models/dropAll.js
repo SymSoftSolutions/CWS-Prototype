@@ -1,5 +1,7 @@
 var db = require('../lib/db');
 
+
+
 function dropTables(tableName) {
     return function () {
         return db.raw('DROP TABLE IF EXISTS ' + tableName + ' CASCADE')
@@ -14,12 +16,21 @@ function dropTables(tableName) {
     }
 }
 
-dropTables('notes')()
-    .then(dropTables('cases'))
-    .then(dropTables('messages'))
-    .then(dropTables('users'))
-    .finally(function () {
+exports.dropAll = function dropAll() {
+    return dropTables('notes')()
+      .then(dropTables('cases'))
+      .then(dropTables('messages'))
+      .then(dropTables('users'))
+}
+
+
+
+if (require.main === module) {
+    dropAll().finally(function () {
         console.log("\nDone Dropping Tables");
         process.exit();
-    });
+    })
+}
+
+
 

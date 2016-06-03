@@ -2,42 +2,50 @@
     <label class="label--bold" for="ages-0-2">Ages 0 Months to 2 Years</label>
     <div class="form--inline" id="age-0-2">
         <label for="sex-male">Male</label>
-        <input type="checkbox" name="childpref[0-2][male]" value="true" id="sex-male" />
+        <input type="checkbox" name="userDetails[childpref][0-2][male]" value="true" id="sex-male"
+            {{checkedIfEqual childpref.0-2.male "true"}}/>
         <label for="sex-female">Female</label>
-        <input type="checkbox" name="childpref[0-2][female]" value="true" id="sex-female" />
+        <input type="checkbox" name="userDetails[childpref][0-2][female]" value="true" id="sex-female"
+            {{checkedIfEqual childpref.0-2.female "true"}} />
     </div>
 
 
     <label class="label--bold" for="age-2-9">Ages 2 Years to 9 Years</label>
     <div class="form--inline" id="ages-2-9">
         <label for="sex-male">Male</label>
-        <input type="checkbox" name="childpref[2-9][male]" value="true" id="sex-male" />
+        <input type="checkbox" name="userDetails[childpref][2-9][male]" value="true" id="sex-male" {{checkedIfEqual childpref.2-9.male "true"}} />
         <label for="sex-female">Female</label>
-        <input type="checkbox" name="childpref[2-9][female]" value="true" id="sex-female" />
+        <input type="checkbox" name="userDetails[childpref][2-9][female]" value="true" id="sex-female"
+            {{checkedIfEqual childpref.2-9.female "true"}}/>
     </div>
 
     <label class="label--bold" for="ages-10-17">Ages 10 Years to 17 Years</label>
     <div class="form--inline" id="ages-10-17">
         <label for="sex-male">Male</label>
-        <input type="checkbox" name="childpref[10-17][male]" value="true" id="sex-male" />
+        <input type="checkbox" name="userDetails[childpref][10-17][male]" value="true" id="sex-male"
+            {{checkedIfEqual childpref.10-17.male "true"}} />
         <label for="sex-female">Female</label>
-        <input type="checkbox" name="childpref[10-17][female]" value="true" id="sex-female" />
+        <input type="checkbox" name="userDetails[childpref][10-17][female]" value="true" id="sex-female"
+            {{checkedIfEqual childpref.10-17.female "true"}}/>
     </div>
 
 
     <label>Preferred Type of Children</label>
+
     <fieldset class="form--inline children-type-radio-group ">
         <div class=" ">
             <label for="type-non-ambulatory">Non-Ambulatory</label>
-            <input type="checkbox" name="childtype[non-ambulatory]" value="true" id="type-non-ambulatory" />
+            <input type="checkbox" name="userDetails[childtype][non-ambulatory]" value="true" id="type-non-ambulatory"
+                {{checkedIfEqual childtype.non-ambulatory "true"}}/>
         </div>
         <div class="">
             <label for="type-ambulatory">Ambulatory</label>
-            <input type="checkbox"  name="childtype[ambulatory]" value="true" id="type-ambulatory" />
+            <input type="checkbox"  name="userDetails[childtype][ambulatory]" value="true" id="type-ambulatory" {{checkedIfEqual childtype.ambulatory "true"}}/>
         </div>
         <div class="">
             <label for="type-special-needs">Special Health Needs</label>
-            <input type="checkbox" name="childtype[special-needs]" value="true" id="type-special-needs" />
+            <input type="checkbox" name="userDetails[childtype][special-needs]" value="true" id="type-special-needs"
+             {{checkedIfEqual childtype.special-needs "true"}}/>
         </div>
     </fieldset>
 

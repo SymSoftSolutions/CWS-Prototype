@@ -11,17 +11,27 @@
         </div>
 
         <h4 class="js-accordion__header" data-accordion-opened="true">Adults at your Home</h4>
-        <div class="js-accordion__panel">
-           {{> profile/adults index=1}}
+        <div class="js-accordion__panel ">
+            <div class="js-profile-adult-container">
+                {{#each user.userDetails.adults}}
+                    {{> profile/adults adult=this index=@index}}
+                {{/each}}
+            </div>
+            <button type="button" class="js-profile-add-adult">Add Adult</button>
         </div>
 
         <h4 class="js-accordion__header" data-accordion-opened="true">Children at your Home</h4>
-        <div class="js-accordion__panel">
-           {{> profile/children this index=1}}
+        <div class="js-accordion__panel ">
+            <div class="js-profile-children-container">
+                {{#each user.userDetails.children}}
+                    {{> profile/children child=this index=@index}}
+                {{/each}}
+            </div>
+            <button type="button" class="js-profile-add-children">Add Child</button>
         </div>
         <h4 class="js-accordion__header" data-accordion-opened="true">Children Preferences</h4>
         <div class="js-accordion__panel">
-            {{> profile/childrenpreferences this}}
+                {{> profile/childrenpreferences childpref=user.userDetails.childpref childtype=user.userDetails.childtype}}
         </div>
     </div>
 </div>

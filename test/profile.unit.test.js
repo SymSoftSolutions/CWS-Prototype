@@ -25,11 +25,10 @@ describe('profile functionality', function () {
 
     var testUserSuccess;
     before(function (done) {
-
-        dbUtils.insertUser(testUser).then(function (data) {
+        return dbUtils.insertUser(testUser).then(function (data) {
             // first user pack
             testUserSuccess = data[0];
-            done();
+             done();
         });
     });
 
@@ -51,27 +50,27 @@ describe('profile functionality', function () {
             expect(testUserSuccess.email).to.equal(testUser.email);
         });
 
-        it('cant have duplicate emails', function (done) {
+        xit('cant have duplicate emails', function (done) {
             done();
         });
 
-        it('must be created with a valid email', function (done) {
+        xit('must be created with a valid email', function (done) {
             done();
         });
 
-        it('must be created with a password', function (done) {
+        xit('must be created with a password', function (done) {
             done();
         });
 
-        it('have their passwords stored as hashes', function (done) {
+        xit('have their passwords stored as hashes', function (done) {
             done();
         });
 
-        it('can be retrieved with a valid user name and password pair', function (done) {
+        xit('can be retrieved with a valid user name and password pair', function (done) {
             done();
         });
 
-        it('shall be created on a router endpoint');
+        xit('shall be created on a router endpoint');
     });
 
     describe('basic information', function () {
@@ -103,7 +102,7 @@ describe('profile functionality', function () {
 
         var dataImage = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAAAAAA6fptVAAAACklEQVQYV2P4DwABAQEAWk1v8QAAAABJRU5ErkJggg==";
        it('can be created on the database and filesystem', function(done){
-           dbUtils.updateUserAvatar(testUser, dataImage).then(function(name){
+           dbUtils.updateUserAvatar(testUser, dataImage).then(function(name) {
                var filePath = path.resolve(config.dirs.avatars, name);
                var stat = fs.statSync(filePath);
                expect(stat.isFile()).to.be.true;
@@ -133,11 +132,17 @@ describe('profile functionality', function () {
 
     describe('user details', function () {
         var updateQuery;
+        var lastNameChange = 'changed last';
+
         before(function (done) {
-            updateQuery = dbUtils.updateUserDetails(testUser, {testDetail: 2, details: [1, 2, 3]})
+            updateQuery = dbUtils.updateUserDetails(testUser, {lastName: lastNameChange, badProp: 1, userDetails: {testDetail: 2, deep:{x: 1} } })
                 .finally(function () {
                     done();
-                });
+                })
+              .catch(function(e){
+                  console.log(e);
+                  done();
+              })
         });
         it('can be updated on the database', function (done) {
             updateQuery.then(function (numberOfModifiedRows) {
@@ -154,12 +159,19 @@ describe('profile functionality', function () {
                     done();
                 })
         });
-        
-        it('adds new  properties', function (done) {
+
+        it('does not add new columns via erroneous properties', function(done){
+            dbUtils.retrieveUser(testUser)
+              .then(function (user) {
+                  expect(user.badProp).to.be.undefined;
+                  done();
+              })
+        })
+
+        it('adds new properties to the userDetails', function (done) {
             dbUtils.retrieveUser(testUser)
                 .then(function (user) {
-                    expect(user).not.undefined;
-                    expect(user.userDetails.details).to.deep.equal([1, 2, 3]);
+                    expect(user.userDetails.deep.x).to.deep.equal(1);
                     done();
                 })
         });
