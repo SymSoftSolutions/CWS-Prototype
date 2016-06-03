@@ -9,7 +9,7 @@ About this sprint
 
 ##1.	<a name="first"></a>Foster Parent Interview
 ###Gather customer data, and requirements – (ux technique)
-![Photos of foster parent interview](http://placehold.it/850x300)
+![Photos of foster parent interview](https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint_0/ux/photos/01_symsoft-solutions-chhs-rfi-75001_foster-parent-interview_850x300.jpg)
 ##2.	User Personas – ux techniques
 ![Photos & links to user personas](http://placehold.it/850x300)
 ##3.	Product Wireframes
