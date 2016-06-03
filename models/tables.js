@@ -67,11 +67,6 @@ function createMessageTable(table) {
         .notNullable()
         .references('userID').inTable('users');
 
-    table.integer('caseID')
-        .unsigned()
-        .notNullable()
-        .references('caseID').inTable('cases');
-
     //contacting
     table.string('subject');
     table.string('message');

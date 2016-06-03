@@ -50,7 +50,6 @@ function createTestObjects() {
         var message = {
             recipientID: 1,
             fromID: 1,
-            caseID: 1,
             subject: 'testSubject',
             message: 'testMessage',
             hasRead: false
