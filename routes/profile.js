@@ -21,7 +21,6 @@ function init(router){
     router.use(permission('fosterParent'));
     router.use(setUser);
 
-
     router.get('/profile',  function (req, res) {
         console.log( res.locals.user)
         res.render('profile');

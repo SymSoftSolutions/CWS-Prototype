@@ -46,10 +46,34 @@ function createTestObjects() {
         }
     }
 
-    return db('users').whereExists(db.select('*').from('users').where('email', "test@example.com"))
+    function testMessage(result) {
+        var message = {
+            recipientID: 1,
+            fromID: 1,
+            caseID: 1,
+            subject: 'testSubject',
+            message: 'testMessage',
+            hasRead: false
+        };
+        if (!result.length) {
+            console.log("Creating Test Objects")
+            return dbUtils.addMessage(message);
+        }
+    }
+    
+    var promise1 = db('users').whereExists(db.select('*').from('users').where('email', "test@example.com"))
         .then(testUser).catch(function (e) {
             console.log(e);
         });
+    var promise2 = db('messages').whereExists(db.select('*').from('messages').where('subject', "testSubject"))
+        .then(testMessage).catch(function (e) {
+            console.log(e);
+        });
+     var promiseArray = [];
+     promiseArray.push(promise1);
+     promiseArray.push(promise2);
+
+     return Promise.all(promiseArray);
 }
 
 
