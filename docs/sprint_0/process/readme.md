@@ -3,13 +3,36 @@
 
 **Table of Contents**
 
+  * [Iterative Approach](#agile-approach)  
   * [Sprint Level Definition of Done](#sprint-done-definition)
   * [User Stories and Acceptance Criteria](#user-stories)
   * [Code Standards and Design Guidelines](#code-design)
   * [Release Level Definition of Done](#done-definition)
   * [Continuous Integration & Deployment ](#ci_cd)
-  * [Application Architecture and Technologies Used ](#arch-tech)
+  * [Application Architecture and Technology Stack ](#arch-tech)
   
+##Iterative Approach <a id="agile-approach"></a>
+
+For the development of this prototype, we adhered to the [principles of the agile manifesto](http://www.agilemanifesto.org/principles.html). Given those principles we focused on generate usable software since the first iteration rather than create independent software components that do not provide value to the end user.
+
+**Traditional Approach**
+
+![Traditional Approach](/docs/sprint_0/process/images/traditionalapproach.png)
+
+**Agile Approach**
+
+![Agile Approach](/docs/sprint_0/process/images/agileapproach.png)
+
+**Scrum as Our Development Framework**
+
+We decided to use Scrum to help us to deliver the prototype quickly while promoting transparency and adaptation, although we know that there are some other agile development frameworks we believe that Scrum makes sense for the process of demonstrating our Agile capabilities and expertise.
+
+**User Centered Design and Agile Development**
+
+TODO: update this description and image 
+
+![SymSoft Process](/docs/sprint_0/process/images/ourprocess.png)
+
 ##Sprint Level Definition of Done <a id="sprint-done-definition"></a>
 
 The sprint will be considered as done only when the following milestones and tasks are fully completed: 
@@ -64,8 +87,8 @@ Express provides our web application with a robust set of features and utility m
 
 For templating we use handlebarsjs as it provides the right balance between its syntax, logic primitives, and ease of use. Handlebar's strength comes from how its limited looping and primitives force onto developers the best practice of minimizing logic in views when possible.
 
-Knex.js is an SQL query builder for many SQL databases. It is designed to be flexible, and portable, and provides a full featured query and schema builder. Knex.js provides us the flexibility to iterate in a fast Agile Development model, while still providing clean and a maintainable API for long term maintenance.
+Knex.js is an SQL query builder for many SQL databases. It is designed to be flexible, and portable, and provides a full featured query and schema builder. Knex.js provides us the flexibility to iterate in an Agile Development model, while still providing clean and a maintainable API for long term maintenance.
 
-**Databases**
+**Data Persistence**
 
 We utilize the enterprise class database, PostgreSQL for our data persistence needs. Being a battle tested object-relational database, Postgres provides the data integrity features required for any reliable system. With geospatial features and native JSON and binary JSON columns, Postgres has excellent support for marshalling user configuration and other objects between our applications components.
