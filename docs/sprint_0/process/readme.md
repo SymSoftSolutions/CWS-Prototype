@@ -67,10 +67,19 @@ A PDF with the complete description of user stories and acceptance criteria can 
 
 
 ## Code Standards and Design Guidelines <a id="code-design"></a>
-Content here
 
 ## Release Level Definition of Done <a id="done-definition"></a>
-Content here
+1.	All the user stories and tasks committed for the release are completed
+2.	All the code has been pushed to the master branch and it included relevant comments
+3.	All unit tests are passing
+4.	Regression testing has been successfully completed
+5.	There are no software defects for the release
+6.	Released version passed Product Manager Acceptance testing
+7.	Application has been deployed to the production environment
+8.	Relevant documentation has been produced or updated
+9.	Application monitoring is up and running
+10.	Application and Environment security has been tested and validated
+
 
 ## Continuous Integration & Deployment <a id="ci_cd"></a>
 Content here
