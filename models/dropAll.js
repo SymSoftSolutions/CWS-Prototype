@@ -26,7 +26,7 @@ exports.dropAll = function dropAll() {
 
 
 if (require.main === module) {
-    dropAll().finally(function () {
+    exports.dropAll().finally(function () {
         console.log("\nDone Dropping Tables");
         process.exit();
     })
