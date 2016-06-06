@@ -5,20 +5,16 @@ var config = require('../config');
 var dbUtils = require('../lib/dbUtils');
 var exports = module.exports = utils.requireDir(__dirname);
 
-
-
-
 // var middleware = require('../middleware');
 
 var passport = require('passport');
 var permission = require('permission');
 
-
-
 // Domain Specific Routes
 var newProfileRoutes = require('./newprofile');
 var profileRoutes = require('./profile');
 var messagingRoutes = require('./privatemessage');
+var dbCalls = require('./dbCalls');
 var inboxRoutes = require('./inbox');
 
 exports.createAllRoutes = createAllRoutes;
@@ -57,7 +53,7 @@ function createAllRoutes(router) {
     messagingRoutes.getMessageData(router);
     profileRoutes.init(router);
     inboxRoutes.init(router);
-
+    dbCalls.init(router);
 
 }
 
