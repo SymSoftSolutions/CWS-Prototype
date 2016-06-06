@@ -1,6 +1,3 @@
-
-
-
 // Functions ans sass extensions
 @import 'core/globals/functions';
 @import 'core/globals/mixins';
@@ -15,14 +12,14 @@
 
 // Natives
 @import 'core/layout/base';
-//@import 'core/layout/blockquotes';
-//@import 'core/layout/buttons';
+@import 'core/layout/blockquotes';
+@import 'core/layout/buttons';
 @import 'core/layout/forms';
 @import 'core/layout/headings';
-//@import 'core/layout/lists';
-//@import 'core/layout/print';
-//@import 'core/layout/tables';
-//@import 'core/layout/type';
+@import 'core/layout/lists';
+@import 'core/layout/print';
+@import 'core/layout/tables';
+@import 'core/layout/type';
 
 // grid
 
@@ -51,4 +48,3 @@
 // Custom app specific styles and components
 @import 'custom/app';
 @import 'custom/inbox';
-
