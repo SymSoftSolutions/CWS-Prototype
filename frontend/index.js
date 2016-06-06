@@ -16,6 +16,9 @@ require('./libraries/jquery-accessibleMegaMenu');
 require('./bootstrap/bootstrap.scss');
 require('./css/datatables.css');
 
+
+require('./js/locations');
+
 // import our stylesheets
 require('./framework/framework.scss');
 

@@ -3,11 +3,11 @@
 @import './variables';
 @import './mixins';
 
-.container-fluid {
+.container-fluid-flex {
     @include container-fluid();
 }
 
-.row {
+.row-flex {
     @include row();
 }
 
