@@ -18,31 +18,67 @@ var fs = require("fs");
  */
 exports.init = init;
 
-
-
-
 function init(router) {
 
     // All of our profile page routes are accessible only by users with the
-    // role of `fosterParent`, only after successful permissions will the user object
+    // role of fosterParent or caseWorker, and only after successful permissions will the user object
     // be available to the views.
     router.use(permission(Object.keys(roles).map(function(key){return roles[key]})));
+    // All views get a res.locals.user object set
     router.use(setUser);
 
-
+    /**
+     * The primary profile route shows basic profile information for users
+     */
     router.get('/profile', function (req, res) {
         if(req.user.role == roles.caseWorker){
             res.render('caseworker-profile');
         }
         if(req.user.role == roles.fosterParent){
-            res.render('profile');
+            dbUtils.getUserCaseWorker(req.user).then(function(caseWorker){
+                res.locals.caseWorker = caseWorker;
+                res.render('profile');
+            })
+
         }
+    });
+
+
+    /**
+     * The
+     */
+    router.post('/update/', function (req, res) {
+        console.dir(req.body, {depth:null, colors: true})
+
+        req.session.adultcount = 0;
+        req.session.childcount = 0
+        dbUtils.updateUserDetails(req.user, req.body ).then(function(){
+            res.redirect('/profile');
+        });
 
     });
 
-    router.post('/updateprofile', function (req, res) {
-        console.log(req.body)
-    });
+
+    router.get('/add/adults', function(req, res){
+        var n = req.session.adultcount || 0
+        req.session.adultcount = ++n
+        res.locals.index = req.session.adultcount;
+          console.log(res.locals.index)
+        res.render('partials/profile/adults', {layout: false});
+    })
+
+    router.get('/add/children', function(req, res){
+        var n = req.session.childcount || 0
+        req.session.childcount = ++n
+        res.locals.index = req.session.childcount;
+        console.log(res.locals.index)
+        res.render('partials/profile/children', {layout: false});
+    })
+
+    router.post('/update/:prop', function(req, res){
+        console.log(req.params.prop);
+
+    })
 
 
     router.post('/avatar', upload.single(), function (req, res) {
@@ -72,7 +108,21 @@ function init(router) {
  */
 function setUser(req, res, next) {
     if (req.user) {
-        res.locals.user = req.user
+        res.locals.user = req.user;
     }
     next();
 };
+
+
+function checkNested(obj /*, level1, level2, ... levelN*/) {
+    var args = Array.prototype.slice.call(arguments, 1);
+
+    for (var i = 0; i < args.length; i++) {
+        if (!obj || !obj.hasOwnProperty(args[i])) {
+            return false;
+        }
+        obj = obj[args[i]];
+    }
+    return true;
+}
+

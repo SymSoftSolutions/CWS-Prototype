@@ -106,6 +106,6 @@ $('.js-select-simple').selectize({
     create: false
 }).each(function(){
     var $select = $(this).selectize();
-    var selected = $(this).data('selected');
+    var selected = $(this).data('selected').replace(',','');
     $select[0].selectize.setValue(selected);
 })

@@ -34,8 +34,19 @@ $(document).ready(function() {
         "paging":   true,
         "ordering": false,
         "pageLength": 5,
-        "sDom":     'tr'
+        "sDom":     'tr',
+        "ajax": {
+            "url": '/getMessages',
+            "type": "POST"
+        },
+        "deferRender": true
     });
+
+    /*
+    jQuery.post('/getMessages',{}, function(response, statusString) {
+        
+    });
+    */
 
     $("#inbox_searchbox").keyup(function() {
         dataTable.search(this.value).draw();

@@ -30,7 +30,7 @@ function createNewProfiles(router) {
      * If something goes wrong we redirect back to the forms to try again, but with a message to the user too.
      */
     router.post('/newprofile', function newProfileSave(req, res, next) {
-        respondToFormRequest(req, rest, next)
+        respondToFormRequest(req, res, next)
     });
 }
 
@@ -105,8 +105,9 @@ function respondToNewUser(formIsValid, req, res, next) {
             dbUtils.insertUser(user, function(err) {
                 console.log('error occured');
                 console.log(err);
-            });
+            }).then(function() {
             res.redirect('/login');
+            });
         } else {
             console.log('form is invalid');
             res.redirect('/newprofile');

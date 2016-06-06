@@ -8,6 +8,32 @@ var toastr = require('toastr');
 
 require('../libraries/jquery.cropit.js');
 
+
+// profile modifications
+
+$('.js-profile-add-adult').on('click touchstart', function(){
+     $.ajax({
+        'type':'GET',
+        'url':'/add/adults',
+        'cache':false
+    }).then(function(data){
+         $('.js-profile-adult-container').append(data);
+        })
+})
+
+$('.js-profile-add-children').on('click touchstart', function(){
+    $.ajax({
+        'type':'GET',
+        'url':'/add/children',
+        'cache':false
+    }).then(function(data){
+        $('.js-profile-children-container').append(data);
+    })
+})
+
+
+
+// Avatar
 $(function() {
     var $imageCropper = $('.image-editor').cropit({
         smallImage: 'stretch',
@@ -39,7 +65,7 @@ $(function() {
             'url':'/avatar',
             'cache':false,
         })
-        
+
         update.then(function() {
             // Display a success toast, with a title
             toastr.info('Avatar Updated')
@@ -61,38 +87,3 @@ $(function() {
     });
 });
 
-// Cache selectors
-var html = $('html'),
-    demo = $('.demo'),
-    modal = $('.modal'),
-    modalShow = $('.js-avatar-editor-show'),
-    modalHide = $('.modal-hide'),
-    modalWrapper = $('.modal-wrapper');
-
-// Modal Show
-modalShow.on('click touchstart', function(e) {
-    e.preventDefault();
-    html.addClass('no-scroll');
-    modal.addClass('is-visible');
-    demo.attr('aria-hidden', 'true');
-    modal.attr({
-        'aria-hidden': 'false',
-        'open': 'true',
-        'tabindex': '0'
-    });
-});
-
-// Modal Hide
-modalHide.on('click touchstart', function(e) {
-    e.preventDefault();
-    html.removeClass('no-scroll');
-    modal.removeClass('is-visible');
-    demo.attr('aria-hidden', 'false');
-    modal.attr('aria-hidden', 'true');
-    modal.removeAttr('open tabindex');
-});
-
-// Prevent toggle event from bubbling
-modalWrapper.on('click touchstart', function(e) {
-    e.stopPropagation();
-});
