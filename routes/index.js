@@ -32,7 +32,7 @@ function createAllRoutes(router) {
 
 
     router.post('/auth', passport.authenticate('local', {
-        successRedirect: '/profile', // redirect to the secure profile section
+        successRedirect: '/inbox', // redirect to the secure profile section
         failureRedirect: '/login', // redirect back to the signup page if there is an error
         failureFlash: true // allow flash messages
     }));
