@@ -1,15 +1,13 @@
 #Sprint 0 - UX
-About this sprint
 
 ###Table of Contents
- 1. Foster Parent Interview
- 2. User Personas
- 3. Product Wireframes
- 4. Design Reviews
- 5. Design Guide and Pattern Library
+ 1. [Foster Parent Interview] (#interview)
+ 2. [User Personas] (#user-persona)
+ 3. [Product Wireframes] (#wireframes)
+ 4. [Design Reviews] (#design-review)
+ 5. [Design Guide and Pattern Library] (#design-guide)
 
-##1.	<a name="first"></a>Foster Parent Interview
-###Gather customer data, and requirements – (ux technique)
+##1.	Foster Parent Interview <a id="interview"></a>
 ![Photos of foster parent interview](https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint_0/ux/photos/01_symsoft-solutions-chhs-rfi-75001_foster-parent-interview_850x300.jpg)
 
 We interviewed Chris, a Foster parent with experience fostering and eventually adopting his two kids in the Los Angeles area. From Chris, we learned that location, communication, and networking are essential to get started as a foster parent. Since Chris had to take required on-site classes every week, he had to find a training facility that was not too far from home. Once he did become a foster parent, he needed a way to schedule weekly visits with his case worker, and monthly visits with the county case worker. Chris was fortunate enough to receive support and guidance through an organization for new foster parents, but didn't think that most of these organizations were well known for most new foster parents.
@@ -18,7 +16,7 @@ We interviewed Chris, a Foster parent with experience fostering and eventually a
  - [Findings from Chris] (https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint_0/ux/interview-findings_from-chris.md)
 
 
-##2.	User Personas
+##2.	User Personas <a id="user-persona"></a>
 ![Photos & links to user personas](https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint_0/ux/photos/02_symsoft-solutions-chhs-rfi-75001_user-personas.jpg)
 
 After our interview with Chris, we created User Personas. These personas map out the pain points, motivations, needs, and challenges for Foster Parents and Social Workers. Based on Chris's feedback, we imagined the motivations for a foster parent using the web application and what functionalities might be helpful for them. Given the overwhelming workload of the Social Workers, we realized that keeping communications organized and being able to easily find and contact Foster Parents was a must-have from the point of view of a Foster Parent.
@@ -26,7 +24,7 @@ After our interview with Chris, we created User Personas. These personas map out
 - [Foster Parent User Persona] (https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint_0/ux/photos/WebsitePersona_1-foster-parent.pdf)
 - [Social Worker User Persona] (https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint_0/ux/photos/WebsitePersona_2-case-worker.pdf)
 
-##3.	Product Wireframes
+##3.	Product Wireframes <a id="wireframes"></a>
 ![Photos & links to product wireframes](https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint_0/ux/photos/03_symsoft-solutions-chhs-rfi-75001_wireframes.jpg)
 
 Prior to our interview with Chris, we created some quick, rough wireframes to use as discussion points during the interview. These wireframes helped us to have a visual reference to understand how Chris might look for foster family agencies, or how he might communicate with a case worker. After our interview, we created more wireframes to incorporate the feedback provided by Chris.
@@ -40,7 +38,7 @@ Tools used:
 - [PopApp] (https://popapp.in/)
 - [Balsamiq] (https://balsamiq.com/products/mockups/)
 
-##4.	Design reviews / feedback with user
+##4.	Design reviews / feedback with user <a id="design-review"></a>
 ![Photos & links to product wireframes](https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint_0/ux/photos/04_symsoft-solutions-chhs-rfi-75001_design-comps.jpg)
 
 After creating the rough wireframes, we designed a quick visual mockup for the visual style of the application. We took a mobile first approach, and used the CA.gov template as a framework for the design.
@@ -58,11 +56,12 @@ Tools used:
 - [Sketch App] (https://www.sketchapp.com/)
 - [ca.gov State Template] (http://template.webtools.ca.gov)
 
-##5.	Used a design guide and pattern library
+##5.	Design Guide and Pattern Library <a id="design-guide"></a>
 ![Pattern libraries](https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint_0/ux/photos/05_symsoft-solutions-chhs-rfi-75001_style-guide.jpg)
 
 To guide development, we used styles and pre-built pattern libraries from the [ca.gov web templates] (http://template.webtools.ca.gov/), which includes:
--[Bootstrap] (http://getbootstrap.com/) for mobile first development
+
+- [Bootstrap] (http://getbootstrap.com/) for mobile first development
 - Accessibility framework
 - [Customizable stylesheets] (http://template.webtools.ca.gov/sample/index.html)
 - [Oceanside color scheme] (http://template.webtools.ca.gov/sample/colorscheme-oceanside.html)
