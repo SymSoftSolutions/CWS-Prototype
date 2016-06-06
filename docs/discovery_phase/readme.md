@@ -12,6 +12,7 @@ We achieved this, by doing research on different information sources.
 
 Websites Research
 -----------------
+![Websites Research](/docs/discovery_phase/images/websites.png)
 
 We did a research on relevant websites, some of the most relevant we look into are listed below:
 
@@ -21,11 +22,11 @@ This helped us to understand foster care program and the actors involved during 
 
 [Foster Family Home Application](http://www.cdss.ca.gov/cdssweb/entres/forms/English/LIC283.pdf)
 
-By looking into this application we identified the data fields captured during the actual application to get a foster family license. We used this to define the information that should be part the Parent profile in the prototype.
+By looking into this application we identified the data fields captured during the actual application to get a foster family license. We used this to define the information to be part the Parent profile for the prototype development.
 
 [The CDSS Care Facility Search web page](https://secure.dss.ca.gov/CareFacilitySearch/home/index) 
 
-We identified how the CHHS Open data is being used for an existing application. We also identified some additional useful information being used which is not part of this project data set  but that effort resulted in a better understanding of the user interaction with this data.
+We identified how the CHHS Open data is being used for an existing application. We also identified some additional useful information being used which was not part of this project data set but that effort resulted in a better understanding of the user interaction with this data.
 
 [TIES for family’s website](http://www.tiesforadoption.ucla.edu/)
 
@@ -33,7 +34,7 @@ The foster parent we interviewed during the discovery phase mentioned this as th
 
 [Foster Parent FAQs](http://www.childsworld.ca.gov/PG1347.htm)
 
-We were able to identify some of the most basic questions that potential Foster Parents have, then we asked about some of these to the foster parent we interviewed to understand if that information was enough during the real process. This exercise was helpful during the definition of User Personas.
+We were able to identify some of the most basic questions potential Foster Parents have, then we asked the foster parent we intereviewed about some of these to findout if that information was enough during the real process. This exercise was helpful during the definition of User Personas.
 
 [California Foster Families Case Worker Job Description](http://www.cafosterfamilies.com/employment.htm)
 
@@ -41,12 +42,11 @@ It helped us to understand the responsibilities and duties of a case worker and 
 
 [Study.com: Job Description for a Foster Parent Case Worker](http://study.com/articles/Job_Description_of_a_Foster_Care_Caseworker.html) 
 
-We learn more about case workers interactions with foster parents and in which part of the process of getting a foster care license case workers are involved. 
-
+We learnt more about case workers interactions with foster parents and in which part of the process of getting a foster care license case workers are involved. 
 
 [The Guardian: A year in the life of a foster parent](http://www.theguardian.com/society/2010/nov/27/diary-of-a-foster-parent)
 
-This was really useful for understanding Foster Parents challenges and experiences. it helped a lot for preparing the interview questions we asked our potential user
+This was really useful for understanding Foster Parents challenges and experiences. it helped a lot for preparing the interview questions we asked during the interview to a foster parent.
 
 Initial Backlog
 ---------------
@@ -63,4 +63,3 @@ Our initial backlog contained the following items:
 7.	User Role Authentication 
 8.	Case Worker Inbox
 9.	Case Worker Send Messages
-
