@@ -40,7 +40,6 @@ function processMessages(router) {
             message['message']      = req.body.text;
             message['hasRead']      = false;
 
-            console.log(message);
             var allFieldsExist = false;
             if(message['subject']       != null &&
                message['message']       != null &&
@@ -50,12 +49,12 @@ function processMessages(router) {
                 if(!allFieldsExist) {
                     req.flash('error', 'Required fields not filled');
                 }
-                res.redirect('/sendMessage');
+                req.flash('success', 'Message sent!');
+                res.redirect('/inbox');
                 return;
             }
 
             dbUtils.checkExist('users', {'userID': message['recipientID']}, function(err, recipientExists) {
-                console.log('inside check exist callback');
 
                 if(err) {
                     res.render('501', {status: 501, url: req.url});
@@ -72,7 +71,6 @@ function processMessages(router) {
             });
         }
         else {
-            console.log('no user');
             res.render('501', {status: 501, url: req.url});
         }
     });
@@ -88,15 +86,16 @@ function getMessageData(router) {
         //var byRecipient = req.body.bySender; //If false, assumed to be asking for emails by sender - ones that were send by user
         var byRecipient = true;
         var userID = req.user.userID;
-        
-        console.log('everything turns to ash');
 
         if(byRecipient) {
             dbUtils.getRecievedMessages(userID).then(function(messageList) {
+                console.log('recieved request');
+                messageList = formatMessageData(messageList);
                 res.send(messageList);
             });
         } else {
             dbUtils.getUserMessages(userID).then(function(messageList) {
+                messageList = formatMessageData(messageList);
                 res.send(messageList);
             });
         }
@@ -109,4 +108,17 @@ function getMessageData(router) {
       */
      router.post('/getRelevantAddresses', function(req, res) {
      });
+}
+
+function formatMessageData(messageList) {
+    var newList = [];
+    for(var index in messageList) {
+        var message = messageList[index];
+        var column_array =[message.fromID, message.subject, message.createdAt];
+        newList.push(column_array);
+        console.log(message);
+    }
+    
+    console.log(newList);
+    return {"data": newList};
 }
