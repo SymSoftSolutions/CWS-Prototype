@@ -18,7 +18,8 @@ var permission = require('permission');
 // Domain Specific Routes
 var newProfileRoutes = require('./newprofile');
 var profileRoutes = require('./profile');
-
+var messagingRoutes = require('./privatemessage');
+var inboxRoutes = require('./inbox');
 
 exports.createAllRoutes = createAllRoutes;
 exports.createErrorHandling = createErrorHandling;
@@ -52,7 +53,10 @@ function createAllRoutes(router) {
     });
 
     newProfileRoutes.createNewProfiles(router);
+    messagingRoutes.processMessages(router);
+    messagingRoutes.getMessageData(router);
     profileRoutes.init(router);
+    inboxRoutes.init(router);
 
 
 }

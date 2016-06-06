@@ -1,0 +1,18 @@
+
+#inbox_table {
+    thead {
+      display: none;
+    }
+    tr:first-child {
+      td {
+          border-top: 0;
+      }
+    }
+    td {
+      vertical-align: middle;
+      border-right: 0;
+    }
+    td:first-child, td:last-child {
+      text-align: center;
+    }
+}

@@ -27,7 +27,6 @@ function init(router) {
     // All views get a res.locals.user object set
     router.use(setUser);
 
-
     /**
      * The primary profile route shows basic profile information for users
      */

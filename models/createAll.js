@@ -52,7 +52,6 @@ function createTable(tableName, func) {
 
     }
 }
-
 function createTestObjects() {
     var users = [testUser, testCaseWorker];
     
@@ -75,7 +74,6 @@ function createTestObjects() {
 
     })
 }
-
 
 function createAll() {
     return createTable('users', tables.createUserTable)()

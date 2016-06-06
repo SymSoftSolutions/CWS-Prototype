@@ -1,11 +1,10 @@
 var jQuery = require('./libraries/jquery-2.2.4.js');
-//test
-var helpers = require('./js/helpers');
 
+var helpers = require('./js/helpers');
+require('./js/inbox');
 
 // bring in toaster styles
 import 'toastr/toastr.scss';
-
 
 // bring in our javascript for targeting our profile page elements
 require('./js/profile-updating.js');
@@ -13,11 +12,19 @@ require('./js/profile-updating.js');
 // bring them in for their global code
 require('./libraries/jquery-accessibleMegaMenu');
 
+// import Bootstrap & Datatables stylesheets
+require('./bootstrap/bootstrap.scss');
+require('./css/datatables.css');
 
+
+require('./js/locations');
 
 // import our stylesheets
 require('./framework/framework.scss');
 
+// import Bootstrap & Datatables libraries
+require('./libraries/bootstrap');
+require('./libraries/datatables');
 
 // Init Our Accordion
 require('./libraries/accordion');
@@ -105,8 +112,3 @@ $('.js-select-simple').selectize({
     var selected = $(this).data('selected').replace(',','');
     $select[0].selectize.setValue(selected);
 })
-
-
-
-
-
