@@ -87,38 +87,3 @@ $(function() {
     });
 });
 
-// Cache selectors
-var html = $('html'),
-    demo = $('.demo'),
-    modal = $('.modal'),
-    modalShow = $('.js-avatar-editor-show'),
-    modalHide = $('.modal-hide'),
-    modalWrapper = $('.modal-wrapper');
-
-// Modal Show
-modalShow.on('click touchstart', function(e) {
-    e.preventDefault();
-    html.addClass('no-scroll');
-    modal.addClass('is-visible');
-    demo.attr('aria-hidden', 'true');
-    modal.attr({
-        'aria-hidden': 'false',
-        'open': 'true',
-        'tabindex': '0'
-    });
-});
-
-// Modal Hide
-modalHide.on('click touchstart', function(e) {
-    e.preventDefault();
-    html.removeClass('no-scroll');
-    modal.removeClass('is-visible');
-    demo.attr('aria-hidden', 'false');
-    modal.attr('aria-hidden', 'true');
-    modal.removeAttr('open tabindex');
-});
-
-// Prevent toggle event from bubbling
-modalWrapper.on('click touchstart', function(e) {
-    e.stopPropagation();
-});
