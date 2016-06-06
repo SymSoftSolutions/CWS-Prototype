@@ -52,7 +52,7 @@ Mockups:
 - [User profile (Mobile & Desktop)] (https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint_0/ux/photos/profile_mockups_all.pdf)
 
 Tools used:
-- [Unsplash (photo source)] (https://unsplash.com/)
+- [Unsplash] (https://unsplash.com/) - Open source photos
 - [Sketch App] (https://www.sketchapp.com/)
 - [ca.gov State Template] (http://template.webtools.ca.gov)
 
