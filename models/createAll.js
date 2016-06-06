@@ -55,8 +55,7 @@ function createTable(tableName, func) {
 
 function createTestObjects() {
     var users = [testUser, testCaseWorker];
-
-
+    
     var promises = users.map(function(user){
         function insertTstUser(result) {
             if (!result.length) {
@@ -66,11 +65,15 @@ function createTestObjects() {
         }
         var checkExist = db.select('*').from('users').where('email', user.email)
         return db('users').whereExists(checkExist).then(insertTstUser)
+    });
+    return Promise.all(promises)
+        .then(function(){
+            return dbUtils.assignCaseWorker(testUser, testCaseWorker);
+        })
+        .catch(function (e) {
+        console.log(e);
 
     })
-    return Promise.all(promises).catch(function (e) {
-        console.log(e);
-    });
 }
 
 

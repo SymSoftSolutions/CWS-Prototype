@@ -36,7 +36,11 @@ function init(router) {
             res.render('caseworker-profile');
         }
         if(req.user.role == roles.fosterParent){
-            res.render('profile');
+            dbUtils.getUserCaseWorker(req.user).then(function(caseWorker){
+                res.locals.caseWorker = caseWorker;
+                res.render('profile');
+            })
+
         }
     });
 
