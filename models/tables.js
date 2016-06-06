@@ -60,15 +60,19 @@ function createMessageTable(table) {
 
     // identification
     //TODO: Enforce constraint of userID
+    //Currently restricted to one recipient
+
+    /*
     table.specificType('recipientID', 'INTEGER[]')
         .notNullable()
+    */
 
-    table.integer('caseID')
-        .unsigned()
+    table.integer('recipientID')
         .notNullable()
-        .references('caseID').inTable('cases');
+        .references('userID').inTable('users');
 
     //contacting
+    table.string('subject');
     table.string('message');
     table.boolean('hasRead');
     table.dateTime('readTime');
