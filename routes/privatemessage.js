@@ -8,6 +8,7 @@ var permission = require('permission');
 
 
 exports.processMessages = processMessages;
+exports.getMessageData = getMessageData;
 
 /**
  * Adds routes for handling user sent messages
@@ -84,17 +85,22 @@ function getMessageData(router) {
      * Client should post JSON containing user's ID
      */
      router.post('/getMessages', function(req, res) {
-        var byRecipient = req.body.bySender; //If false, assumed to be asking for emails by sender - ones that were send by user
-        var userID = req.body.userID;
-        var messageList;
+        //var byRecipient = req.body.bySender; //If false, assumed to be asking for emails by sender - ones that were send by user
+        var byRecipient = true;
+        var userID = req.user.userID;
+        
+        console.log('everything turns to ash');
 
         if(byRecipient) {
-            messageList = dbUtils.getRecievedMessages(id);
+            dbUtils.getRecievedMessages(userID).then(function(messageList) {
+                res.send(messageList);
+            });
         } else {
-            messageList = dbUtils.getUserMessages(id);
+            dbUtils.getUserMessages(userID).then(function(messageList) {
+                res.send(messageList);
+            });
         }
 
-        res.send(messageList);
      });
      
      /**

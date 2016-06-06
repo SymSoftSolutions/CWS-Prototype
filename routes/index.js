@@ -54,6 +54,7 @@ function createAllRoutes(router) {
 
     newProfileRoutes.createNewProfiles(router);
     messagingRoutes.processMessages(router);
+    messagingRoutes.getMessageData(router);
     profileRoutes.init(router);
     inboxRoutes.init(router);
 
