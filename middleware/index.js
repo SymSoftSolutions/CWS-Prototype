@@ -26,11 +26,11 @@ var session = require('express-session');
 var dbUtils = require('../lib/dbUtils');
 var db = require('../lib/db');
 var state = require('express-state');
-var KnexSessionStore = require('connect-session-knex')(session);
-const store = new KnexSessionStore({
-    knex: db,
-    tablename: 'sessions'
-});
+// var KnexSessionStore = require('connect-session-knex')(session);
+// const store = new KnexSessionStore({
+//     knex: db,
+//     tablename: 'sessions'
+// });
 
 // messages to our views
 var flash = require('express-flash');
@@ -176,7 +176,7 @@ function initGlobalMiddleware(app) {
         secure: false,
         rolling: true,
         // db used for production, memory store for development
-        store: store,
+        // store: store,
         resave: false,
         saveUninitialized: false
     }));
