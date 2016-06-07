@@ -19,6 +19,7 @@ After 2 years, their social worker called and said they are so happy to have edu
 Most foster families are not that different from the target population (become foster parents for the $600 per month)
 
 ###Foster parents face a lot of regulations such as:
+
 - Have to document all medical visits for their foster child
 - Have a meeting with case worker (FFA) once per week
 - Have a meeting with county once per month
