@@ -1,5 +1,5 @@
 #Sprint 0 - UX
-During this sprint, we focused on User Experience (UX) early on in the process by understanding user needs, sketching wireframes based on those needs, and choosing user-friendly visuals and open-source templates.
+During this sprint, we focused on User Experience (UX) early on in the process by understanding the needs of foster parents, sketching wireframes based on those needs, and choosing user-friendly visuals and open-source templates.
 
 ###Table of Contents
  1. [Foster Parent Interview] (#interview)
