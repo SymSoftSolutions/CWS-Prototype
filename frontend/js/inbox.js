@@ -47,61 +47,69 @@ $(document).ready(function() {
         
     });
     */
+    $.ajax({
+          method: "POST",
+      url: "/getUserDetails",
+      data: { "userID":1 }
+    })
+      .done(function( msg ) {
+            console.log(msg);
+      });
 
-    $("#inbox_searchbox").keyup(function() {
-        dataTable.search(this.value).draw();
+        $("#inbox_searchbox").keyup(function() {
+            dataTable.search(this.value).draw();
+        });
+
+        // Pagination setup
+        var info = dataTable.page.info();
+        if(info) {
+          $(".total-records").text(info.recordsTotal);
+          $(".page-start").text(info.start+1);
+          $(".page-end").text(info.end);
+          if(info.start == 0) {
+              $("#inbox_prev").addClass("not-active");
+          }
+          if(info.end == info.recordsTotal) {
+              $("#inbox_next").addClass("not-active");
+          }
+        }
+
+        $("#inbox_prev").click(function(){
+          dataTable.page( 'previous' ).draw(false);
+          var info = dataTable.page.info();
+          // Disable btn when we're on the 1st page
+          if(info.start == 0) {
+              $(this).addClass("not-active");
+          } else {
+              $(this).removeClass("not-active");
+          }
+          $("#inbox_next").removeClass("not-active");
+          $(".page-start").text(info.start+1);
+          $(".page-end").text(info.end);
+          setInboxRowHandler();
+        });
+        $("#inbox_next").click(function(){
+          dataTable.page( 'next' ).draw(false);
+          var info = dataTable.page.info();
+          // Disable btn when we're on the last page
+          if(info.end == info.recordsTotal) {
+              $(this).addClass("not-active");
+          } else {
+              $(this).removeClass("not-active");
+          }
+          $("#inbox_prev").removeClass("not-active");
+          $(".page-start").text(info.start+1);
+          $(".page-end").text(info.end);
+          setInboxRowHandler();
+        });
+
+        setInboxRowHandler();
+
+        // Current message back btn function
+        $("#inbox_message .curr-msg-back").click(function(){
+            $("#inbox_message").hide();
+            $("#inbox_table").show();
+        });
+
+        $(window).trigger('resize');
     });
-
-    // Pagination setup
-    var info = dataTable.page.info();
-    if(info) {
-      $(".total-records").text(info.recordsTotal);
-      $(".page-start").text(info.start+1);
-      $(".page-end").text(info.end);
-      if(info.start == 0) {
-          $("#inbox_prev").addClass("not-active");
-      }
-      if(info.end == info.recordsTotal) {
-          $("#inbox_next").addClass("not-active");
-      }
-    }
-
-    $("#inbox_prev").click(function(){
-      dataTable.page( 'previous' ).draw(false);
-      var info = dataTable.page.info();
-      // Disable btn when we're on the 1st page
-      if(info.start == 0) {
-          $(this).addClass("not-active");
-      } else {
-          $(this).removeClass("not-active");
-      }
-      $("#inbox_next").removeClass("not-active");
-      $(".page-start").text(info.start+1);
-      $(".page-end").text(info.end);
-      setInboxRowHandler();
-    });
-    $("#inbox_next").click(function(){
-      dataTable.page( 'next' ).draw(false);
-      var info = dataTable.page.info();
-      // Disable btn when we're on the last page
-      if(info.end == info.recordsTotal) {
-          $(this).addClass("not-active");
-      } else {
-          $(this).removeClass("not-active");
-      }
-      $("#inbox_prev").removeClass("not-active");
-      $(".page-start").text(info.start+1);
-      $(".page-end").text(info.end);
-      setInboxRowHandler();
-    });
-
-    setInboxRowHandler();
-
-    // Current message back btn function
-    $("#inbox_message .curr-msg-back").click(function(){
-        $("#inbox_message").hide();
-        $("#inbox_table").show();
-    });
-
-    $(window).trigger('resize');
-});

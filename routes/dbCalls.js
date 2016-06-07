@@ -15,8 +15,7 @@ function processDBCalls(router) {
     router.post('/getUserDetails', function(req, res) {
         if(req.isAuthenticated()) {
             var userID = req.body.userID;
-            dbUtils.getUserById(userID).then(function(users) {
-                var principal = users[0];
+            dbUtils.deserializeUser({}, userID, function(err, principal) {
                 var userName = principal.firstName+" "+principal.lastName;
                 var userMail = principal.email;
 
