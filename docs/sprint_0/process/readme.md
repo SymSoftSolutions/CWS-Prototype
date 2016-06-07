@@ -3,7 +3,6 @@
 
 **Table of Contents**
 
-  * [Iterative Approach](#agile-approach)  
   * [Sprint Level Definition of Done](#sprint-done-definition)
   * [User Stories and Acceptance Criteria](#user-stories)
   * [Code Standards and Design Guidelines](#code-design)
@@ -11,27 +10,6 @@
   * [Continuous Integration & Deployment ](#ci_cd)
   * [Application Architecture and Technology Stack ](#arch-tech)
   
-##Iterative Approach <a id="agile-approach"></a>
-
-For the development of this prototype, we adhered to the [principles of the agile manifesto](http://www.agilemanifesto.org/principles.html). Given those principles we focused on generate usable software since the first iteration rather than create independent software components that do not provide value to the end user.
-
-**Traditional Approach**
-
-![Traditional Approach](/docs/sprint_0/process/images/traditionalapproach.png)
-
-**Agile Approach**
-
-![Agile Approach](/docs/sprint_0/process/images/agileapproach.png)
-
-**Scrum as Our Development Framework**
-
-We decided to use Scrum to help us to deliver the prototype quickly while promoting transparency and adaptation, although we know that there are some other agile development frameworks we believe that Scrum makes sense for the process of demonstrating our Agile capabilities and expertise.
-
-**User Centered Design and Agile Development**
-
-TODO: update this description and image 
-
-![SymSoft Process](/docs/sprint_0/process/images/ourprocess.png)
 
 ##Sprint Level Definition of Done <a id="sprint-done-definition"></a>
 
