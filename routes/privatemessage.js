@@ -112,6 +112,7 @@ function getMessageData(router) {
 
 function formatMessageData(messageList) {
     var newList = [];
+
     for(var index in messageList) {
         var message = messageList[index];
         var column_array =[message.fromID, message.subject, message.message, message.createdAt];
