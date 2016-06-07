@@ -3,7 +3,8 @@
   * [Symsoft's Approach](#our-approach)  
   * [About the Team](#about-team)  
   * [Open Source Technologies](#open-source)  
-  * [License](#license)  
+  * [License](#license) 
+  * [Project Setup](#setup) 
 
 ## Symsoft's Approach <a id="our-approach"></a>
 
@@ -95,6 +96,6 @@ TODO
 
 This project is licensed under the terms of the [MIT license] (CWS-Prototype/LICENSE)
 
-## Project Setup"></a>
+## Project Setup"> <a id="setup"></a>
 
-This project is licensed under the terms of the [MIT license] (CWS-Prototype/LICENSE)
+TODO
