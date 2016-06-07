@@ -54,7 +54,7 @@ During sprint 0 we executed the following tasks:
 4. Set up Continuous Integration Server and Continuous deployment strategy 
 5. Defined the project technology stack 
 6. Application Architecture
-7. Setup Agile tracking tools (Jira)	
+7. Setup Agile tracking tools [Jira](https://www.atlassian.com/software/jira/agile)	
 
 **Sprint 1-N**
 
@@ -64,7 +64,7 @@ During this phase we executed the following activities and tasks:
 
 1. Sprint Planning
 2. Sprint Backlog Refining
-3. Daily Scrums (15 minute meetings)
+3. Daily Scrums
 4. Sprint Reviews
 5. Sprint Retrospectives
 6. Test Driven Development for Automated testing
@@ -78,7 +78,24 @@ During this phase we executed the following activities and tasks:
 
 ## About the Team <a id="about-team"></a>
 
-TODO
+**Team Lead**
+
+Savita Farooqui is the Product Manager for this project. 
+Savita is has more than 15 years of experience in the IT field. During this time, she has been involved in a variety of projects from building technology tools and products, back office automation for businesses and governments and creating web portals for providing web-based information and service delivery. 
+
+For the purpose of this project we assembled an agile team including the following vendor pool labor categories:
+
+* Visual Designer
+* Interaction Designer
+* User Researcher
+* Front-End Developer
+* Back-End Web Developer
+* Product Manager
+* Agile Coach
+* DevOps Engineer
+* Technical Architect
+
+For more details about the team composition please send us an email
 
 ## Open Source Technologies <a id="open-source"></a>
 
