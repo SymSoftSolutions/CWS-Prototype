@@ -9,7 +9,7 @@
 
 SymSoft Solutions User Centered Agile Development approach delivers fast value while generating usable software since the first iteration rather than create independent software components that do not provide any real value to the end user. 
 
-For the development of this prototype, we adhered to the [principles of the agile manifesto](http://www.agilemanifesto.org/principles.html and used Scrum to help us to develop the prototype quickly while promoting transparency and adaptation.
+For the development of this prototype, we adhered to the [principles of the agile manifesto](http://www.agilemanifesto.org/principles.html) and used Scrum to help us to develop the prototype quickly while promoting transparency and adaptation.
 
 ![SymSoft Process](/docs/sprint_0/process/images/ourprocess.png)
 
@@ -43,8 +43,7 @@ During sprint 0 we executed the following tasks:
 2. Agreed on Sprint and Release Level Definition of Done
 3. Defined code standards and design guidelines for upcoming sprints
 4. Set up Continuous Integration Server and Continuous deployment strategy 
-5. Defined the project technology stack 
-6. Application Architecture
+5. Defined the [Application Architechture and Technology Stack](/docs/sprint_0/process/readme.md#arch-tech)
 7. Setup Agile tracking tools [Jira](https://www.atlassian.com/software/jira/agile)	
 
 **Sprint 1-N**
