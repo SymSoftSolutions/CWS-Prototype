@@ -176,7 +176,7 @@ function initGlobalMiddleware(app) {
         secure: false,
         rolling: true,
         // db used for production, memory store for development
-        store: (app.get('env') === 'production') ? store : undefined,
+        store: store,
         resave: false,
         saveUninitialized: false
     }));

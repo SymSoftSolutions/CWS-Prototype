@@ -9,10 +9,13 @@
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <title>CWS - {{title}}</title>
 
+
+    {{#ifEnv "development"}}
     {{! Our js will automatically pull in styles during development }}
-    {{#ifEnv "production"}}
+    {{else}}
         <link rel="stylesheet" href="/public/app.css">
     {{/ifEnv}}
+
 </head>
 
 <body lang="en">
