@@ -103,5 +103,4 @@ TODO
 
 ## License <a id="license"></a>
 
-TODO
-
+This project is licensed under the terms of the [MIT license] (CWS-Prototype/LICENSE)
