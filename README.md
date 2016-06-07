@@ -4,21 +4,12 @@
   * [About the Team](#about-team)  
   * [Open Source Technologies](#open-source)  
   * [License](#license)  
-  
 
 ## Symsoft's Approach <a id="our-approach"></a>
 
-SymSoft Solutions User Centered Agile Development approach delivers fast value while generating usable software since the first iteration rather than create independent software components that do not provide any real value to the end user. For the development of this prototype, we adhered to the [principles of the agile manifesto](http://www.agilemanifesto.org/principles.html).
+SymSoft Solutions User Centered Agile Development approach delivers fast value while generating usable software since the first iteration rather than create independent software components that do not provide any real value to the end user. 
 
-**Traditional Approach**
-
-![Traditional Approach](/docs/sprint_0/process/images/traditionalapproach.png)
-
-**Our User-Cetered Agile Development Approach**
-
-![Agile Approach](/docs/sprint_0/process/images/agileapproach.png)
-
-We decided to use Scrum to help us to deliver the prototype quickly while promoting transparency and adaptation, although we know that there are some other agile development frameworks out there, we believe that Scrum makes sense for the process of demonstrating our Agile capabilities and expertise.
+For the development of this prototype, we adhered to the [principles of the agile manifesto](http://www.agilemanifesto.org/principles.html and used Scrum to help us to develop the prototype quickly while promoting transparency and adaptation.
 
 ![SymSoft Process](/docs/sprint_0/process/images/ourprocess.png)
 
@@ -102,5 +93,9 @@ For more details about the team composition please send us an email
 TODO
 
 ## License <a id="license"></a>
+
+This project is licensed under the terms of the [MIT license] (CWS-Prototype/LICENSE)
+
+## Project Setup"></a>
 
 This project is licensed under the terms of the [MIT license] (CWS-Prototype/LICENSE)
