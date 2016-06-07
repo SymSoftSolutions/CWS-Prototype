@@ -1,5 +1,17 @@
 # CWS-Prototype
 
+## Test Accounts
+
+To login as a foster parent use:
+
+__username:__ test@example.com
+__password:__ 123
+
+To login as a case worker use:
+
+__username:__ case@example.com
+__password:__ 123
+
 
 ## Setup
 First clone the repo and change your directory to the newly created project folder.
@@ -32,16 +44,6 @@ npm start
 ```
  The site should will now be running on `http://localhost:8000`
 
-## Development Processes
-TODO
-
-### Code Reviews
-TODO
-### Builds
-TODO
-
-### Testing
-TODO
 
 ## Technology Stack
 The software tools which we rely on are listed in the follow sections. These tools were chosen for their excellent performance characteristics, robust api's, healthy open source communities, histories within the private-sector, flexible deployment options, wealth of documentation, and many more such criteria.
@@ -56,6 +58,3 @@ For templating we use [handlebarsjs](http://handlebarsjs.com/) as it provides th
 ### Databases
 We utilize the enterprise class database, [PostgreSQL](https://www.postgresql.org) for our data persistence needs. Being a battle tested object-relational database, Postgres provides the data integrity features required for any reliable system. With geospatial features and native json and binary json columns, postgres has excellent support for marshalling user configuration and other objects between our applications components.
 
-
-## Hosting Environment
-TODO
