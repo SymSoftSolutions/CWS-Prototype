@@ -1,8 +1,4 @@
 
-# CWS-Prototype
-
-![SymSoft Solutions](/docs/discovery_phase/images/Symsoft-Logo-850.png)
-
 **Table of Contents**
 
   * [Title](#Title)  
