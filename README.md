@@ -1,13 +1,12 @@
-
 **Table of Contents**
 
-  * [Title](#Title)  
-  * [Title](#Title)  
-  * [Title](#Title)  
-  * [Title](#Title)  
-  * [Title](#Title)  
+  * [Symsoft's Approach](#our-approach)  
+  * [About the Team](#about-team)  
+  * [Open Source Technologies](#open-source)  
+  * [License](#license)  
   
-**Description**
+
+## Symsoft's Approach <a id="our-approach"></a>
 
 SymSoft Solutions User Centered Agile Development approach delivers fast value while generating usable software since the first iteration rather than create independent software components that do not provide any real value to the end user. For the development of this prototype, we adhered to the [principles of the agile manifesto](http://www.agilemanifesto.org/principles.html).
 
@@ -20,8 +19,6 @@ SymSoft Solutions User Centered Agile Development approach delivers fast value w
 ![Agile Approach](/docs/sprint_0/process/images/agileapproach.png)
 
 We decided to use Scrum to help us to deliver the prototype quickly while promoting transparency and adaptation, although we know that there are some other agile development frameworks out there, we believe that Scrum makes sense for the process of demonstrating our Agile capabilities and expertise.
-
-## Our Process Overview
 
 ![SymSoft Process](/docs/sprint_0/process/images/ourprocess.png)
 
@@ -40,13 +37,13 @@ During this phase we executed the following tasks:
 
 We combined User Centered Design and Agile Development. By the end of this sprint, we generated interactive mockups with full functionality as described by the State requirements
 
-During this phase we executed the following tasks:
+During sprint 0 we executed the following tasks:
 
-*User Centered Design:*
+*Human Centered Design:*
 
 1. Interviewed a foster parent to understand his challenges, and vision for improved digital foster care services
 2. Created User Personas 
-3. Designed high fidelity product wireframes and reviewed them with users
+3. Designed high fidelity product wireframes and reviewed those with users
 4. Gathered visual design, branding, and marketing guidelines
 
 *Agile Process:*
@@ -55,7 +52,7 @@ During this phase we executed the following tasks:
 2. Agreed on Sprint and Release Level Definition of Done
 3. Defined code standards and design guidelines for upcoming sprints
 4. Set up Continuous Integration Server and Continuous deployment strategy 
-5. Defined the project Technology Stack 
+5. Defined the project technology stack 
 6. Application Architecture
 7. Setup Agile tracking tools (Jira)	
 
@@ -74,7 +71,20 @@ During this phase we executed the following activities and tasks:
 7. Code Review sessions
 8. Pair programming and pair testing
 9. Regression testing
-10. Continuous Integration and Continuous deployment to AWS Elastic Beanstalk
+10. Continuous Integration and Continuous deployment to [AWS Elastic Beanstalk] (https://aws.amazon.com/elasticbeanstalk/)
 11. Continuous Monitoring with AWS Cloudwatch
 12. Manual testing in multiple mobile devices
 13. Cross-browser testing
+
+## About the Team <a id="about-team"></a>
+
+TODO
+
+## Open Source Technologies <a id="open-source"></a>
+
+TODO
+
+## License <a id="license"></a>
+
+TODO
+
