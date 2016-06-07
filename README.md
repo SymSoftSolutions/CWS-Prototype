@@ -48,20 +48,20 @@ During this phase we executed the following tasks:
 
 *User Centered Design:*
 
-•	Interviewed a foster parent to understand his challenges, and vision for improved digital foster care services
-•	Created User Personas 
-•	Designed high fidelity product wireframes and reviewed them with users
-•	Gathered visual design, branding, and marketing guidelines
+1. Interviewed a foster parent to understand his challenges, and vision for improved digital foster care services
+2. Created User Personas 
+3. Designed high fidelity product wireframes and reviewed them with users
+4. Gathered visual design, branding, and marketing guidelines
 
 *Agile Process:*
 
-•	Refined Product Backlog with Acceptance Criteria
-•	Agreed on Sprint and Release Level Definition of Done
-•	Defined code standards and design guidelines for upcoming sprints
-•	Set up Continuous Integration Server and Continuous deployment strategy 
-•	Defined the project Technology Stack 
-•	Application Architecture
-•	Setup Agile tracking tools (Jira)	
+1. Refined Product Backlog with Acceptance Criteria
+2. Agreed on Sprint and Release Level Definition of Done
+3. Defined code standards and design guidelines for upcoming sprints
+4. Set up Continuous Integration Server and Continuous deployment strategy 
+5. Defined the project Technology Stack 
+6. Application Architecture
+7. Setup Agile tracking tools (Jira)	
 
 **Sprint 1-N**
 
@@ -69,16 +69,16 @@ We developed the prototype through two week-long sprints and utilized Scrum as o
 
 During this phase we executed the following activities and tasks:
 
-•	Sprint Planning
-•	Sprint Backlog Refining
-•	Daily Scrums (15 minute meetings)
-•	Sprint Reviews
-•	Sprint Retrospectives
-•	Test Driven Development for Automated testing
-•	Code Review sessions
-•	Pair programming and pair testing
-•	Regression testing
-•	Continuous Integration and Continuous deployment to AWS Elastic Beanstalk
-•	Continuous Monitoring with AWS Cloudwatch
-•	Manual testing in multiple mobile devices
-•	Cross-browser testing
+1. Sprint Planning
+2. Sprint Backlog Refining
+3. Daily Scrums (15 minute meetings)
+4. Sprint Reviews
+5. Sprint Retrospectives
+6. Test Driven Development for Automated testing
+7. Code Review sessions
+8. Pair programming and pair testing
+9. Regression testing
+10. Continuous Integration and Continuous deployment to AWS Elastic Beanstalk
+11. Continuous Monitoring with AWS Cloudwatch
+12. Manual testing in multiple mobile devices
+13. Cross-browser testing
