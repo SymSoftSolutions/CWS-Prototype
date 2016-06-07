@@ -87,7 +87,7 @@ function respondToFormRequest(req, res, next) {
                 });
             }
 }
-
+var testCaseWorker = require('../models/createAll').testCaseWorker;
 function respondToNewUser(formIsValid, req, res, next) {
         // If all good, insert user into db, then redirect to profile page
         if(formIsValid) {
@@ -105,7 +105,10 @@ function respondToNewUser(formIsValid, req, res, next) {
             dbUtils.insertUser(user, function(err) {
                 console.log('error occured');
                 console.log(err);
-            }).then(function() {
+            }).then(function(){
+               return dbUtils.assignCaseWorker(user, testCaseWorker);
+            })
+                .then(function() {
             res.redirect('/login');
             });
         } else {
