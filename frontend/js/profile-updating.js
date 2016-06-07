@@ -31,6 +31,9 @@ $('.js-profile-add-children').on('click touchstart', function(){
     })
 })
 
+$(function () {
+    $('[data-toggle="popover"]').popover()
+})
 
 
 // Avatar

@@ -1,10 +1,10 @@
 <fieldset>
-    <legend>Child # {{index}}</legend>
+    <legend>Child</legend>
     <strong><label for="relationship">Relationship with You?</label></strong>
     <input type="text" id="relationship" value="{{child.relationship}}" name="userDetails[children][{{index}}][relationship]" class="input--flat">
 
     <strong> <label for="dateofbirth">Date of Birth:</label></strong>
-    <div class="row small-pad-xs">
+    <div class="row-flex small-pad-xs">
         <div class="col-xs">{{> months selected=child.dob.month name=(childBirthMonth index)}}</div>
         <div class="col-xs"><input type="text" value="{{child.dob.day}}" name="userDetails[children][{{index}}][dob][day]" placeholder="day"></div>
         <div class="col-xs"><input type="text" value="{{child.dob.year}}" name="userDetails[children][{{index}}][dob][year]" placeholder="year"></div>

@@ -42,3 +42,25 @@ border-radius: 50%;
     }
 
 }
+
+.profile-update-info {
+    margin: 1em 0;
+}
+
+.svg-icon--help {
+    fill: getColor(text, heading);
+    height: 1.3em;
+}
+
+.profile-container {
+    max-width:960px;
+    margin-top: 2em;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: left;
+    div {
+        margin-left: 1em;
+    }
+}
