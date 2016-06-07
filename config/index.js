@@ -18,11 +18,11 @@ module.exports = {
    * Data base and persistence specifics
    */
   postgres: {
-    host: "ec2-184-73-196-82.compute-1.amazonaws.com",
+    host: "localhost",
     port: "5432",
-    database: "d2vevrt3cr7djr",
-    user: "wbddazumodfpjd",
-    password: "HcjhMm6LtHc_ZqRllQqiLOEu9r"
+    database: "cws",
+    user: "postgres",
+    password: "echopostgres"
   },
 
   /**
@@ -61,22 +61,22 @@ module.exports = {
 
 if(process.env.NODE_ENV == 'staging'){
   module.exports.postgres = {
-    host: "ec2-184-73-196-82.compute-1.amazonaws.com",
+    host: "localhost",
     port: "5432",
-    database: "d2vevrt3cr7djr",
-    user: "wbddazumodfpjd",
-    password: "HcjhMm6LtHc_ZqRllQqiLOEu9r"
+    database: "cwsprototype",
+    user:"cwsprototype",
+    password: "symsoft01"
   }
 }
 
 
 if(process.env.NODE_ENV == "production") {
   module.exports.postgres = {
-    host: "ec2-184-73-196-82.compute-1.amazonaws.com",
-    port: "5432",
-    database: "d2vevrt3cr7djr",
-    user: "wbddazumodfpjd",
-    password: "HcjhMm6LtHc_ZqRllQqiLOEu9r"
+    host: process.env.RDS_HOSTNAME,
+    database: process.env.RDS_DB_NAME,
+    user: process.env.RDS_USERNAME,
+    password:  process.env.RDS_PASSWORD,
+    port: process.env.RDS_PORT
   }
 
 }
