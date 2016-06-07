@@ -31,9 +31,55 @@ $('.js-profile-add-children').on('click touchstart', function(){
     })
 })
 
+$('.profile-container').on('click', '.js-remove-adult, .js-remove-child', function(){
+    console.log("removing")
+    $(this).closest('fieldset').remove();
+})
+
 $(function () {
     $('[data-toggle="popover"]').popover()
 })
+
+
+// profile completion
+function computeCompletion(){
+
+    var total = 8;
+    var found = 0;
+
+    // at most +1
+   if($('.js-children-pref input:checked').length){
+       found += 1;
+   }
+
+    // at most +1
+    found += $(".js-residence-about input:checked").length;
+
+    // at most +4
+    found += $('.js-residence-about input[type="text"]').filter(function () {
+        return this.value.length > 0
+    }).length;
+
+    // at most +1
+    if($('.js-profile-children-container').children().length){
+        found += 1;
+    }
+
+    // at most +1
+    if($('.js-profile-adult-container').children().length){
+        found += 1;
+    }
+
+
+    var completness = (found / total * 100).toFixed(0);
+
+
+    $('.js-profile-completeness').attr('aria-valuenow', completness).css("width", completness+ "%").text(completness + "%")
+}
+
+
+computeCompletion();
+
 
 
 // Avatar

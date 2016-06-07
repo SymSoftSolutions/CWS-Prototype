@@ -61,7 +61,13 @@ border-radius: 50%;
 .profile-header {
     display: flex;
     justify-content: left;
-    div {
+    .profile-header-info {
         margin-left: 1em;
     }
+}
+
+.profile-header-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
