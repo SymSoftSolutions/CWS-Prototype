@@ -67,17 +67,18 @@ if(process.env.NODE_ENV == 'staging'){
     user:"cwsprototype",
     password: "symsoft01"
   }
+  module.strings.token = process.env.SESSION_TOKEN
 }
 
 
-// if(process.env.NODE_ENV == "production") {
-//   module.exports.postgres = {
-//     host: process.env.RDS_HOSTNAME,
-//     database: process.env.RDS_DB_NAME,
-//     user: process.env.RDS_USERNAME,
-//     password:  process.env.RDS_PASSWORD,
-//     port: process.env.RDS_PORT
-//   }
-//
-//   module.strings.token = process.env.SESSION_TOKEN
-// }
+if(process.env.NODE_ENV == "production") {
+  module.exports.postgres = {
+    host: process.env.RDS_HOSTNAME,
+    database: process.env.RDS_DB_NAME,
+    user: process.env.RDS_USERNAME,
+    password:  process.env.RDS_PASSWORD,
+    port: process.env.RDS_PORT
+  }
+
+  module.strings.token = process.env.SESSION_TOKEN
+}
