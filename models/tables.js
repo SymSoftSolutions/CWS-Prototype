@@ -76,6 +76,7 @@ function createMessageTable(table) {
     table.string('message');
     table.boolean('hasRead');
     table.dateTime('readTime');
+    table.boolean('isTrash');
 }
 
 /**
