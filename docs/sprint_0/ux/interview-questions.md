@@ -7,25 +7,29 @@ Hi and thanks for coming in!
 ###About the project
 We’ll tell you a little bit about this project, and what it’s for.
 We’re building a a web-application (for a proposal) to help foster parents:
-•	Create / update a profile 
-•	Message their case workers online via a private inbox
-•	Find foster agencies
+
+- Create / update a profile 
+- Message their case workers online via a private inbox
+- Find foster agencies
 
 We’d like to ask you a few questions to help us understand how you might use a system like this, and so we know how to build it.
 
 ###Timeline
-•	30 minutes for questions
-•	30 minutes for brainstorming / sketching
-o	After that, we have a few mockups to show you, and then we’ll do some sketching on paper (or whiteboard) to get your feedback.
+- 30 minutes for questions
+- 30 minutes for brainstorming / sketching
+- After that, we have a few mockups to show you, and then we’ll do some sketching on paper (or whiteboard) to get your feedback.
 
 Do you have any questions for us before we begin?
 
 ###Questions
 
 1.	Overall Process
-a.	Tell us a little bit about the process of being a foster parent. Do you interact with CA Dept. of Social Services? Or with Counties? With whom?
+2.	Tell us a little bit about the process of being a foster parent. 
+•  Do you interact with CA Dept. of Social Services? Counties? With whom?
 2.	Registration, Profile management
-a.	What information you provide to be a foster parent? What information you need to maintain or keep up to date? How often do you need to update your profile information?
+- What information you provide to be a foster parent? 
+- What information you need to maintain or keep up to date? 
+- How often do you need to update your profile information?
 3.	Communication with case worker
 a.	How often do you interact with your case worker? (How many case workers on average per month, per week??)
 b.	How do you typically interact with your case worker? (phone call, text, email, online system?) 
