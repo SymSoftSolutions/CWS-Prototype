@@ -1,5 +1,148 @@
 
+.search-addon {
+    position: relative;
+
+    input {
+        padding-left: 50px;
+        border-radius: 0px;
+        border-top: 0;
+        border-right: 0;
+        font-size: 16px;
+        height: 40px;
+    }
+
+    span {
+        color: $secondary-blue;
+        position: absolute;
+        left: 4px;
+        top: 6px;
+        padding: 6px 9px;
+        pointer-events: none;
+    }
+
+    #new_msg_btn_mobile {
+        position: absolute;
+        right: 10px;
+        top: 2px;
+        font-weight: bold;
+        padding-left: 30px;
+
+        .glyphicon {
+            margin-top: -7px;
+            color: $primary-blue;
+        }
+    }
+
+}
+
+table.dataTable {
+    margin: 0 !important;
+}
+
+.not-active {
+   pointer-events: none;
+   cursor: default;
+   color: #ccc !important;
+   border-color: #ddd !important;
+   font-weight: normal !important;
+   .glyphicon {
+       color: #ccc;
+   }
+}
+
+.new-msg-mobile {
+    right: 0 !important;
+    bottom: auto !important;
+    width: 100% !important;
+}
+
+#new_msg_div {
+    position: fixed;
+    display: none;
+    bottom: 0;
+    right: 15px;
+    z-index: 10;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    height: auto;
+    width: 500px;
+    font-family: $font-family;
+    font-size: 16px;
+
+    .row {
+        margin:0;
+        border-top: 1px solid #ddd;
+        .col-xs-2,.col-xs-10 {
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    .new-msg-header {
+        height: 45px;
+        width: 100%;
+        background-color: $primary-blue;
+        color: #fff;
+        font-size: 18px;
+        padding-left: 15px;
+        line-height: 45px;
+    }
+
+    label {
+        line-height: 40px;
+        padding-left: 15px !important;
+        display: inline-block;
+    }
+    .new-msg-mobile label {
+        padding-left: 2px !important;
+    }
+    .new-msg-input {
+        border:0;
+        padding-left: 0;
+        display: inline-block;
+        box-shadow: none;
+        height: 40px;
+    }
+
+    #close_new_msg {
+        font-size: 17px;
+        font-weight: bold;
+        margin-right: 15px;
+        color: #ddd;
+    }
+    #close_new_msg:hover {
+        text-decoration: none;
+        color: #fff;
+    }
+    #new_msg_content {
+        border: 0;
+    }
+    #send_new_msg_btn {
+        margin: 0 15px;
+    }
+    #new_msg_alert {
+        display: inline-block;
+        margin-left: 10px;
+        margin-top: 5px;
+        color: #00b33c;
+        .glyphicon {
+            color: #00b33c;
+            margin-right: 6px;
+        }
+    }
+    #cancel_new_msg {
+        margin-right: 15px;
+    }
+    #cancel_new_msg:hover {
+        text-decoration: none;
+    }
+}
+
 #inbox_table {
+    margin: 0;
+    border: 0;
+    border-left: 1px solid #ddd;
+
     thead {
       display: none;
     }
@@ -11,8 +154,206 @@
     td {
       vertical-align: middle;
       border-right: 0;
+      border-left: 0;
     }
     td:first-child, td:last-child {
       text-align: center;
     }
+    td:last-child {
+      min-width: 60px;
+    }
+    tr:hover {
+        cursor: pointer;
+    }
+}
+
+#inbox_headers {
+    margin: 40px 0 0 0;
+    padding: 0;
+    font-family: $font-family;
+
+    h2 {
+        margin-top: 0;
+    }
+
+    .actions {
+        margin-top: 5px;
+        div {
+            display: inline-block;
+        }
+    }
+
+    .pagination {
+        margin-top: 10px;
+    }
+
+    div {
+        padding: 0;
+        vertical-align: bottom;
+    }
+
+    #inbox_prev, #inbox_next {
+        border: 1px solid #ddd;
+        margin-left: 4px;
+        color: $primary-blue;
+
+        .glyphicon {
+            padding: 2px;
+            top: 0;
+        }
+    }
+    #inbox_prev:hover, #inbox_next:hover {
+        text-decoration: none;
+        color: lighten($primary-blue,20%);
+    }
+
+    #inbox_delete_btn {
+        color: $primary-blue;
+        display: none;
+        font-weight: bold;
+        font-size: 16px;
+        margin: 5px 0 5px 20px;
+    }
+}
+
+#inbox_body {
+   border: 1px solid #ddd;
+   margin: 0 0 40px 0;
+   font-family: $font-family;
+   font-size: 16px;
+
+   #new_msg_btn {
+      margin: 20px 0 10px 20px;
+      border-color: #FBAD23;
+      color: $primary-blue;
+      font-weight: bold;
+      font-size: 16px;
+
+      .glyphicon {
+          margin-top: -6px;
+          color: $primary-blue;
+      }
+   }
+
+   .inbox-col {
+       margin: 0;
+       padding: 0;
+
+       .list-group-item {
+           border: 0;
+           color: $primary-blue;
+           padding-left: 20px;
+       }
+       .list-group-item.active {
+           font-weight: bold;
+           color: $primary-blue;
+           background-color: #fff;
+       }
+   }
+
+   .msg-from {
+      color: lighten($primary-blue, 20%);
+      font-weight: bold;
+   }
+   .msg-subject {
+      font-size: 15px;
+      font-weight: bold;
+   }
+   .msg-body, .msg-trim-body {
+      font-size: 15px;
+   }
+   .msg-date {
+      font-size: 14px;
+      color: $secondary-blue;
+   }
+}
+
+#inbox_message {
+    display: none;
+
+    .row {
+        margin: 0;
+        border-left: 1px solid #ddd;
+        word-wrap: break-word;
+        div {
+            padding: 20px 15px 5px 15px;
+            margin: 0;
+        }
+    }
+
+    .row:first-child {
+        border-bottom: 1px solid #ddd;
+        div {
+            padding: 15px 5px;
+            margin: 0;
+        }
+    }
+
+    .msg-img {
+        border: 1px solid #ddd;
+        float: left;
+        height: 45px;
+        width: 45px;
+        background-color: #ccc;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+    .curr-msg-back {
+        color: $secondary-blue;
+        font-size: 22px;
+        margin-right: 10px;
+        line-height: 40px;
+        .glyphicon {
+            margin-top: 7px;
+        }
+    }
+    .curr-msg-back:hover {
+        text-decoration: none;
+    }
+    .curr-msg-subject {
+        font-weight: bold;
+        color: $primary-blue;
+        font-size: 22px;
+        line-height: 40px;
+    }
+    .curr-msg-from {
+        font-size: 17px;
+        font-weight: bold;
+        color: $secondary-blue;
+    }
+    .curr-msg-date {
+        float: right;
+        font-size: 14px;
+        margin-right: 10px;
+        color: $secondary-blue;
+    }
+    .curr-msg-body {
+        color: #666;
+    }
+
+    #response_msg_body {
+        min-width: 100%;
+    }
+    #response_msg_btn {
+        margin-right: 15px;
+        margin-bottom: 20px;
+    }
+}
+
+.msg-action-btn {
+    color: $primary-blue;
+    border-color: #FBAD23;
+    font-weight: bold;
+}
+
+.attachment-link {
+    color: #ddd;
+    font-size: 20px;
+    .glyphicon {
+        margin-top: 5px;
+    }
+}
+.attachment-link:hover {
+    text-decoration: none;
+    color: #666;
 }

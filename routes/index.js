@@ -5,20 +5,16 @@ var config = require('../config');
 var dbUtils = require('../lib/dbUtils');
 var exports = module.exports = utils.requireDir(__dirname);
 
-
-
-
 // var middleware = require('../middleware');
 
 var passport = require('passport');
 var permission = require('permission');
 
-
-
 // Domain Specific Routes
 var newProfileRoutes = require('./newprofile');
 var profileRoutes = require('./profile');
 var messagingRoutes = require('./privatemessage');
+var dbCalls = require('./dbCalls');
 var inboxRoutes = require('./inbox');
 
 exports.createAllRoutes = createAllRoutes;
@@ -32,7 +28,7 @@ function createAllRoutes(router) {
 
 
     router.post('/auth', passport.authenticate('local', {
-        successRedirect: '/profile', // redirect to the secure profile section
+        successRedirect: '/inbox', // redirect to the secure profile section
         failureRedirect: '/login', // redirect back to the signup page if there is an error
         failureFlash: true // allow flash messages
     }));
@@ -53,11 +49,10 @@ function createAllRoutes(router) {
     });
 
     newProfileRoutes.createNewProfiles(router);
-    messagingRoutes.processMessages(router);
-    messagingRoutes.getMessageData(router);
+    messagingRoutes.init(router);
     profileRoutes.init(router);
     inboxRoutes.init(router);
-
+    dbCalls.init(router);
 
 }
 

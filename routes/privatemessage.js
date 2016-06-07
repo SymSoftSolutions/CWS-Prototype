@@ -1,3 +1,4 @@
+var roles = require('../models/tables').roles;
 var utils = require('../lib/utils');
 var config = require('../config');
 var dbUtils = require('../lib/dbUtils');
@@ -7,14 +8,20 @@ var passport = require('passport');
 var permission = require('permission');
 
 
-exports.processMessages = processMessages;
-exports.getMessageData = getMessageData;
+exports.init = init;
 
 /**
  * Adds routes for handling user sent messages
  * @param router
  */
-function processMessages(router) {
+function init(router) {
+
+    // All of our messaging routes are accessible only by users with the
+    // role of fosterParent or caseWorker, and only after successful permissions will the user object
+    // be available to the views.
+    router.use(permission(Object.keys(roles).map(function(key){return roles[key]})));
+    // All views get a res.locals.user object set
+    router.use(setUser);
 
     router.get('/sendMessage', function(req, res, next) {
         if(req.isAuthenticated()) {
@@ -36,77 +43,107 @@ function processMessages(router) {
             var message = {};
             message['fromID']       = req.user.userID;
             message['subject']      = req.body.subject;
-            message['recipientID']  = parseInt(req.body.recipientID);
             message['message']      = req.body.text;
             message['hasRead']      = false;
 
-            console.log(message);
-            var allFieldsExist = false;
-            if(message['subject']       != null &&
-               message['message']       != null &&
-               message['recipientID']   != null) {
-               allFieldsExist=true;
+            var recipientEmail =req.body.email;
+
+            if(req.body.recipientID) {
+                // If we are given the ID of recipient, send directly
+                message['recipientID']  = parseInt(req.body.recipientID);
+                processMessage(message, req, res);
             } else {
-                if(!allFieldsExist) {
-                    req.flash('error', 'Required fields not filled');
-                }
-                res.redirect('/sendMessage');
-                return;
-            }
+                // If not, lookup by email
+                if(recipientEmail) {
+                    dbUtils.retrieveUser({'email':recipientEmail}).then(function(user) {
+                        var recipientID = user.userID;
+                        message['recipientID'] = recipientID;
 
-            dbUtils.checkExist('users', {'userID': message['recipientID']}, function(err, recipientExists) {
-                console.log('inside check exist callback');
-
-                if(err) {
-                    res.render('501', {status: 501, url: req.url});
-                    return;
-                }
-                if(recipientExists && allFieldsExist) {
-                    dbUtils.addMessage(message).then(function() {
-                        res.redirect('/sendMessage');
+                        processMessage(message, req, res);
                     });
                 } else {
-                    req.flash('error', 'Please enter a valid recipient');
-                    res.redirect('/sendMessage');
+                    // No unique identifier
+                    message['recipientID'] = null;
+                    processMessage(message, req, res);
                 }
+            }
+
+        }
+        else {
+            res.render('501', {status: 501, url: req.url});
+        }
+    });
+
+     /**
+      * Gets userIDs+addresses for all users relevant to the user making the request.
+      *
+      */
+     router.post('/getRelevantAddresses', function(req, res) {
+        var userID = req.user.userID;
+        var userRole = req.user.userDetails.role;
+        var allUsersInCommunication = [userID];
+
+        if(userRole == 'fosterParent') {
+            dbUtils.getFosterParentCases(userID).then(function(cases) {
+                for (index in cases){
+                    var specificCase = cases[index];
+                    allUsersInCommunication.push(cases.caseWorker);
+                }
+                res.send(allUsersInCommunication);
             });
         }
         else {
-            console.log('no user');
-            res.render('501', {status: 501, url: req.url});
+            dbUtils.getCaseWorkerCases(userID).then(function(cases) {
+                for (index in cases) {
+                    var specificCase = cases[index];
+                    allUsersInCommunication.push(cases.fosterParent);
+                }
+                res.send(allUsersInCommunication);
+            });
         }
     });
 }
 
-function getMessageData(router) {
-    /**
-     * Gets message list for a specified user either sending or recieving messages
-     * Takes JSON request only
-     * Client should post JSON containing user's ID
-     */
-     router.post('/getMessages', function(req, res) {
-        //var byRecipient = req.body.bySender; //If false, assumed to be asking for emails by sender - ones that were send by user
-        var byRecipient = true;
-        var userID = req.user.userID;
-        
-        console.log('everything turns to ash');
+function processMessage(message, req, res) {
+    //Makes sure all fields exist
+    var allFieldsExist = false;
+    if(message['subject']       != null &&
+       message['message']       != null &&
+       message['recipientID']   != null) {
+       allFieldsExist=true;
+    } else {
+        if(!allFieldsExist) {
+            req.flash('error', 'Required fields not filled');
+        }
+        req.flash('success', 'Message sent!');
+        res.redirect('/inbox');
+        return;
+    }
 
-        if(byRecipient) {
-            dbUtils.getRecievedMessages(userID).then(function(messageList) {
-                res.send(messageList);
+    dbUtils.checkExist('users', {'userID': message['recipientID']}, function(err, recipientExists) {
+
+        if(err) {
+            res.render('501', {status: 501, url: req.url});
+            return;
+        }
+        if(recipientExists && allFieldsExist) {
+            dbUtils.addMessage(message).then(function() {
+                res.redirect('/sendMessage');
             });
         } else {
-            dbUtils.getUserMessages(userID).then(function(messageList) {
-                res.send(messageList);
-            });
+            req.flash('error', 'Please enter a valid recipient');
+            res.redirect('/sendMessage');
         }
-
-     });
-     
-     /**
-      * Gets address 
-      *
-      */
-     router.post('/getRelevantAddresses', function(req, res) {
-     });
+            });
 }
+
+/**
+ * Small middleware for setting the user object to be visible in our handlebars layouts
+ * Its side effect is a `res.locals.user` variable being set.
+ */
+function setUser(req, res, next) {
+    if (req.user) {
+        res.locals.user = req.user;
+    }
+    next();
+};
