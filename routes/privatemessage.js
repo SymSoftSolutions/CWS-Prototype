@@ -101,9 +101,9 @@ function getMessageData(router) {
         }
 
      });
-     
+
      /**
-      * Gets address 
+      * Gets address
       *
       */
      router.post('/getRelevantAddresses', function(req, res) {
@@ -118,7 +118,7 @@ function formatMessageData(messageList) {
         newList.push(column_array);
         console.log(message);
     }
-    
+
     console.log(newList);
     return {"data": newList};
 }
