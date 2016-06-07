@@ -61,11 +61,11 @@ module.exports = {
 
 if(process.env.NODE_ENV == 'staging'){
   module.exports.postgres = {
-    host: "localhost",
+    host: "ec2-184-73-196-82.compute-1.amazonaws.com",
     port: "5432",
-    database: "cwsprototype",
-    user:"cwsprototype",
-    password: "symsoft01"
+    database: "d2vevrt3cr7djr",
+    user: "wbddazumodfpjd",
+    password: "HcjhMm6LtHc_ZqRllQqiLOEu9r"
   }
 }
 
