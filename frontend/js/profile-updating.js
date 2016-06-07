@@ -44,7 +44,7 @@ $(function () {
 // profile completion
 function computeCompletion(){
 
-    var total = 8;
+    var total = 7;
     var found = 0;
 
     // at most +1
