@@ -50,7 +50,7 @@ module.exports = {
    * Commonly used strings for various aspects of middleware and other app functionality
    */
   strings: {
-    token: 'testing'
+    token: process.env.SESSION_TOKEN || 'testing'
   }
 };
 
@@ -67,7 +67,6 @@ if(process.env.NODE_ENV == 'staging'){
     user:"cwsprototype",
     password: "symsoft01"
   }
-  module.strings.token = process.env.SESSION_TOKEN
 }
 
 
@@ -80,5 +79,4 @@ if(process.env.NODE_ENV == "production") {
     port: process.env.RDS_PORT
   }
 
-  module.strings.token = process.env.SESSION_TOKEN
 }
