@@ -22,7 +22,7 @@ function init(router){
     router.use(setUser);
 
     router.get('/inbox',  function (req, res) {
-        console.log( res.locals.user)
+        console.log(res.locals.user)
         res.render('inbox');
     });
     
@@ -51,31 +51,6 @@ function init(router){
 
      });
      
-     /**
-      * Gets address 
-      *
-      */
-     router.post('/getRelevantAddresses', function(req, res) {
-        var userID = req.user.userID;
-        var userRole = req.user.userDetails.role;
-        var allUsersInCommunication = [userID];
-        
-        if(userRole == 'fosterParent') {
-            dbUtils.getFosterParentCases(userID).then(function(cases) {
-                for (index in cases){
-                    var specificCase = cases[index];
-                    allUsersInCommunication.push(cases.caseWorker);
-                }
-            });
-        }
-        else {
-            dbUtils.getCaseWorkerCases(userID).then(function(cases) {
-                for (index in cases) {
-                    var specificCase = cases[index];
-                    allUsersInCommunication.push(cases.fosterParent);
-                }
-                res.send(allUsersInCommunication);
-            });
 }
 
 /**
@@ -87,7 +62,7 @@ function formatMessageData(messageList) {
 
     for(var index in messageList) {
         var message = messageList[index];
-        var column_array =[message.fromID, message.subject, message.message, message.createdAt];
+        var column_array =[message.fromID, message.subject, message.message, message.createdAt, message, message.messageID];
         newList.push(column_array);
         console.log(message);
     }
@@ -102,7 +77,7 @@ function formatMessageData(messageList) {
  */
 function setUser(req, res, next) {
     if (req.user) {
-        res.locals.user = req.user
+        res.locals.user = req.user;
     }
     next();
-};
+}

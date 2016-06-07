@@ -1,3 +1,4 @@
+var roles = require('../models/tables').roles;
 var utils = require('../lib/utils');
 var config = require('../config');
 var dbUtils = require('../lib/dbUtils');
@@ -14,6 +15,13 @@ exports.init = init;
  * @param router
  */
 function init(router) {
+
+    // All of our messaging routes are accessible only by users with the
+    // role of fosterParent or caseWorker, and only after successful permissions will the user object
+    // be available to the views.
+    router.use(permission(Object.keys(roles).map(function(key){return roles[key]})));
+    // All views get a res.locals.user object set
+    router.use(setUser);
 
     router.get('/sendMessage', function(req, res, next) {
         if(req.isAuthenticated()) {
@@ -43,15 +51,20 @@ function init(router) {
             if(req.body.recipientID) {
                 // If we are given the ID of recipient, send directly
                 message['recipientID']  = parseInt(req.body.recipientID);
-                processMessage(message);
+                processMessage(message, res);
             } else {
                 // If not, lookup by email
                 if(recipientEmail) {
-                    
+                    dbUtils.retrieveUser({'email':recipientEmail}).then(function(user) {
+                        var recipientID = user.userID;
+                        message['recipientID'] = recipientID;
+
+                        processMessage(message, res);
+                    });
                 } else {
                     // No unique identifier
                     message['recipientID'] = null;
-                    processMessage(message);
+                    processMessage(message, res);
                 }
             }
 
@@ -60,9 +73,38 @@ function init(router) {
             res.render('501', {status: 501, url: req.url});
         }
     });
+     
+     /**
+      * Gets userIDs+addresses for all users relevant to the user making the request.
+      *
+      */
+     router.post('/getRelevantAddresses', function(req, res) {
+        var userID = req.user.userID;
+        var userRole = req.user.userDetails.role;
+        var allUsersInCommunication = [userID];
+        
+        if(userRole == 'fosterParent') {
+            dbUtils.getFosterParentCases(userID).then(function(cases) {
+                for (index in cases){
+                    var specificCase = cases[index];
+                    allUsersInCommunication.push(cases.caseWorker);
+                }
+                res.send(allUsersInCommunication);
+            });
+        }
+        else {
+            dbUtils.getCaseWorkerCases(userID).then(function(cases) {
+                for (index in cases) {
+                    var specificCase = cases[index];
+                    allUsersInCommunication.push(cases.fosterParent);
+                }
+                res.send(allUsersInCommunication);
+            });
+        }
+    });
 }
 
-function processMessage(message) {
+function processMessage(message, res) {
     //Makes sure all fields exist
     var allFieldsExist = false;
     if(message['subject']       != null &&
@@ -95,3 +137,13 @@ function processMessage(message) {
             });
 }
 
+/**
+ * Small middleware for setting the user object to be visible in our handlebars layouts
+ * Its side effect is a `res.locals.user` variable being set.
+ */
+function setUser(req, res, next) {
+    if (req.user) {
+        res.locals.user = req.user;
+    }
+    next();
+};
