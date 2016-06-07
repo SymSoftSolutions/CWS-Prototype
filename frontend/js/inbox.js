@@ -1,5 +1,6 @@
 
 var dataTable;
+var viewUtils = require('../../lib/viewUtils.js');
 
 function setInboxRowHandler() {
   // Setup message when row is selected
@@ -7,10 +8,14 @@ function setInboxRowHandler() {
       //$("#response_msg_body").css("width", $("#response_msg_div").width() - 85);
       $("#inbox_table").hide();
       var parent = $(this).parent();
+      var avatar = parent.find(".msg-avatar").text();
+      if(avatar) {
+          $("#inbox_message .curr-msg-img").attr("src",viewUtils.getAvatarPath(avatar));
+      }
       $("#inbox_message .curr-msg-from").text(parent.find(".msg-from").text());
-      $("#inbox_message .curr-msg-date").text(parent.find(".msg-date").text());
+      $("#inbox_message .curr-msg-date").text(parent.find(".msg-long-date").text());
       $("#inbox_message .curr-msg-subject").text(parent.find(".msg-subject").text());
-      $("#inbox_message .curr-msg-body").html(parent.find(".msg-body").text());
+      $("#inbox_message .curr-msg-body").html(parent.find(".msg-body").html());
       $("#inbox_message").show();
   });
   setInboxCheckboxHandlers();
@@ -44,6 +49,7 @@ function resetInboxCheckboxes() {
 }
 
 function getInboxMessages() {
+    dataTable.clear().draw();
     $.ajax({
       url: "/getMessages",
       type: "POST",
@@ -53,28 +59,29 @@ function getInboxMessages() {
               for (var i = 0; i < msgsArr.length; i++) {
                   var newRow = [], msgEntry = "", a_p = "";
                   var userID = msgsArr[i][0], subject = msgsArr[i][1], body = msgsArr[i][2], date = msgsArr[i][3];
-                  var trimBody = (body.length > 150 ? body.substring(0,140) + "..." : body);
+                  var trimBody = body.split('\n')[0];
+                  trimBody = (trimBody.length > 150 ? trimBody.substring(0,140) + "..." : trimBody);
+                  body = body.replace(/\n/g, "<br />");
                   date = new Date((date || "").replace(/-/g,"/").replace(/[TZ]/g," "));
                   // Format date
                   var m_names = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
                   var curr_date = date.getDate();
                   var curr_month = date.getMonth();
                   var curr_year = date.getFullYear();
-
+                  var curr_hour = date.getHours();
+                  var curr_min = date.getMinutes();
+                  if (curr_hour < 12) a_p = "AM";
+                  else a_p = "PM";
+                  if (curr_hour == 0) curr_hour = 12;
+                  if (curr_hour > 12) curr_hour = curr_hour - 12;
 
                   var d = new Date();
                   if (d.toDateString() === date.toDateString()) { // Check if msg date is today, if so only display the hour
-                      var curr_hour = date.getHours();
-                      var curr_min = date.getMinutes();
-                      if (curr_hour < 12) a_p = "AM";
-                      else a_p = "PM";
-                      if (curr_hour == 0) curr_hour = 12;
-                      if (curr_hour > 12) curr_hour = curr_hour - 12;
-
                       date = curr_hour + ":" + (curr_min < 10 ? "0" + curr_min : curr_min) + " " + a_p;
                   } else {
-                      date = m_names[curr_month] + "/" + curr_date;
+                      date = m_names[curr_month] + " " + curr_date;
                   }
+                  var fullDate =  curr_hour + ":" + (curr_min < 10 ? "0" + curr_min : curr_min) + " " + a_p + " " + m_names[curr_month] + " " + curr_date;
                   $.ajax({
                     method: "POST",
                     async: false,
@@ -85,7 +92,9 @@ function getInboxMessages() {
                     msgEntry += '<span class="msg-from">' + msg.name + '</span><br/>' +
                                 '<span class="msg-subject">' + subject + '</span><br/>' +
                                 '<span class="msg-trim-body hidden-xs">' + trimBody + '</span>' +
-                                '<span class="msg-body hidden">' + body + '</span>';
+                                '<span class="msg-body hidden">' + body + '</span>' +
+                                '<span class="msg-long-date hidden">' + fullDate + '</span>' +
+                                '<span class="msg-avatar hidden">' + msg.avatar + '</span>';
                     newRow.push(msgEntry);
                     newRow.push('<span class="msg-date">' + date + '</span>');
                     dataTable.row.add(newRow).draw(false);
@@ -128,6 +137,8 @@ function paginationSetup() {
     }
     if(info.end == info.recordsTotal) {
         $("#inbox_next").addClass("not-active");
+    } else {
+        $("#inbox_next").removeClass("not-active");
     }
   }
   setInboxRowHandler();
@@ -138,12 +149,7 @@ $(document).ready(function() {
         "paging":   true,
         "ordering": false,
         "pageLength": 10,
-        "sDom":     'tr',
-        /*"ajax": {
-            "url": '/getMessages',
-            "type": "POST"
-        },
-        "deferRender": true*/
+        "sDom":     'tr'
     });
 
     getInboxMessages();
