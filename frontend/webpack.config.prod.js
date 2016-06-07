@@ -1,6 +1,6 @@
-process.env.NODE_ENV = 'development';
+process.env.NODE_ENV = 'production';
 
-
+process.env.UV_THREADPOOL_SIZE = 100;
 const webpack = require('webpack');
 
 const config = require('./../config/index');
@@ -14,11 +14,8 @@ const embedFileSize = 65536;
 const assetsLoaders = [
     // Styles
     // -------------------
-    {test: /\.scss$/, loaders: ['style', 'css', 'postcss', 'sass']},
-    {
-        test: /\.css$/,
-        loader: 'style!css!postcss'
-    },
+    {test: /\.(scss|css)$/, loader: ExtractTextPlugin.extract([ 'css', 'postcss', 'sass'])},
+
     // Media Resources
     // -------------------
     {test: /\.mp4$/, loader: `url?limit=${embedFileSize}&mimetype=video/mp4`},
@@ -35,24 +32,17 @@ const assetsLoaders = [
 
 module.exports = {
     context: __dirname,
-    devtool: 'source-map',
-
     entry: [
-        // Add the client which connects to our middleware
-        // You can use full urls like 'webpack-hot-middleware/client?path=http://localhost:3000/__webpack_hmr'
-        // useful if you run your app from another point like django
-        'webpack/hot/dev-server',
-        'webpack-hot-middleware/client?reload=true',
-         path.join('..', 'frontend','index.js')
+        path.join('..', 'frontend','index.js')
     ],
-    watch: true,
     output: {
         publicPath: '/public',
-        path: __dirname,
+        path: path.resolve('public'),
         filename: 'script.js',
     },
 
     plugins: [
+        new ExtractTextPlugin("app.css"),
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV)
@@ -63,7 +53,6 @@ module.exports = {
             jQuery: "jquery"
         }),
         new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin()
     ],
     module: {

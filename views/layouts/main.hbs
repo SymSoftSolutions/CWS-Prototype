@@ -10,10 +10,9 @@
     <title>CWS - {{title}}</title>
 
     {{! Our js will automatically pull in styles during development }}
-    {{#if production}}
-        <link rel="stylesheet" href="/public/css/framework.css">
-        <link rel="stylesheet" href="/public/css/app.css">
-    {{/if}}
+    {{#ifEnv "production"}}
+        <link rel="stylesheet" href="/public/app.css">
+    {{/ifEnv}}
 </head>
 
 <body lang="en">
@@ -39,7 +38,7 @@
         // data exposed by express-state
             {{{state}}}
     </script>
-    <script src="/public/js/script.js"></script>
+    <script src="/public/script.js"></script>
 </body>
 
 </html>

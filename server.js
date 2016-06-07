@@ -51,6 +51,6 @@ exports.setupServer = setupServer;
 exports.app = app;
 
 if (require.main === module) {
-    // will conditionally create our models if not already, then start our server
-    require('./models/createAll').createAll().then(setupServer);
+        // will conditionally create our models if not already, then start our server
+        require('./models/createAll').createAll().then(setupServer);
 }
