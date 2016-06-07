@@ -1,4 +1,4 @@
-###Meeting notes from our interview with Chris
+#Notes from our interview with Chris, a foster parent
 
 ##Terminology
 - **DCFS**: Department of Children and Family Services
@@ -59,4 +59,3 @@ Profiles may also be good for county or FFAs.
 
 ###How important is location?
 Zip codes can be helpful early on in the process (of becoming a foster parent). There are required classes that foster parents need to take, and they don’t have to drive far for those classes.
-
