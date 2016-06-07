@@ -106,7 +106,9 @@ function respondToNewUser(formIsValid, req, res, next) {
                 console.log('error occured');
                 console.log(err);
             }).then(function() {
-            res.redirect('/login');
+                //dbUtils.assignCaseWorker(user, {"role":"caseWorker"}).then(function() {
+                    res.redirect('/login');
+                //});
             });
         } else {
             console.log('form is invalid');

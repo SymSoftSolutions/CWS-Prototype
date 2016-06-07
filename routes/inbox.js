@@ -25,6 +25,75 @@ function init(router){
         console.log( res.locals.user)
         res.render('inbox');
     });
+    
+    /**
+     * Gets message list for a specified user either sending or recieving messages
+     * Takes JSON request only
+     * Client should post JSON containing user's ID
+     */
+     router.post('/getMessages', function(req, res) {
+        //var byRecipient = req.body.bySender; //If false, assumed to be asking for emails by sender - ones that were send by user
+        var byRecipient = true;
+        var userID = req.user.userID;
+
+        if(byRecipient) {
+            dbUtils.getRecievedMessages(userID).then(function(messageList) {
+                console.log('recieved request');
+                messageList = formatMessageData(messageList);
+                res.send(messageList);
+            });
+        } else {
+            dbUtils.getUserMessages(userID).then(function(messageList) {
+                messageList = formatMessageData(messageList);
+                res.send(messageList);
+            });
+        }
+
+     });
+     
+     /**
+      * Gets address 
+      *
+      */
+     router.post('/getRelevantAddresses', function(req, res) {
+        var userID = req.user.userID;
+        var userRole = req.user.userDetails.role;
+        var allUsersInCommunication = [userID];
+        
+        if(userRole == 'fosterParent') {
+            dbUtils.getFosterParentCases(userID).then(function(cases) {
+                for (index in cases){
+                    var specificCase = cases[index];
+                    allUsersInCommunication.push(cases.caseWorker);
+                }
+            });
+        }
+        else {
+            dbUtils.getCaseWorkerCases(userID).then(function(cases) {
+                for (index in cases) {
+                    var specificCase = cases[index];
+                    allUsersInCommunication.push(cases.fosterParent);
+                }
+                res.send(allUsersInCommunication);
+            });
+}
+
+/**
+ * Takes message list and formats it in friendlier form to display on front-end
+ * @param messageList - array of messages in JSON, same as rows
+ */
+function formatMessageData(messageList) {
+    var newList = [];
+
+    for(var index in messageList) {
+        var message = messageList[index];
+        var column_array =[message.fromID, message.subject, message.message, message.createdAt];
+        newList.push(column_array);
+        console.log(message);
+    }
+    
+    console.log(newList);
+    return {"data": newList};
 }
 
 /**

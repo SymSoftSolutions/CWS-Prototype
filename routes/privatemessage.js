@@ -7,14 +7,13 @@ var passport = require('passport');
 var permission = require('permission');
 
 
-exports.processMessages = processMessages;
-exports.getMessageData = getMessageData;
+exports.init = init;
 
 /**
  * Adds routes for handling user sent messages
  * @param router
  */
-function processMessages(router) {
+function init(router) {
 
     router.get('/sendMessage', function(req, res, next) {
         if(req.isAuthenticated()) {
@@ -36,39 +35,26 @@ function processMessages(router) {
             var message = {};
             message['fromID']       = req.user.userID;
             message['subject']      = req.body.subject;
-            message['recipientID']  = parseInt(req.body.recipientID);
             message['message']      = req.body.text;
             message['hasRead']      = false;
 
-            var allFieldsExist = false;
-            if(message['subject']       != null &&
-               message['message']       != null &&
-               message['recipientID']   != null) {
-               allFieldsExist=true;
+            var recipientEmail =req.body.email;
+
+            if(req.body.recipientID) {
+                // If we are given the ID of recipient, send directly
+                message['recipientID']  = parseInt(req.body.recipientID);
+                processMessage(message);
             } else {
-                if(!allFieldsExist) {
-                    req.flash('error', 'Required fields not filled');
+                // If not, lookup by email
+                if(recipientEmail) {
+                    
+                } else {
+                    // No unique identifier
+                    message['recipientID'] = null;
+                    processMessage(message);
                 }
-                req.flash('success', 'Message sent!');
-                res.redirect('/inbox');
-                return;
             }
 
-            dbUtils.checkExist('users', {'userID': message['recipientID']}, function(err, recipientExists) {
-
-                if(err) {
-                    res.render('501', {status: 501, url: req.url});
-                    return;
-                }
-                if(recipientExists && allFieldsExist) {
-                    dbUtils.addMessage(message).then(function() {
-                        res.redirect('/sendMessage');
-                    });
-                } else {
-                    req.flash('error', 'Please enter a valid recipient');
-                    res.redirect('/sendMessage');
-                }
-            });
         }
         else {
             res.render('501', {status: 501, url: req.url});
@@ -76,50 +62,36 @@ function processMessages(router) {
     });
 }
 
-function getMessageData(router) {
-    /**
-     * Gets message list for a specified user either sending or recieving messages
-     * Takes JSON request only
-     * Client should post JSON containing user's ID
-     */
-     router.post('/getMessages', function(req, res) {
-        //var byRecipient = req.body.bySender; //If false, assumed to be asking for emails by sender - ones that were send by user
-        var byRecipient = true;
-        var userID = req.user.userID;
+function processMessage(message) {
+    //Makes sure all fields exist
+    var allFieldsExist = false;
+    if(message['subject']       != null &&
+       message['message']       != null &&
+       message['recipientID']   != null) {
+       allFieldsExist=true;
+    } else {
+        if(!allFieldsExist) {
+            req.flash('error', 'Required fields not filled');
+        }
+        req.flash('success', 'Message sent!');
+        res.redirect('/inbox');
+        return;
+    }
 
-        if(byRecipient) {
-            dbUtils.getRecievedMessages(userID).then(function(messageList) {
-                console.log('recieved request');
-                messageList = formatMessageData(messageList);
-                res.send(messageList);
+    dbUtils.checkExist('users', {'userID': message['recipientID']}, function(err, recipientExists) {
+
+        if(err) {
+            res.render('501', {status: 501, url: req.url});
+            return;
+        }
+        if(recipientExists && allFieldsExist) {
+            dbUtils.addMessage(message).then(function() {
+                res.redirect('/sendMessage');
             });
         } else {
-            dbUtils.getUserMessages(userID).then(function(messageList) {
-                messageList = formatMessageData(messageList);
-                res.send(messageList);
-            });
+            req.flash('error', 'Please enter a valid recipient');
+            res.redirect('/sendMessage');
         }
-
-     });
-     
-     /**
-      * Gets address 
-      *
-      */
-     router.post('/getRelevantAddresses', function(req, res) {
-     });
+            });
 }
 
-function formatMessageData(messageList) {
-    var newList = [];
-
-    for(var index in messageList) {
-        var message = messageList[index];
-        var column_array =[message.fromID, message.subject, message.message, message.createdAt];
-        newList.push(column_array);
-        console.log(message);
-    }
-    
-    console.log(newList);
-    return {"data": newList};
-}

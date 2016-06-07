@@ -49,8 +49,7 @@ function createAllRoutes(router) {
     });
 
     newProfileRoutes.createNewProfiles(router);
-    messagingRoutes.processMessages(router);
-    messagingRoutes.getMessageData(router);
+    messagingRoutes.init(router);
     profileRoutes.init(router);
     inboxRoutes.init(router);
     dbCalls.init(router);
