@@ -17,11 +17,42 @@
                   <li><a href="#">Another action</a></li>
               </ul>
           </div>
+          <a id="inbox_delete_btn">Delete</a>
       </div>
       <div class="col-xs-3 text-right pagination">
         <b><span class="page-start"></span>-<span class="page-end"></span></b> of <span class="total-records"></span>
         <a id="inbox_prev" class="not-active"><span class="glyphicon glyphicon-triangle-left"></span></a>
         <a id="inbox_next"><span class="glyphicon glyphicon-triangle-right"></span></a>
+      </div>
+  </div>
+
+  <div id="new_msg_div">
+      <div class="row new-msg-header">
+          <span>New Message</span><a id="close_new_msg" class="pull-right">x</a>
+      </div>
+      <div class="row">
+          <div class="form-group">
+            <label for="new_msg_to" class="col-xs-2 control-label">To:</label>
+            <div class="col-xs-10">
+              <input id="new_msg_to" type="search" class="form-control new-msg-input" placeholder="Enter recipient" />
+            </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="form-group">
+            <label for="new_msg_subject" class="col-xs-2 control-label">Subject:</label>
+            <div class="col-xs-10">
+              <input id="new_msg_subject" type="search" class="form-control new-msg-input" placeholder="Subject" />
+            </div>
+          </div>
+      </div>
+      <div class="row">
+        <textarea rows="8" id="new_msg_content" placeholder="Contents"></textarea><br/><br/>
+        <button id="send_new_msg_btn" type="button" class="btn btn-default not-active msg-action-btn" aria-label="Send">Send</button>
+        <a id="new_msg_attachment" class="attachment-link hidden"><span class="glyphicon glyphicon-paperclip"></span></a>
+        <div id="new_msg_alert" class="hidden"><span class="glyphicon glyphicon-ok"></span><span class="new-msg-alert-txt">Message sent!</span></div>
+        <a id="cancel_new_msg" class="pull-right">Cancel</a>
+        <br/><br/>
       </div>
   </div>
 
@@ -31,24 +62,25 @@
               <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> &nbsp;New Message
           </button>
           <div class="list-group">
-              <a href="#" class="list-group-item active">
+              <a id="inbox_msg_list" href="#" class="list-group-item active">
                 Inbox <span id="inbox_count">(121)</span>
               </a>
-              <a href="#" class="list-group-item">Sent <span id="sent_count">(26)</span></a>
-              <a href="#" class="list-group-item">Trash <span id="trash_count">(10)</span></a>
+              <a id="sent_msg_list" href="#" class="list-group-item">Sent <span id="sent_count">(26)</span></a>
+              <a id="trash_msg_list" href="#" class="list-group-item">Trash <span id="trash_count">(10)</span></a>
           </div>
       </div>
       <div class="col-sm-9 col-xs-12 inbox-col">
           <div class="search-addon">
               <span class="glyphicon glyphicon-search"></span>
               <input id="inbox_searchbox" type="search" class="form-control" placeholder="Search" />
+              <button id="new_msg_btn_mobile" type="button" class="btn btn-default msg-action-btn visible-xs" aria-label="New"><span class="glyphicon glyphicon-envelope"></span> &nbsp;New</button>
           </div>
           <div id="inbox_message">
               <div class="row">
-                  <div class="col-sm-8">
+                  <div class="col-xs-8">
                       <a class="curr-msg-back"><span class="glyphicon glyphicon-triangle-left"></span></a><span class="curr-msg-subject"></span>
                   </div>
-                  <div class="col-sm-4">
+                  <div class="col-xs-4">
 
                   </div>
               </div>
@@ -69,12 +101,13 @@
               </div>
               <div id="response_msg_div" class="row">
                   <div class="col-sm-1 hidden-xs" style="max-width: 55px;">
-                      <img class="response-msg-img msg-img"/>
+                      <img class="response-msg-img msg-img" src="{{getAvatarPath user.avatar}}"/>
+                      <!--<img  class="avatar-image js-avatar-editor-show" alt="User Avatar" data-toggle="modal" data-target="#avataredit">-->
                   </div>
                   <div id="response_msg_body_div" class="col-xs-12 col-sm-11">
                       <textarea rows="5" id="response_msg_body"></textarea><br/><br/>
-                      <button id="response_msg_btn" type="button" class="btn btn-default" aria-label="Reply">Reply</button>
-                      <a id="response_attachment"><span class="glyphicon glyphicon-paperclip"></span></a>
+                      <button id="response_msg_btn" type="button" class="btn btn-default not-active msg-action-btn" aria-label="Reply">Reply</button>
+                      <a id="response_attachment" class="attachment-link hidden"><span class="glyphicon glyphicon-paperclip"></span></a>
                   </div>
               </div>
           </div>
@@ -87,8 +120,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><input type="checkbox" value=""></td>
+              <!--<tr>
+                <td><input type="checkbox" class="msg-checkbox" value=""></td>
                 <td>
                   <span class="msg-from">Joan Thomas</span><br/>
                   <span class="msg-subject">Question for you</span><br/>
@@ -97,7 +130,7 @@
                 <td><span class="msg-date">5:05 AM</span></td>
               </tr>
               <tr>
-                <td><input type="checkbox" value=""></td>
+                <td><input type="checkbox" class="msg-checkbox" value=""></td>
                 <td>
                   <span class="msg-from">Nathan Morales</span><br/>
                   <span class="msg-subject">How about next week?</span><br/>
@@ -106,7 +139,7 @@
                 <td><span class="msg-date">7:15 AM</span></td>
               </tr>
               <tr>
-                <td><input type="checkbox" value=""></td>
+                <td><input type="checkbox" class="msg-checkbox" value=""></td>
                 <td>
                   <span class="msg-from">Ruth Gomez</span><br/>
                   <span class="msg-subject">Change of plans</span><br/>
@@ -115,7 +148,7 @@
                 <td><span class="msg-date">5:00 PM</span></td>
               </tr>
               <tr>
-                <td><input type="checkbox" value=""></td>
+                <td><input type="checkbox" class="msg-checkbox" value=""></td>
                 <td>
                   <span class="msg-from">Christopher Curtis</span><br/>
                   <span class="msg-subject">One more thing</span><br/>
@@ -124,7 +157,7 @@
                 <td><span class="msg-date">Yesterday</span></td>
               </tr>
               <tr>
-                <td><input type="checkbox" value=""></td><td>
+                <td><input type="checkbox" class="msg-checkbox" value=""></td><td>
                 <span class="msg-from">Aaron Gibson</span><br/>
                 <span class="msg-subject">For Friday</span><br/>
                 <span class="msg-body hidden-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. sit amet, consectetur adipiscing elit.</span>
@@ -132,7 +165,7 @@
                 <td><span class="msg-date">Yesterday</span></td>
               </tr>
               <tr>
-                <td><input type="checkbox" value=""></td><td>
+                <td><input type="checkbox" class="msg-checkbox" value=""></td><td>
                 <span class="msg-from">Cynthia Guerrero</span><br/>
                 <span class="msg-subject">A few ideas</span><br/>
                 <span class="msg-body hidden-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. sit amet, consectetur adipiscing elit.</span>
@@ -140,7 +173,7 @@
                 <td><span class="msg-date">Yesterday</span></td>
               </tr>
               <tr>
-                <td><input type="checkbox" value=""></td>
+                <td><input type="checkbox" class="msg-checkbox" value=""></td>
                 <td>
                   <span class="msg-from">Joan Thomas</span><br/>
                   <span class="msg-subject">Question for you</span><br/>
@@ -149,7 +182,7 @@
                 <td><span class="msg-date">Yesterday</span></td>
               </tr>
               <tr>
-                <td><input type="checkbox" value=""></td>
+                <td><input type="checkbox" class="msg-checkbox" value=""></td>
                 <td>
                   <span class="msg-from">Nathan Morales</span><br/>
                   <span class="msg-subject">How about next week?</span><br/>
@@ -158,7 +191,7 @@
                 <td><span class="msg-date">Last week</span></td>
               </tr>
               <tr>
-                <td><input type="checkbox" value=""></td>
+                <td><input type="checkbox" class="msg-checkbox" value=""></td>
                 <td>
                   <span class="msg-from">Ruth Gomez</span><br/>
                   <span class="msg-subject">Change of plans</span><br/>
@@ -167,7 +200,7 @@
                 <td><span class="msg-date">Last week</span></td>
               </tr>
               <tr>
-                <td><input type="checkbox" value=""></td>
+                <td><input type="checkbox" class="msg-checkbox" value=""></td>
                 <td>
                   <span class="msg-from">Christopher Curtis</span><br/>
                   <span class="msg-subject">One more thing</span><br/>
@@ -176,7 +209,7 @@
                 <td><span class="msg-date">Last week</span></td>
               </tr>
               <tr>
-                <td><input type="checkbox" value=""></td>
+                <td><input type="checkbox" class="msg-checkbox" value=""></td>
                 <td>
                   <span class="msg-from">Aaron Gibson</span><br/>
                   <span class="msg-subject">For Friday</span><br/>
@@ -185,14 +218,14 @@
                 <td><span class="msg-date">Last week</span></td>
               </tr>
               <tr>
-                <td><input type="checkbox" value=""></td>
+                <td><input type="checkbox" class="msg-checkbox" value=""></td>
                 <td>
                   <span class="msg-from">Cynthia Guerrero</span><br/>
                   <span class="msg-subject">A few ideas</span><br/>
                   <span class="msg-body hidden-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. sit amet, consectetur adipiscing elit.</span>
                 </td>
                 <td><span class="msg-date">Last week</span></td>
-              </tr>
+              </tr>-->
             </tbody>
           </table>
       </div>

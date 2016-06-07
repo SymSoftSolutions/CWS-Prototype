@@ -51,7 +51,7 @@ function init(router) {
             if(req.body.recipientID) {
                 // If we are given the ID of recipient, send directly
                 message['recipientID']  = parseInt(req.body.recipientID);
-                processMessage(message, res);
+                processMessage(message, req, res);
             } else {
                 // If not, lookup by email
                 if(recipientEmail) {
@@ -59,12 +59,12 @@ function init(router) {
                         var recipientID = user.userID;
                         message['recipientID'] = recipientID;
 
-                        processMessage(message, res);
+                        processMessage(message, req, res);
                     });
                 } else {
                     // No unique identifier
                     message['recipientID'] = null;
-                    processMessage(message, res);
+                    processMessage(message, req, res);
                 }
             }
 
@@ -73,7 +73,7 @@ function init(router) {
             res.render('501', {status: 501, url: req.url});
         }
     });
-     
+
      /**
       * Gets userIDs+addresses for all users relevant to the user making the request.
       *
@@ -82,7 +82,7 @@ function init(router) {
         var userID = req.user.userID;
         var userRole = req.user.userDetails.role;
         var allUsersInCommunication = [userID];
-        
+
         if(userRole == 'fosterParent') {
             dbUtils.getFosterParentCases(userID).then(function(cases) {
                 for (index in cases){
@@ -104,7 +104,7 @@ function init(router) {
     });
 }
 
-function processMessage(message, res) {
+function processMessage(message, req, res) {
     //Makes sure all fields exist
     var allFieldsExist = false;
     if(message['subject']       != null &&
