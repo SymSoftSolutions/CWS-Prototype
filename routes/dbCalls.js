@@ -19,7 +19,7 @@ function processDBCalls(router) {
                 var userName = principal.firstName+" "+principal.lastName;
                 var userMail = principal.email;
 
-                var userDetails = {"name": userName, "email": userMail};
+                var userDetails = {"name": userName, "email": userMail, "avatar": principal.avatar};
                 res.send(userDetails);
             });
         } else {

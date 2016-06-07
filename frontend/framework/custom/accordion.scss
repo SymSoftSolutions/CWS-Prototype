@@ -12,25 +12,41 @@
     }
 }
 
-/* title opened */
-.animated-accordion__header[aria-expanded="true"]:before {
-    content: "- ";
-}
+
 /* title closed */
-.animated-accordion__header[aria-expanded="false"]:before {
-    content: "+ ";
+.animated-accordion__header[aria-expanded="false"]{
+    h3:before {
+        content: "+ ";
+    }
+
 }
 
-/* title selected */
-.animated-accordion__header[aria-expanded="true"]:after {
-    content: "";
+/* title opened */
+.animated-accordion__header[aria-expanded="true"] {
+    h3:before {
+        content: "- ";
+    }
+
+    button {
+        display: none;
+    }
 }
-/* title non selected */
-.animated-accordion__header[aria-expanded="false"]:after {
-    content: " (view more)";
-    font-size: 0.7em;
-    color: getColor(text, muted);
-}
+
+
+
+///* title selected */
+//.animated-accordion__header[aria-expanded="true"]:after {
+//    content: "";
+//}
+///* title non selected */
+//.animated-accordion__header[aria-expanded="false"]:after {
+//    content: "(view more)";
+//    font-size: 0.7em;
+//    color: getColor(text, muted);
+//    position: absolute;
+//    bottom:0;
+//    left:0;
+//}
 
 .animated-accordion__panel {
     display: block;

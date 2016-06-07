@@ -1,8 +1,11 @@
-<div class="container-fluid">
+<div class="container-fluid profile-container">
 
     <h1>Case Worker: {{user.firstName}}</h1>
 
     {{> profile/avatar this}}
 
-
+    <div class="row profile-update-info">
+        <a href="/inbox" class="btn btn-primary">View Inbox & Messages</a>
+    </div>
 </div>
+

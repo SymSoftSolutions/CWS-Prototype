@@ -1,11 +1,11 @@
 <fieldset>
-    <legend>Adult #{{index}}</legend>
+    <legend>Adult </legend>
     <strong><label for="firstName">First Name:</label></strong>
     <input type="text" id="firstName" value="{{adult.firstName}}"  name="userDetails[adults][{{index}}][firstName]" placeholder="John" class="input--flat">
     <strong><label for="lastName">Last Name:</label></strong>
     <input type="text" value="{{adult.lastName}}" name="userDetails[adults][{{index}}][lastName]" id="lastName" placeholder="Doe" class="input--flat">
     <strong> <label for="dateofbirth">Date of Birth:</label></strong>
-    <div class="row small-pad-xs">
+    <div class="row-flex small-pad-xs">
         <div class="col-xs">{{> months selected=adult.dob.month name=(adultBirthMonth index)}}</div>
         <div class="col-xs"><input type="text" value="{{adult.dob.day}}" name="userDetails[adults][{{index}}][dob][day]" placeholder="day"></div>
         <div class="col-xs"><input type="text" value="{{adult.dob.year}}" name="userDetails[adults][{{index}}][dob][year]" placeholder="year"></div>

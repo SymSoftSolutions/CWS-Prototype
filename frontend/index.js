@@ -9,6 +9,10 @@ import 'toastr/toastr.scss';
 // bring in our javascript for targeting our profile page elements
 require('./js/profile-updating.js');
 
+var locationRelated = require('./js/locations');
+
+locationRelated.getLocations();
+
 // bring them in for their global code
 require('./libraries/jquery-accessibleMegaMenu');
 
