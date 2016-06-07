@@ -17,11 +17,11 @@ module.exports = {
    * Data base and persistence specifics
    */
   postgres: {
-    host: "localhost",
+    host: "ec2-184-73-196-82.compute-1.amazonaws.com",
     port: "5432",
-    database: "cws",
-    user: "postgres",
-    password: "echopostgres"
+    database: "d2vevrt3cr7djr",
+    user: "wbddazumodfpjd",
+    password: "IQXZ-7AoOwyS1r1e2z7y4kgqu3"
   },
 
   /**
