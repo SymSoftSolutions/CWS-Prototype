@@ -46,8 +46,6 @@ We combined User Centered Design and Agile Development. By the end of this sprin
 
 During this phase we executed the following tasks:
 
-During this phase we executed the following tasks:
-
 *User Centered Design:*
 
 •	Interviewed a foster parent to understand his challenges, and vision for improved digital foster care services
