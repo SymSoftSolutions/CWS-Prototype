@@ -22,7 +22,7 @@ We decided to use Scrum to help us to deliver the prototype quickly while promot
 
 ![SymSoft Process](/docs/sprint_0/process/images/ourprocess.png)
 
-**Discovery Phase**
+[**Discovery Phase**] (/docs/discovery_phase/readme.md)
 
 In this phase we reviewed the project requirements and learned about Foster Care to develop a prioritized features list (the initial Product Backlog).
 
@@ -39,14 +39,14 @@ We combined User Centered Design and Agile Development. By the end of this sprin
 
 During sprint 0 we executed the following tasks:
 
-*Human Centered Design:*
+[*Human Centered Design:*](/docs/sprint_0/ux/readme.md)
 
 1. Interviewed a foster parent to understand his challenges, and vision for improved digital foster care services
 2. Created User Personas 
 3. Designed high fidelity product wireframes and reviewed those with users
 4. Gathered visual design, branding, and marketing guidelines
 
-*Agile Process:*
+[*Agile Process:*](/docs/sprint_0/process/readme.md)
 
 1. Refined Product Backlog with Acceptance Criteria
 2. Agreed on Sprint and Release Level Definition of Done
