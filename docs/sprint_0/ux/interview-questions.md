@@ -23,23 +23,26 @@ Do you have any questions for us before we begin?
 
 ###Questions
 
-1.	Overall Process
-2.	Tell us a little bit about the process of being a foster parent. 
-•  Do you interact with CA Dept. of Social Services? Counties? With whom?
-2.	Registration, Profile management
+###1.	Overall Process
+- Tell us a little bit about the process of being a foster parent. 
+- Do you interact with CA Dept. of Social Services? Counties? With whom?
+
+###2.	Registration, Profile management
 - What information you provide to be a foster parent? 
 - What information you need to maintain or keep up to date? 
 - How often do you need to update your profile information?
-3.	Communication with case worker
-a.	How often do you interact with your case worker? (How many case workers on average per month, per week??)
-b.	How do you typically interact with your case worker? (phone call, text, email, online system?) 
-c.	Are there any regulations around this? For instance, are you required to report to your case worker(s) once a week, once a month?
-d.	What are your biggest challenges in communicating with case workers? 
-e.	What would you like improved?
-4.	Foster Family Agency Locations near you
-a.	Why do you need to find foster agencies near you? Do they help connect you with foster kids, advice, services?
-b.	What are your biggest challenges in finding a foster agency?
-c.	What is the more relevant information you would need from a foster care agency? (Address, person on charge, type of agency etc.)
-d.	Do you typically go to foster agencies within 5 miles of your home? (20 miles?)
-e.	What are the interactions between case workers and foster care agencies (if any)
-5.	Any other feedback?
+
+###3.	Communication with case worker
+- How often do you interact with your case worker? (How many case workers on average per month, per week??)
+- How do you typically interact with your case worker? (phone call, text, email, online system?) 
+- Are there any regulations around this? For instance, are you required to report to your case worker(s) once a week, once a month?
+- What are your biggest challenges in communicating with case workers? 
+- What would you like improved?
+
+###4.	Foster Family Agency Locations near you
+- Why do you need to find foster agencies near you? Do they help connect you with foster kids, advice, services?
+- What are your biggest challenges in finding a foster agency?
+- What is the more relevant information you would need from a foster care agency? (Address, person on charge, type of agency etc.)
+- Do you typically go to foster agencies within 5 miles of your home? (20 miles?)
+- What are the interactions between case workers and foster care agencies (if any)
+- Any other feedback?
