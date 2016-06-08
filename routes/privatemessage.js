@@ -33,7 +33,6 @@ function init(router) {
      * If something goes wrong we redirect back to the forms to try again, but with a message to the user too.
      */
     router.post('/message', function(req, res, next) {
-        console.log('recieved message');
         if(req.user && req.isAuthenticated()) {
             /**
              * Form must contain following components:
@@ -48,10 +47,7 @@ function init(router) {
             message['hasRead']      = false;
 
             var recipientField = req.body.recipientID;
-            console.log(recipientField);
             var isRecipientNumeric = isNaN(recipientField);
-            console.log(isRecipientNumeric);
-            console.log('recieved message');
 
             if(!(isRecipientNumeric)) {
                 // If we are given the numerical ID of recipient, send directly
