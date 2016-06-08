@@ -92,7 +92,7 @@ function respondToNewUser(formIsValid, req, res, next) {
             })
                 .then(function() {
                 req.flash('success', 'Account successfully created');
-            res.redirect('/login');
+                res.redirect('/login');
             });
         } else {
             console.log('form is invalid');
