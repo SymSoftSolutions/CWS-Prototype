@@ -52,7 +52,8 @@ function init(router) {
 
         req.session.adultcount = 0;
         req.session.childcount = 0
-        dbUtils.updateUserDetails(req.user, req.body ).then(function(){
+        
+        dbUtils.replaceUserDetails(req.user, req.body ).then(function(){
             res.redirect('/profile');
         });
 

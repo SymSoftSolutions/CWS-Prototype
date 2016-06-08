@@ -1,37 +1,80 @@
-<div class="col-xs-12 col-sm-9 col-md-7 col-lg-5">
-    <div class="js-accordion " data-accordion-prefix-classes="animated-accordion">
-        <h4 class=" js-accordion__header" data-accordion-opened="false">Basic Profile</h4>
-        <div class="js-accordion__panel">
-            {{> profile/basic this}}
-        </div>
-
-        <h4 class="js-accordion__header" data-accordion-opened="false">About your Residence</h4>
-        <div class="js-accordion__panel">
-            {{> profile/residence residence = user.userDetails.residence }}
-        </div>
-
-        <h4 class="js-accordion__header" data-accordion-opened="false">Adults at your Home</h4>
-        <div class="js-accordion__panel ">
-            <div class="js-profile-adult-container">
-                {{#each user.userDetails.adults}}
-                    {{> profile/adults adult=this index=@index}}
-                {{/each}}
+<form action="update" method="post"  id="updateprofile" class="js-accordion js-profile-update" data-accordion-prefix-classes="animated-accordion">
+    <div class="row profile-update-info">
+        <button type="submit" form="updateprofile" value="Submit" class="btn btn-primary">Save updated Info</button>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class=" js-accordion__header">
+                <h3  data-accordion-opened="false">Who do you want to foster?<svg data-toggle="popover" title="Information" data-content="Information Lorem ipsum dolor sit amet, consectetur adipiscing
+elit. " class="svg-icon svg-icon--help" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M11 17h2v-6h-2v6zm1-15C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM11 9h2V7h-2v2z"/>
+                </svg></h3>
+                <button class="btn btn-secondary">Edit</button>
             </div>
-            <button type="button"  class=" btn btn-default js-profile-add-adult" aria-label="Add Adult">Add Adult</button>
-        </div>
 
-        <h4 class="js-accordion__header" data-accordion-opened="false">Children at your Home</h4>
-        <div class="js-accordion__panel ">
-            <div class="js-profile-children-container">
-                {{#each user.userDetails.children}}
-                    {{> profile/children child=this index=@index}}
-                {{/each}}
-            </div>
-            <button type="button" class=" btn btn-default js-profile-add-children" aria-label="Add Child">Add Child</button>
-        </div>
-        <h4 class="js-accordion__header" data-accordion-opened="false">Children Preferences</h4>
-        <div class="js-accordion__panel">
+            <div class="js-accordion__panel">
                 {{> profile/childrenpreferences childpref=user.userDetails.childpref childtype=user.userDetails.childtype}}
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class=" js-accordion__header">
+                <h3  data-accordion-opened="false">Adults at your Home<svg data-toggle="popover" title="Information" data-content="Information Lorem ipsum dolor sit amet, consectetur adipiscing
+elit. " class="svg-icon svg-icon--help" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M11 17h2v-6h-2v6zm1-15C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM11 9h2V7h-2v2z"/>
+                </svg></h3>
+                <button class="btn btn-secondary">Edit</button>
+            </div>
+            <div class="js-accordion__panel ">
+                <div class="js-profile-adult-container">
+                    {{#each user.userDetails.adults}}
+                        {{> profile/adults adult=this index=@index}}
+                    {{/each}}
+                </div>
+                <button type="button"  class=" btn btn-default js-profile-add-adult" aria-label="Add Adult">Add Adult</button>
+            </div>
         </div>
     </div>
-</div>
+
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class=" js-accordion__header">
+                <h3  data-accordion-opened="false">About your Residence<svg data-toggle="popover" title="Information" data-content="Information Lorem ipsum dolor sit amet, consectetur adipiscing
+elit. " class="svg-icon svg-icon--help" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M11 17h2v-6h-2v6zm1-15C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM11 9h2V7h-2v2z"/>
+                </svg></h3>
+                <button class="btn btn-secondary">Edit</button>
+            </div>
+            <div class="js-accordion__panel">
+                {{> profile/residence residence = user.userDetails.residence }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class=" js-accordion__header">
+                <h3  data-accordion-opened="false">Children at your Home<svg data-toggle="popover" title="Information" data-content="Information Lorem ipsum dolor sit amet, consectetur adipiscing
+elit. " class="svg-icon svg-icon--help" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M11 17h2v-6h-2v6zm1-15C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM11 9h2V7h-2v2z"/>
+                </svg></h3>
+                <button class="btn btn-secondary">Edit</button>
+            </div>
+            <div class="js-accordion__panel ">
+                <div class="js-profile-children-container">
+                    {{#each user.userDetails.children}}
+                        {{> profile/children child=this index=@index}}
+                    {{/each}}
+                </div>
+                <button type="button" class=" btn btn-default js-profile-add-children" aria-label="Add Child">Add Child</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+</form>

@@ -1,5 +1,7 @@
 <fieldset>
-    <legend>Child</legend>
+    <legend><button type="button" class="btn btn-danger btn-sm js-remove-child"  aria-label="Close"><span aria-hidden="true">×</span></button> Child</legend>
+
+
     <strong><label for="relationship">Relationship with You?</label></strong>
     <input type="text" id="relationship" value="{{child.relationship}}" name="userDetails[children][{{index}}][relationship]" class="input--flat">
 
