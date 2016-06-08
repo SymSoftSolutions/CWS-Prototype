@@ -1,7 +1,7 @@
 #Future requests for prototype
-During our foster parent interview, Chris suggested several features to support foster parents and social workers. For the next phase of this project, we suggest the following features based on Chris' feedback:
+During our foster parent interview, Chris suggested several features to support foster parents and social workers. For the next phase of this project, we suggest the following based on Chris' feedback:
 
-##Calendar Feature
+##Calendar 
 Scheduling required home visits and other appointments is an essential to both foster parents and social workers. A calendar feature can help social workers stay organized, and remind foster parents of their next meeting. 
 
 ##Repository for Medical Documents
