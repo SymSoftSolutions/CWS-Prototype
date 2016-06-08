@@ -62,6 +62,12 @@ function init(router){
      });
 
      router.post('/deleteMessage', function(req, res, next) {
+        var messageID = req.body.messageID;
+        dbUtils.deleteMessage(messageID).then(function() {
+            res.send({'status':'success'});
+        }).catch(function(err) {
+            res.send({'status':'error', 'message':err});
+        });
      });
 }
 
