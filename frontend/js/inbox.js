@@ -55,7 +55,8 @@ function getInboxMessages() {
       type: "POST",
       success: function (response) {
           var msgsArr = response.data;
-          if(msgsArr.length > 0) {
+
+          if(msgsArr && msgsArr.length > 0) {
               for (var i = 0; i < msgsArr.length; i++) {
                   var newRow = [], msgEntry = "", a_p = "";
                   var userID = msgsArr[i][0], subject = msgsArr[i][1], body = msgsArr[i][2], date = msgsArr[i][3];
