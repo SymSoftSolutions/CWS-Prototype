@@ -42,13 +42,39 @@ exports.getLocationsWithCoor = function () {
     }
 
     function error() {
-        toastr.error("Unable to retrieve your location.");
+        toastr.error("Unable to retrieve your location. Please use your zip code instead");
+        $('.js-find-locations-zip').removeClass('hide');
     }
 
     navigator.geolocation.getCurrentPosition(success, error);
 }
 
+exports.getLocationsWithZip = function (zip) {
+    var request = jQuery.getJSON({
+        url: '/geolookup',
+        data: {
+            zip: zip
+        },
+        success: function (data) {
+            toastr.success("Geolocation was able to find the nearest locations");
+            exports.getLocations(data.lat, data.lng);
+        },
+        error: function (e) {
+            toastr.error("Not a valid zip code");
+
+        }
+    });
+
+
+}
+
 jQuery(".js-find-locations").on('click', exports.getLocationsWithCoor);
+jQuery(".js-find-locations-zip").keyup(function (e) {
+    if (e.keyCode == 13) {
+        toastr.info("... Looking up your zip");
+        exports.getLocationsWithZip($(this).val());
+    }
+});
 
 exports.getLocations = function getLocations(lat, lng) {
 

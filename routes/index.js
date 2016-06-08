@@ -17,6 +17,9 @@ var messagingRoutes = require('./privatemessage');
 var dbCalls = require('./dbCalls');
 var inboxRoutes = require('./inbox');
 
+var https = require('https');
+var querystring = require('querystring');
+
 exports.createAllRoutes = createAllRoutes;
 exports.createErrorHandling = createErrorHandling;
 
@@ -41,8 +44,42 @@ function createAllRoutes(router) {
             res.redirect('/');
         });
 
-    // testing session
+
     router.get('/about', render('about'));
+
+    router.get('/geolookup', function(req,res){
+
+        var zip = req.query.zip;
+        var APIEndpoint = "https://www.googleapis.com/fusiontables/v1/query?";
+        var sql = "SELECT CITY, ZIP_CODE, REGION, LATITUDE, LONGITUDE FROM  149YUn9FJFchbeDd25r5Ge-vTl4_AD5dfTx31R-Od  WHERE ZIP_CODE = '" + zip + "' LIMIT 1"
+
+         var url = APIEndpoint + "sql=" + querystring.escape(sql) + "&key=" +  config.strings.googlekey;
+
+        console.log(url);
+        https.get(url, function(res2) {
+            var body = '';
+            res2.on('data', function(chunk) {
+                body += chunk;
+            });
+            res2.on('end', function() {
+                try {
+                    var json = JSON.parse(body);
+                    var lat = json.rows[0][3];
+                    var lng = json.rows[0][4];
+                    res.json({lat: lat, lng: lng});
+                } catch(e) {
+                    res.status(500).send({ error: e });
+                }
+
+            });
+
+
+        }).on('error', function(e) {
+            console.log("Got error: " + e.message);
+        });
+
+    })
+
 
     newProfileRoutes.createNewProfiles(router);
     messagingRoutes.init(router);

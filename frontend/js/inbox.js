@@ -36,11 +36,6 @@ function setInboxRowHandler() {
           });
       }
 
-      /*if($("#sent_msg_list").hasClass('active')) {
-          $("#inbox_message .curr-msg-from").text($("#inbox_message .curr-msg-to").text());
-          $("#inbox_message .curr-msg-to").html(parent.find(".msg-from").text());
-      }*/
-
       $("#inbox_message").show();
   });
   setInboxCheckboxHandlers();
@@ -149,11 +144,11 @@ $(window).resize(function(){
     } else {
         $("#inbox_container").addClass("container-fluid");
         $("#new_msg_div").removeClass("new-msg-mobile");
-        if(windowWidth > 1500) {
+        /*if(windowWidth > 1500) {
           $("#response_msg_body").css("width", "104%");
         } else {
           $("#response_msg_body").css("width", "101%");
-        }
+        }*/
     }
 });
 
