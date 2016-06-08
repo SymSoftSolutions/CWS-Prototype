@@ -66,11 +66,11 @@ For the purpose of this project we assembled an agile team including the followi
 * DevOps Engineer
 * Technical Architect
 
-For more details about the team composition please send us an email
+For more details about the team composition please contact us
 
 ## Open Source Technologies <a id="open-source"></a>
 
-See our [sprint 0 docs](docs/sprint_0/process/readme.md#application-architecture-and-technology-stack-) technology stack section for more details on the utilized open source tools, frameworks, and other technologies.
+[Open source tools, frameworks, and design resources] (docs/sprint_0/process/readme.md#application-architecture-and-technology-stack) guided our process from start to finish. The prototype was created using open source technologies including node.js, Postgres, HTML5 among others. While these technologies were chosen for this simple prototype, other technologies may be needed to handle complexities for future phases of this project. We have experience in PHP, Java, Ruby, Python and ASP .Net, with MySQL, SQL Server, Oracle, as well as NoSQL databases such as MongoDB.
 
 ## License <a id="license"></a>
 
