@@ -85,34 +85,7 @@ function init(router) {
         }
     });
 
-     /**
-      * Gets userIDs+addresses for all users relevant to the user making the request.
-      *
-      */
-     router.post('/getRelevantAddresses', function(req, res) {
-        var userID = req.user.userID;
-        var userRole = req.user.userDetails.role;
-        var allUsersInCommunication = [userID];
 
-        if(userRole == 'fosterParent') {
-            dbUtils.getFosterParentCases(userID).then(function(cases) {
-                for (index in cases){
-                    var specificCase = cases[index];
-                    allUsersInCommunication.push(cases.caseWorker);
-                }
-                res.send(allUsersInCommunication);
-            });
-        }
-        else {
-            dbUtils.getCaseWorkerCases(userID).then(function(cases) {
-                for (index in cases) {
-                    var specificCase = cases[index];
-                    allUsersInCommunication.push(cases.fosterParent);
-                }
-                res.send(allUsersInCommunication);
-            });
-        }
-    });
 }
 
 function processMessage(message, req, res) {

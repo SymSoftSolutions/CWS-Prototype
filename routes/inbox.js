@@ -4,6 +4,7 @@ var utils = require('../lib/utils');
 var config = require('../config');
 var dbUtils = require('../lib/dbUtils');
 var permission = require('permission');
+var roles = require('../models/tables').roles;
 
 /**
  * The primary export for this file, the init function will set a number of routes required for
@@ -15,10 +16,10 @@ exports.init = init;
 
 function init(router){
 
-    // All of our inbox page routes are accessible only by users with the
-    // role of `fosterParent`, only after successful permissions will the user object
+    // All of our profile page routes are accessible only by users with the
+    // role of fosterParent or caseWorker, and only after successful permissions will the user object
     // be available to the views.
-    router.use(permission('fosterParent'));
+    router.use(permission(Object.keys(roles).map(function(key){return roles[key]})));
     router.use(setUser);
 
     router.get('/inbox',  function (req, res) {
@@ -60,6 +61,19 @@ function init(router){
             res.send({'status':'error', 'message':err});
         });
      });
+
+
+    router.get('/relevantusers', function(req, res){
+        var promise;
+        switch (req.query.for){
+            // TODO: More cases for specific or filtered users
+            default:
+                promise = dbUtils.getAllUsers();
+        }
+        return promise.then(function(users){
+            res.json(users);
+        })
+    });
 }
 
 /**
