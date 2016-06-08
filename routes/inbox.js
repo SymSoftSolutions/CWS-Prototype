@@ -68,7 +68,13 @@ function init(router){
      */
     router.get('/relevantusers', function(req, res){
         var promise;
-        switch (req.query.for){
+        switch (req.user.role){
+            case roles.caseWorker:
+                promise = dbUtils.getAllFosterParents();
+                break;
+            case roles.fosterParent:
+                promise = dbUtils.getAllCaseWorkersForFosterParent();
+                break;
             // TODO: More cases for specific or filtered users
             default:
                 promise = dbUtils.getAllUsers();

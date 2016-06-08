@@ -117,6 +117,7 @@ $('.js-select-simple').selectize({
 
 $('.js-select-user-autocomplete').selectize({
     create: false,
+    maxItems: 1,
     valueField: 'email',
     labelField: 'email',
     searchField: 'email',
