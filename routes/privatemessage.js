@@ -68,6 +68,9 @@ function init(router) {
                         message['recipientID'] = recipientID;
 
                         processMessage(message, req, res);
+                    }).catch(function(err) {
+                        message['recipientID'] = null;
+                        processMessage(message, req, res);
                     });
                 } else {
                     // No unique identifier
@@ -120,6 +123,9 @@ function processMessage(message, req, res) {
        message['recipientID']   != null) {
        allFieldsExist=true;
     } else {
+        if(message['recipientID'] == null) {
+            req.flash('error', 'Invalid recipient!');
+        }
         if(!allFieldsExist) {
             req.flash('error', 'Required fields not filled');
         }
