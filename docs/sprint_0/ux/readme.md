@@ -57,6 +57,8 @@ Tools used:
 - [Unsplash] (https://unsplash.com/) - Open source photos
 - [Sketch App] (https://www.sketchapp.com/)
 - [ca.gov State Template] (http://template.webtools.ca.gov)
+- [UI Faces](http://uifaces.com/faq) - Awesome folks that allow their faces to be used on mockups & live products
+- [UI Names] (http://uinames.com/) - A simple tool to generate names for use in designs and mockups
 
 ##5.	Design Guide and Pattern Library <a id="design-guide"></a>
 ![Pattern libraries](https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint_0/ux/photos/05_symsoft-solutions-chhs-rfi-75001_style-guide.jpg)
