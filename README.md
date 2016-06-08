@@ -70,7 +70,7 @@ For more details about the team composition please contact us
 
 ## Open Source Technologies <a id="open-source"></a>
 
-[Open source tools, frameworks, and design resources] (docs/sprint_0/process/readme.md#application-architecture-and-technology-stack) guided our process from start to finish. The prototype was created using open source technologies including node.js, Postgres, HTML5 among others. While these technologies were chosen for this simple prototype, other technologies may be needed to handle complexities for future phases of this project. We have experience in PHP, Java, Ruby, Python and ASP .Net, with MySQL, SQL Server, Oracle, as well as NoSQL databases such as MongoDB.
+[Open source tools, frameworks, and design resources] (docs/sprint_0/process/readme.md#arch-tech) guided our process from start to finish. The prototype was created using open source technologies including node.js, Postgres, HTML5 among others. While these technologies were chosen for this simple prototype, other technologies may be needed to handle complexities for future phases of this project. We have experience in PHP, Java, Ruby, Python and ASP .Net, with MySQL, SQL Server, Oracle, as well as NoSQL databases such as MongoDB.
 
 ## License <a id="license"></a>
 
