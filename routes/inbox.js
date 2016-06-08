@@ -44,6 +44,8 @@ function init(router){
      });
 
      router.post('/sendMessages', function(req, res) {
+        var userID = req.user.userID;
+
         dbUtils.getUserMessages(userID).then(function(messageList) {
             messageList = formatMessageData(messageList);
             res.send(messageList);
