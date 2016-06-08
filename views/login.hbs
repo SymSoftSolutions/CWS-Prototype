@@ -11,11 +11,12 @@
         <div class="col-xs-12 col-sm-9 col-md-7 col-lg-5">
             {{> flash}}
             <input type="hidden" name="_csrf" value="{{_csrf }}">
-            <div class="form-group">
+
+            <div>
                 <label>Username:</label>
                 <input type="text" class="form-control" name="username"/><br/>
             </div>
-            <div class="form-group">
+            <div>
                 <label>Password:</label>
                 <input type="password" name="password" class="form-control"/>
             </div>
@@ -31,6 +32,3 @@
         </div>
     </div>
 </form>
-
-
-
