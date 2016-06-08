@@ -110,10 +110,10 @@ table.dataTable {
     }
     .selectize-input {
         @extend .new-msg-input;
-        padding-top: 10px;
+        padding-top: 5px;
 
         .item {
-            padding-top: 0;
+            padding: 0;
         }
     }
 
@@ -405,4 +405,18 @@ table.dataTable {
 .attachment-link:hover {
     text-decoration: none;
     color: #666;
+}
+
+.selectize-dropdown-content {
+    background: white;
+}
+
+.selectize-control.form-control.new-msg-input {
+    height:auto !important;
+    .selectize-input {
+        border: none;
+        padding: none;
+        line-height:2em;
+    }
+
 }
