@@ -105,6 +105,17 @@ table.dataTable {
         height: 40px;
         font-size: 15px;
     }
+    .selectize-control {
+        padding: 0 !important;
+    }
+    .selectize-control.multi .selectize-input.has-items {
+        padding: 0;
+        padding-top: 3px;
+    }
+    .selectize-input {
+        @extend .new-msg-input;
+        padding-top: 4px;
+    }
 
     #close_new_msg {
         font-size: 17px;
