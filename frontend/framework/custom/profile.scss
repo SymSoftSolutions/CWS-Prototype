@@ -55,12 +55,19 @@ border-radius: 50%;
 .profile-container {
     max-width:960px;
     margin-top: 2em;
+    margin-bottom: 2em;
 }
 
 .profile-header {
     display: flex;
     justify-content: left;
-    div {
+    .profile-header-info {
         margin-left: 1em;
     }
+}
+
+.profile-header-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

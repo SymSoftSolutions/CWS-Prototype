@@ -4,7 +4,7 @@
 
 .animated-accordion__header {
     display: block;
-
+    cursor: pointer;
 
     &:not(:first-child):not(:last-child) {
         margin-top: unitSize(3);
