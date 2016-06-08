@@ -50,7 +50,8 @@ module.exports = {
    * Commonly used strings for various aspects of middleware and other app functionality
    */
   strings: {
-    token: process.env.SESSION_TOKEN || 'testing'
+    token: process.env.SESSION_TOKEN || 'testing',
+    googlekey: process.env.GOOGLE_KEY || 'AIzaSyAl7CYjPpG1HwYDlk43xQYDYOyfq5efUhQ',
   }
 };
 
