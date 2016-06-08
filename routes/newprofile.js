@@ -82,7 +82,6 @@ function respondToNewUser(formIsValid, req, res, next) {
                user.userID = userDetails[0].userID;
                return dbUtils.assignCaseWorker(user, testCaseWorker);
             }).then(function() {
-                req.flash('success', 'Account successfully created');
                     user.password = req.body.password;
                     req.login(user, function (err) {
                         if ( ! err ){
@@ -91,6 +90,7 @@ function respondToNewUser(formIsValid, req, res, next) {
                            console.log(err);
                         }
                     })
+                    res.redirect('/login');
             });
         } else {
             res.redirect('/newprofile');
