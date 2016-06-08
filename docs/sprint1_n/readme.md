@@ -1,6 +1,25 @@
 ![photo of in-progress screenshots] (https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint1_n/06_symsoft-solutions-chhs-rfi-75001_prototype-in-progress.jpg)
 
+##Sprint 1 - N
+
+During this phase we executed the following activities and tasks:
+
+1. Sprint Planning
+2. Sprint Backlog Refining
+3. Daily Scrums
+4. Sprint Reviews
+5. Sprint Retrospectives
+6. Test Driven Development for Automated testing
+7. Code Review sessions
+8. Pair programming and pair testing
+9. Regression testing
+10. Continuous Integration and Continuous deployment to [AWS Elastic Beanstalk] (https://aws.amazon.com/elasticbeanstalk/)
+11. Continuous Monitoring with AWS Cloudwatch
+12. Manual testing in multiple mobile devices
+13. Cross-browser testing
+
 ##User Testing
+
 We performed in-person user testing to evaluate the functionality of the website, with a focus on the needs and emotional state of the user.
 - [User test questions] (https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint1_n/user-test_questions.md)
 - Test results
