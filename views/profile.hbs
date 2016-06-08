@@ -7,6 +7,8 @@
         <div class="profile-header-info">
             <h3>{{user.firstName}} {{user.lastName}}</h3>
             <h6><strong>Your Case Worker:</strong> {{caseWorker.firstName}} {{caseWorker.lastName}}</h6>
+
+
         </div>
 
       {{> profile/progress }}
@@ -15,6 +17,24 @@
     </div>
 
     {{> profile/options this}}
+    <div class="row">
+        <div class="col-xs-12 text-center heading--emphasis">
+            <h2>Foster Parent Locations</h2>
+            <button class="btn btn-secondary js-find-locations">Find Locations near you</button>
+        </div>
 
+
+        <div class="col-md-5" style="overflow:hidden">
+            <div style="width: 600px; height: 550px">
+                <div id="mapthat_map"></div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div id="mapthat_list" style="max-height: 600px; overflow: auto;"></div>
+        </div>
+        <div class="col-md-3">
+            <div id="mapthat_item_details"></div>
+        </div>
+    </div>
 
 </div>
