@@ -11,7 +11,7 @@ module.exports = {
    * Primary server related configuration
    */
   server: {
-    process.env.PORT || '8000'
+    env.PORT || '8000'
   },
 
   /**
