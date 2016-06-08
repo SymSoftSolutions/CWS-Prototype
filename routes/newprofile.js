@@ -84,15 +84,19 @@ function respondToNewUser(formIsValid, req, res, next) {
             user['role'] = 'fosterParent';
             console.log(user);
             
-            dbUtils.insertUser(user, function(err) {
-                console.log('error occured');
-                console.log(err);
-            }).then(function(){
+            dbUtils.insertUser(user).then(function(userDetails){
+               user.userID = userDetails[0].userID;
                return dbUtils.assignCaseWorker(user, testCaseWorker);
-            })
-                .then(function() {
+            }).then(function() {
                 req.flash('success', 'Account successfully created');
-            res.redirect('/login');
+                    user.password = req.body.password;
+                    req.login(user, function (err) {
+                        if ( ! err ){
+                            res.redirect('/inbox');
+                        } else {
+                           console.log(err);
+                        }
+                    })
             });
         } else {
             console.log('form is invalid');
