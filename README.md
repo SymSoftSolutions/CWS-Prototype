@@ -96,7 +96,8 @@ TODO
 
 ## License <a id="license"></a>
 
-This project is licensed under the terms of the [MIT license] (CWS-Prototype/LICENSE)
+This project is licensed under the terms of the [MIT license] (CWS-Prototype/LICENSE). 
+The photo from the home page is courtesy of [Jorge Barahona] (https://unsplash.com/@jorgebarahona), licensed under [Creative Commons Zero from Unsplash] (https://unsplash.com/license).
 
 ## Project Setup <a id="setup"></a>
 
