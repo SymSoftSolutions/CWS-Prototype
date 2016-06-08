@@ -5,20 +5,20 @@ var config = require('../config');
 var dbUtils = require('../lib/dbUtils');
 var exports = module.exports = utils.requireDir(__dirname);
 
-
-
-
 // var middleware = require('../middleware');
 
 var passport = require('passport');
 var permission = require('permission');
 
-
-
 // Domain Specific Routes
 var newProfileRoutes = require('./newprofile');
 var profileRoutes = require('./profile');
+var messagingRoutes = require('./privatemessage');
+var dbCalls = require('./dbCalls');
+var inboxRoutes = require('./inbox');
 
+var https = require('https');
+var querystring = require('querystring');
 
 exports.createAllRoutes = createAllRoutes;
 exports.createErrorHandling = createErrorHandling;
@@ -31,7 +31,7 @@ function createAllRoutes(router) {
 
 
     router.post('/auth', passport.authenticate('local', {
-        successRedirect: '/profile', // redirect to the secure profile section
+        successRedirect: '/inbox', // redirect to the secure profile section
         failureRedirect: '/login', // redirect back to the signup page if there is an error
         failureFlash: true // allow flash messages
     }));
@@ -44,16 +44,48 @@ function createAllRoutes(router) {
             res.redirect('/');
         });
 
-    // testing session
-    router.get('/session', function (req, res) {
-        var n = req.session.views || 0
-        req.session.views = ++n
-        res.end(n + ' views')
-    });
+
+    router.get('/about', render('about'));
+
+    router.get('/geolookup', function(req,res){
+
+        var zip = req.query.zip;
+        var APIEndpoint = "https://www.googleapis.com/fusiontables/v1/query?";
+        var sql = "SELECT CITY, ZIP_CODE, REGION, LATITUDE, LONGITUDE FROM  149YUn9FJFchbeDd25r5Ge-vTl4_AD5dfTx31R-Od  WHERE ZIP_CODE = '" + zip + "' LIMIT 1"
+
+         var url = APIEndpoint + "sql=" + querystring.escape(sql) + "&key=" +  config.strings.googlekey;
+
+        console.log(url);
+        https.get(url, function(res2) {
+            var body = '';
+            res2.on('data', function(chunk) {
+                body += chunk;
+            });
+            res2.on('end', function() {
+                try {
+                    var json = JSON.parse(body);
+                    var lat = json.rows[0][3];
+                    var lng = json.rows[0][4];
+                    res.json({lat: lat, lng: lng});
+                } catch(e) {
+                    res.status(500).send({ error: e });
+                }
+
+            });
+
+
+        }).on('error', function(e) {
+            console.log("Got error: " + e.message);
+        });
+
+    })
+
 
     newProfileRoutes.createNewProfiles(router);
+    messagingRoutes.init(router);
     profileRoutes.init(router);
-
+    inboxRoutes.init(router);
+    dbCalls.init(router);
 
 }
 

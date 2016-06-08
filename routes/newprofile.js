@@ -2,8 +2,6 @@ var utils = require('../lib/utils');
 var config = require('../config');
 var dbUtils = require('../lib/dbUtils');
 
-exports.checkAllFieldsExist = checkAllFieldsExist;
-
 // var middleware = require('../middleware');
 
 var passport = require('passport');
@@ -34,33 +32,13 @@ function createNewProfiles(router) {
     });
 }
 
-function checkAllFieldsExist(body) {
-        // Check if required fields exist
-        if(body.firstName == '' || !(body.firstName) ||
-           body.lastName  == '' || !(body.lastName)
-          ) {
-            return false;
-        }
-
-        if(body.password == '' || !(body.password)
-        ) {
-            return false;
-        } else {
-            if(body.confirmPassword == '' || !(body.confirmPassword)
-            ) {
-                return false
-            } else {
-                // Check that passwords match
-                passwordsMatch = (body.password == body.confirmPassword);
-            }
-        }
-        return passwordsMatch;
-}
-
 function respondToFormRequest(req, res, next) {
-        emailValid = true;
-        passwordsMatch = true;
-        allFieldsExist = checkAllFieldsExist(req.body);
+        var body           = req.body;
+        var nameExists     = !(body.firstName       == '' || !(body.firstName) ||
+                               body.lastName        == '' || !(body.lastName));
+        var passwordExists = !(body.password        == '' || !(body.password) ||
+                               body.confirmPassword == '' || !(body.confirmPassword));
+        var passwordsMatch =  (body.password == body.confirmPassword);
 
             if(req.body.email != null) {
                 // Check if email is already in system - requires callback function;
@@ -69,29 +47,28 @@ function respondToFormRequest(req, res, next) {
                         console.log(err);
                         res.render('501', {status: 501, url: req.url});
                     } else {
-                        var formIsValid = allFieldsExist && (!emailExists) && passwordsMatch;
+                        var formIsValid = nameExists && passwordExists && (!emailExists) && passwordsMatch;
                         if(emailExists) {
-                            console.log('email is taken');
-                            req.flash('error', 'Email is already registered');
+                            req.flash('error', 'Email is already registered.');
                         }
-                        if(!allFieldsExist) {
-                            console.log('some fields don\'t exist');
-                            req.flash('error', 'Required fields not filled');
+                        if(!nameExists) {
+                            req.flash('error', 'Please fill out name.');
+                        }
+                        if(!passwordExists) {
+                            req.flash('error', 'Please fill out password and confirmation.');
                         }
                         if(!passwordsMatch) {
-                            console.log('passwords don\'t match');
-                            req.flash('error', 'Password confirmation does not match password');
+                            req.flash('error', 'Password confirmation does not match password.');
                         }
                         respondToNewUser(formIsValid, req, res, next);
                     }
                 });
             }
 }
-
+var testCaseWorker = require('../models/createAll').testCaseWorker;
 function respondToNewUser(formIsValid, req, res, next) {
         // If all good, insert user into db, then redirect to profile page
         if(formIsValid) {
-            console.log('form is valid');
             var user = {
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
@@ -100,16 +77,22 @@ function respondToNewUser(formIsValid, req, res, next) {
                 role: 'fosterParent'
             }
             user['role'] = 'fosterParent';
-            console.log(user);
             
-            dbUtils.insertUser(user, function(err) {
-                console.log('error occured');
-                console.log(err);
+            dbUtils.insertUser(user).then(function(userDetails){
+               user.userID = userDetails[0].userID;
+               return dbUtils.assignCaseWorker(user, testCaseWorker);
             }).then(function() {
-            res.redirect('/login');
+                req.flash('success', 'Account successfully created');
+                    user.password = req.body.password;
+                    req.login(user, function (err) {
+                        if ( ! err ){
+                            res.redirect('/inbox');
+                        } else {
+                           console.log(err);
+                        }
+                    })
             });
         } else {
-            console.log('form is invalid');
             res.redirect('/newprofile');
         }
 }

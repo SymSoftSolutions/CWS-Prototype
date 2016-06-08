@@ -47,7 +47,7 @@ module.exports = {
     ],
     watch: true,
     output: {
-        publicPath: '/public/js',
+        publicPath: '/public',
         path: __dirname,
         filename: 'script.js',
     },

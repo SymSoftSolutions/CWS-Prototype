@@ -26,6 +26,11 @@ var session = require('express-session');
 var dbUtils = require('../lib/dbUtils');
 var db = require('../lib/db');
 var state = require('express-state');
+// var KnexSessionStore = require('connect-session-knex')(session);
+// const store = new KnexSessionStore({
+//     knex: db,
+//     tablename: 'sessions'
+// });
 
 // messages to our views
 var flash = require('express-flash');
@@ -103,8 +108,20 @@ function initGlobalMiddleware(app) {
         app.use(dbLogger(db));
     } else {
         var fs = require('fs');
-        // create a write stream (in append mode)
-        var accessLogStream = fs.createWriteStream(__dirname + '/logs/access.log', {flags: 'a'})
+        var FileStreamRotator = require('file-stream-rotator')
+        var logDirectory = config.logging.folder;
+        // ensure log directory exists
+        fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory)
+
+
+        // create a rotating write stream
+        var accessLogStream = FileStreamRotator.getStream({
+            date_format: 'YYYYMMDD',
+            filename: path.join(logDirectory, 'access-%DATE%.log'),
+            frequency: 'daily',
+            verbose: false
+        });
+        
         // setup the logger
         app.use(morgan('combined', {stream: accessLogStream}))
         // TODO: Log db queries too
@@ -158,7 +175,8 @@ function initGlobalMiddleware(app) {
         },
         secure: false,
         rolling: true,
-        //store: store,
+        // db used for production, memory store for development
+        // store: store,
         resave: false,
         saveUninitialized: false
     }));

@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="row center-xs">
+    <div class="row-flex center-xs">
         <div class="col-xs-12 col-sm-9 col-md-7 col-lg-5">
             <h1>New Profile</h1>
         </div>
@@ -8,7 +8,7 @@
 
 <form action="/newprofile" method="post" class="container-fluid">
 
-    <div class="row center-xs">
+    <div class="row-flex center-xs">
         <div class="col-xs-12 col-sm-9 col-md-7 col-lg-5">
 
             {{> flash}}
@@ -21,22 +21,22 @@
 
             <fieldset>
                 <strong><label for="firstName">First Name:</label></strong>
-                <input type="text" id="firstName" name="firstName" placeholder="John" class="input--flat">
+                <input type="text" id="firstName" name="firstName" maxlength="255" placeholder="John" class="input--flat">
                 <strong><label for="lastName">Last Name:</label></strong>
-                <input type="text" id="lastName" name="lastName" placeholder="Doe" class="input--flat">
+                <input type="text" id="lastName" name="lastName" maxlength="255" placeholder="Doe" class="input--flat">
 
                 <strong> <label for="password">Password:</label></strong>
-                <input type="text" id="password" name="password" class="input--flat">
+                <input type="password" id="password" name="password" maxlength="255" class="input--flat">
 
                 <strong><label for="confirmPassword">Confirm Password:</label></strong>
-                <input type="text" id="confirmPassword" name="confirmPassword" class="input--flat">
+                <input type="password" id="confirmPassword" name="confirmPassword" maxlength="255" class="input--flat">
             </fieldset>
         </div>
 
     </div>
-    <div class="row center-xs">
+    <div class="row-flex center-xs">
         <div class="col-xs-12 col-sm-9 col-md-7 col-lg-5">
-            <input type="submit" value="Submit"/>
+            <input type="submit" value="Submit" class="btn btn-primary"/>
             <div>
                 <a href="/login">Already have an account?</a>
             </div>

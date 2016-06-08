@@ -1,20 +1,22 @@
 <fieldset>
-    <legend>Child # {{index}}</legend>
+    <legend><button type="button" class="btn btn-danger btn-sm js-remove-child"  aria-label="Close"><span aria-hidden="true">×</span></button> Child</legend>
+
+
     <strong><label for="relationship">Relationship with You?</label></strong>
-    <input type="text" id="relationship" name="children[][relationship]" class="input--flat">
+    <input type="text" id="relationship" value="{{child.relationship}}" name="userDetails[children][{{index}}][relationship]" class="input--flat">
 
     <strong> <label for="dateofbirth">Date of Birth:</label></strong>
-    <div class="row small-pad-xs">
-        <div class="col-xs">{{> months selected=child.dob.month name="children[][dob][month]"}}</div>
-        <div class="col-xs"><input type="text" name="children[][dob][day]" placeholder="day"></div>
-        <div class="col-xs"><input type="text" name="children[][dob][year]" placeholder="year"></div>
+    <div class="row-flex small-pad-xs">
+        <div class="col-xs">{{> months selected=child.dob.month name=(childBirthMonth index)}}</div>
+        <div class="col-xs"><input type="text" value="{{child.dob.day}}" name="userDetails[children][{{index}}][dob][day]" placeholder="day"></div>
+        <div class="col-xs"><input type="text" value="{{child.dob.year}}" name="userDetails[children][{{index}}][dob][year]" placeholder="year"></div>
     </div>
 
     <label for="sex">Sex:</label>
     <div class="form--inline">
         <label for="sex-male">Male</label>
-        <input type="radio" name="children[][sex]" value="male" id="sex-male" />
+        <input type="radio" name="userDetails[children][{{index}}][sex]" {{checkedIfEqual child.sex "male"}} value="male" id="sex-male" />
         <label for="sex-male">Female</label>
-        <input type="radio" name="children[][sex]" value="female" id="sex-female" />
+        <input type="radio" name="userDetails[children][{{index}}][sex]" {{checkedIfEqual child.sex "female"}} value="female" id="sex-female" />
     </div>
 </fieldset>
