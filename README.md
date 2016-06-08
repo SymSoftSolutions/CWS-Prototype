@@ -101,7 +101,7 @@ The photo from the home page is courtesy of [Jorge Barahona] (https://unsplash.c
 
 ## Project Setup <a id="setup"></a>
 
-TODO
+#### 1.
 
 First clone the repo and change your directory to the newly created project folder.
 
@@ -110,10 +110,15 @@ git clone https://github.com/SymSoftSolutions/CWS-Prototype.git
 cd CWS-Prototype
 ```
 
+#### 2.
+
 Next, assuming you have [node already](https://nodejs.org/en/download/current/) on your machine, install the dependencies with npm.
 ```
 npm install
 ```
+We are currently running node v6, so if you have a older node version installed on your machine, you might run into issues with some of our dependencies. If that happens to be the case, you can easily upgrade to node and re-run the npm install.
+
+#### 3.
 
 We use PostgreSQL in our persistence layer, so you need to have postgres installed. You can download it [here](https://www.postgresql.org/download/).
 
@@ -125,14 +130,15 @@ createdb cws
 
 That creates the database `cws` using the default database server
 
-TODO: Describe Config
-
+You will more than likely need to modify the configuration of the project to match your postgres on your machine. To do this you can open up the simple config file in [config/index.js](/config/index.js) and modify the username, password, port, etc to match your postgres instance.
+ 
+#### 4.
 Assuming all goes well we can now run the project with:
 ```
 npm start
 ```
  The site should will now be running on `http://localhost:8000`
-
+ 
 ## Test Accounts
 
 We have already initialized two test accounts in our system.
