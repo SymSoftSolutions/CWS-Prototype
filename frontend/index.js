@@ -114,22 +114,39 @@ $('.js-select-simple').selectize({
     $select[0].selectize.setValue(selected);
 });
 
+function loadUserAutocomplete(){
+    return  $.ajax({
+        url: '/relevantusers',
+        // data: {},
+        type: 'get',
+        dataType: 'json',
+    });
+}
+
+
 
 $('.js-select-user-autocomplete').selectize({
     create: false,
+    maxItems: 1,
+    openOnFocus: true,
     valueField: 'email',
     labelField: 'email',
     searchField: 'email',
     load: function (input, callback) {
-        $.ajax({
-            url: '/relevantusers',
-            // data: {},
-            type: 'get',
-            dataType: 'json',
-            success: function (response) {
-                console.log(response)
-                return callback(response);
-            }
+        return loadUserAutocomplete().then(function(response){
+            console.log(response)
+            return callback(response);
         });
     }
+})
+
+$('#new_msg_to.js-select-user-autocomplete').each(function(){
+   var that =  $(this)
+    loadUserAutocomplete().then(function(response){
+        response.forEach(function(user){
+           that.selectize.addOption(user);
+        })
+        that.selectize.refreshItems();
+    })
+
 })
