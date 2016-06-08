@@ -132,3 +132,18 @@ Assuming all goes well we can now run the project with:
 npm start
 ```
  The site should will now be running on `http://localhost:8000`
+
+## Test Accounts
+
+We have already initialized two test accounts in our system.
+ 
+To login as a foster parent use:
+ 
+__username:__ test@example.com
+__password:__ 123
+ 
+To login as a case worker use:
+ 
+__username:__ case@example.com
+__password:__ 123
+
