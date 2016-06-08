@@ -8,7 +8,7 @@ During this phase we executed the following activities and tasks:
 2. Sprint Backlog Refining
 3. Daily Scrums
 4. Sprint Reviews
-5. Sprint Retrospectives
+5. [Sprint Retrospectives](/docs/sprint1_n/sprint1-restrospective.pdf)
 6. Test Driven Development for Automated testing
 7. Code Review sessions
 8. Pair programming and pair testing
