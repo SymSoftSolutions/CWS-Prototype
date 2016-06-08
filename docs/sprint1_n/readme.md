@@ -13,8 +13,8 @@ During this phase we executed the following activities and tasks:
 7. Code Review sessions
 8. Pair programming and pair testing
 9. Regression testing
-10. Continuous Integration and Continuous deployment to [AWS Elastic Beanstalk] (https://aws.amazon.com/elasticbeanstalk/)
-11. Continuous Monitoring with AWS Cloudwatch
+10. Continuous Integration and Continuous deployment to [Heroku] (https://www.heroku.com/)
+11. Continuous Monitoring 
 12. Manual testing in multiple mobile devices
 13. Cross-browser testing
 
