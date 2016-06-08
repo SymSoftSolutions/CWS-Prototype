@@ -20,6 +20,7 @@
     fill: getColor(text, ui);
     width: 24px;
     height: 24px;
+    cursor: pointer;
 }
 
 .account-management {
@@ -71,6 +72,10 @@
     // link specific
     .account-management-login {
         //font-weight: bolder;
+    }
+
+    .account-management-logout {
+        line-height: 2;
     }
     .account-management-create {
         font-weight: 300;

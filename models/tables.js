@@ -29,12 +29,10 @@ function createUserTable(table) {
     table.string('password').notNullable();
     table.string('firstName');
     table.string('lastName');
-    
-    // avatar filename
-    table.string('avatar');
 
     // avatar filename
     table.string('avatar');
+
 
     // User configuration across roles
     table.jsonb("userDetails");
@@ -62,18 +60,23 @@ function createMessageTable(table) {
 
     // identification
     //TODO: Enforce constraint of userID
+    //Currently restricted to one recipient
+
+    /*
     table.specificType('recipientID', 'INTEGER[]')
         .notNullable()
+    */
 
-    table.integer('caseID')
-        .unsigned()
+    table.integer('recipientID')
         .notNullable()
-        .references('caseID').inTable('cases');
+        .references('userID').inTable('users');
 
     //contacting
+    table.string('subject');
     table.string('message');
     table.boolean('hasRead');
     table.dateTime('readTime');
+    table.boolean('isTrash');
 }
 
 /**

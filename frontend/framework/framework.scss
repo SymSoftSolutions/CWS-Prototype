@@ -12,13 +12,13 @@
 
 // Natives
 @import 'core/layout/base';
-@import 'core/layout/blockquotes';
-@import 'core/layout/buttons';
+//@import 'core/layout/blockquotes';
+//@import 'core/layout/buttons';
 @import 'core/layout/forms';
 @import 'core/layout/headings';
-@import 'core/layout/lists';
-@import 'core/layout/print';
-@import 'core/layout/tables';
+//@import 'core/layout/lists';
+//@import 'core/layout/print';
+//@import 'core/layout/tables';
 @import 'core/layout/type';
 
 // grid
@@ -31,21 +31,20 @@
 @import 'core/utils/helpers';
 
 // Components
-@import 'components/alerts';
-@import 'components/badges';
-@import 'components/breadcrumbs';
-@import 'components/buttons';
-@import 'components/cards';
-@import 'components/collections';
-@import 'components/dropdowns';
-@import 'components/groups';
-@import 'components/labels';
+//@import 'components/alerts';
+//@import 'components/badges';
+//@import 'components/breadcrumbs';
+//@import 'components/buttons';
+//@import 'components/cards';
+//@import 'components/collections';
+//@import 'components/dropdowns';
+//@import 'components/groups';
+//@import 'components/labels';
 //@import 'components/modals';
-@import 'components/progress';
-@import 'components/spinner';
-@import 'components/tooltips';
+//@import 'components/progress';
+//@import 'components/spinner';
+//@import 'components/tooltips';
 
 // Custom app specific styles and components
 @import 'custom/app';
-
-
+@import 'custom/inbox';

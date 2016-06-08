@@ -1,13 +1,82 @@
-// $('[action="updateprofile"]').on('submit', function(e){
-//     e.preventDefault();
-//     var formData = $(this).serialize();
-//     console.log(formData);
-// })
-
 var toastr = require('toastr');
 
 require('../libraries/jquery.cropit.js');
 
+
+// profile modifications
+
+$('.js-profile-add-adult').on('click touchstart', function(){
+     $.ajax({
+        'type':'GET',
+        'url':'/add/adults',
+        'cache':false
+    }).then(function(data){
+         $('.js-profile-adult-container').append(data);
+        })
+})
+
+$('.js-profile-add-children').on('click touchstart', function(){
+    $.ajax({
+        'type':'GET',
+        'url':'/add/children',
+        'cache':false
+    }).then(function(data){
+        $('.js-profile-children-container').append(data);
+    })
+})
+
+$('.profile-container').on('click', '.js-remove-adult, .js-remove-child', function(){
+    console.log("removing")
+    $(this).closest('fieldset').remove();
+})
+
+$(function () {
+    $('[data-toggle="popover"]').popover()
+})
+
+
+// profile completion
+function computeCompletion(){
+
+    var total = 7;
+    var found = 0;
+
+    // at most +1
+   if($('.js-children-pref input:checked').length){
+       found += 1;
+   }
+
+    // at most +1
+    found += $(".js-residence-about input:checked").length;
+
+    // at most +4
+    found += $('.js-residence-about input[type="text"]').filter(function () {
+        return this.value.length > 0
+    }).length;
+
+    // at most +1
+    if($('.js-profile-children-container').children().length){
+        found += 1;
+    }
+
+    // at most +1
+    if($('.js-profile-adult-container').children().length){
+        found += 1;
+    }
+
+
+    var completness = (found / total * 100).toFixed(0);
+
+
+    $('.js-profile-completeness').attr('aria-valuenow', completness).css("width", completness+ "%").text(completness + "%")
+}
+
+
+computeCompletion();
+
+
+
+// Avatar
 $(function() {
     var $imageCropper = $('.image-editor').cropit({
         smallImage: 'stretch',
@@ -39,10 +108,15 @@ $(function() {
             'url':'/avatar',
             'cache':false,
         })
-        
+
         update.then(function() {
+
             // Display a success toast, with a title
             toastr.info('Avatar Updated')
+            window.setTimeout(function(){
+                location.reload();
+            },2000);
+
         })
     });
 
@@ -61,38 +135,3 @@ $(function() {
     });
 });
 
-// Cache selectors
-var html = $('html'),
-    demo = $('.demo'),
-    modal = $('.modal'),
-    modalShow = $('.js-avatar-editor-show'),
-    modalHide = $('.modal-hide'),
-    modalWrapper = $('.modal-wrapper');
-
-// Modal Show
-modalShow.on('click touchstart', function(e) {
-    e.preventDefault();
-    html.addClass('no-scroll');
-    modal.addClass('is-visible');
-    demo.attr('aria-hidden', 'true');
-    modal.attr({
-        'aria-hidden': 'false',
-        'open': 'true',
-        'tabindex': '0'
-    });
-});
-
-// Modal Hide
-modalHide.on('click touchstart', function(e) {
-    e.preventDefault();
-    html.removeClass('no-scroll');
-    modal.removeClass('is-visible');
-    demo.attr('aria-hidden', 'false');
-    modal.attr('aria-hidden', 'true');
-    modal.removeAttr('open tabindex');
-});
-
-// Prevent toggle event from bubbling
-modalWrapper.on('click touchstart', function(e) {
-    e.stopPropagation();
-});

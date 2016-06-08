@@ -44,8 +44,10 @@
         text-align: left;
         margin: 0;
         display: inline-block;
+        a {
+            color: getColor(siteheader, title);
+        }
 
-        color: getColor(siteheader, title);
 
         // we double up the shadow for a nicer effect
         text-shadow: 0 0px 6px getColor(siteheader, title-shadow),

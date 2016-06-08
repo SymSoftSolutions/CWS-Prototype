@@ -1,47 +1,41 @@
+{{#if user.avatar}}
+    <img src="{{getAvatarPath user.avatar}}" class="avatar-image js-avatar-editor-show" alt="User Avatar" data-toggle="modal" data-target="#avataredit">
+{{else}}
+    <svg class="js-avatar-editor-show svg-icon avatar-placeholder " viewBox="0 0 24 24" width="24" height="24"
+         xmlns="http://www.w3.org/2000/svg" data-toggle="modal" data-target="#avataredit">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+    </svg>
+{{/if}}
 
 
-<div class="row">
-    {{#if user.avatar}}
-        <img  src="{{getAvatarPath user.avatar}}" class="avatar-image js-avatar-editor-show" alt="User Avatar">
-    {{else}}
-        <svg class="js-avatar-editor-show svg-icon avatar-placeholder " viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 0h24v24H0z" fill="none"/>
-            <path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-        </svg>
-    {{/if}}
-
-</div>
-
-<div class="modal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle" aria-describedBy="modalDescription">
-    <div class="modal-overlay modal-hide" tabindex="-1"></div>
-    <div class="modal-container modal-hide">
-        <div class="modal-wrapper modal-transition">
-            <div id="modalDescription" class="modal-description vh">This editor window allows you to add, modify or
-                delete your profile's avater.
-            </div>
+<!-- Modal -->
+<div class="modal fade" id="avataredit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
             <div class="modal-header">
-                <button class="modal-close modal-hide">
-                    <svg class="icon-close icon" viewBox="0 0 32 32">
-                        <use xlink:href="#icon-close"></use>
-                    </svg>
-                </button>
-                <h2 id="modalTitle" class="modal-heading">Avatar Editor</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Avatar Editor</h4>
             </div>
-
             <div class="modal-body">
-                <div class="modal-content">
-                    <div class="image-editor">
+                <p>This editor window allows you to add, modify or
+                    delete your profile's avater.</p>
 
-                            <input type="file" class="cropit-image-input" >
-                        <div class="cropit-preview"></div>
-                        <div class="image-size-label">
-                            Resize image
-                        </div>
-                        <input type="range" class="cropit-image-zoom-input">
-                        <button type="button" class="js-avatar-update">Save</button>
-                        <button type="button" class="js-avatar-delete" >Delete</button>
+                <div class="image-editor">
+
+                    <input type="file" class="cropit-image-input">
+                    <div class="cropit-preview"></div>
+                    <div class="image-size-label">
+                        Resize image
                     </div>
+                    <input type="range" class="cropit-image-zoom-input">
+
                 </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary js-avatar-update" >Save</button>
+                <button type="button" class="btn btn-delete js-avatar-delete">Delete</button>
+
             </div>
         </div>
     </div>
