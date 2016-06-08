@@ -108,13 +108,13 @@ table.dataTable {
     .selectize-control {
         padding: 0 !important;
     }
-    .selectize-control.multi .selectize-input.has-items {
-        padding: 0;
-        padding-top: 3px;
-    }
     .selectize-input {
         @extend .new-msg-input;
-        padding-top: 4px;
+        padding-top: 10px;
+
+        .item {
+            padding-top: 0;
+        }
     }
 
     #close_new_msg {
@@ -243,12 +243,22 @@ table.dataTable {
    font-family: $font-family;
    font-size: 16px;
 
+   // Makes all columns in row same height
+
+     display: -webkit-box;
+     display: -webkit-flex;
+     display: -ms-flexbox;
+     display:         flex;
+
+
    #new_msg_btn {
       margin: 20px 0 10px 20px;
       border-color: #FBAD23;
       color: $primary-blue;
       font-weight: bold;
       font-size: 16px;
+      min-width: 140px;
+      max-width: 160px;
 
       .glyphicon {
           margin-top: -6px;
@@ -270,6 +280,8 @@ table.dataTable {
    .inbox-col {
        margin: 0;
        padding: 0;
+       display: flex;
+     	 flex-direction: column;
 
        .list-group-item {
            border: 0;

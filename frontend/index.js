@@ -141,12 +141,12 @@ $('.js-select-user-autocomplete').selectize({
 })
 
 $('#new_msg_to.js-select-user-autocomplete').each(function(){
-   var that =  $(this)
+   var control =  this.selectize;
     loadUserAutocomplete().then(function(response){
         response.forEach(function(user){
-           that.selectize.addOption(user);
+            control.addOption(user);
         })
-        that.selectize.refreshItems();
+        control.refreshItems(true);
     })
 
 })
