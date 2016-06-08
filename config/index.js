@@ -11,7 +11,7 @@ module.exports = {
    * Primary server related configuration
    */
   server: {
-    port: 80
+    port: 8000
   },
 
   /**
