@@ -16,27 +16,23 @@ To quickly design and develop a working prototype from start to finish, we used 
 
 [**Discovery Phase**] (/docs/discovery_phase/readme.md)
 
-In this phase we reviewed the project requirements and learned about Foster Care to develop a prioritized features list (the initial Product Backlog).
+In this phase we [reviewed the project requirements and learned about Foster Care](CWS-Prototype/docs/discovery_phase/readme.md) in order to:
 
-During this phase we executed the following tasks:
+* Understand the project requirements
+* Learn about Foster Care resources
+* Define the team members
+* Create an initital product backlog
 
-1. Reviewed and understood the project requirements and context
-2. Researched foster care websites, application forms, and local resources
-3. Defined the team members 
-4. Created  a high-level version of the initial product backlog
+**Sprint 0 - User Experience and Agile Development**
 
-**Sprint 0**
+Next, we combined [user centered design and agile development] to generate interactive mockups with full functionality as described by the State requirements. During this sprint we executed the following tasks:
 
-We combined User Centered Design and Agile Development. By the end of this sprint, we generated interactive mockups with full functionality as described by the State requirements
+[*User-Centered Design:*](/docs/sprint_0/ux/readme.md)
 
-During sprint 0 we executed the following tasks:
-
-[*Human Centered Design:*](/docs/sprint_0/ux/readme.md)
-
-1. Interviewed a foster parent to understand his challenges, and vision for improved digital foster care services
+1. Interviewed a foster parent 
 2. Created User Personas 
 3. Designed high fidelity product wireframes and reviewed those with users
-4. Gathered visual design, branding, and marketing guidelines
+4. Gathered design guidelines
 
 [*Agile Process:*](/docs/sprint_0/process/readme.md)
 
