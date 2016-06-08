@@ -33,6 +33,7 @@ function init(router) {
      * If something goes wrong we redirect back to the forms to try again, but with a message to the user too.
      */
     router.post('/message', function(req, res, next) {
+        console.log('recieved message');
         if(req.user && req.isAuthenticated()) {
             /**
              * Form must contain following components:
@@ -46,16 +47,23 @@ function init(router) {
             message['message']      = req.body.text;
             message['hasRead']      = false;
 
-            var recipientEmail =req.body.email;
+            var recipientField = req.body.recipientID;
+            console.log(recipientField);
+            var isRecipientNumeric = isNaN(recipientField);
+            console.log(isRecipientNumeric);
+            console.log('recieved message');
 
-            if(req.body.recipientID) {
-                // If we are given the ID of recipient, send directly
-                message['recipientID']  = parseInt(req.body.recipientID);
+            if(!(isRecipientNumeric)) {
+                // If we are given the numerical ID of recipient, send directly
+                message['recipientID']  = parseInt(recipientField);
                 processMessage(message, req, res);
             } else {
+                console.log('message given by email');
                 // If not, lookup by email
-                if(recipientEmail) {
-                    dbUtils.retrieveUser({'email':recipientEmail}).then(function(user) {
+                if(recipientField) {
+                    dbUtils.retrieveUser({'email':recipientField}).then(function(user) {
+                        console.log('user corresponding to email is:');
+                        console.log(user);
                         var recipientID = user.userID;
                         message['recipientID'] = recipientID;
 

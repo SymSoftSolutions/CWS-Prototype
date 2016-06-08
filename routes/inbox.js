@@ -50,17 +50,6 @@ function init(router){
         });
      });
 
-     router.post('/markMessageRead', function(req, res, next) {
-        var messageID = req.body.messageID;
-        dbUtils.markMessageRead(messageID)
-               .then(function() {
-                    res.send({'status':'success'});
-               });
-     });
-
-     router.post('/markMessageTrash', function(req, res, next) {
-     });
-
      router.post('/deleteMessage', function(req, res, next) {
         var messageID = req.body.messageID;
         dbUtils.deleteMessage(messageID).then(function() {
