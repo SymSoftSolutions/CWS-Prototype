@@ -1,7 +1,7 @@
 <div id="inbox_container" class="container-fluid">
 
   <div id="inbox_headers" class="row hidden-xs">
-      <div class="col-xs-2">
+      <div class="col-xs-3">
           <h2>My Inbox</h2>
       </div>
       <div class="col-xs-6 actions">
@@ -19,7 +19,7 @@
           </div>-->
           <a id="inbox_delete_btn">Delete</a>
       </div>
-      <div class="col-xs-4 text-right pagination">
+      <div class="col-xs-3 text-right pagination">
         <b><span class="page-start"></span>-<span class="page-end"></span></b> of <span class="total-records"></span>
         <a id="inbox_prev" class="not-active"><span class="glyphicon glyphicon-triangle-left"></span></a>
         <a id="inbox_next"><span class="glyphicon glyphicon-triangle-right"></span></a>
@@ -57,7 +57,7 @@
   </div>
 
   <div id="inbox_body" class="row">
-      <div class="col-sm-2 inbox-col hidden-xs">
+      <div class="col-sm-3 inbox-col hidden-xs">
           <button id="new_msg_btn" type="button" class="btn btn-default" aria-label="New Message">
               <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> &nbsp;New Message
           </button>
@@ -68,7 +68,7 @@
               <a id="sent_msg_list" href="#" class="list-group-item">Sent <span id="sent_count"></span></a>
           </div>
       </div>
-      <div class="col-sm-10 col-xs-12 inbox-col">
+      <div class="col-sm-9 col-xs-12 inbox-col">
           <div class="search-addon">
               <span class="glyphicon glyphicon-search"></span>
               <input id="inbox_searchbox" type="search" class="form-control" placeholder="Search" />
@@ -87,7 +87,7 @@
                   <div class="col-xs-8">
                       <img class="curr-msg-img msg-img"/>
                       <span class="curr-msg-from"></span><br/>
-                      <span class="curr-msg-to">to me</span>
+                      to <span class="curr-msg-to"></span>
                       <span class="curr-msg-to-id hidden"></span>
                   </div>
                   <div class="col-xs-4">
