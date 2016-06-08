@@ -112,4 +112,24 @@ $('.js-select-simple').selectize({
     var $select = $(this).selectize();
     var selected = $(this).data('selected').replace(',','');
     $select[0].selectize.setValue(selected);
+});
+
+
+$('.js-select-user-autocomplete').selectize({
+    create: false,
+    valueField: 'email',
+    labelField: 'email',
+    searchField: 'email',
+    load: function (input, callback) {
+        $.ajax({
+            url: '/relevantusers',
+            // data: {},
+            type: 'get',
+            dataType: 'json',
+            success: function (response) {
+                console.log(response)
+                return callback(response);
+            }
+        });
+    }
 })

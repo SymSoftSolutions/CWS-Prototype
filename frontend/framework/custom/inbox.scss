@@ -382,3 +382,17 @@ table.dataTable {
     text-decoration: none;
     color: #666;
 }
+
+.selectize-dropdown-content {
+    background: white;
+}
+
+.selectize-control.form-control.new-msg-input {
+    height:auto !important;
+    .selectize-input {
+        border: none;
+        padding: none;
+        line-height:2em;
+    }
+
+}
