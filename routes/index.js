@@ -42,11 +42,7 @@ function createAllRoutes(router) {
         });
 
     // testing session
-    router.get('/session', function (req, res) {
-        var n = req.session.views || 0
-        req.session.views = ++n
-        res.end(n + ' views')
-    });
+    router.get('/about', render('about'));
 
     newProfileRoutes.createNewProfiles(router);
     messagingRoutes.init(router);

@@ -4,6 +4,5 @@ node_modules/
 npm-debug.log
 *.swp
 
-public/avatars/
 debug.log
 logs/
