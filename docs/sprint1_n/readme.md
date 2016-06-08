@@ -5,3 +5,4 @@ We performed in-person user testing to evaluate the functionality of the website
 - [User test questions] (https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint1_n/user-test_questions.md)
 - Test results
 - Images from testing
+- [Automated testing] (https://github.com/SymSoftSolutions/CWS-Prototype/tree/Documentation/docs/sprint_0/process#testing)
