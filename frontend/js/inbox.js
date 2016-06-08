@@ -159,6 +159,10 @@ $(document).ready(function() {
 
 
 
+    // console.log(window.root.App);
+    // if(root.App.inbox){
+    //     getInboxMessages();
+    // }
 
 
     // Enable/Disable reply btn if reply body is empty or not
