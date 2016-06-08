@@ -1,5 +1,5 @@
 
-var dataTable;
+var dataTable, selectedMsgIds = [];
 var viewUtils = require('../../lib/viewUtils.js');
 
 function setInboxRowHandler() {
@@ -9,13 +9,14 @@ function setInboxRowHandler() {
       $("#inbox_table").hide();
       var parent = $(this).parent();
       var avatar = parent.find(".msg-avatar").text();
-      if(avatar) {
+      if(avatar != null && avatar != "null") {
           $("#inbox_message .curr-msg-img").attr("src",viewUtils.getAvatarPath(avatar));
       }
       $("#inbox_message .curr-msg-from").text(parent.find(".msg-from").text());
       $("#inbox_message .curr-msg-date").text(parent.find(".msg-long-date").text());
       $("#inbox_message .curr-msg-subject").text(parent.find(".msg-subject").text());
       $("#inbox_message .curr-msg-body").html(parent.find(".msg-body").html());
+      $("#inbox_message .curr-msg-to-id").html(parent.find(".msg-to-id").html());
       $("#inbox_message").show();
   });
   setInboxCheckboxHandlers();
@@ -27,15 +28,17 @@ function setInboxCheckboxHandlers() {
        $(this).prop('checked');
 
        var selectedMsgs = 0;
+       selectedMsgIds = [];
        $("#inbox_table .msg-checkbox").each(function(idx) {
-          if($(this).prop('checked')){
+          if($(this).prop('checked')) {
+              selectedMsgIds.push(parseInt($(this).val()));
               selectedMsgs++;
           }
        });
        if(selectedMsgs > 0) {
           $("#inbox_delete_btn").css("display","inline-block");
        } else {
-          $("#inbox_delete_btn").css("display","none");
+          $("#inbox_delete_btn").hide();
        }
     });
 }
@@ -48,18 +51,18 @@ function resetInboxCheckboxes() {
      $("#inbox_delete_btn").css("display","none");
 }
 
-function getInboxMessages() {
+function getInboxMessages(url) {
+    if (typeof (url) === 'undefined') url = "/getMessages";
     dataTable.clear().draw();
     $.ajax({
-      url: "/getMessages",
+      url: url,
       type: "POST",
       success: function (response) {
           var msgsArr = response.data;
-
           if(msgsArr && msgsArr.length > 0) {
               for (var i = 0; i < msgsArr.length; i++) {
                   var newRow = [], msgEntry = "", a_p = "";
-                  var userID = msgsArr[i][0], subject = msgsArr[i][1], body = msgsArr[i][2], date = msgsArr[i][3];
+                  var userID = msgsArr[i][0], subject = msgsArr[i][1], body = msgsArr[i][2], date = msgsArr[i][3], msgId = msgsArr[i][5];
                   var trimBody = body.split('\n')[0];
                   trimBody = (trimBody.length > 150 ? trimBody.substring(0,140) + "..." : trimBody);
                   body = body.replace(/\n/g, "<br />");
@@ -89,12 +92,13 @@ function getInboxMessages() {
                     url: "/getUserDetails",
                     data: { "userID": userID }
                   }).done(function( msg ) {
-                    newRow.push('<input type="checkbox" class="msg-checkbox" value="">');
+                    newRow.push('<input type="checkbox" class="msg-checkbox" value="' + msgId + '">');
                     msgEntry += '<span class="msg-from">' + msg.name + '</span><br/>' +
                                 '<span class="msg-subject">' + subject + '</span><br/>' +
                                 '<span class="msg-trim-body hidden-xs">' + trimBody + '</span>' +
                                 '<span class="msg-body hidden">' + body + '</span>' +
                                 '<span class="msg-long-date hidden">' + fullDate + '</span>' +
+                                '<span class="msg-to-id hidden">' + userID + '</span>' +
                                 '<span class="msg-avatar hidden">' + msg.avatar + '</span>';
                     newRow.push(msgEntry);
                     newRow.push('<span class="msg-date">' + date + '</span>');
@@ -171,6 +175,27 @@ $(document).ready(function() {
         }
     });
 
+    // Delete Message handler
+    $("#inbox_delete_btn").click(function() {
+        for(var i = 0; i < selectedMsgIds.length; i++) {
+          $.ajax({
+              method: "POST",
+              url: "/deleteMessage",
+              data: { "messageID": selectedMsgIds[i] }
+          }).done(function( msg ) {
+              /*$("#new_msg_alert").removeClass("hidden");
+              setTimeout(function(){
+                $("#new_msg_div").fadeOut();
+                $("#new_msg_alert").addClass("hidden");
+                $("#new_msg_subject").val('');
+                $("#new_msg_to").val('');
+                $("#new_msg_content").val('');
+              }, 2000);*/
+              $("#inbox_delete_btn").hide();
+              getInboxMessages();
+          });
+        }
+    });
 
     $("#inbox_body #new_msg_btn").off('click').on('click', function() {
         $("#new_msg_div").fadeIn();
@@ -185,20 +210,45 @@ $(document).ready(function() {
         $("#new_msg_div").fadeOut();
     });
 
+    // Creation of a new message
     $("#send_new_msg_btn").click(function() {
-      $("#send_new_msg_btn").addClass("not-active");
-      $.ajax({
-        method: "POST",
-        url: "/message",
-        data: {
-            "subject": $("#new_msg_subject").val(),
-            "recipientID": $("#new_msg_to").val(),
-            "text": $("#new_msg_content").val()
+        $("#send_new_msg_btn").addClass("not-active");
+        $.ajax({
+            method: "POST",
+            url: "/message",
+            data: {
+                "subject": $("#new_msg_subject").val(),
+                "recipientID": $("#new_msg_to").val(),
+                "text": $("#new_msg_content").val()
         }}).done(function( msg ) {
             $("#new_msg_alert").removeClass("hidden");
             setTimeout(function(){
               $("#new_msg_div").fadeOut();
               $("#new_msg_alert").addClass("hidden");
+              $("#new_msg_subject").val('');
+              $("#new_msg_to").val('');
+              $("#new_msg_content").val('');
+            }, 2000);
+            getInboxMessages();
+        });
+    });
+
+    // Reply to existing message
+    $("#response_msg_btn").click(function() {
+        $("#response_msg_btn").addClass("not-active");
+        $.ajax({
+            method: "POST",
+            url: "/message",
+            data: {
+                "subject": $(".curr-msg-subject").text(),
+                "recipientID": $(".curr-msg-to-id").text(),
+                "text": $("#response_msg_body").val()
+        }}).done(function( msg ) {
+            $("#response_msg_alert").removeClass("hidden");
+            setTimeout(function(){
+              $("#new_msg_div").fadeOut();
+              $("#response_msg_body").val('');
+              $("#response_msg_alert").addClass("hidden");
             }, 2000);
             getInboxMessages();
         });
@@ -249,13 +299,14 @@ $(document).ready(function() {
     });
 
     $("#inbox_msg_list").click(function(){
-        console.log("Inbox");
+        getInboxMessages();
+        $(this).siblings().removeClass("active");
+        $(this).addClass("active");
     });
     $("#sent_msg_list").click(function(){
-        console.log("Sent");
-    });
-    $("#trash_msg_list").click(function(){
-        console.log("Trash");
+        getInboxMessages("/sendMessages");
+        $(this).siblings().removeClass("active");
+        $(this).addClass("active");
     });
 
     $(window).trigger('resize');

@@ -7,6 +7,7 @@
         border-radius: 0px;
         border-top: 0;
         border-right: 0;
+        border-left: 0;
         font-size: 16px;
         height: 40px;
     }
@@ -102,6 +103,18 @@ table.dataTable {
         display: inline-block;
         box-shadow: none;
         height: 40px;
+        font-size: 15px;
+    }
+    .selectize-control {
+        padding: 0 !important;
+    }
+    .selectize-control.multi .selectize-input.has-items {
+        padding: 0;
+        padding-top: 3px;
+    }
+    .selectize-input {
+        @extend .new-msg-input;
+        padding-top: 4px;
     }
 
     #close_new_msg {
@@ -116,6 +129,9 @@ table.dataTable {
     }
     #new_msg_content {
         border: 0;
+        width: 100%;
+        padding: 10px 15px;
+        resize: none;
     }
     #send_new_msg_btn {
         margin: 0 15px;
@@ -141,7 +157,7 @@ table.dataTable {
 #inbox_table {
     margin: 0;
     border: 0;
-    border-left: 1px solid #ddd;
+    border-left: 0;
 
     thead {
       display: none;
@@ -149,6 +165,11 @@ table.dataTable {
     tr:first-child {
       td {
           border-top: 0;
+      }
+    }
+    tr:last-child {
+      td {
+          border-bottom: 0;
       }
     }
     td {
@@ -160,9 +181,7 @@ table.dataTable {
       text-align: center;
     }
     td:last-child {
-
       min-width: 65px;
-
     }
     tr:hover {
         cursor: pointer;
@@ -214,7 +233,7 @@ table.dataTable {
         display: none;
         font-weight: bold;
         font-size: 16px;
-        margin: 5px 0 5px 20px;
+        margin: 5px 0 5px 10px;
     }
 }
 
@@ -237,6 +256,17 @@ table.dataTable {
       }
    }
 
+   #response_msg_alert {
+     display: inline-block;
+     margin-left: 10px;
+     padding-top: 8px;
+     color: #00b33c;
+     .glyphicon {
+         color: #00b33c;
+         margin-right: 6px;
+     }
+   }
+
    .inbox-col {
        margin: 0;
        padding: 0;
@@ -251,6 +281,9 @@ table.dataTable {
            color: $primary-blue;
            background-color: #fff;
        }
+   }
+   .inbox-col:last-child {
+      border-left: 1px solid #ddd;
    }
 
    .msg-from {
@@ -275,7 +308,7 @@ table.dataTable {
 
     .row {
         margin: 0;
-        border-left: 1px solid #ddd;
+        border-left: 0;
         word-wrap: break-word;
         div {
             padding: 20px 15px 5px 15px;
@@ -335,6 +368,8 @@ table.dataTable {
 
     #response_msg_body {
         min-width: 100%;
+        resize: none;
+        padding: 5px 10px;
     }
     #response_msg_btn {
         margin-right: 15px;
@@ -358,4 +393,18 @@ table.dataTable {
 .attachment-link:hover {
     text-decoration: none;
     color: #666;
+}
+
+.selectize-dropdown-content {
+    background: white;
+}
+
+.selectize-control.form-control.new-msg-input {
+    height:auto !important;
+    .selectize-input {
+        border: none;
+        padding: none;
+        line-height:2em;
+    }
+
 }

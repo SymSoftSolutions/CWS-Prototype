@@ -46,19 +46,26 @@ function init(router) {
             message['message']      = req.body.text;
             message['hasRead']      = false;
 
-            var recipientEmail =req.body.email;
+            var recipientField = req.body.recipientID;
+            var isRecipientNumeric = isNaN(recipientField);
 
-            if(req.body.recipientID) {
-                // If we are given the ID of recipient, send directly
-                message['recipientID']  = parseInt(req.body.recipientID);
+            if(!(isRecipientNumeric)) {
+                // If we are given the numerical ID of recipient, send directly
+                message['recipientID']  = parseInt(recipientField);
                 processMessage(message, req, res);
             } else {
+                console.log('message given by email');
                 // If not, lookup by email
-                if(recipientEmail) {
-                    dbUtils.retrieveUser({'email':recipientEmail}).then(function(user) {
+                if(recipientField) {
+                    dbUtils.retrieveUser({'email':recipientField}).then(function(user) {
+                        console.log('user corresponding to email is:');
+                        console.log(user);
                         var recipientID = user.userID;
                         message['recipientID'] = recipientID;
 
+                        processMessage(message, req, res);
+                    }).catch(function(err) {
+                        message['recipientID'] = null;
                         processMessage(message, req, res);
                     });
                 } else {
@@ -74,34 +81,7 @@ function init(router) {
         }
     });
 
-     /**
-      * Gets userIDs+addresses for all users relevant to the user making the request.
-      *
-      */
-     router.post('/getRelevantAddresses', function(req, res) {
-        var userID = req.user.userID;
-        var userRole = req.user.userDetails.role;
-        var allUsersInCommunication = [userID];
 
-        if(userRole == 'fosterParent') {
-            dbUtils.getFosterParentCases(userID).then(function(cases) {
-                for (index in cases){
-                    var specificCase = cases[index];
-                    allUsersInCommunication.push(cases.caseWorker);
-                }
-                res.send(allUsersInCommunication);
-            });
-        }
-        else {
-            dbUtils.getCaseWorkerCases(userID).then(function(cases) {
-                for (index in cases) {
-                    var specificCase = cases[index];
-                    allUsersInCommunication.push(cases.fosterParent);
-                }
-                res.send(allUsersInCommunication);
-            });
-        }
-    });
 }
 
 function processMessage(message, req, res) {
@@ -112,6 +92,9 @@ function processMessage(message, req, res) {
        message['recipientID']   != null) {
        allFieldsExist=true;
     } else {
+        if(message['recipientID'] == null) {
+            req.flash('error', 'Invalid recipient!');
+        }
         if(!allFieldsExist) {
             req.flash('error', 'Required fields not filled');
         }

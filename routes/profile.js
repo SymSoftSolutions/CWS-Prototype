@@ -44,9 +44,6 @@ function init(router) {
     });
 
 
-    /**
-     * The
-     */
     router.post('/update/', function (req, res) {
         console.dir(req.body, {depth:null, colors: true})
 

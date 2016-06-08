@@ -4,6 +4,7 @@ var utils = require('../lib/utils');
 var config = require('../config');
 var dbUtils = require('../lib/dbUtils');
 var permission = require('permission');
+var roles = require('../models/tables').roles;
 
 /**
  * The primary export for this file, the init function will set a number of routes required for
@@ -15,10 +16,10 @@ exports.init = init;
 
 function init(router){
 
-    // All of our inbox page routes are accessible only by users with the
-    // role of `fosterParent`, only after successful permissions will the user object
+    // All of our profile page routes are accessible only by users with the
+    // role of fosterParent or caseWorker, and only after successful permissions will the user object
     // be available to the views.
-    router.use(permission('fosterParent'));
+    router.use(permission(Object.keys(roles).map(function(key){return roles[key]})));
     router.use(setUser);
 
     router.get('/inbox',  function (req, res) {
@@ -44,25 +45,44 @@ function init(router){
      });
 
      router.post('/sendMessages', function(req, res) {
+        var userID = req.user.userID;
+
         dbUtils.getUserMessages(userID).then(function(messageList) {
             messageList = formatMessageData(messageList);
             res.send(messageList);
         });
      });
 
-     router.post('/markMessageRead', function(req, res, next) {
-        var messageID = req.body.messageID;
-        dbUtils.markMessageRead(messageID)
-               .then(function() {
-                    res.send({'status':'success'});
-               });
-     });
-
-     router.post('/markMessageTrash', function(req, res, next) {
-     });
-
      router.post('/deleteMessage', function(req, res, next) {
+        var messageID = req.body.messageID;
+        dbUtils.deleteMessage(messageID).then(function() {
+            res.send({'status':'success'});
+        }).catch(function(err) {
+            res.send({'status':'error', 'message':err});
+        });
      });
+
+
+    /**
+     * Lists the relevant users for sending messages
+     */
+    router.get('/relevantusers', function(req, res){
+        var promise;
+        switch (req.user.role){
+            case roles.caseWorker:
+                promise = dbUtils.getAllFosterParents();
+                break;
+            case roles.fosterParent:
+                promise = dbUtils.getAllCaseWorkersForFosterParent();
+                break;
+            // TODO: More cases for specific or filtered users
+            default:
+                promise = dbUtils.getAllUsers();
+        }
+        return promise.then(function(users){
+            res.json(users);
+        })
+    });
 }
 
 /**

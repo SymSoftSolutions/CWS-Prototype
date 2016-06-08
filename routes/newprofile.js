@@ -91,6 +91,7 @@ function respondToNewUser(formIsValid, req, res, next) {
                return dbUtils.assignCaseWorker(user, testCaseWorker);
             })
                 .then(function() {
+                req.flash('success', 'Account successfully created');
             res.redirect('/login');
             });
         } else {
