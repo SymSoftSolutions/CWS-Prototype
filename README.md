@@ -97,7 +97,7 @@ See our [sprint 0 docs](docs/sprint_0/process/readme.md#application-architecture
 ## License <a id="license"></a>
 
 This project is licensed under the terms of the [MIT license] (CWS-Prototype/LICENSE). 
-The photo from the home page is courtesy of [Jorge Barahona] (https://unsplash.com/@jorgebarahona), licensed under [Creative Commons Zero from Unsplash] (https://unsplash.com/license). [Google Material Icons] (https://design.google.com/icons/) licensed under the [Creative Commons license] (https://github.com/google/material-design-icons/blob/master/LICENSE).
+The photo from the home page is courtesy of [Jorge Barahona] (https://unsplash.com/@jorgebarahona), licensed under [Creative Commons Zero from Unsplash] (https://unsplash.com/license). [Google Material Icons] (https://design.google.com/icons/) licensed under the [Creative Commons license] (https://github.com/google/material-design-icons/blob/master/LICENSE). Profile photos provided by contributors of [UI Faces](http://uifaces.com), and profile names provided by contributors of [UI Names] (http://uinames.com).
 
 ## Project Setup <a id="setup"></a>
 
