@@ -49,23 +49,7 @@ During sprint 0 we executed the following tasks:
 
 **Sprint 1-N**
 
-We developed the prototype through two week-long sprints and utilized Scrum as our agile development framework. 
-
-During this phase we executed the following activities and tasks:
-
-1. Sprint Planning
-2. Sprint Backlog Refining
-3. Daily Scrums
-4. Sprint Reviews
-5. Sprint Retrospectives
-6. Test Driven Development for Automated testing
-7. Code Review sessions
-8. Pair programming and pair testing
-9. Regression testing
-10. Continuous Integration and Continuous deployment to [AWS Elastic Beanstalk] (https://aws.amazon.com/elasticbeanstalk/)
-11. Continuous Monitoring with AWS Cloudwatch
-12. Manual testing in multiple mobile devices
-13. Cross-browser testing
+TODO
 
 ## About the Team <a id="about-team"></a>
 
