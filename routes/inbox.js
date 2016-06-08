@@ -23,7 +23,7 @@ function init(router){
     router.use(setUser);
 
     router.get('/inbox',  function (req, res) {
-        console.log(res.locals.user)
+        res.expose(true, 'inbox', {cache:true});
         res.render('inbox');
     });
     

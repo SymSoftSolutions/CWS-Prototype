@@ -157,7 +157,9 @@ $(document).ready(function() {
         "sDom":     'tr'
     });
 
-    getInboxMessages();
+
+
+
 
     // Enable/Disable reply btn if reply body is empty or not
     $("#response_msg_body").bind('input propertychange', function() {

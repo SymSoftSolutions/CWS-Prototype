@@ -43,3 +43,23 @@
     opacity: 1;
     width: 250px;
 }
+
+.mapthat__container{
+    & > div {
+        margin: 0 auto;
+    }
+
+}
+
+#find-locations {
+    margin-top: 2em;
+    margin-bottom: 0;
+    background: #DAEBFC;
+    button {
+        margin-top: 2em;
+    }
+}
+
+
+
+
