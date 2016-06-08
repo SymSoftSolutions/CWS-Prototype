@@ -135,7 +135,7 @@ function paginationSetup() {
   var info = dataTable.page.info();
   if(info) {
     $(".total-records").text(info.recordsTotal);
-    $(".page-start").text(info.start+1);
+    $(".page-start").text((info.recordsTotal == 0 ? info.start : info.start+1));
     $(".page-end").text(info.end);
     if(info.start == 0) {
         $("#inbox_prev").addClass("not-active");
