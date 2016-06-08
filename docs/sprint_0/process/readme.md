@@ -79,3 +79,14 @@ Knex.js is an SQL query builder for many SQL databases. It is designed to be fle
 **Data Persistence**
 
 We utilize the enterprise class database, PostgreSQL for our data persistence needs. Being a battle tested object-relational database, Postgres provides the data integrity features required for any reliable system. With geospatial features and native JSON and binary JSON columns, Postgres has excellent support for marshalling user configuration and other objects between our applications components.
+
+
+### ESLint
+For code quality and linting we utilize basic tools such as [ESLint](http://eslint.org/), [JSDoc](http://usejsdoc.org/), and [sassDOC](http://sassdoc.com/) which we have embedded in our editors and project environments.  Our primary config for eslint is specified in our eslintrc file, and this file enforces basic conventions such as indent, comma, brace styles, etc. 
+
+### Testing
+Testing includes our unit tests and end to end user tests. Our limited timeframe for development narrows our testing scope to the core functionality of logging in, sending messages, profile updates, etc. For future tests we will be implementing more end-to-end tests using [Selenium](http://docs.seleniumhq.org/) server and [nightwatchjs](http://nightwatchjs.org/) 
+
+An example console printout from our continous tests, this example focusing on user profile tests.
+
+![Example Test](/docs/sprint_0/process/images/exampletest.png)
