@@ -15,6 +15,7 @@ We interviewed Chris, a Foster parent with experience fostering and eventually a
 
  - [Interview Questions] (https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint_0/ux/interview-questions.md)
  - [Findings from Chris] (https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint_0/ux/interview-findings_from-chris.md)
+ - [Suggested features] (https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint_0/ux/interview-findings_from-chris.md)
 
 
 ##2.	User Personas <a id="user-persona"></a>
