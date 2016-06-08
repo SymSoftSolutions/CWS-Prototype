@@ -97,7 +97,7 @@ TODO
 ## License <a id="license"></a>
 
 This project is licensed under the terms of the [MIT license] (CWS-Prototype/LICENSE). 
-The photo from the home page is courtesy of [Jorge Barahona] (https://unsplash.com/@jorgebarahona), licensed under [Creative Commons Zero from Unsplash] (https://unsplash.com/license).
+The photo from the home page is courtesy of [Jorge Barahona] (https://unsplash.com/@jorgebarahona), licensed under [Creative Commons Zero from Unsplash] (https://unsplash.com/license). [Google Material Icons] (https://design.google.com/icons/) licensed under the [Creative Commons license] (https://github.com/google/material-design-icons/blob/master/LICENSE).
 
 ## Project Setup <a id="setup"></a>
 
