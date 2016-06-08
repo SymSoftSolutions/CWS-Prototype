@@ -63,6 +63,9 @@ function init(router){
      });
 
 
+    /**
+     * Lists the relevant users for sending messages
+     */
     router.get('/relevantusers', function(req, res){
         var promise;
         switch (req.query.for){
