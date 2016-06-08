@@ -1,18 +1,16 @@
-## Digital Foster Services
+# Digital Foster Services
 
 **Table of Contents**
 
-  * [Symsoft's Approach](#our-approach)  
+  * [An Agile Approach](#our-approach)  
   * [About the Team](#about-team)  
   * [Open Source Technologies](#open-source)  
   * [License](#license) 
   * [Project Setup](#setup) 
 
-## Symsoft's Approach <a id="our-approach"></a>
+## An Agile Approach <a id="our-approach"></a>
 
-SymSoft Solutions User Centered Agile Development approach delivers fast value while generating usable software since the first iteration rather than create independent software components that do not provide any real value to the end user. 
-
-For the development of this prototype, we adhered to the [principles of the agile manifesto](http://www.agilemanifesto.org/principles.html) and used Scrum to help us to develop the prototype quickly while promoting transparency and adaptation.
+To quickly design and develop a working prototype from start to finish, we used a combination of user-centered design and agile development. We adhered to the [principles of the agile manifesto](http://www.agilemanifesto.org/principles.html) for an iterative process. We used [Scrum] (https://www.scrumalliance.org/why-scrum) as our framework for clear communication and workflow amongst the team.
 
 ![SymSoft Process](/docs/sprint_0/process/images/ourprocess.png)
 
