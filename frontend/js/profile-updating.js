@@ -1,9 +1,3 @@
-// $('[action="updateprofile"]').on('submit', function(e){
-//     e.preventDefault();
-//     var formData = $(this).serialize();
-//     console.log(formData);
-// })
-
 var toastr = require('toastr');
 
 require('../libraries/jquery.cropit.js');

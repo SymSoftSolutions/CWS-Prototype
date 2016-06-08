@@ -9,7 +9,6 @@ function dropTables(tableName) {
                 console.log("Conditionally Dropping " + tableName)
             })
             .catch(function (e) {
-                // console.log("Conditionally Dropping " + tableName)
                 console.log(e);
             })
 
