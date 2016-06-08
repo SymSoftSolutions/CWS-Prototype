@@ -70,7 +70,7 @@ passport.use(new Strategy({ passReqToCallback: true,},
 // serializing, and querying the user record by ID from the database when
 // deserializing.
 passport.serializeUser(function (user, cb) {
-    cb(null, user.userID);
+    cb(null, user.email);
 });
 
 passport.deserializeUser(dbUtils.deserializeUser);
