@@ -62,10 +62,15 @@ function createAllRoutes(router) {
                 body += chunk;
             });
             res2.on('end', function() {
-                var json = JSON.parse(body);
-                var lat = json.rows[0][3];
-                var lng = json.rows[0][4];
-                res.json({lat: lat, lng: lng});
+                try {
+                    var json = JSON.parse(body);
+                    var lat = json.rows[0][3];
+                    var lng = json.rows[0][4];
+                    res.json({lat: lat, lng: lng});
+                } catch(e) {
+                    res.status(500).send({ error: e });
+                }
+
             });
 
 

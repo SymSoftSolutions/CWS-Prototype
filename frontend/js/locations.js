@@ -54,13 +54,17 @@ exports.getLocationsWithZip = function (zip) {
         url: '/geolookup',
         data: {
             zip: zip
+        },
+        success: function (data) {
+            toastr.success("Geolocation was able to find the nearest locations");
+            exports.getLocations(data.lat, data.lng);
+        },
+        error: function (e) {
+            toastr.error("Not a valid zip code");
+
         }
     });
 
-    request.then(function (data) {
-        toastr.success("Geolocation was able to find the nearest locations");
-        exports.getLocations(data.lat, data.lng);
-    });
 
 }
 
