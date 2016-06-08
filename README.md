@@ -92,7 +92,7 @@ For more details about the team composition please send us an email
 
 ## Open Source Technologies <a id="open-source"></a>
 
-TODO
+See our [sprint 0 docs](docs/sprint_0/process/readme.md#application-architecture-and-technology-stack-) technology stack section for more details on the utilized open source tools, frameworks, and other technologies.
 
 ## License <a id="license"></a>
 
