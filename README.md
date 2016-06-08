@@ -2,11 +2,31 @@
 
 **Table of Contents**
 
+  * [Application Access](#application-access)  
   * [An Agile Approach](#our-approach)  
   * [About the Team](#about-team)  
   * [Open Source Technologies](#open-source)  
-  * [License](#license) 
-  * [Project Setup](#setup) 
+  * [Application Setup](#setup)
+  * [License](#license)
+
+## Application Access <a id="application-access"></a>
+
+We have made our functional prototype available through the following link:
+ 
+TODO: Update this link
+[https://securethefuture.herokuapp.com/] (https://securethefuture.herokuapp.com/) 
+
+Two accounts have been initially configured:
+
+To login as a parent use:
+ 
+__username:__ test@example.com
+__password:__ 123
+ 
+To login as a case worker use:
+ 
+__username:__ case@example.com
+__password:__ 123
 
 ## An Agile Approach <a id="our-approach"></a>
 
@@ -72,33 +92,22 @@ For more details about the team composition please contact us
 
 [Open source tools, frameworks, and design resources] (docs/sprint_0/process/readme.md#arch-tech) guided our process from start to finish. The prototype was created using open source technologies including node.js, Postgres, HTML5 among others. While these technologies were chosen for this simple prototype, other technologies may be needed to handle complexities for future phases of this project. We have experience in PHP, Java, Ruby, Python and ASP .Net, with MySQL, SQL Server, Oracle, as well as NoSQL databases such as MongoDB.
 
-## License <a id="license"></a>
+## Application Setup <a id="setup"></a>
 
-This project is licensed under the terms of the [MIT license] (CWS-Prototype/LICENSE). 
-The photo from the home page is courtesy of [Jorge Barahona] (https://unsplash.com/@jorgebarahona), licensed under [Creative Commons Zero from Unsplash] (https://unsplash.com/license). [Google Material Icons] (https://design.google.com/icons/) licensed under the [Creative Commons license] (https://github.com/google/material-design-icons/blob/master/LICENSE). Profile photos provided by contributors of [UI Faces](http://uifaces.com), and profile names provided by contributors of [UI Names] (http://uinames.com).
-
-## Project Setup <a id="setup"></a>
-
-#### 1.
-
-First clone the repo and change your directory to the newly created project folder.
+1.- First clone the repo and change your directory to the newly created project folder.
 
 ```
 git clone https://github.com/SymSoftSolutions/CWS-Prototype.git
 cd CWS-Prototype
 ```
 
-#### 2.
-
-Next, assuming you have [node already](https://nodejs.org/en/download/current/) on your machine, install the dependencies with npm.
+2.- Next, assuming you have [node already](https://nodejs.org/en/download/current/) on your machine, install the dependencies with npm.
 ```
 npm install
 ```
 We are currently running node v6, so if you have a older node version installed on your machine, you might run into issues with some of our dependencies. If that happens to be the case, you can easily upgrade to node and re-run the npm install.
 
-#### 3.
-
-We use PostgreSQL in our persistence layer, so you need to have postgres installed. You can download it [here](https://www.postgresql.org/download/).
+3.- We use PostgreSQL in our persistence layer, so you need to have postgres installed. You can download it [here](https://www.postgresql.org/download/).
 
 Once you have PostgreSQL installed on your machine, we need a database created specifically for this project.
 
@@ -110,24 +119,17 @@ That creates the database `cws` using the default database server
 
 You will more than likely need to modify the configuration of the project to match your postgres on your machine. To do this you can open up the simple config file in [config/index.js](/config/index.js) and modify the username, password, port, etc to match your postgres instance.
  
-#### 4.
-Assuming all goes well we can now run the project with:
+4.- Assuming all goes well we can now run the project with:
 ```
 npm start
 ```
  The site should will now be running on `http://localhost:8000`
- 
-## Test Accounts
 
-We have already initialized two test accounts in our system.
- 
-To login as a foster parent use:
- 
-__username:__ test@example.com
-__password:__ 123
- 
-To login as a case worker use:
- 
-__username:__ case@example.com
-__password:__ 123
+## License <a id="license"></a>
 
+This project is licensed under the terms of the [MIT license] (CWS-Prototype/LICENSE). 
+The photo from the home page is courtesy of [Jorge Barahona] (https://unsplash.com/@jorgebarahona), licensed under [Creative Commons Zero from Unsplash] (https://unsplash.com/license). [Google Material Icons] (https://design.google.com/icons/) licensed under the [Creative Commons license] (https://github.com/google/material-design-icons/blob/master/LICENSE). Profile photos provided by contributors of [UI Faces](http://uifaces.com), and profile names provided by contributors of [UI Names] (http://uinames.com).
+
+## Thank You
+
+Symsoft thanks the California Child Welfare System for the opportunity to create a prototype and participate in RFI #75001.
