@@ -51,10 +51,11 @@ function resetInboxCheckboxes() {
      $("#inbox_delete_btn").css("display","none");
 }
 
-function getInboxMessages() {
+function getInboxMessages(url) {
+    if (typeof (url) === 'undefined') url = "/getMessages";
     dataTable.clear().draw();
     $.ajax({
-      url: "/getMessages",
+      url: url,
       type: "POST",
       success: function (response) {
           var msgsArr = response.data;
@@ -134,7 +135,7 @@ function paginationSetup() {
   var info = dataTable.page.info();
   if(info) {
     $(".total-records").text(info.recordsTotal);
-    $(".page-start").text(info.start+1);
+    $(".page-start").text((info.recordsTotal == 0 ? info.start : info.start+1));
     $(".page-end").text(info.end);
     if(info.start == 0) {
         $("#inbox_prev").addClass("not-active");
@@ -298,13 +299,14 @@ $(document).ready(function() {
     });
 
     $("#inbox_msg_list").click(function(){
-        console.log("Inbox");
+        getInboxMessages();
+        $(this).siblings().removeClass("active");
+        $(this).addClass("active");
     });
     $("#sent_msg_list").click(function(){
-        console.log("Sent");
-    });
-    $("#trash_msg_list").click(function(){
-        console.log("Trash");
+        getInboxMessages("/sendMessages");
+        $(this).siblings().removeClass("active");
+        $(this).addClass("active");
     });
 
     $(window).trigger('resize');
