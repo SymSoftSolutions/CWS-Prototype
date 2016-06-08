@@ -222,7 +222,7 @@ table.dataTable {
         display: none;
         font-weight: bold;
         font-size: 16px;
-        margin: 5px 0 5px 20px;
+        margin: 5px 0 5px 10px;
     }
 }
 
@@ -358,6 +358,7 @@ table.dataTable {
     #response_msg_body {
         min-width: 100%;
         resize: none;
+        padding: 5px 10px;
     }
     #response_msg_btn {
         margin-right: 15px;
