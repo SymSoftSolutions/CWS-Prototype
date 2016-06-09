@@ -87,7 +87,7 @@
                   <div class="col-xs-8">
                       <img class="curr-msg-img msg-img"/>
                       <span class="curr-msg-from"></span><br/>
-                      <span class="curr-msg-to">to me</span>
+                      to <span class="curr-msg-to"></span>
                       <span class="curr-msg-to-id hidden"></span>
                   </div>
                   <div class="col-xs-4">
@@ -102,7 +102,6 @@
               <div id="response_msg_div" class="row">
                   <div class="col-sm-1 hidden-xs" style="max-width: 55px;">
                       <img class="response-msg-img msg-img" src="{{getAvatarPath user.avatar}}"/>
-                      <!--<img  class="avatar-image js-avatar-editor-show" alt="User Avatar" data-toggle="modal" data-target="#avataredit">-->
                   </div>
                   <div id="response_msg_body_div" class="col-xs-12 col-sm-11">
                       <textarea rows="5" id="response_msg_body"></textarea><br/><br/>
@@ -120,114 +119,7 @@
                 <th></th>
               </tr>
             </thead>
-            <tbody>
-              <!--<tr>
-                <td><input type="checkbox" class="msg-checkbox" value=""></td>
-                <td>
-                  <span class="msg-from">Joan Thomas</span><br/>
-                  <span class="msg-subject">Question for you</span><br/>
-                  <span class="msg-body hidden-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. sit amet, consectetur adipiscing elit.</span>
-                </td>
-                <td><span class="msg-date">5:05 AM</span></td>
-              </tr>
-              <tr>
-                <td><input type="checkbox" class="msg-checkbox" value=""></td>
-                <td>
-                  <span class="msg-from">Nathan Morales</span><br/>
-                  <span class="msg-subject">How about next week?</span><br/>
-                  <span class="msg-body hidden-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. sit amet, consectetur adipiscing elit.</span>
-                </td>
-                <td><span class="msg-date">7:15 AM</span></td>
-              </tr>
-              <tr>
-                <td><input type="checkbox" class="msg-checkbox" value=""></td>
-                <td>
-                  <span class="msg-from">Ruth Gomez</span><br/>
-                  <span class="msg-subject">Change of plans</span><br/>
-                  <span class="msg-body hidden-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. sit amet, consectetur adipiscing elit.</span>
-                </td>
-                <td><span class="msg-date">5:00 PM</span></td>
-              </tr>
-              <tr>
-                <td><input type="checkbox" class="msg-checkbox" value=""></td>
-                <td>
-                  <span class="msg-from">Christopher Curtis</span><br/>
-                  <span class="msg-subject">One more thing</span><br/>
-                  <span class="msg-body hidden-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. sit amet, consectetur adipiscing elit.</span>
-                </td>
-                <td><span class="msg-date">Yesterday</span></td>
-              </tr>
-              <tr>
-                <td><input type="checkbox" class="msg-checkbox" value=""></td><td>
-                <span class="msg-from">Aaron Gibson</span><br/>
-                <span class="msg-subject">For Friday</span><br/>
-                <span class="msg-body hidden-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. sit amet, consectetur adipiscing elit.</span>
-                </td>
-                <td><span class="msg-date">Yesterday</span></td>
-              </tr>
-              <tr>
-                <td><input type="checkbox" class="msg-checkbox" value=""></td><td>
-                <span class="msg-from">Cynthia Guerrero</span><br/>
-                <span class="msg-subject">A few ideas</span><br/>
-                <span class="msg-body hidden-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. sit amet, consectetur adipiscing elit.</span>
-                </td>
-                <td><span class="msg-date">Yesterday</span></td>
-              </tr>
-              <tr>
-                <td><input type="checkbox" class="msg-checkbox" value=""></td>
-                <td>
-                  <span class="msg-from">Joan Thomas</span><br/>
-                  <span class="msg-subject">Question for you</span><br/>
-                  <span class="msg-body hidden-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. sit amet, consectetur adipiscing elit.</span>
-                </td>
-                <td><span class="msg-date">Yesterday</span></td>
-              </tr>
-              <tr>
-                <td><input type="checkbox" class="msg-checkbox" value=""></td>
-                <td>
-                  <span class="msg-from">Nathan Morales</span><br/>
-                  <span class="msg-subject">How about next week?</span><br/>
-                  <span class="msg-body hidden-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. sit amet, consectetur adipiscing elit.</span>
-                </td>
-                <td><span class="msg-date">Last week</span></td>
-              </tr>
-              <tr>
-                <td><input type="checkbox" class="msg-checkbox" value=""></td>
-                <td>
-                  <span class="msg-from">Ruth Gomez</span><br/>
-                  <span class="msg-subject">Change of plans</span><br/>
-                  <span class="msg-body hidden-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. sit amet, consectetur adipiscing elit.</span>
-                </td>
-                <td><span class="msg-date">Last week</span></td>
-              </tr>
-              <tr>
-                <td><input type="checkbox" class="msg-checkbox" value=""></td>
-                <td>
-                  <span class="msg-from">Christopher Curtis</span><br/>
-                  <span class="msg-subject">One more thing</span><br/>
-                  <span class="msg-body hidden-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. sit amet, consectetur adipiscing elit.</span>
-                </td>
-                <td><span class="msg-date">Last week</span></td>
-              </tr>
-              <tr>
-                <td><input type="checkbox" class="msg-checkbox" value=""></td>
-                <td>
-                  <span class="msg-from">Aaron Gibson</span><br/>
-                  <span class="msg-subject">For Friday</span><br/>
-                  <span class="msg-body hidden-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. sit amet, consectetur adipiscing elit.</span>
-                </td>
-                <td><span class="msg-date">Last week</span></td>
-              </tr>
-              <tr>
-                <td><input type="checkbox" class="msg-checkbox" value=""></td>
-                <td>
-                  <span class="msg-from">Cynthia Guerrero</span><br/>
-                  <span class="msg-subject">A few ideas</span><br/>
-                  <span class="msg-body hidden-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. sit amet, consectetur adipiscing elit.</span>
-                </td>
-                <td><span class="msg-date">Last week</span></td>
-              </tr>-->
-            </tbody>
+            <tbody> </tbody>
           </table>
       </div>
   </div>

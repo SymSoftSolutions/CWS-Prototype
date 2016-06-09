@@ -1,4 +1,8 @@
 
+#inbox_container {
+    max-width: 1400px;
+}
+
 .search-addon {
     position: relative;
 
@@ -110,10 +114,10 @@ table.dataTable {
     }
     .selectize-input {
         @extend .new-msg-input;
-        padding-top: 10px;
+        padding-top: 5px;
 
         .item {
-            padding-top: 0;
+            padding: 0;
         }
     }
 
@@ -258,7 +262,7 @@ table.dataTable {
       font-weight: bold;
       font-size: 16px;
       min-width: 140px;
-      max-width: 160px;
+      max-width: 140px;
 
       .glyphicon {
           margin-top: -6px;

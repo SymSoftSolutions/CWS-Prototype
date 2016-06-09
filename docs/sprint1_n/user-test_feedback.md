@@ -1,15 +1,15 @@
 #User Test Feedback
 We performed in-person user testing with Ruchi. She had no previous knowledge of the project, and tested the three main tasks with specific user-roles in mind:
-- [Test 1 – Creating a new account (Desktop)] (#test-1)
-- [Test 2 – Log in as a Case Worker (Desktop)] (#test-2)
-- [Test 3 – Login as Foster Parent (Mobile)] (#test-3)
+- Test 1 – Creating a new account (Desktop)
+- Test 2 – Log in as a Case Worker (Desktop)
+- Test 3 – Login as Foster Parent (Mobile)
 
-##Test 1 – Creating a new account (Desktop)<a id="test-1"></a>
+##Test 1 – Creating a new account (Desktop)
 - Device: Macintosh Desktop
 - Operating System: Mac OS X
 - Browser: Chrome
 
-###1. Create a profile and set preferences 
+###1. Create a profile and set preferences
 #### Creating a new user account
 - I go to the website, enter information, and sign up as a new user.
 - I receive an error message, and am confused (it says this user already exists).
@@ -46,7 +46,7 @@ We performed in-person user testing with Ruchi. She had no previous knowledge of
 - How do I know to contact a case worker?
 - **I want to be able to click the case worker from my profile to get contact information for them.**
 
-##Test 2 – Log in as a Case Worker (Desktop) <a id="test-2"></a>
+##Test 2 – Log in as a Case Worker (Desktop)
 - Device: ThinkPad laptop
 - Operating System: Windows
 - Browser: Internet Explorer
@@ -56,22 +56,22 @@ We performed in-person user testing with Ruchi. She had no previous knowledge of
 - **Why is the inbox showing 'No data available?'** This is confusing.
 - **The Logout button (in the main menu) is getting cutoff on the right hand side.**
 
-##Test 3 – Login as Foster Parent (Mobile) <a id="test-3"></a>
+##Test 3 – Login as Foster Parent (Mobile)
 - Device: iPhone
 - Operating System: iOS
 - Browser: Safari
 
-####General comments for mobile
+###General comments for mobile
 - **For a website like this, I'd prefer an app.** I typed in the URL to the browser, and received an error. There was a misspelling.
 - So far everything seems to be working well on the phone.
 - I'd prefer to use this site on my phone, but I think the expereicne would be better on desktop.
 
-####Map
+###Map
 - I'm not able to find the list of agencies, the list isn't showing up right away. The list eventually loads. **On the desktop view, maybe make the list a bit smaller, I'd like to see more of the map on the desktop.**
 
-####User Profile
+###User Profile
 - On the profile, **the image is overlapping with the text.**
 
-####Main menu
+###Main menu
 - The "logout" button is really close to the email button. **It's a small thing, but people with big fingers may accidentally press the "Logout" instead of "email" because they're so close together.**
 - **Is there supposed to be a logo on mobile?**

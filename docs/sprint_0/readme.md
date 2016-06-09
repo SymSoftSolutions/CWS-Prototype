@@ -6,6 +6,6 @@ During this week long sprint, we combined a user-centered design approach with a
 - Begin quick development and design
 
 The details of our process can be viewed at:
-- [Sprint 0 - User Experience] (/docs/sprint_0/ux/readme.md)
-- [Sprint 0 - Process] (/docs/sprint_0/process/readme.md)
+- [Sprint 0 - User Experience] (https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint_0/ux/readme.md)
+- [Sprint 0 - Process] (https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint_0/process/readme.md)
 
