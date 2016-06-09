@@ -70,22 +70,23 @@ The software tools which we rely on are listed in the following sections. These 
 
 **Frameworks**
 
-Express provides our web application with a robust set of features and utility methods for creating web applications. Used internally at Netflix and commonly used as the E in the MEAN software stack, Express has an extensive history and is the de facto server framework for Node.js.
+[Express] (http://expressjs.com/) provides our web application with a robust set of features and utility methods for creating web applications. Used internally at Netflix and commonly used as the E in the MEAN software stack, Express has an extensive history and is the de facto server framework for Node.js.
 
-For templating we use handlebarsjs as it provides the right balance between its syntax, logic primitives, and ease of use. Handlebar's strength comes from how its limited looping and primitives force onto developers the best practice of minimizing logic in views when possible.
+For templating we use [handlebarsjs] (http://handlebarsjs.com/) as it provides the right balance between its syntax, logic primitives, and ease of use. Handlebar's strength comes from how its limited looping and primitives force onto developers the best practice of minimizing logic in views when possible.
 
-Knex.js is an SQL query builder for many SQL databases. It is designed to be flexible, and portable, and provides a full featured query and schema builder. Knex.js provides us the flexibility to iterate in an Agile Development model, while still providing clean and a maintainable API for long term maintenance.
+[Knex.js](http://knexjs.org/) is an SQL query builder for many SQL databases. It is designed to be flexible, and portable, and provides a full featured query and schema builder. Knex.js provides us the flexibility to iterate in an Agile Development model, while still providing clean and a maintainable API for long term maintenance.
 
 **Data Persistence**
 
-We utilize the enterprise class database, PostgreSQL for our data persistence needs. Being a battle tested object-relational database, Postgres provides the data integrity features required for any reliable system. With geospatial features and native JSON and binary JSON columns, Postgres has excellent support for marshalling user configuration and other objects between our applications components.
+We utilize the enterprise class database, [PostgreSQL](https://www.postgresql.org/) for our data persistence needs. Being a battle tested object-relational database, Postgres provides the data integrity features required for any reliable system. With geospatial features and native JSON and binary JSON columns, Postgres has excellent support for marshalling user configuration and other objects between our applications components.
 
+**Code Standards and Linting**
 
-### ESLint
 For code quality and linting we utilize basic tools such as [ESLint](http://eslint.org/), [JSDoc](http://usejsdoc.org/), and [sassDOC](http://sassdoc.com/) which we have embedded in our editors and project environments.  Our primary config for eslint is specified in our eslintrc file, and this file enforces basic conventions such as indent, comma, brace styles, etc. 
 
-### Testing
-Testing includes our unit tests and end to end user tests. Our limited timeframe for development narrows our testing scope to the core functionality of logging in, sending messages, profile updates, etc. For future tests we will be implementing more end-to-end tests using [Selenium](http://docs.seleniumhq.org/) server and [nightwatchjs](http://nightwatchjs.org/) 
+**Test Driven Development** 
+
+Testing includes our unit tests and end to end user tests. Our limited timeframe for development narrows our testing scope to the core functionality of logging in, sending messages, profile updates, etc. For future tests we would implement more end-to-end tests using [Selenium](http://docs.seleniumhq.org/) server and [nightwatchjs](http://nightwatchjs.org/) 
 
 An example console printout from our continous tests, this example focusing on user profile tests.
 
