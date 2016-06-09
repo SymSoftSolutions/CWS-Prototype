@@ -39,7 +39,7 @@ To quickly design and develop a working prototype from start to finish, we used 
 
 ####Discovery Phase
 
-[![Link to discovery phase details] (/docs/sprint1_n/photos/12_symsoft-solutions-chhs-rfi-75001_button-discovery-phase.jpg)] (/docs/discovery_phase/readme.md)
+[![Link to discovery phase details] (/docs/sprint1_n/photos/12_symsoft-solutions-chhs-rfi-75001_button-discovery-phase-v7.jpg)] (/docs/discovery_phase/readme.md)
 
 In this phase we conducted following activities:
 
@@ -54,7 +54,7 @@ Next, we combined [user centered design and agile development] to generate inter
 
 ####User-Centered Design
 
-[![Link to user-centered design details] (/docs/sprint1_n/photos/13_symsoft-solutions-chhs-rfi-75001_button-ux.jpg)] (/docs/sprint_0/ux/readme.md)
+[![Link to user-centered design details] (/docs/sprint1_n/photos/13_symsoft-solutions-chhs-rfi-75001_button-ux-v3.jpg)] (/docs/sprint_0/ux/readme.md)
 
 1. Interviewed a foster parent 
 2. Created User Personas 
@@ -64,7 +64,7 @@ Next, we combined [user centered design and agile development] to generate inter
 
 ####Agile Process
 
-[![Link to agile process details] (/docs/sprint1_n/photos/14_symsoft-solutions-chhs-rfi-75001_button-agile.jpg)] (/docs/sprint_0/process/readme.md)
+[![Link to agile process details] (/docs/sprint1_n/photos/14_symsoft-solutions-chhs-rfi-75001_button-agile-v3.jpg)] (/docs/sprint_0/process/readme.md)
 
 1. Refined Product Backlog with Acceptance Criteria
 2. Agreed on Sprint and Release Level Definition of Done
@@ -75,7 +75,7 @@ Next, we combined [user centered design and agile development] to generate inter
 
 ###Sprint 1-N
 
-[![Link to prototype process details] (/docs/sprint1_n/photos/15_symsoft-solutions-chhs-rfi-75001_button-prototype.jpg)] (/docs/sprint1_n/readme.md)
+[![Link to prototype process details] (/docs/sprint1_n/photos/15_symsoft-solutions-chhs-rfi-75001_button-prototype-v3.jpg)] (/docs/sprint1_n/readme.md)
 
 We developed the prototype functionality through two Sprints one-week long each. During each iteration, we followed the [U.S. Digital Services Playbook] (https://playbook.cio.gov) and by the end of each Sprint, we released an end to end solution which we made available for real users to test and provide feedback. Based on this feedback we implemented some of the improvements for upcoming iterations and documented some other that are out of the scope of this prototype but that were identified as functionality that provides value to users. 
 
