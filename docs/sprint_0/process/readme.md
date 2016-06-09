@@ -60,7 +60,14 @@ A PDF with the complete description of user stories and acceptance criteria can 
 
 
 ## Continuous Integration & Deployment <a id="ci_cd"></a>
-Content here
+
+Our continuous delivery strategy enabled us to get visibility of the progress, get feedback early and deliver value fast.
+By making use of multiple configuration tools we automated the process for running unit test and deploy the stable code to the testing instances without requiring additional effort from de the development team.
+
+The following diagram illustrates our continuous delivery strategy:
+
+![Continuous Delivery](/docs/sprint_0/process/images/ci-deployment.png)
+
 
 ## Application Architecture and Technology Stack <a id="arch-tech"></a> 
 
