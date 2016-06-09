@@ -4,7 +4,7 @@ var helpers = require('./js/helpers');
 require('./js/inbox');
 
 // bring in toaster styles
-import 'toastr/toastr.scss';
+require('toastr/toastr.scss');
 
 // bring in our javascript for targeting our profile page elements
 require('./js/profile-updating.js');
