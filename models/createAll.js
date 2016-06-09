@@ -61,6 +61,8 @@ function createTestObjects() {
             if (!result.length) {
                 console.log("Creating Test Objects")
                 return dbUtils.insertUser(user);
+            } else {
+                return Promise.reject("Already Created User")
             }
         }
         var checkExist = db.select('*').from('users').where('email', user.email)
