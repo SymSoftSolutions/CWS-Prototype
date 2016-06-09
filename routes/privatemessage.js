@@ -23,11 +23,6 @@ function init(router) {
     // All views get a res.locals.user object set
     router.use(setUser);
 
-    router.get('/sendMessage', function(req, res, next) {
-        if(req.isAuthenticated()) {
-            res.render('forms/sendmessage');
-        }
-    });
     /**
      * Take user details, and if all entered in properly save user to the database.
      * If something goes wrong we redirect back to the forms to try again, but with a message to the user too.
@@ -108,11 +103,11 @@ function processMessage(message, req, res) {
         }
         if(recipientExists && allFieldsExist) {
             dbUtils.addMessage(message).then(function() {
-                res.redirect('/sendMessage');
+                res.send({'status':'success'});
             });
         } else {
             req.flash('error', 'Please enter a valid recipient');
-            res.redirect('/sendMessage');
+            res.send({'status':'error'});
         }
             });
 }
