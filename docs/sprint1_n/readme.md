@@ -17,6 +17,10 @@ During this phase we executed the following activities and tasks:
 12. Manual testing in multiple mobile devices
 13. Cross-browser testing
 
+##Sprint Planning and Daily Scrums
+![Spring planning and daily scrums photo] (https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint1_n/photos/09_symsoft-solutions-chhs-rfi-75001_daily-scrum.jpg)
+During our daily scrums, we reviewed our tasks for the day, and made sure that each team member understood their role. To prioritize and estimate tasks, we also used the [planning poker cards] (http://store.mountaingoatsoftware.com/products/planning-poker-cards).
+
 ##User Testing
 ![Photo of user testing and screenshots] (https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint1_n/photos/08_symsoft-solutions-chhs-rfi-75001_user-testing.jpg)
 
