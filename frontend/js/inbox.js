@@ -11,31 +11,12 @@ function setInboxRowHandler() {
       var avatar = parent.find(".msg-avatar").text();
       if(avatar != null && avatar != "null") {
           $("#inbox_message .curr-msg-img").attr("src",viewUtils.getAvatarPath(avatar));
-      } else {
-          $("#inbox_message .curr-msg-img").attr("src",'');
       }
       $("#inbox_message .curr-msg-from").text(parent.find(".msg-from").text());
       $("#inbox_message .curr-msg-date").text(parent.find(".msg-long-date").text());
       $("#inbox_message .curr-msg-subject").text(parent.find(".msg-subject").text());
       $("#inbox_message .curr-msg-body").html(parent.find(".msg-body").html());
-      var toID = parent.find(".msg-to-id").text();
-      var fromID = parent.find(".msg-from-id").text();
-      $("#inbox_message .curr-msg-to-id").html(toID);
-
-      // Check if sender and receiver are the same
-      if(toID == fromID) {
-          $("#inbox_message .curr-msg-to").html("me");
-      } else {
-          $.ajax({
-              method: "POST",
-              async: false,
-              url: "/getUserDetails",
-              data: { "userID": toID }
-          }).done(function( msg ) {
-              $("#inbox_message .curr-msg-to").html(msg.name);
-          });
-      }
-
+      $("#inbox_message .curr-msg-to-id").html(parent.find(".msg-to-id").html());
       $("#inbox_message").show();
   });
   setInboxCheckboxHandlers();
@@ -79,15 +60,13 @@ function getInboxMessages(url) {
       success: function (response) {
           var msgsArr = response.data;
           if(msgsArr && msgsArr.length > 0) {
-              msgsArr.reverse();
               for (var i = 0; i < msgsArr.length; i++) {
                   var newRow = [], msgEntry = "", a_p = "";
-                  var userID = msgsArr[i][0], subject = msgsArr[i][1], body = msgsArr[i][2], date = msgsArr[i][3], msgJSON = msgsArr[i][4], msgId = msgsArr[i][5];
-                  var recipientID = msgJSON.recipientID;
+                  var userID = msgsArr[i][0], subject = msgsArr[i][1], body = msgsArr[i][2], date = msgsArr[i][3], msgId = msgsArr[i][5];
                   var trimBody = body.split('\n')[0];
                   trimBody = (trimBody.length > 150 ? trimBody.substring(0,140) + "..." : trimBody);
                   body = body.replace(/\n/g, "<br />");
-                  date = new Date((( date || "").replace(/-/g,"/").replace(/[TZ]/g," ")).split('.')[0]);
+                  date = new Date((date || "").replace(/-/g,"/").replace(/[TZ]/g," "));
                   // Format date
                   var m_names = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
                   var curr_date = date.getDate();
@@ -119,8 +98,7 @@ function getInboxMessages(url) {
                                 '<span class="msg-trim-body hidden-xs">' + trimBody + '</span>' +
                                 '<span class="msg-body hidden">' + body + '</span>' +
                                 '<span class="msg-long-date hidden">' + fullDate + '</span>' +
-                                '<span class="msg-to-id hidden">' + recipientID + '</span>' +
-                                '<span class="msg-from-id hidden">' + userID + '</span>' +
+                                '<span class="msg-to-id hidden">' + userID + '</span>' +
                                 '<span class="msg-avatar hidden">' + msg.avatar + '</span>';
                     newRow.push(msgEntry);
                     newRow.push('<span class="msg-date">' + date + '</span>');
@@ -144,6 +122,11 @@ $(window).resize(function(){
     } else {
         $("#inbox_container").addClass("container-fluid");
         $("#new_msg_div").removeClass("new-msg-mobile");
+        if(windowWidth > 1500) {
+          $("#response_msg_body").css("width", "104%");
+        } else {
+          $("#response_msg_body").css("width", "101%");
+        }
     }
 });
 
@@ -167,15 +150,12 @@ function paginationSetup() {
 }
 
 $(document).ready(function() {
-  
     dataTable = $('#inbox_table').DataTable( {
         "paging":   true,
         "ordering": false,
         "pageLength": 10,
         "sDom":     'tr'
     });
-
-    getInboxMessages();
 
     // Enable/Disable reply btn if reply body is empty or not
     $("#response_msg_body").bind('input propertychange', function() {
