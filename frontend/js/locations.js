@@ -82,7 +82,7 @@ exports.getLocations = function getLocations(lat, lng) {
     window.$ = jQuery;
     $(document).ready(function () {
         jQuery.ajax({
-            url: "http://api.mapthat.io/V3/EmbedFeaturesFromWidget", type: "POST",
+            url: "//api.mapthat.io/V3/EmbedFeaturesFromWidget", type: "POST",
             data: {
                 mapProvider: "google",
                 features: JSON.stringify(exports.geoArr),
