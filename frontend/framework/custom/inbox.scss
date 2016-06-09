@@ -8,12 +8,14 @@
 
     input {
         padding-left: 50px;
-        border-radius: 0px !important;
+        border-radius: 0px;
         border-top: 0;
         border-right: 0;
         border-left: 0;
         font-size: 16px;
         height: 40px;
+        -webkit-appearance:none;
+        -webkit-border-radius:0px;
     }
 
     span {
