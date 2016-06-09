@@ -128,7 +128,7 @@ npm start
 
 ## License <a id="license"></a>
 
-This project is licensed under the terms of the [MIT license] (CWS-Prototype/LICENSE). 
+This project is licensed under the terms of the [MIT license] (LICENSE). 
 The photo from the home page is courtesy of [Jorge Barahona] (https://unsplash.com/@jorgebarahona), licensed under [Creative Commons Zero from Unsplash] (https://unsplash.com/license). [Google Material Icons] (https://design.google.com/icons/) licensed under the [Creative Commons license] (https://github.com/google/material-design-icons/blob/master/LICENSE). Profile photos provided by contributors of [UI Faces](http://uifaces.com), and profile names provided by contributors of [UI Names] (http://uinames.com).
 
 ## Thank You
