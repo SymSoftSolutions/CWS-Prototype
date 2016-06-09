@@ -5,7 +5,7 @@ require('../libraries/jquery.cropit.js');
 
 // profile modifications
 
-$('.js-profile-add-adult').on('click touchstart', function () {
+$('.js-profile-add-adult').on('click', function () {
     $.ajax({
         'type': 'GET',
         'url': '/add/adults',
@@ -15,7 +15,7 @@ $('.js-profile-add-adult').on('click touchstart', function () {
     })
 })
 
-$('.js-profile-add-children').on('click touchstart', function () {
+$('.js-profile-add-children').on('click', function () {
     $.ajax({
         'type': 'GET',
         'url': '/add/children',
@@ -121,7 +121,7 @@ $(function () {
         })
     });
 
-    $('.js-avatar-delete').on('click touchstart', function(){
+    $('.js-avatar-delete').on('click', function(){
         $("#avataredit .modal-footer button").addClass("hidden");
         $("#avataredit #avatar_loading_msg").fadeIn();
 
