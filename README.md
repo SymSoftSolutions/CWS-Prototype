@@ -99,7 +99,17 @@ Please contact us for more details about the team composition.
 
 ## Open Source Technologies <a id="open-source"></a>
 
-[Open source tools, frameworks, and design resources] (docs/sprint_0/process/readme.md#arch-tech) guided our process from start to finish. The prototype was created using open source technologies including node.js, Postgres, HTML5 among others. While these technologies were chosen for this simple prototype, other technologies may be needed to handle complexities for future phases of this project. We have experience in PHP, Java, Ruby, Python and ASP .Net, with MySQL, SQL Server, Oracle, as well as NoSQL databases such as MongoDB.
+[Open source tools, frameworks, and design resources] (docs/sprint_0/process/readme.md#arch-tech) guided our process from start to finish. The prototype was developed using the following open-source technologies (to name a few):
+
+* node.js
+* express
+* PostgreSQL
+* handlebars
+* Knex.js
+* jQuery
+* Gulp
+* Mocha
+* HTML 5
 
 ## Application Setup <a id="setup"></a>
 
@@ -132,7 +142,7 @@ You will more than likely need to modify the configuration of the project to mat
 ```
 npm start
 ```
- The site should now be running on `http://localhost:8000`
+ The site should will now be running on `http://localhost:8000`
 
 ## License <a id="license"></a>
 
