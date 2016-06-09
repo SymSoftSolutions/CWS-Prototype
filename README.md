@@ -81,6 +81,8 @@ We developed the prototype functionality through two Sprints one-week long each.
 
 ## About the Team <a id="about-team"></a>
 
+![Scrum Team](/docs/about_team/photos/project-team.jpg)
+
 For this project, similar to our other projects, and inline with the requirements of the RFI, we assembled a multidiscplinary, cross-functional team, and identified Product Manager/ Team Lead for the project.
 
 The team comprised on following vendor pool labor categories:
