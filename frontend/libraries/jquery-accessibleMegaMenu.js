@@ -191,7 +191,7 @@ var jQuery = require('./jquery-2.2.4.js');
             toggleExpandedEventHandlers.call(this, true);
 
             if (hide) {
-                console.log("Hiding Everything")
+             
                 topli = menu.find('.' + settings.topNavItemClass + ' .' + settings.openClass + ':first').closest('.' + settings.topNavItemClass);
                 if (!(topli.is(event.relatedTarget) || topli.has(event.relatedTarget).length > 0)) {
                     if ((event.type === 'mouseout' || event.type === 'focusout') && topli.has(document.activeElement).length > 0) {
