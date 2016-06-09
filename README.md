@@ -37,7 +37,9 @@ To quickly design and develop a working prototype from start to finish, we used 
 
 ![SymSoft Process](/docs/sprint_0/process/images/ourprocess.png)
 
-###Discovery Phase [(more...)](/docs/discovery_phase/readme.md)
+####Discovery Phase
+
+[![link to full details] (http://placehold.it/300x50)] (/docs/discovery_phase/readme.md)
 
 In this phase we conducted following activities:
 
@@ -50,7 +52,9 @@ In this phase we conducted following activities:
 
 Next, we combined [user centered design and agile development] to generate interactive mockups with full functionality as described by the State requirements. During this sprint we executed the following tasks:
 
-**User-Centered Design:**[(more...)](/docs/sprint_0/ux/readme.md)
+####User-Centered Design
+
+[![link to full details] (http://placehold.it/300x50)] (/docs/sprint_0/ux/readme.md)
 
 1. Interviewed a foster parent 
 2. Created User Personas 
@@ -58,7 +62,9 @@ Next, we combined [user centered design and agile development] to generate inter
 4. Designed high fidelity product wireframes to demonstrate interactions and flow, and reviewed those with users
 5. Created visual design for the application
 
-**Agile Process:**[(more...)](/docs/sprint_0/process/readme.md)
+####Agile Process
+
+[![link to full details] (http://placehold.it/300x50)] (/docs/sprint_0/process/readme.md)
 
 1. Refined Product Backlog with Acceptance Criteria
 2. Agreed on Sprint and Release Level Definition of Done
@@ -67,7 +73,9 @@ Next, we combined [user centered design and agile development] to generate inter
 5. Defined the [Application Architechture and Technology Stack](/docs/sprint_0/process/readme.md#arch-tech)
 7. Setup Agile tracking tools [Jira](https://www.atlassian.com/software/jira/agile)	
 
-###Sprint 1-N [(more...)] (/docs/sprint1_n/readme.md)
+###Sprint 1-N
+
+[![link to full details] (http://placehold.it/300x50)] (/docs/sprint1_n/readme.md)
 
 We developed the prototype functionality through two Sprints one-week long each. During each iteration, we followed the [U.S. Digital Services Playbook] (https://playbook.cio.gov) and by the end of each Sprint, we released an end to end solution which we made available for real users to test and provide feedback. Based on this feedback we implemented some of the improvements for upcoming iterations and documented some other that are out of the scope of this prototype but that were identified as functionality that provides value to users. 
 
