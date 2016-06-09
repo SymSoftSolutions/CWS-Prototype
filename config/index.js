@@ -51,7 +51,7 @@ module.exports = {
    */
   strings: {
     token: process.env.SESSION_TOKEN || 'testing',
-    googlekey: process.env.GOOGLE_KEY || '',
+    googlekey: process.env.GOOGLE_KEY || 'AIzaSyAl7CYjPpG1HwYDlk43xQYDYOyfq5efUhQ'
   }
 };
 
