@@ -19,22 +19,18 @@ SymSoft followed an [agile and user-centered approach](#our-approach) to create 
 
 ## Application Access <a id="application-access"></a>
 
-We have made our functional prototype available through the following link:
- 
-[http://fostercare.symsoftsolutions.com/] (http://fostercare.symsoftsolutions.com/) 
+Access the application at: [http://fostercare.symsoftsolutions.com/] (http://fostercare.symsoftsolutions.com/) 
+
+![Prototype Access](http://placehold.it/850x300)
 
 Two accounts have been initially configured:
 
 To login as a parent use the following, or simply register with the system:
-
-![Prototype Access](http://placehold.it/850x300)
- 
 __username:__ test@example.com
 __password:__ 123
  
 To login as a case worker use:
- 
-__username:__ case@example.com
+ __username:__ case@example.com
 __password:__ 123
 
 ## An Agile and User Centered Approach <a id="our-approach"></a>
