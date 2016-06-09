@@ -80,6 +80,7 @@ function getInboxMessages(url) {
           var msgsArr = response.data;
           if(msgsArr && msgsArr.length > 0) {
               msgsArr.reverse();
+              dataTable.clear().draw();
               for (var i = 0; i < msgsArr.length; i++) {
                   var newRow = [], msgEntry = "", a_p = "";
                   var userID = msgsArr[i][0], subject = msgsArr[i][1], body = msgsArr[i][2], date = msgsArr[i][3], msgJSON = msgsArr[i][4], msgId = msgsArr[i][5];
@@ -167,12 +168,17 @@ function paginationSetup() {
 }
 
 $(document).ready(function() {
-  
+
     dataTable = $('#inbox_table').DataTable( {
         "paging":   true,
         "ordering": false,
         "pageLength": 10,
-        "sDom":     'tr'
+        "sDom":     'tr',
+        "language": {
+            "emptyTable": "You have no messages in your inbox",
+            "zeroRecords":    "No matching messages found",
+            "loadingRecords": "Loading..."
+        }
     });
 
     getInboxMessages();
@@ -201,16 +207,12 @@ $(document).ready(function() {
               url: "/deleteMessage",
               data: { "messageID": selectedMsgIds[i] }
           }).done(function( msg ) {
-              /*$("#new_msg_alert").removeClass("hidden");
-              setTimeout(function(){
-                $("#new_msg_div").fadeOut();
-                $("#new_msg_alert").addClass("hidden");
-                $("#new_msg_subject").val('');
-                $("#new_msg_to").val('');
-                $("#new_msg_content").val('');
-              }, 2000);*/
               $("#inbox_delete_btn").hide();
-              getInboxMessages();
+              if($("#sent_msg_list").hasClass('active')) {
+                  getInboxMessages("/sendMessages");
+              } else {
+                  getInboxMessages();
+              }
           });
         }
     });
@@ -246,8 +248,16 @@ $(document).ready(function() {
               $("#new_msg_subject").val('');
               $("#new_msg_to").val('');
               $("#new_msg_content").val('');
-            }, 2000);
-            getInboxMessages();
+              // Clear To field
+              var $select = $('#new_msg_to').selectize();
+              var control = $select[0].selectize;
+              control.clear();
+            }, 1200);
+            if($("#sent_msg_list").hasClass('active')) {
+                getInboxMessages("/sendMessages");
+            } else {
+                getInboxMessages();
+            }
         });
     });
 
@@ -268,7 +278,11 @@ $(document).ready(function() {
               $("#response_msg_body").val('');
               $("#response_msg_alert").addClass("hidden");
             }, 2000);
-            getInboxMessages();
+            if($("#sent_msg_list").hasClass('active')) {
+                getInboxMessages("/sendMessages");
+            } else {
+                getInboxMessages();
+            }
         });
     });
 
