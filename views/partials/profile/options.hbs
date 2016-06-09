@@ -9,6 +9,16 @@
                 {{> profile/childrenpreferences childpref=user.userDetails.childpref childtype=user.userDetails.childtype}}
             </div>
         </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-10 col-centered">
+            <div class=" js-accordion__header">
+                <h3  data-accordion-opened="false">About your Residence</h3>
+            </div>
+            <div class="js-accordion__panel">
+                {{> profile/residence residence = user.userDetails.residence }}
+            </div>
+        </div>
+
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-10 col-centered">
             <div class=" js-accordion__header">
                 <h3  data-accordion-opened="true">Adults at your Home</h3>
@@ -43,16 +53,6 @@
             </div>
         </div>
 
-
-
-        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-10 col-centered">
-            <div class=" js-accordion__header">
-                <h3  data-accordion-opened="false">About your Residence</h3>
-            </div>
-            <div class="js-accordion__panel">
-                {{> profile/residence residence = user.userDetails.residence }}
-            </div>
-        </div>
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-10 col-centered">
             <div class=" js-accordion__header">
                 <h3  data-accordion-opened="false">Children at your Home</h3>

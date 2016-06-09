@@ -8,22 +8,24 @@
     </ul>
 
     <div class="profile-header row text--center">
-        <div class="profile-header-info col-xs-12  text-center">
+        <div class="profile-header-info col-xs-12 col-md-3  text-center">
             {{> profile/avatar this}}
             <a id="edit_avatar_link" data-toggle="modal" data-target="#avataredit"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit</a>
-        </div>
-        <div id="profile_case_worker" class="profile-header-info col-xs-12">
-            <h3>{{user.firstName}} {{user.lastName}}</h3>
-            <h6>Your Case Worker: <span class="case-worker">{{caseWorker.firstName}} {{caseWorker.lastName}}</span></h6>
-            <p style="max-width:400px; margin: 0 auto;">It’s easy to complete your profile: add who you want to foster and information about your residence. Complete profiles make it easier for social workers to match kids with foster families.</p>
+
+            <div id="profile_case_worker" class="profile-header-info">
+                <h3>{{user.firstName}} {{user.lastName}}</h3>
+                <h6>Your Case Worker: <span class="case-worker">{{caseWorker.firstName}} {{caseWorker.lastName}}</span></h6>
+            </div>
         </div>
        <!-- <div class="profile-header-info col-xs-12 col-sm-4">
             {{> profile/progress }}
         </div>-->
+        <div class="col-xs-12 col-md-9">
+            <p style="max-width:400px; margin: 0 auto;">It’s easy to complete your profile: add who you want to foster and information about your residence. Complete profiles make it easier for social workers to match kids with foster families.</p>
+            {{> profile/options this}}
+        </div>
 
     </div>
-
-    {{> profile/options this}}
 
 
 </div>
