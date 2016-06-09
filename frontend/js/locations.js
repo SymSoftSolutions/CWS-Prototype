@@ -35,14 +35,14 @@ exports.getLocationsWithCoor = function () {
     }
 
     function success(position) {
-        toastr.success("Geolocation was able to find the nearest locations");
+        toastr.success("Able to automatically find the nearest locations");
         var latitude = position.coords.latitude;
         var longitude = position.coords.longitude;
         exports.getLocations(latitude, longitude);
     }
 
     function error() {
-        toastr.error("Unable to retrieve your location. Please use your zip code instead");
+        toastr.error("Unable to automatically find nearest locations. Please use your zip code instead");
         $('.js-find-locations-zip').removeClass('hide');
     }
 
@@ -56,7 +56,7 @@ exports.getLocationsWithZip = function (zip) {
             zip: zip
         },
         success: function (data) {
-            toastr.success("Geolocation was able to find the nearest locations");
+            toastr.success("Found the nearest locations to you.");
             exports.getLocations(data.lat, data.lng);
         },
         error: function (e) {
