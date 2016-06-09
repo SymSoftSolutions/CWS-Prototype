@@ -21,6 +21,10 @@ During this phase we executed the following activities and tasks:
 ![Spring planning and daily scrums photo] (/docs/sprint1_n/photos/09_symsoft-solutions-chhs-rfi-75001_daily-scrum.jpg)
 During our daily scrums, we reviewed our tasks for the day, and made sure that each team member understood their role. To prioritize and estimate tasks, we also used the [planning poker cards] (http://store.mountaingoatsoftware.com/products/planning-poker-cards).
 
+##Mobile Testing
+We executed manual mobile testing across multiple mobile operative systems and devices including Android, iOS and Windows Phone
+![Photo of user testing and screenshots] (/docs/sprint1_n/photos/mobile-testing.jpg)
+
 ##User Testing
 ![Photo of user testing and screenshots] (/docs/sprint1_n/photos/08_symsoft-solutions-chhs-rfi-75001_user-testing.jpg)
 
