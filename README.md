@@ -64,7 +64,7 @@ Next, we combined [user centered design and agile development] to generate inter
 5. Defined the [Application Architechture and Technology Stack](/docs/sprint_0/process/readme.md#arch-tech)
 7. Setup Agile tracking tools [Jira](https://www.atlassian.com/software/jira/agile)	
 
-**Sprint 1-N**
+[**Sprint 1-N**](/docs/sprint1_n/readme.md)
 
 TODO
 
