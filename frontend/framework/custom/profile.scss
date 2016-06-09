@@ -84,6 +84,7 @@ border-radius: 50%;
     margin-left: 20px;
 }
 
+
 .js-children-pref {
     .selectize-control {
         margin-bottom: 15px;
@@ -113,4 +114,10 @@ border-radius: 50%;
     input[type=text], input[type=number], .selectize-control {
         margin-bottom:10px;
     }
+}
+
+.profile-editing-info {
+    margin: 1em 0;
+    padding: 0.5em;
+ background: rgba(#333, 0.2);
 }

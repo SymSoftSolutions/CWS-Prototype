@@ -17,9 +17,15 @@ During this phase we executed the following activities and tasks:
 12. Manual testing in multiple mobile devices
 13. Cross-browser testing
 
+All user stories and tasks for the Sprints were [documented in Jira](/docs/sprint_0/process/images/profile-creation-sprint1.png), a story point based estimate, and an owner was defined to each user story. Each owner was responsible for getting that User Story/task completed according to the definition of done in close collaboration with the rest of the team. 
+
 ##Sprint Planning and Daily Scrums
 ![Spring planning and daily scrums photo] (/docs/sprint1_n/photos/09_symsoft-solutions-chhs-rfi-75001_daily-scrum.jpg)
-During our daily scrums, we reviewed our tasks for the day, and made sure that each team member understood their role. To prioritize and estimate tasks, we also used the [planning poker cards] (http://store.mountaingoatsoftware.com/products/planning-poker-cards).
+During our daily scrums, we reviewed our tasks for the day, made sure that each team member understood their role and communicate any possible impediments to the ScrumMaster. To prioritize and estimate tasks, we  used the [planning poker technique] (https://en.wikipedia.org/wiki/Planning_poker).
+
+##Mobile Testing
+We executed manual mobile testing across multiple mobile operative systems and devices including Android, iOS and Windows Phone
+![Photo of user testing and screenshots] (/docs/sprint1_n/photos/mobile-testing.jpg)
 
 ##User Testing
 ![Photo of user testing and screenshots] (/docs/sprint1_n/photos/08_symsoft-solutions-chhs-rfi-75001_user-testing.jpg)

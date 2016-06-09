@@ -36,7 +36,6 @@ exports.getLocationsWithZip = function (zip) {
 
         }
     });
-    
 }
 
 jQuery(".js-find-locations").on('click',function(){

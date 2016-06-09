@@ -170,8 +170,7 @@ function initGlobalMiddleware(app) {
         secret: config.strings.token,
         cookie: {
             httpOnly: true,
-            // 1 minute, for testing, 4 hours for deploy
-            maxAge: (app.get('env') === 'development') ? 600000 : (60000 * 60 * 4)
+            maxAge:  6000000 * 60 * 4
         },
         secure: false,
         rolling: true,
