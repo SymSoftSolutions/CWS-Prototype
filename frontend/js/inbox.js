@@ -61,9 +61,15 @@ function setInboxCheckboxHandlers() {
           }
        });
        if(selectedMsgs > 0) {
-          $("#inbox_delete_btn").css("display","inline-block");
+          $(".inbox_delete_btn").css("display","inline-block");
+          if($(window).width() < 768) {
+              $(".inbox_delete_btn_mobile").css("display","inline-block");
+          }
        } else {
-          $("#inbox_delete_btn").hide();
+          $(".inbox_delete_btn").hide();
+          if($(window).width() < 768) {
+              $(".inbox_delete_btn_mobile").hide();
+          }
        }
     });
 }
@@ -73,7 +79,8 @@ function resetInboxCheckboxes() {
      $("#inbox_table .msg-checkbox").each(function(idx) {
         $(this).prop('checked',false);
      });
-     $("#inbox_delete_btn").css("display","none");
+     $(".inbox_delete_btn").css("display","none");
+     $(".inbox_delete_btn_mobile").css("display","none");
 }
 
 function getInboxMessages(url) {
@@ -166,8 +173,27 @@ $(window).resize(function(){
         $("#new_msg_subject").css("padding-left","0px");
         $(".selectize-input").css("padding-left","0px");
         $("#new_msg_div #new_msg_content").css("height","auto");
+        $(".inbox_delete_btn_mobile").hide();
     }
 });
+
+function deleteMessages() {
+    for(var i = 0; i < selectedMsgIds.length; i++) {
+      $.ajax({
+          method: "POST",
+          url: "/deleteMessage",
+          data: { "messageID": selectedMsgIds[i] }
+      }).done(function( msg ) {
+          $(".inbox_delete_btn").hide();
+          $(".inbox_delete_btn_mobile").hide();
+          if($("#sent_msg_list").hasClass('active')) {
+              getInboxMessages("/sendMessages");
+          } else {
+              getInboxMessages();
+          }
+      });
+    }
+}
 
 function paginationSetup() {
   // Pagination setup
@@ -221,21 +247,12 @@ $(document).ready(function() {
     });
 
     // Delete Message handler
-    $("#inbox_delete_btn").click(function() {
-        for(var i = 0; i < selectedMsgIds.length; i++) {
-          $.ajax({
-              method: "POST",
-              url: "/deleteMessage",
-              data: { "messageID": selectedMsgIds[i] }
-          }).done(function( msg ) {
-              $("#inbox_delete_btn").hide();
-              if($("#sent_msg_list").hasClass('active')) {
-                  getInboxMessages("/sendMessages");
-              } else {
-                  getInboxMessages();
-              }
-          });
-        }
+    $(".inbox_delete_btn").click(function() {
+        deleteMessages();
+    });
+
+    $(".inbox_delete_btn_mobile").click(function() {
+        deleteMessages();
     });
 
     $("#inbox_body #new_msg_btn").off('click').on('click', function() {

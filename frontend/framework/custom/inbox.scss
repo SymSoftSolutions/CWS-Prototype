@@ -239,13 +239,21 @@ table.dataTable {
         color: lighten($primary-blue,20%);
     }
 
-    #inbox_delete_btn {
+    .inbox_delete_btn {
         color: $primary-blue;
         display: none;
         font-weight: bold;
         font-size: 16px;
         margin: 5px 0 5px 10px;
     }
+}
+
+.inbox_delete_btn_mobile {
+    color: $primary-blue;
+    display: none;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0 0 15px 20px;
 }
 
 #inbox_body {
