@@ -190,13 +190,13 @@ function initGlobalMiddleware(app) {
 
     var notAuthenticated = {
         flashType: 'error',
-        message: 'The entered credentials are incorrect',
+        message: 'You need to be logged in first.',
         redirect: '/login'
     };
 
     var notAuthorized = {
         redirect: '/',
-        message: 'The entered credentials are incorrect',
+        message: 'You do not have proper permissions to view this page'
     };
 
     app.set('permission', {
