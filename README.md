@@ -19,7 +19,7 @@ SymSoft followed an [agile and user-centered approach](#our-approach) to create 
 
 Access the application at: [http://fostercare.symsoftsolutions.com/] (http://fostercare.symsoftsolutions.com/) 
 
-![Foster care prototype screenshots] (/docs/sprint1_n/photos/11_symsoft-solutions-chhs-rfi-75001_prototype-screenshots.jpg)
+[![Foster care prototype screenshots] (/docs/sprint1_n/photos/11_symsoft-solutions-chhs-rfi-75001_prototype-screenshots.jpg)] (http://fostercare.symsoftsolutions.com/) 
 
 Two accounts have been initially configured:
 
