@@ -176,10 +176,7 @@ $(document).ready(function() {
     });
 
     getInboxMessages();
-<<<<<<< HEAD
-=======
 
->>>>>>> c0f87c58df22be4cb1b6f1a9cfc577c70816c86b
     // Enable/Disable reply btn if reply body is empty or not
     $("#response_msg_body").bind('input propertychange', function() {
         if($(this).val().length) {
