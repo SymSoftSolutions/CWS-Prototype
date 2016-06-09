@@ -19,23 +19,8 @@ var fs = require("fs");
 exports.init = init;
 
 function init(router) {
+    
 
-
-    router.get('/add/adults', function(req, res){
-        var n = req.session.adultcount || 0
-        req.session.adultcount = ++n
-        res.locals.index = req.session.adultcount;
-        console.log(res.locals.index)
-        res.render('partials/profile/adults', {layout: false});
-    });
-
-    router.get('/add/children', function(req, res){
-        var n = req.session.childcount || 0
-        req.session.childcount = ++n
-        res.locals.index = req.session.childcount;
-        console.log(res.locals.index)
-        res.render('partials/profile/children', {layout: false});
-    });
 
     // All of our profile page routes are accessible only by users with the
     // role of fosterParent or caseWorker, and only after successful permissions will the user object
@@ -56,21 +41,55 @@ function init(router) {
                 res.locals.caseWorker = caseWorker;
                 res.render('profile');
             })
-
         }
     });
 
 
     router.post('/update/', function (req, res) {
         console.dir(req.body, {depth:null, colors: true})
-
         req.session.adultcount = 0;
         req.session.childcount = 0
-        
         dbUtils.replaceUserDetails(req.user, req.body ).then(function(){
             res.redirect('/profile');
         });
 
+    });
+
+    router.get('/add/adults', function(req, res){
+
+        try{
+            if(req.session.adultcount){
+                res.locals.index = ++req.session.adultcount
+            } else {
+                res.locals.index = (req.user.userDetails.adults.length) + 1
+            }
+
+        } catch(e){
+            res.locals.index = 1;
+
+        }
+
+        req.session.adultcount = res.locals.index
+        console.log(res.locals.index)
+        res.render('partials/profile/adults', {layout: false});
+    });
+
+    router.get('/add/children', function(req, res){
+        try{
+            if(req.session.childcount){
+                res.locals.index = ++req.session.childcount
+            } else {
+                res.locals.index = (req.user.userDetails.adults.length) + 1
+            }
+
+        } catch(e){
+            res.locals.index = 1;
+
+        }
+
+        req.session.childcount = res.locals.index
+        console.log(res.locals.index)
+        res.render('partials/profile/children', {layout: false});
     });
 
 

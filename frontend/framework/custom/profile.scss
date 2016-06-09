@@ -83,3 +83,48 @@ border-radius: 50%;
 #update_profile_btn {
     margin-left: 20px;
 }
+
+
+.js-children-pref {
+    .selectize-control {
+        margin-bottom: 15px;
+    }
+    .selectize-input {
+        max-width: 170px;
+        input {
+            font-size: 14px;
+            padding-left: 5px;
+        }
+    }
+    .special-health {
+        margin-top: 10px;
+    }
+}
+
+.js-children-pref, .js-residence-about {
+    font-size: 16px;
+    label {
+        font-size: 15px;
+    }
+    .form--inline, .residence-radio-group {
+        label {
+            font-weight: normal;
+        }
+    }
+    .residence-radio-group {
+        margin: 5px 0 10px 0;
+    }
+    input[type=text], input[type=number], .selectize-control {
+        margin-bottom:10px;
+    }
+}
+
+.js-profile-adult-container, .js-profile-children-container {
+    font-size: 16px;
+}
+
+.profile-editing-info {
+    margin: 1em 0;
+    padding: 0.5em;
+ background: rgba(#333, 0.2);
+}

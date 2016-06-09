@@ -1,52 +1,30 @@
 <fieldset class="js-children-pref">
-    <label class="label--bold" for="ages-0-2">Ages 0 Months to 2 Years</label>
-    <div class="form--inline" id="age-0-2">
+    <p>Placements can occur more quickly when case workers know who you want to foster.</p>
+
+    <label for="select-age">Age:</label>
+    <select id="select-age" name="userDetails[childpref][age]" data-selected="{{childpref.age}}" class="js-select-simple" placeholder="Select an age range...">
+        <option value="">Select an age range...</option>
+        <option value="0-2">0-2 years</option>
+        <option value="2-9">2-9 years</option>
+        <option value="10-17">10-17 years</option>
+    </select>
+
+    <label>Sex:</label>
+    <div class="form--inline">
         <label for="sex-male">Male</label>
-        <input type="checkbox" name="userDetails[childpref][0-2][male]" value="true" id="sex-male"
-            {{checkedIfEqual childpref.0-2.male "true"}}/>
+        <input type="checkbox" name="userDetails[childpref][sex][male]" value="true" id="sex-male"
+            {{checkedIfEqual childpref.sex.male "true"}}/>
         <label for="sex-female">Female</label>
-        <input type="checkbox" name="userDetails[childpref][0-2][female]" value="true" id="sex-female"
-            {{checkedIfEqual childpref.0-2.female "true"}} />
+        <input type="checkbox" name="userDetails[childpref][sex][female]" value="true" id="sex-female"
+            {{checkedIfEqual childpref.sex.female "true"}} />
     </div>
 
-
-    <label class="label--bold" for="age-2-9">Ages 2 Years to 9 Years</label>
-    <div class="form--inline" id="ages-2-9">
-        <label for="sex-male">Male</label>
-        <input type="checkbox" name="userDetails[childpref][2-9][male]" value="true" id="sex-male" {{checkedIfEqual childpref.2-9.male "true"}} />
-        <label for="sex-female">Female</label>
-        <input type="checkbox" name="userDetails[childpref][2-9][female]" value="true" id="sex-female"
-            {{checkedIfEqual childpref.2-9.female "true"}}/>
+    <label class="special-health">Are you willing to foster a child with special health?</label>
+    <div class="form--inline">
+        <label for="special_health_yes">Yes</label>
+        <input type="radio" value="yes" id="special_health_yes" name="userDetails[childpref][special-health]" {{checkedIfEqual childpref.special-health "yes"}}>
+        <label for="special_health_no">No </label>
+        <input type="radio" value="no" id="special_health_no" name="userDetails[childpref][special-health]" {{checkedIfEqual childpref.special-health "no"}}>
     </div>
-
-    <label class="label--bold" for="ages-10-17">Ages 10 Years to 17 Years</label>
-    <div class="form--inline" id="ages-10-17">
-        <label for="sex-male">Male</label>
-        <input type="checkbox" name="userDetails[childpref][10-17][male]" value="true" id="sex-male"
-            {{checkedIfEqual childpref.10-17.male "true"}} />
-        <label for="sex-female">Female</label>
-        <input type="checkbox" name="userDetails[childpref][10-17][female]" value="true" id="sex-female"
-            {{checkedIfEqual childpref.10-17.female "true"}}/>
-    </div>
-
-
-    <label>Preferred Type of Children</label>
-
-    <fieldset class="form--inline children-type-radio-group ">
-        <div class=" ">
-            <label for="type-non-ambulatory">Non-Ambulatory</label>
-            <input type="checkbox" name="userDetails[childtype][non-ambulatory]" value="true" id="type-non-ambulatory"
-                {{checkedIfEqual childtype.non-ambulatory "true"}}/>
-        </div>
-        <div class="">
-            <label for="type-ambulatory">Ambulatory</label>
-            <input type="checkbox"  name="userDetails[childtype][ambulatory]" value="true" id="type-ambulatory" {{checkedIfEqual childtype.ambulatory "true"}}/>
-        </div>
-        <div class="">
-            <label for="type-special-needs">Special Health Needs</label>
-            <input type="checkbox" name="userDetails[childtype][special-needs]" value="true" id="type-special-needs"
-             {{checkedIfEqual childtype.special-needs "true"}}/>
-        </div>
-    </fieldset>
 
 </fieldset>

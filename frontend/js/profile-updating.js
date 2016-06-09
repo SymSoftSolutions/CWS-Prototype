@@ -27,7 +27,7 @@ $('.js-profile-add-children').on('click touchstart', function(){
 
 $('.profile-container').on('click', '.js-remove-adult, .js-remove-child', function(){
     console.log("removing")
-    $(this).closest('fieldset').remove();
+    $(this).closest('.js-option-existing').remove();
 })
 
 $(function () {
@@ -38,7 +38,7 @@ $(function () {
 // profile completion
 function computeCompletion(){
 
-    var total = 7;
+    var total = 6;
     var found = 0;
 
     // at most +1
@@ -46,8 +46,9 @@ function computeCompletion(){
        found += 1;
    }
 
-    // at most +1
-    found += $(".js-residence-about input:checked").length;
+    if($('.js-residence-about  input[type="text"]:checked').length){
+        found += 1;
+    }
 
     // at most +4
     found += $('.js-residence-about input[type="text"]').filter(function () {
@@ -55,17 +56,18 @@ function computeCompletion(){
     }).length;
 
     // at most +1
-    if($('.js-profile-children-container').children().length){
+    if($('.js-profile-children-container .js-option-existing').children().length){
         found += 1;
     }
 
     // at most +1
-    if($('.js-profile-adult-container').children().length){
+    if($('.js-profile-adult-container .js-option-existing').children().length){
         found += 1;
     }
 
 
-    var completness = (found / total * 100).toFixed(0);
+    var completness = Math.min((found / total * 100).toFixed(0),100);
+
 
 
     $('.js-profile-completeness').attr('aria-valuenow', completness).css("width", completness+ "%").text(completness + "%")

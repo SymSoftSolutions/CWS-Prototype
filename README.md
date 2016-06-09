@@ -4,9 +4,7 @@ California's Foster Care System is designed to serve and protect those children 
 
 SymSoft created this prototype online application to support the foster parents and secure the future for the foster children. The prototype enables foster parents to create and manage their profile online, search for nearby foster care facilities and exchange private messages with case workers.
 
-The application can be accessed at [http://fostercare.symsoftsolutions.com.] (http://fostercare.symsoftsolutions.com/)
-
-SymSoft followed an [agile and user-centered approach](#our-approach) to create this prototype. We used [open source technologies] (#open-source) and deployed the solution on hosted [PaaS platform] (#setup). 
+SymSoft followed an [agile and user-centered approach](#our-approach) to create this prototype. We used [open source technologies] (#open-source) and deployed the solution on hosted [PaaS platform] (https://www.heroku.com/). 
 
 **Table of Contents**
 
@@ -21,7 +19,7 @@ SymSoft followed an [agile and user-centered approach](#our-approach) to create 
 
 Access the application at: [http://fostercare.symsoftsolutions.com/] (http://fostercare.symsoftsolutions.com/) 
 
-![Prototype Access](http://placehold.it/850x300)
+[![Foster care prototype screenshots] (/docs/sprint1_n/photos/11_symsoft-solutions-chhs-rfi-75001_prototype-screenshots.jpg)] (http://fostercare.symsoftsolutions.com/) 
 
 Two accounts have been initially configured:
 
@@ -39,7 +37,9 @@ To quickly design and develop a working prototype from start to finish, we used 
 
 ![SymSoft Process](/docs/sprint_0/process/images/ourprocess.png)
 
-###Discovery Phase [(more...)](/docs/discovery_phase/readme.md)
+####Discovery Phase
+
+[![link to full details] (http://placehold.it/300x50)] (/docs/discovery_phase/readme.md)
 
 In this phase we conducted following activities:
 
@@ -52,7 +52,9 @@ In this phase we conducted following activities:
 
 Next, we combined [user centered design and agile development] to generate interactive mockups with full functionality as described by the State requirements. During this sprint we executed the following tasks:
 
-**User-Centered Design:**[(more...)](/docs/sprint_0/ux/readme.md)
+####User-Centered Design
+
+[![link to full details] (http://placehold.it/300x50)] (/docs/sprint_0/ux/readme.md)
 
 1. Interviewed a foster parent 
 2. Created User Personas 
@@ -60,7 +62,9 @@ Next, we combined [user centered design and agile development] to generate inter
 4. Designed high fidelity product wireframes to demonstrate interactions and flow, and reviewed those with users
 5. Created visual design for the application
 
-**Agile Process:**[(more...)](/docs/sprint_0/process/readme.md)
+####Agile Process
+
+[![link to full details] (http://placehold.it/300x50)] (/docs/sprint_0/process/readme.md)
 
 1. Refined Product Backlog with Acceptance Criteria
 2. Agreed on Sprint and Release Level Definition of Done
@@ -69,9 +73,11 @@ Next, we combined [user centered design and agile development] to generate inter
 5. Defined the [Application Architechture and Technology Stack](/docs/sprint_0/process/readme.md#arch-tech)
 7. Setup Agile tracking tools [Jira](https://www.atlassian.com/software/jira/agile)	
 
-###Sprint 1-N [(more...)] (/docs/sprint1_n/readme.md)
+###Sprint 1-N
 
-TODO
+[![link to full details] (http://placehold.it/300x50)] (/docs/sprint1_n/readme.md)
+
+We developed the prototype functionality through two Sprints one-week long each. During each iteration, we followed the [U.S. Digital Services Playbook] (https://playbook.cio.gov) and by the end of each Sprint, we released an end to end solution which we made available for real users to test and provide feedback. Based on this feedback we implemented some of the improvements for upcoming iterations and documented some other that are out of the scope of this prototype but that were identified as functionality that provides value to users. 
 
 ## About the Team <a id="about-team"></a>
 
@@ -130,7 +136,7 @@ npm start
 
 ## License <a id="license"></a>
 
-This project is licensed under the terms of the [MIT license] (CWS-Prototype/LICENSE). 
+This project is licensed under the terms of the [MIT license] (LICENSE). 
 The photo from the home page is courtesy of [Jorge Barahona] (https://unsplash.com/@jorgebarahona), licensed under [Creative Commons Zero from Unsplash] (https://unsplash.com/license). [Google Material Icons] (https://design.google.com/icons/) licensed under the [Creative Commons license] (https://github.com/google/material-design-icons/blob/master/LICENSE). Profile photos provided by contributors of [UI Faces](http://uifaces.com), and profile names provided by contributors of [UI Names] (http://uinames.com).
 
 ## Thank You

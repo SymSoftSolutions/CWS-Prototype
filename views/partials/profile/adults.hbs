@@ -1,15 +1,31 @@
-<fieldset>
-    <legend><button type="button" class="btn btn-danger btn-sm js-remove-adult"  aria-label="Close"><span aria-hidden="true">×</span></button> Adult</legend>
-    <strong><label for="firstName">First Name:</label></strong>
-    <input type="text" id="firstName" value="{{adult.firstName}}"  name="userDetails[adults][{{index}}][firstName]" placeholder="John" class="input--flat">
-    <strong><label for="lastName">Last Name:</label></strong>
-    <input type="text" value="{{adult.lastName}}" name="userDetails[adults][{{index}}][lastName]" id="lastName" placeholder="Doe" class="input--flat">
-    <strong> <label for="dateofbirth">Date of Birth:</label></strong>
-    <div class="row-flex small-pad-xs">
-        <div class="col-xs">{{> months selected=adult.dob.month name=(adultBirthMonth index)}}</div>
-        <div class="col-xs"><input type="text" value="{{adult.dob.day}}" name="userDetails[adults][{{index}}][dob][day]" placeholder="day"></div>
-        <div class="col-xs"><input type="text" value="{{adult.dob.year}}" name="userDetails[adults][{{index}}][dob][year]" placeholder="year"></div>
+<div class="form profile-editing-info ">
+    <legend> New Adult</legend>
+
+    <label for="firstName" class="control-label">First Name:</label>
+    <input type="text" id="firstName" value="{{adult.firstName}}"
+           name="userDetails[adults][{{index}}][firstName]"
+           placeholder="John" class="form-control">
+
+
+    <label for="lastName" class="control-label">Last Name:</label>
+    <input type="text" value="{{adult.lastName}}" name="userDetails[adults][{{index}}][lastName]" id="lastName"
+           placeholder="Doe" class="form-control">
+
+
+    <label for="dateofbirth">Date of Birth:</label>
+    <div class="row-flex">
+        <div style="max-width:150px;">
+            {{> months selected=adult.dob.month name=(adultBirthMonth index)}}
+        </div>
+
+        <input type="text" value="{{adult.dob.day}}" name="userDetails[adults][{{index}}][dob][day]"
+               placeholder="day"
+               class="form-control" style="width:50px;">
+        <input type="text" value="{{adult.dob.year}}" name="userDetails[adults][{{index}}][dob][year]"
+               placeholder="year" class="form-control" style="width:100px;">
     </div>
-    <strong><label for="relationship">Relationship with You?</label></strong>
-    <input type="text" id="relationship" value="{{adult.relationship}}" name="userDetails[adults][{{index}}][relationship]" class="input--flat">
-</fieldset>
+
+    <label for="relationship">Relationship with You?</label>
+    <input type="text" id="relationship" value="{{adult.relationship}}"
+           name="userDetails[adults][{{index}}][relationship]" class="form-control">
+</div>
