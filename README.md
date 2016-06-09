@@ -13,8 +13,7 @@
 
 We have made our functional prototype available through the following link:
  
-TODO: Update this link
-[https://securethefuture.herokuapp.com/] (https://securethefuture.herokuapp.com/) 
+[http://fostercare.symsoftsolutions.com/] (http://fostercare.symsoftsolutions.com/) 
 
 Two accounts have been initially configured:
 
