@@ -20,6 +20,23 @@ exports.init = init;
 
 function init(router) {
 
+
+    router.get('/add/adults', function(req, res){
+        var n = req.session.adultcount || 0
+        req.session.adultcount = ++n
+        res.locals.index = req.session.adultcount;
+        console.log(res.locals.index)
+        res.render('partials/profile/adults', {layout: false});
+    });
+
+    router.get('/add/children', function(req, res){
+        var n = req.session.childcount || 0
+        req.session.childcount = ++n
+        res.locals.index = req.session.childcount;
+        console.log(res.locals.index)
+        res.render('partials/profile/children', {layout: false});
+    });
+
     // All of our profile page routes are accessible only by users with the
     // role of fosterParent or caseWorker, and only after successful permissions will the user object
     // be available to the views.
@@ -57,21 +74,7 @@ function init(router) {
     });
 
 
-    router.get('/add/adults', function(req, res){
-        var n = req.session.adultcount || 0
-        req.session.adultcount = ++n
-        res.locals.index = req.session.adultcount;
-          console.log(res.locals.index)
-        res.render('partials/profile/adults', {layout: false});
-    })
 
-    router.get('/add/children', function(req, res){
-        var n = req.session.childcount || 0
-        req.session.childcount = ++n
-        res.locals.index = req.session.childcount;
-        console.log(res.locals.index)
-        res.render('partials/profile/children', {layout: false});
-    })
 
     router.post('/update/:prop', function(req, res){
         console.log(req.params.prop);
