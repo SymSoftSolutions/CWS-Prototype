@@ -20,6 +20,7 @@ function setInboxRowHandler() {
       $("#inbox_message .curr-msg-body").html(parent.find(".msg-body").html());
       var toID = parent.find(".msg-to-id").text();
       var fromID = parent.find(".msg-from-id").text();
+      $("#inbox_message .curr-msg-from-id").html(fromID);
       $("#inbox_message .curr-msg-to-id").html(toID);
 
       // Check if sender and receiver are the same
