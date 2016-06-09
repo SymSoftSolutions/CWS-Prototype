@@ -50,7 +50,7 @@ In this phase we conducted following activities:
 
 ###Sprint 0 - User Experience and Agile Development 
 
-Next, we combined [user centered design and agile development] to generate interactive mockups with full functionality as described by the State requirements. During this sprint we executed the following tasks:
+Next, we combined user centered design and agile development to generate interactive mockups with full functionality as described by the State requirements. During this sprint we executed the following tasks:
 
 ####User-Centered Design
 
