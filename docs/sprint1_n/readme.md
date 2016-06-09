@@ -13,7 +13,7 @@ During this phase we executed the following activities and tasks:
 8. Pair programming and pair testing
 9. Regression testing
 10. Continuous Integration and Continuous deployment to [Heroku] (https://www.heroku.com/)
-11. Continuous Monitoring 
+11. [Continuous Monitoring](/docs/sprint1_n/photos/monitoring.png)
 12. Manual testing in multiple mobile devices
 13. Cross-browser testing
 
