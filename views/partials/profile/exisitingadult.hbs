@@ -1,0 +1,20 @@
+<tr class="js-option-existing">
+
+    <input type="hidden" id="firstName" value="{{adult.firstName}}" name="userDetails[adults][{{index}}][firstName]">
+    <input type="hidden" value="{{adult.lastName}}" name="userDetails[adults][{{index}}][lastName]" id="lastName">
+    <input type="hidden" value="{{adult.dob.month}}" name="userDetails[adults][{{index}}][dob][month]">
+    <input type="hidden" value="{{adult.dob.day}}" name="userDetails[adults][{{index}}][dob][day]">
+    <input type="hidden" value="{{adult.dob.year}}" name="userDetails[adults][{{index}}][dob][year]">
+    <input type="hidden" id="relationship" value="{{adult.relationship}}"
+           name="userDetails[adults][{{index}}][relationship]">
+
+    <th scope="row">{{index}}</th>
+    <td>{{adult.firstName}}</td>
+    <td>{{adult.lastName}}</td>
+    <td>{{adult.dob.month}}, {{adult.dob.day}} {{adult.dob.year}}</td>
+    <td>{{adult.relationship}}</td>
+    <td>
+        <button type="button" class="btn btn-danger btn-sm js-remove-adult" aria-label="Close"><span aria-hidden="true">×</span>
+        </button>
+    </td>
+</tr>

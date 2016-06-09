@@ -27,7 +27,7 @@ $('.js-profile-add-children').on('click touchstart', function(){
 
 $('.profile-container').on('click', '.js-remove-adult, .js-remove-child', function(){
     console.log("removing")
-    $(this).closest('fieldset').remove();
+    $(this).closest('.js-option-existing').remove();
 })
 
 $(function () {
@@ -46,8 +46,9 @@ function computeCompletion(){
        found += 1;
    }
 
-    // at most +1
-    found += $(".js-residence-about input:checked").length;
+    if($('.js-residence-about  input[type="text"]:checked').length){
+        found += 1;
+    }
 
     // at most +4
     found += $('.js-residence-about input[type="text"]').filter(function () {

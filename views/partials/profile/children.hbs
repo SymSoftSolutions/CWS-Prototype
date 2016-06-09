@@ -1,22 +1,31 @@
-<fieldset>
-    <legend><button type="button" class="btn btn-danger btn-sm js-remove-child"  aria-label="Close"><span aria-hidden="true">×</span></button> Child</legend>
+<div class="form profile-editing-info ">
+    <legend> New Child</legend>
 
 
-    <strong><label for="relationship">Relationship with You?</label></strong>
-    <input type="text" id="relationship" value="{{child.relationship}}" name="userDetails[children][{{index}}][relationship]" class="input--flat">
+    <label for="dateofbirth">Date of Birth:</label>
+    <div class="row-flex">
+        <div style="max-width:150px;">
+            {{> months selected=child.dob.month name=(childBirthMonth index)}}
+        </div>
 
-    <strong> <label for="dateofbirth">Date of Birth:</label></strong>
-    <div class="row-flex small-pad-xs">
-        <div class="col-xs">{{> months selected=child.dob.month name=(childBirthMonth index)}}</div>
-        <div class="col-xs"><input type="text" value="{{child.dob.day}}" name="userDetails[children][{{index}}][dob][day]" placeholder="day"></div>
-        <div class="col-xs"><input type="text" value="{{child.dob.year}}" name="userDetails[children][{{index}}][dob][year]" placeholder="year"></div>
+        <input type="text" value="{{child.dob.day}}" name="userDetails[children][{{index}}][dob][day]"
+               placeholder="day"
+               class="form-control" style="width:50px;">
+        <input type="text" value="{{child.dob.year}}" name="userDetails[children][{{index}}][dob][year]"
+               placeholder="year" class="form-control" style="width:100px;">
     </div>
+
+    <label for="relationship">Relationship with You?</label>
+    <input type="text" id="relationship" value="{{child.relationship}}"
+           name="userDetails[children][{{index}}][relationship]" class="form-control">
 
     <label for="sex">Sex:</label>
     <div class="form--inline">
         <label for="sex-male">Male</label>
-        <input type="radio" name="userDetails[children][{{index}}][sex]" {{checkedIfEqual child.sex "male"}} value="male" id="sex-male" />
+        <input type="radio" name="userDetails[children][{{index}}][sex]" {{checkedIfEqual child.sex "male"}}
+               value="male" id="sex-male"/>
         <label for="sex-male">Female</label>
-        <input type="radio" name="userDetails[children][{{index}}][sex]" {{checkedIfEqual child.sex "female"}} value="female" id="sex-female" />
+        <input type="radio" name="userDetails[children][{{index}}][sex]" {{checkedIfEqual child.sex "female"}}
+               value="female" id="sex-female"/>
     </div>
-</fieldset>
+</div>

@@ -19,8 +19,7 @@ var fs = require("fs");
 exports.init = init;
 
 function init(router) {
-
-
+    
     router.get('/add/adults', function(req, res){
         var n = req.session.adultcount || 0
         req.session.adultcount = ++n
