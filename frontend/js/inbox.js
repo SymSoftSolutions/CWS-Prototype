@@ -18,10 +18,11 @@ function setInboxRowHandler() {
       $("#inbox_message .curr-msg-date").text(parent.find(".msg-long-date").text());
       $("#inbox_message .curr-msg-subject").text(parent.find(".msg-subject").text());
       $("#inbox_message .curr-msg-body").html(parent.find(".msg-body").html());
-      var toID = parent.find(".msg-to-id").text();
       var fromID = parent.find(".msg-from-id").text();
-      $("#inbox_message .curr-msg-from-id").html(fromID);
-      $("#inbox_message .curr-msg-to-id").html(toID);
+      var toID = parent.find(".msg-to-id").text();
+
+      //The function "to" when replying ought be the fromID, except of course, when replying to sent mail
+      $("#inbox_message .curr-msg-to-id").html(fromID);
 
       // Check if sender and receiver are the same
       if(toID == fromID) {
@@ -276,7 +277,7 @@ $(document).ready(function() {
             url: "/message",
             data: {
                 "subject": "Re: "+$(".curr-msg-subject").text(),
-                "recipientID": $(".curr-msg-from-id").text(),
+                "recipientID": $(".curr-msg-to-id").text(),
                 "text": $("#response_msg_body").val()
         }}).done(function( msg ) {
             $("#response_msg_alert").removeClass("hidden");
