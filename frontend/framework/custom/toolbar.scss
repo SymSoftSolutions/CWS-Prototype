@@ -14,12 +14,14 @@
         // keep our tool bar text on the left hand side of the screen
         max-width: 100%;
     }
+
+
 }
 
 .svg-icon {
     fill: getColor(text, ui);
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
 }
 
@@ -90,7 +92,7 @@
     
     .account-management-messages,.account-management-user {
         white-space: nowrap;
-        line-height: 24px;
+       
     }
 
 
