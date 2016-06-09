@@ -22,7 +22,11 @@ function setInboxRowHandler() {
       var toID = parent.find(".msg-to-id").text();
 
       //The function "to" when replying ought be the fromID, except of course, when replying to sent mail
-      $("#inbox_message .curr-msg-to-id").html(fromID);
+      if($("#sent_msg_list").hasClass('active')) {
+          $("#inbox_message .curr-msg-to-id").html(toID);
+      } else {
+          $("#inbox_message .curr-msg-to-id").html(fromID);
+      }
 
       // Check if sender and receiver are the same
       if(toID == fromID) {
