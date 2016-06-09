@@ -5,9 +5,6 @@
     max-width:150px;
     max-height:150px;
     border-radius: 50%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .avatar-placeholder {
@@ -62,24 +59,15 @@ border-radius: 50%;
 }
 
 .profile-header {
+    display: flex;
     justify-content: left;
+    .profile-header-info {
+        margin-left: 1em;
+    }
 }
 
 .profile-header-info {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-#profile_case_worker {
-    h6 {
-        font-size: 16px;
-    }
-    .case-worker {
-        color: $secondary-blue;
-    }
-}
-
-#update_profile_btn {
-    margin-left: 20px;
 }
