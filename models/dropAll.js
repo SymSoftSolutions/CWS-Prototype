@@ -1,7 +1,11 @@
 var db = require('../lib/db');
 
 
-
+/**
+ * Helper function which reduces the required boilerplate code inorder to drop tables
+ * @param tableName - string of the table
+ * @returns {Promise} - a Promise that resolves when the table has been dropped in the db
+ */
 function dropTables(tableName) {
     return function () {
         return db.raw('DROP TABLE IF EXISTS ' + tableName + ' CASCADE')
