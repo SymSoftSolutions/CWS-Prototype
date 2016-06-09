@@ -18,6 +18,8 @@ We have made our functional prototype available through the following link:
 Two accounts have been initially configured:
 
 To login as a parent use:
+
+![Prototype Access](http://placehold.it/850x300)
  
 __username:__ test@example.com
 __password:__ 123
