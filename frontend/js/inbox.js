@@ -274,7 +274,7 @@ $(document).ready(function() {
             method: "POST",
             url: "/message",
             data: {
-                "subject": $(".curr-msg-subject").text(),
+                "subject": "Re: "+$(".curr-msg-subject").text(),
                 "recipientID": $(".curr-msg-from-id").text(),
                 "text": $("#response_msg_body").val()
         }}).done(function( msg ) {
