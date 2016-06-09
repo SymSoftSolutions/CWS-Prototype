@@ -36,11 +36,6 @@ function setInboxRowHandler() {
           });
       }
 
-      /*if($("#sent_msg_list").hasClass('active')) {
-          $("#inbox_message .curr-msg-from").text($("#inbox_message .curr-msg-to").text());
-          $("#inbox_message .curr-msg-to").html(parent.find(".msg-from").text());
-      }*/
-
       $("#inbox_message").show();
   });
   setInboxCheckboxHandlers();
@@ -149,11 +144,6 @@ $(window).resize(function(){
     } else {
         $("#inbox_container").addClass("container-fluid");
         $("#new_msg_div").removeClass("new-msg-mobile");
-        if(windowWidth > 1500) {
-          $("#response_msg_body").css("width", "104%");
-        } else {
-          $("#response_msg_body").css("width", "101%");
-        }
     }
 });
 
@@ -177,6 +167,7 @@ function paginationSetup() {
 }
 
 $(document).ready(function() {
+  
     dataTable = $('#inbox_table').DataTable( {
         "paging":   true,
         "ordering": false,
@@ -185,6 +176,10 @@ $(document).ready(function() {
     });
 
     getInboxMessages();
+<<<<<<< HEAD
+=======
+
+>>>>>>> c0f87c58df22be4cb1b6f1a9cfc577c70816c86b
     // Enable/Disable reply btn if reply body is empty or not
     $("#response_msg_body").bind('input propertychange', function() {
         if($(this).val().length) {

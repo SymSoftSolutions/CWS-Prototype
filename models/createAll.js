@@ -10,7 +10,7 @@ var testUser = {
     password: '123',
     email: "test@example.com",
     role: tables.roles.fosterParent,
-    // empty avatar
+    avatar: "avatar-1465412622857.png",
     userDetails: {
         residence: {
             address: "1234 no where",
@@ -30,6 +30,7 @@ var testCaseWorker = {
     lastName: 'Doe',
     password: '123',
     email: "case@example.com",
+    avatar: "avatar-1465412622857.png",
     role: tables.roles.caseWorker
 };
 
