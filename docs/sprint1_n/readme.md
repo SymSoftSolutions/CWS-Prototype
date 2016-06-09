@@ -19,9 +19,9 @@ During this phase we executed the following activities and tasks:
 13. Cross-browser testing
 
 ##User Testing
+![Photo of user testing and screenshots] (https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint1_n/photos/08_symsoft-solutions-chhs-rfi-75001_user-testing.jpg)
 
 We performed in-person user testing to evaluate the functionality of the website, with a focus on the needs and emotional state of the user.
 - [User test questions] (https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint1_n/user-test_questions.md)
 - [Test results] (https://github.com/SymSoftSolutions/CWS-Prototype/blob/Documentation/docs/sprint1_n/user-test_feedback.md)
-- Images from testing
 - [Automated testing] (https://github.com/SymSoftSolutions/CWS-Prototype/tree/Documentation/docs/sprint_0/process#testing)
