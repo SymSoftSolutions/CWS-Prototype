@@ -4,7 +4,7 @@ California's Foster Care System is designed to serve and protect those children 
 
 SymSoft created this prototype online application to support the foster parents and secure the future for the foster children. The prototype enables foster parents to create and manage their profile online, search for nearby foster care facilities and exchange private messages with case workers.
 
-The application can be accessed at http://securethefuture.symsoftsolutions.com.
+The application can be accessed at [http://fostercare.symsoftsolutions.com.] (http://fostercare.symsoftsolutions.com/)
 
 SymSoft followed an [agile and user-centered approach](#our-approach) to create this prototype. We used [open source technologies] (#open-source) and deployed the solution on hosted [PaaS platform] (#setup). 
 
@@ -19,7 +19,7 @@ SymSoft followed an [agile and user-centered approach](#our-approach) to create 
 
 ## Application Access <a id="application-access"></a>
 
-Access the application at: [http://securethefuture.symsoftsolutions.com/] (http://securethefuture.symsoftsolutions.com/) 
+Access the application at: [http://fostercare.symsoftsolutions.com/] (http://fostercare.symsoftsolutions.com/) 
 
 ![Prototype Access](http://placehold.it/850x300)
 
