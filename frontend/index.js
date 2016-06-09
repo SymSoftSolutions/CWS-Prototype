@@ -123,8 +123,6 @@ function loadUserAutocomplete(){
     });
 }
 
-
-
 $('.js-select-user-autocomplete').selectize({
     create: false,
     maxItems: 1,
@@ -138,7 +136,7 @@ $('.js-select-user-autocomplete').selectize({
             return callback(response);
         });
     }
-})
+});
 
 $('#new_msg_to.js-select-user-autocomplete').each(function(){
    var control =  this.selectize;
@@ -149,4 +147,11 @@ $('#new_msg_to.js-select-user-autocomplete').each(function(){
         control.refreshItems(true);
     })
 
-})
+});
+
+$(".main-tabs .inbox-tab").click(function(){
+    location.href = "/inbox";
+});
+$(".main-tabs .profile-tab").click(function(){
+    location.href = "/profile";
+});
