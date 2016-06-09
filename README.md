@@ -4,9 +4,7 @@ California's Foster Care System is designed to serve and protect those children 
 
 SymSoft created this prototype online application to support the foster parents and secure the future for the foster children. The prototype enables foster parents to create and manage their profile online, search for nearby foster care facilities and exchange private messages with case workers.
 
-The application can be accessed at [http://fostercare.symsoftsolutions.com.] (http://fostercare.symsoftsolutions.com/)
-
-SymSoft followed an [agile and user-centered approach](#our-approach) to create this prototype. We used [open source technologies] (#open-source) and deployed the solution on hosted [PaaS platform] (#setup). 
+SymSoft followed an [agile and user-centered approach](#our-approach) to create this prototype. We used [open source technologies] (#open-source) and deployed the solution on hosted [PaaS platform] (https://www.heroku.com/). 
 
 **Table of Contents**
 
@@ -71,7 +69,7 @@ Next, we combined [user centered design and agile development] to generate inter
 
 ###Sprint 1-N [(more...)] (/docs/sprint1_n/readme.md)
 
-TODO
+We developed the prototype functionality through two Sprints one-week long each. During each iteration, we followed the [U.S. Digital Services Playbook] (https://playbook.cio.gov) and by the end of each Sprint, we released an end to end solution which we made available for real users to test and provide feedback. Based on this feedback we implemented some of the improvements for upcoming iterations and documented some other that are out of the scope of this prototype but that were identified as functionality that provides value to users. 
 
 ## About the Team <a id="about-team"></a>
 
