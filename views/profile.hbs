@@ -1,18 +1,16 @@
 <div class="container-fluid profile-container">
 
-    <div class="profile-header">
-        <div class="profile-header-info">
+    <div class="profile-header row">
+        <div class="profile-header-info col-xs-12 col-sm-3 text-center">
             {{> profile/avatar this}}
         </div>
-        <div class="profile-header-info">
+        <div id="profile_case_worker" class="profile-header-info col-xs-12 col-sm-4">
             <h3>{{user.firstName}} {{user.lastName}}</h3>
-            <h6><strong>Your Case Worker:</strong> {{caseWorker.firstName}} {{caseWorker.lastName}}</h6>
-
-
+            <h6>Your Case Worker: <span class="case-worker">{{caseWorker.firstName}} {{caseWorker.lastName}}</span></h6>
         </div>
-
-      {{> profile/progress }}
-
+        <div class="profile-header-info col-xs-12 col-sm-4">
+            {{> profile/progress }}
+        </div>
 
     </div>
 

@@ -144,11 +144,6 @@ $(window).resize(function(){
     } else {
         $("#inbox_container").addClass("container-fluid");
         $("#new_msg_div").removeClass("new-msg-mobile");
-        /*if(windowWidth > 1500) {
-          $("#response_msg_body").css("width", "104%");
-        } else {
-          $("#response_msg_body").css("width", "101%");
-        }*/
     }
 });
 
