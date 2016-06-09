@@ -37,6 +37,12 @@ var testCaseWorker = {
 exports.testCaseWorker =  testCaseWorker;
 
 
+/**
+ * Helper function which reduces the required boilerplate code inorder to create tables
+ * @param tableName - string of the table
+ * @param func - the knex function which creates the columns for this table
+ * @returns {Promise} - a Promise that resolves when the table has been created in the db
+ */
 function createTable(tableName, func) {
     return function () {
         return db.schema.hasTable(tableName).then(function (exists) {
@@ -53,6 +59,11 @@ function createTable(tableName, func) {
 
     }
 }
+
+/**
+ * Create the required sample test users, in the correct order, and only
+ * if need be
+ */
 function createTestObjects() {
     var users = [testUser, testCaseWorker];
     
@@ -78,6 +89,11 @@ function createTestObjects() {
     })
 }
 
+
+/**
+ * We create our tables in the required order for column and key relationships
+ * @returns {*}
+ */
 function createAll() {
     return createTable('users', tables.createUserTable)()
         .then(createTable('cases', tables.createCaseTable))
@@ -87,6 +103,9 @@ function createAll() {
 }
 
 
+/**
+ * When run as a standalone program we create then exit
+ */
 if (require.main === module) {
     createAll().finally(function () {
         console.log("\nDone Creating Tables");

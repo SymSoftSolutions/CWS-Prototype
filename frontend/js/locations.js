@@ -1,31 +1,3 @@
-// exports.getLocations = function getLocations(lat, lng) {
-//     $(document).ready(function () {
-//         var getGeo = jQuery.getScript("/public/js/geolocations.js");
-//         getGeo.then(function(data){
-//             jQuery.ajax({
-//                 url: "http://api.mapthat.io/V3/EmbedFeaturesFromWidget", type: "POST",
-//                 data: {
-//                     mapProvider: "google",
-//                     features: JSON.stringify(geoArr),
-//                     loadMapLib: !(typeof google === 'object' && typeof google.maps === 'object'),
-//                     searchControl: true,
-//                     apiKey: "0689a7b3-7f61-486a-8eef-14c7c78077ea",
-//                     mapId: 119,
-//                     embedList: true,
-//                     embedItemDetails: true,
-//                     useClusters: true,
-//                     useViewportFilter: true,
-//                     idProperty: "Facility_Number",
-//                     userLat: lat || 38.644397,
-//                     userLng: lng || -121.508268
-//                 },
-//                 error: function (xhr, status, errorThrown) { throw errorThrown; }
-//             });
-//         })
-//     })
-//
-//
-// }
 var toastr = require('toastr');
 
 exports.getLocationsWithCoor = function () {
@@ -82,7 +54,7 @@ exports.getLocations = function getLocations(lat, lng) {
     window.$ = jQuery;
     $(document).ready(function () {
         jQuery.ajax({
-            url: "//api.mapthat.io/V3/EmbedFeaturesFromWidget", type: "POST",
+            url: "https://api.mapthat.io/V3/EmbedFeaturesFromWidget", type: "POST",
             data: {
                 mapProvider: "google",
                 features: JSON.stringify(exports.geoArr),
