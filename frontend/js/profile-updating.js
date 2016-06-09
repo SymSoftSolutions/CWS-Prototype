@@ -154,3 +154,10 @@ $('#updateprofile').on('submit', function (e) {
             toastr.success("Profile Updated");
         })
 });
+
+
+$('.profile-container').on('click', '.js-profile-editing-cancel', function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    $(this).closest('.profile-editing-info').remove();
+})
