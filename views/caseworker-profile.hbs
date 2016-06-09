@@ -1,10 +1,12 @@
 <div class="container-fluid profile-container">
 
-    <h1>Case Worker: {{user.firstName}}</h1>
+    <h1 class="text--center">Case Worker: {{user.firstName}}</h1>
 
-    {{> profile/avatar this}}
-
-    <div class="row profile-update-info">
+    <div class="profile-header-info col-xs-12  text-center">
+        {{> profile/avatar this}}
+        <a id="edit_avatar_link" data-toggle="modal" data-target="#avataredit"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit</a>
+    </div>
+    <div class="row profile-update-info text--center">
         <a href="/inbox" class="btn btn-primary">View Inbox & Messages</a>
     </div>
 </div>

@@ -5,27 +5,27 @@ require('../libraries/jquery.cropit.js');
 
 // profile modifications
 
-$('.js-profile-add-adult').on('click touchstart', function(){
-     $.ajax({
-        'type':'GET',
-        'url':'/add/adults',
-        'cache':false
-    }).then(function(data){
-         $('.js-profile-adult-container').append(data);
-        })
+$('.js-profile-add-adult').on('click touchstart', function () {
+    $.ajax({
+        'type': 'GET',
+        'url': '/add/adults',
+        'cache': false
+    }).then(function (data) {
+        $('.js-profile-adult-container').append(data);
+    })
 })
 
-$('.js-profile-add-children').on('click touchstart', function(){
+$('.js-profile-add-children').on('click touchstart', function () {
     $.ajax({
-        'type':'GET',
-        'url':'/add/children',
-        'cache':false
-    }).then(function(data){
+        'type': 'GET',
+        'url': '/add/children',
+        'cache': false
+    }).then(function (data) {
         $('.js-profile-children-container').append(data);
     })
 })
 
-$('.profile-container').on('click', '.js-remove-adult, .js-remove-child', function(){
+$('.profile-container').on('click', '.js-remove-adult, .js-remove-child', function () {
     console.log("removing")
     $(this).closest('.js-option-existing').remove();
 })
@@ -36,17 +36,17 @@ $(function () {
 
 
 // profile completion
-function computeCompletion(){
+function computeCompletion() {
 
     var total = 6;
     var found = 0;
 
     // at most +1
-   if($('.js-children-pref input:checked').length){
-       found += 1;
-   }
+    if ($('.js-children-pref input:checked').length) {
+        found += 1;
+    }
 
-    if($('.js-residence-about  input[type="text"]:checked').length){
+    if ($('.js-residence-about  input[type="text"]:checked').length) {
         found += 1;
     }
 
@@ -56,84 +56,103 @@ function computeCompletion(){
     }).length;
 
     // at most +1
-    if($('.js-profile-children-container .js-option-existing').children().length){
+    if ($('.js-profile-children-container .js-option-existing').children().length) {
         found += 1;
     }
 
     // at most +1
-    if($('.js-profile-adult-container .js-option-existing').children().length){
+    if ($('.js-profile-adult-container .js-option-existing').children().length) {
         found += 1;
     }
 
 
-    var completness = Math.min((found / total * 100).toFixed(0),100);
+    var completness = Math.min((found / total * 100).toFixed(0), 100);
 
 
-
-    $('.js-profile-completeness').attr('aria-valuenow', completness).css("width", completness+ "%").text(completness + "%")
+    $('.js-profile-completeness').attr('aria-valuenow', completness).css("width", completness + "%").text(completness + "%")
 }
 
 
 computeCompletion();
 
 
-
 // Avatar
-$(function() {
+$(function () {
     var $imageCropper = $('.image-editor').cropit({
         smallImage: 'stretch',
         maxZoom: 2,
         imageState: {
             // src: 'http://lorempixel.com/500/400/',
         },
-        onImageError: function() {
+        onImageError: function () {
             toastr.error("Please use an image that's at least " + $(".cropit-image-preview").outerWidth() + "px in width and " + $(".cropit-image-preview").outerHeight() + "px in height."), $(".cropit-image-preview")
             $(".cropit-image-preview").removeClass("has-error")
         }
     });
 
-    $('.js-avatar-update').on('click touchstart', function(){
+    $('.js-avatar-update').on('click touchstart', function () {
+
+        $("#avataredit .modal-footer button").addClass("hidden");
+        $("#avataredit #avatar_loading_msg").fadeIn();
 
         // have to use formData inorder for multi-part to work
         var data = new FormData();
 
-        if($imageCropper.cropit('imageSrc').trim() == ''){
+        if ($imageCropper.cropit('imageSrc').trim() == '') {
             toastr.error('Choose Image first')
             return;
         }
         data.append('avatar', $('.image-editor').cropit('export'));
         var update = $.ajax({
-            'type':'POST',
-            contentType : false,
-            processData : false,
+            'type': 'POST',
+            contentType: false,
+            processData: false,
             data: data,
-            'url':'/avatar',
-            'cache':false,
+            'url': '/avatar',
+            'cache': false,
         })
 
-        update.then(function() {
+        update.then(function () {
 
             // Display a success toast, with a title
             toastr.info('Avatar Updated')
-            window.setTimeout(function(){
+            window.setTimeout(function () {
                 location.reload();
-            },2000);
+            }, 2000);
 
         })
     });
 
     $('.js-avatar-delete').on('click touchstart', function(){
+        $("#avataredit .modal-footer button").addClass("hidden");
+        $("#avataredit #avatar_loading_msg").fadeIn();
+
         var deletePromise = $.ajax({
-            'type':'DELETE',
-            'url':'/avatar',
-            'cache':false
+            'type': 'DELETE',
+            'url': '/avatar',
+            'cache': false
         })
 
-        deletePromise.then(function() {
+        deletePromise.then(function () {
             // Display a success toast, with a title
-            toastr.info('Avatar Deleted')
-            modalHide.trigger('click');
+            toastr.info('Avatar Deleted');
+            window.setTimeout(function(){
+                location.reload();
+            },1000);
         })
     });
 });
 
+
+$('#updateprofile').on('submit', function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            'type': 'POST',
+            'url': 'ajaxupdate',
+            data: $(this).serialize(),
+            'cache': false
+        }).then(function (data) {
+            toastr.success("Profile Updated");
+        })
+});

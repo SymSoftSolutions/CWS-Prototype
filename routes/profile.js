@@ -55,6 +55,17 @@ function init(router) {
 
     });
 
+
+    router.post('/ajaxupdate/', function (req, res) {
+        console.dir(req.body, {depth:null, colors: true})
+        req.session.adultcount = 0;
+        req.session.childcount = 0
+        dbUtils.replaceUserDetails(req.user, req.body ).then(function(){
+            res.json({status: 200});
+        });
+
+    });
+
     router.get('/add/adults', function(req, res){
 
         try{

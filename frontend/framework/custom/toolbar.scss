@@ -12,14 +12,16 @@
         width: auto;
         order:1;
         // keep our tool bar text on the left hand side of the screen
-        max-width: 30%;
+        max-width: 100%;
     }
+
+
 }
 
 .svg-icon {
     fill: getColor(text, ui);
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
 }
 
@@ -28,7 +30,13 @@
     text-align: right;
 
     // minimize the toolbars overall height with less text
-    font-size: 0.8em;
+    font-size: 1em;
+
+    @media (max-width: 370px) {
+        //display: block;
+        text-align: center;
+
+    }
 
     // framework & html overrides
     margin-bottom: 0;
@@ -38,8 +46,8 @@
         margin: 0.5em;
 
         @media (max-width: $mobile-nav-bp) {
-            display: block;
-            font-size: 1.1em;
+            //display: block;
+            font-size: 0.9em;
 
         }
     }
@@ -49,9 +57,9 @@
         // reduce spacing to the left of the separator to match margin
         margin-left: 0;
         &:before {
-            content: "|";
+            content: "";
             // add spacing after the separator to match margin
-            padding-right: 0.5em;
+            padding-right: 0.9em;
             // make it subtle
             font-weight: 300;
             @media (max-width: $mobile-nav-bp) {
@@ -75,7 +83,7 @@
     }
 
     .account-management-logout {
-        line-height: 2;
+        font-size: 1.5em;
     }
     .account-management-create {
         font-weight: 300;
@@ -84,7 +92,7 @@
     
     .account-management-messages,.account-management-user {
         white-space: nowrap;
-        line-height: 24px;
+       
     }
 
 

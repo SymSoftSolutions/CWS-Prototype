@@ -20,9 +20,12 @@
 
         <input type="text" value="{{adult.dob.day}}" name="userDetails[adults][{{index}}][dob][day]"
                placeholder="day"
+               pattern="^(([0]?[1-9])|([1-2][0-9])|(3[01]))$"
                class="form-control" style="width:50px;">
         <input type="text" value="{{adult.dob.year}}" name="userDetails[adults][{{index}}][dob][year]"
-               placeholder="year" class="form-control" style="width:100px;">
+               pattern="^\d{4}$"
+               placeholder="year"
+               class="form-control" style="width:100px;">
     </div>
 
     <label for="relationship">Relationship with You?</label>
