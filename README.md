@@ -1,9 +1,17 @@
-# Digital Foster Services
+# Secure the Future 
+
+California's Foster Care System is designed to serve and protect those children who cannot safely remain in their homes. The counties placement agencies and licensed private Foster Family Agencies (FFAs) provide responsive and comprehensive placement services for children in need, including recruiting, certifying and training foster parents, and finding homes for children in need. 
+
+SymSoft created this prototype online application to support the foster parents and secure the future for the foster children. The prototype enables foster parents to create and manage their profile online, search for nearby foster care facilities and exchange private messages with case workers.
+
+The application can be accessed at http://www.securethefuture.com.
+
+SymSoft followed an [agile and user-centered approach](#our-approach) to create this prototype. We used [open source technologies] (#open-source) and deployed the solution on hosted [PaaS platform] (#setup). 
 
 **Table of Contents**
 
-  * [Application Access](#application-access)  
-  * [An Agile Approach](#our-approach)  
+  * [Application URL](#application-access)  
+  * [An Agile and User Centered Approach](#our-approach)  
   * [About the Team](#about-team)  
   * [Open Source Technologies](#open-source)  
   * [Application Setup](#setup)
@@ -17,7 +25,7 @@ We have made our functional prototype available through the following link:
 
 Two accounts have been initially configured:
 
-To login as a parent use:
+To login as a parent use the following, or simply register with the system:
 
 ![Prototype Access](http://placehold.it/850x300)
  
@@ -29,7 +37,7 @@ To login as a case worker use:
 __username:__ case@example.com
 __password:__ 123
 
-## An Agile Approach <a id="our-approach"></a>
+## An Agile and User Centered Approach <a id="our-approach"></a>
 
 To quickly design and develop a working prototype from start to finish, we used a combination of user-centered design and agile development. We adhered to the [principles of the agile manifesto](http://www.agilemanifesto.org/principles.html) for an iterative process. We used [Scrum] (https://www.scrumalliance.org/why-scrum) as our framework for clear communication and workflow amongst the team.
 
@@ -37,12 +45,12 @@ To quickly design and develop a working prototype from start to finish, we used 
 
 [**Discovery Phase**] (/docs/discovery_phase/readme.md)
 
-In this phase we [reviewed the project requirements and learned about Foster Care](CWS-Prototype/docs/discovery_phase/readme.md) in order to:
+In this phase we conducted following activities:
 
+* [Independent research to learn about Foster Care](CWS-Prototype/docs/discovery_phase/readme.md)
 * Understand the project requirements
-* Learn about Foster Care resources
-* Define the team members
 * Create an initital product backlog
+* Assemble the [team](#about-team)
 
 **Sprint 0 - User Experience and Agile Development**
 
@@ -52,8 +60,9 @@ Next, we combined [user centered design and agile development] to generate inter
 
 1. Interviewed a foster parent 
 2. Created User Personas 
-3. Designed high fidelity product wireframes and reviewed those with users
-4. Gathered design guidelines
+3. Created low fidelity sketches to present and discuss ideas with a foster parent
+4. Designed high fidelity product wireframes to demonstrate interactions and flow, and reviewed those with users
+5. Created visual design for the application
 
 [*Agile Process:*](/docs/sprint_0/process/readme.md)
 
@@ -70,16 +79,13 @@ TODO
 
 ## About the Team <a id="about-team"></a>
 
-**Team Lead**
+For this project, similar to our other projects, and inline with the requirements of the RFI, we assembled a multidiscplinary, cross-functional team, and identified Product Manager/ Team Lead for the project.
 
-Savita Farooqui is the Product Manager for this project. 
-Savita is has more than 15 years of experience in the IT field. During this time, she has been involved in a variety of projects from building technology tools and products, back office automation for businesses and governments and creating web portals for providing web-based information and service delivery. 
+The team comprised on following vendor pool labor categories:
 
-For the purpose of this project we assembled an agile team including the following vendor pool labor categories:
-
+* User Researcher
 * Visual Designer
 * Interaction Designer
-* User Researcher
 * Front-End Developer
 * Back-End Web Developer
 * Product Manager
@@ -87,7 +93,7 @@ For the purpose of this project we assembled an agile team including the followi
 * DevOps Engineer
 * Technical Architect
 
-For more details about the team composition please contact us
+Please contact us for more details about the team composition.
 
 ## Open Source Technologies <a id="open-source"></a>
 
