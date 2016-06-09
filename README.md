@@ -26,12 +26,12 @@ Access the application at: [http://fostercare.symsoftsolutions.com/] (http://fos
 Two accounts have been initially configured:
 
 To login as a parent use the following, or simply register with the system:
-__username:__ test@example.com
-__password:__ 123
+__Email:__ test@example.com
+__Password:__ 123
  
 To login as a case worker use:
- __username:__ case@example.com
-__password:__ 123
+ __Email:__ case@example.com
+__Password:__ 123
 
 ## An Agile and User Centered Approach <a id="our-approach"></a>
 
@@ -43,7 +43,7 @@ To quickly design and develop a working prototype from start to finish, we used 
 
 In this phase we conducted following activities:
 
-* [Independent research to learn about Foster Care](CWS-Prototype/docs/discovery_phase/readme.md)
+* [Independent research to learn about Foster Care](/docs/discovery_phase/readme.md)
 * Understand the project requirements
 * Create an initital product backlog
 * Assemble the [team](#about-team)
