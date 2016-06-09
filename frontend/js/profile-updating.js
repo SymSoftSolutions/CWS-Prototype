@@ -38,7 +38,7 @@ $(function () {
 // profile completion
 function computeCompletion(){
 
-    var total = 7;
+    var total = 6;
     var found = 0;
 
     // at most +1
@@ -56,17 +56,18 @@ function computeCompletion(){
     }).length;
 
     // at most +1
-    if($('.js-profile-children-container').children().length){
+    if($('.js-profile-children-container .js-option-existing').children().length){
         found += 1;
     }
 
     // at most +1
-    if($('.js-profile-adult-container').children().length){
+    if($('.js-profile-adult-container .js-option-existing').children().length){
         found += 1;
     }
 
 
-    var completness = (found / total * 100).toFixed(0);
+    var completness = Math.min((found / total * 100).toFixed(0),100);
+
 
 
     $('.js-profile-completeness').attr('aria-valuenow', completness).css("width", completness+ "%").text(completness + "%")
