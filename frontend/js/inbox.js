@@ -275,7 +275,7 @@ $(document).ready(function() {
             url: "/message",
             data: {
                 "subject": $(".curr-msg-subject").text(),
-                "recipientID": $(".curr-msg-to-id").text(),
+                "recipientID": $(".curr-msg-from-id").text(),
                 "text": $("#response_msg_body").val()
         }}).done(function( msg ) {
             $("#response_msg_alert").removeClass("hidden");
