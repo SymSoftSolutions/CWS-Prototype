@@ -11,9 +11,11 @@
         <input type="text" value="{{child.dob.day}}" name="userDetails[children][{{index}}][dob][day]"
                placeholder="day"
                pattern="^(([0]?[1-9])|([1-2][0-9])|(3[01]))$"
+               required
                class="form-control" style="width:50px;">
         <input type="text" value="{{child.dob.year}}" name="userDetails[children][{{index}}][dob][year]"
                pattern="^\d{4}$"
+               required
                placeholder="year" class="form-control" style="width:100px;">
     </div>
 

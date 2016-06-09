@@ -113,13 +113,11 @@ $(function () {
         })
 
         update.then(function () {
-
             // Display a success toast, with a title
             toastr.info('Avatar Updated')
             window.setTimeout(function () {
                 location.reload();
             }, 2000);
-
         })
     });
 

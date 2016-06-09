@@ -6,6 +6,9 @@
     display: block;
     cursor: pointer;
     text-align: center;
+    &:focus{
+        outline: none;
+    }
     &:not(:first-child):not(:last-child) {
         margin-top: unitSize(3);
         margin-bottom: unitSize(2);
@@ -60,7 +63,7 @@
     transition-delay: 0s;
     margin: 0;
     padding: 0;
-    border: 1.5px solid #909090;
+    border-left: 2px solid #909090;
     border-top: 0;
     padding-top: 0;
     padding: 1em;

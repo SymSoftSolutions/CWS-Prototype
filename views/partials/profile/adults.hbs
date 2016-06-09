@@ -4,11 +4,12 @@
     <label for="firstName" class="control-label">First Name:</label>
     <input type="text" id="firstName" value="{{adult.firstName}}"
            name="userDetails[adults][{{index}}][firstName]"
+           pattern="[a-zA-Z0-9 ]+" required
            placeholder="John" class="form-control">
 
 
     <label for="lastName" class="control-label">Last Name:</label>
-    <input type="text" value="{{adult.lastName}}" name="userDetails[adults][{{index}}][lastName]" id="lastName"
+    <input type="text" value="{{adult.lastName}}" pattern="[a-zA-Z0-9 ]+" required name="userDetails[adults][{{index}}][lastName]" id="lastName"
            placeholder="Doe" class="form-control">
 
 
@@ -21,9 +22,11 @@
         <input type="text" value="{{adult.dob.day}}" name="userDetails[adults][{{index}}][dob][day]"
                placeholder="day"
                pattern="^(([0]?[1-9])|([1-2][0-9])|(3[01]))$"
+               required
                class="form-control" style="width:50px;">
         <input type="text" value="{{adult.dob.year}}" name="userDetails[adults][{{index}}][dob][year]"
                pattern="^\d{4}$"
+               required
                placeholder="year"
                class="form-control" style="width:100px;">
     </div>

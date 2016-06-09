@@ -6,8 +6,7 @@
     <input type="hidden" id="relationship" value="{{child.relationship}}"
            name="userDetails[children][{{index}}][relationship]">
 
-    <th scope="row">{{index}}</th>
-    <td>{{child.dob.month}}, {{child.dob.day}} {{child.dob.year}}</td>
+    <td>{{getAge adult.dob.year}}</td>
     <td>{{child.relationship}}</td>
     <td>
         <button type="button" class="btn btn-danger btn-sm js-remove-child" aria-label="Close"><span aria-hidden="true">×</span>

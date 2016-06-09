@@ -8,10 +8,9 @@
     <input type="hidden" id="relationship" value="{{adult.relationship}}"
            name="userDetails[adults][{{index}}][relationship]">
 
-    <th scope="row">{{index}}</th>
     <td>{{adult.firstName}}</td>
     <td>{{adult.lastName}}</td>
-    <td>{{adult.dob.month}}, {{adult.dob.day}} {{adult.dob.year}}</td>
+    <td>{{getAge adult.dob.year}}</td>
     <td>{{adult.relationship}}</td>
     <td>
         <button type="button" class="btn btn-danger btn-sm js-remove-adult" aria-label="Close"><span aria-hidden="true">×</span>
