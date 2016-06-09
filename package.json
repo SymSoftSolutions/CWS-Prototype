@@ -7,7 +7,8 @@
     "start": "node server.js",
     "test": "gulp test",
     "dev": "gulp",
-    "dist": "webpack --config  frontend/webpack.config.prod.js -p"
+    "dist": "webpack --config  frontend/webpack.config.prod.js -p",
+    "preinstall": "webpack --config  frontend/webpack.config.prod.js -p" 
   },
     "engines": {
     "node": "6.2.0"
