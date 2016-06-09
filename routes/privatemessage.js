@@ -54,12 +54,9 @@ function init(router) {
                 message['recipientID']  = parseInt(recipientField);
                 processMessage(message, req, res);
             } else {
-                console.log('message given by email');
                 // If not, lookup by email
                 if(recipientField) {
                     dbUtils.retrieveUser({'email':recipientField}).then(function(user) {
-                        console.log('user corresponding to email is:');
-                        console.log(user);
                         var recipientID = user.userID;
                         message['recipientID'] = recipientID;
 

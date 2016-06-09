@@ -1,0 +1,38 @@
+{
+  "env": {
+    "node": true,
+    "browser": true
+  },
+  "rules": {
+    "no-console": 2,
+    "no-extra-parens": 2,
+    "valid-jsdoc": [2, {"requireReturn": false}],
+    "no-else-return": 2,
+    "no-eq-null": 2,
+    "no-floating-decimal": 2,
+    "no-process-env": 2,
+    "no-self-compare": 2,
+    "no-warning-comments": [2, { "terms": ["todo"], "location": "start" }],
+    "wrap-iife": 2,
+    "global-strict": [2, "always"],
+    "no-catch-shadow": 2,
+    "no-use-before-define": [2, "nofunc"],
+    "brace-style": [2, "1tbs"],
+    "comma-style": [2, "last"],
+    "func-style": [2, "declaration"],
+    "no-lonely-if": 2,
+    "no-multiple-empty-lines": [2, {"max": 1}],
+    "no-nested-ternary": 2,
+    "operator-assignment": [2, "always"],
+    "padded-blocks": [2, "never"],
+    "quote-props": [2, "as-needed"],
+    "quotes": [2, "single", "avoid-escape"],
+    "space-after-function-name": [2, "never"],
+    "space-after-keywords": [2, "always"],
+    "space-before-blocks": [2, "always"],
+    "space-in-brackets": [2, "never"],
+    "space-in-parens": [2, "never"],
+    "spaced-line-comment": [2, "always", {exceptions:["-","+","*"]}],
+    "max-len": [2, 120, 4]
+  }
+}

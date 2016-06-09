@@ -37,7 +37,6 @@ function init(router){
         var userID = req.user.userID;
 
         dbUtils.getRecievedMessages(userID).then(function(messageList) {
-            console.log('recieved request');
             messageList = formatMessageData(messageList);
             res.send(messageList);
         });
@@ -96,10 +95,8 @@ function formatMessageData(messageList) {
         var message = messageList[index];
         var column_array =[message.fromID, message.subject, message.message, message.createdAt, message, message.messageID];
         newList.push(column_array);
-        console.log(message);
     }
     
-    console.log(newList);
     return {"data": newList};
 }
 

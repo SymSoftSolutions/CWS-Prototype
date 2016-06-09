@@ -167,6 +167,7 @@ function paginationSetup() {
 }
 
 $(document).ready(function() {
+  
     dataTable = $('#inbox_table').DataTable( {
         "paging":   true,
         "ordering": false,

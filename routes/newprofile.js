@@ -49,19 +49,15 @@ function respondToFormRequest(req, res, next) {
                     } else {
                         var formIsValid = nameExists && passwordExists && (!emailExists) && passwordsMatch;
                         if(emailExists) {
-                            console.log('email is taken');
                             req.flash('error', 'Email is already registered.');
                         }
                         if(!nameExists) {
-                            console.log('some fields don\'t exist');
                             req.flash('error', 'Please fill out name.');
                         }
                         if(!passwordExists) {
-                            console.log('some fields don\'t exist');
                             req.flash('error', 'Please fill out password and confirmation.');
                         }
                         if(!passwordsMatch) {
-                            console.log('passwords don\'t match');
                             req.flash('error', 'Password confirmation does not match password.');
                         }
                         respondToNewUser(formIsValid, req, res, next);
@@ -73,7 +69,6 @@ var testCaseWorker = require('../models/createAll').testCaseWorker;
 function respondToNewUser(formIsValid, req, res, next) {
         // If all good, insert user into db, then redirect to profile page
         if(formIsValid) {
-            console.log('form is valid');
             var user = {
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
@@ -82,7 +77,6 @@ function respondToNewUser(formIsValid, req, res, next) {
                 role: 'fosterParent'
             }
             user['role'] = 'fosterParent';
-            console.log(user);
             
             dbUtils.insertUser(user).then(function(userDetails){
                user.userID = userDetails[0].userID;
@@ -99,7 +93,6 @@ function respondToNewUser(formIsValid, req, res, next) {
                     })
             });
         } else {
-            console.log('form is invalid');
             res.redirect('/newprofile');
         }
 }
