@@ -10,7 +10,7 @@ SymSoft followed an [agile and user-centered approach](#our-approach) to create 
 
 **Table of Contents**
 
-  * [Application URL](#application-access)  
+  * [Application Access](#application-access)  
   * [An Agile and User Centered Approach](#our-approach)  
   * [About the Team](#about-team)  
   * [Open Source Technologies](#open-source)  
@@ -43,7 +43,7 @@ To quickly design and develop a working prototype from start to finish, we used 
 
 ![SymSoft Process](/docs/sprint_0/process/images/ourprocess.png)
 
-[**Discovery Phase**] (/docs/discovery_phase/readme.md)
+###Discovery Phase [(more...)](/docs/discovery_phase/readme.md)
 
 In this phase we conducted following activities:
 
@@ -52,11 +52,11 @@ In this phase we conducted following activities:
 * Create an initital product backlog
 * Assemble the [team](#about-team)
 
-**Sprint 0 - User Experience and Agile Development**
+###Sprint 0 - User Experience and Agile Development 
 
 Next, we combined [user centered design and agile development] to generate interactive mockups with full functionality as described by the State requirements. During this sprint we executed the following tasks:
 
-[*User-Centered Design:*](/docs/sprint_0/ux/readme.md)
+**User-Centered Design:**[(more...)](/docs/sprint_0/ux/readme.md)
 
 1. Interviewed a foster parent 
 2. Created User Personas 
@@ -64,7 +64,7 @@ Next, we combined [user centered design and agile development] to generate inter
 4. Designed high fidelity product wireframes to demonstrate interactions and flow, and reviewed those with users
 5. Created visual design for the application
 
-[*Agile Process:*](/docs/sprint_0/process/readme.md)
+**Agile Process:**[(more...)](/docs/sprint_0/process/readme.md)
 
 1. Refined Product Backlog with Acceptance Criteria
 2. Agreed on Sprint and Release Level Definition of Done
@@ -73,7 +73,7 @@ Next, we combined [user centered design and agile development] to generate inter
 5. Defined the [Application Architechture and Technology Stack](/docs/sprint_0/process/readme.md#arch-tech)
 7. Setup Agile tracking tools [Jira](https://www.atlassian.com/software/jira/agile)	
 
-[**Sprint 1-N**](/docs/sprint1_n/readme.md)
+###Sprint 1-N [(more...)] (/docs/sprint1_n/readme.md)
 
 TODO
 
