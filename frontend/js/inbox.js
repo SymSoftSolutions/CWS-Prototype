@@ -153,6 +153,7 @@ $(window).resize(function(){
 
     if(windowWidth < 768) {
         $("#inbox_container").removeClass("container-fluid");
+        $(".profile-container").removeClass("container-fluid");
         $("#response_msg_body").css("width", "100%");
         $("#new_msg_div").addClass("new-msg-mobile");
         $("#new_msg_subject").css("padding-left","15px");
@@ -160,6 +161,7 @@ $(window).resize(function(){
         $("#new_msg_div #new_msg_content").css("height","100px");
     } else {
         $("#inbox_container").addClass("container-fluid");
+        $(".profile-container").addClass("container-fluid");
         $("#new_msg_div").removeClass("new-msg-mobile");
         $("#new_msg_subject").css("padding-left","0px");
         $(".selectize-input").css("padding-left","0px");
