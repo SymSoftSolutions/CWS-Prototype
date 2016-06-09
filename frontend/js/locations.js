@@ -42,9 +42,10 @@ exports.getLocationsWithZip = function (zip) {
 jQuery(".js-find-locations").on('click',function(){
     if(!jQuery(".js-find-locations-zip").hasClass('hide')) {
         exports.getLocationsWithZip(jQuery(".js-find-locations-zip").val());
-        return
+        return;
     }
-    jQuery(".js-find-locations-zip").removeClass('hide')
+	$(this).find(".btn-title").text("Update");
+    $(".js-find-locations-zip").removeClass('hide').focus();
 
 });
 jQuery(".js-find-locations-zip").keyup(function (e) {

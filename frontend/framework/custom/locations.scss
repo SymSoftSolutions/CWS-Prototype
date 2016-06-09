@@ -48,7 +48,6 @@
     & > div {
         margin: 0 auto;
     }
-
 }
 
 #find-locations {
@@ -56,14 +55,20 @@
     margin-bottom: 0;
     background: #DAEBFC;
     padding-bottom: 50px;
-    button {
 
+    .container {
+        padding-bottom: 30px; 
     }
+}
+
+#mapthat_map_container {
+    width: 500px;
+    height: 550px;
 }
 
 .js-find-locations-zip {
     min-width: 120px;
-
+    max-width: 140px;
 }
 
 .location-set-tools {
@@ -79,4 +84,38 @@
 #mapthat_list {
     width: 500px;
     margin: 0 auto;
+    padding-right: 10px;
+    margin-bottom: 40px;
+}
+
+/* Extra small devices (phones, less than 768px) */
+@media (max-width: 767px) {
+    #find-locations {
+        .container {
+            padding: 0;
+        }
+        .container:last-child {
+            .col-md-6 {
+                padding: 0;
+            }
+        }
+    }
+    #mapthat_map_container {
+        width: 300px;
+        height: 450px;
+    }
+    #mapthat_list {
+        width: 300px;
+    }
+}
+
+/* Extra small devices (phones, less than 768px) */
+@media (max-width: 350px) {
+    #mapthat_map_container {
+        width: 270px;
+        height: 400px;
+    }
+    #mapthat_list {
+        width: 270px;
+    }
 }
