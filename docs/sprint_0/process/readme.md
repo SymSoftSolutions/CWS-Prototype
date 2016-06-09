@@ -57,9 +57,7 @@ A PDF with the complete description of user stories and acceptance criteria can 
 
 ## Continuous Integration & Deployment <a id="ci_cd"></a>
 
-During sprint 0 we defined a continuous delivery strategy which enabled us to get visibility of the progress, get feedback early and deliver value fast.
-
-Continuous integration was configured in our integration environment using Jenkins CI. Builds were automatically triggered upon pushes to the prototype’s GitHub repository.
+During sprint 0 we defined a continuous delivery strategy which enabled us to get visibility of the progress, get feedback early and deliver value fast. Continuous integration was configured in our integration environment using Jenkins CI. Builds were automatically triggered upon pushes to the prototype’s GitHub repository.
 
 The following diagram illustrates our continuous delivery strategy:
 
