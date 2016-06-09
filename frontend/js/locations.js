@@ -36,11 +36,17 @@ exports.getLocationsWithZip = function (zip) {
 
         }
     });
-
-
+    
 }
 
-jQuery(".js-find-locations").on('click', exports.getLocationsWithCoor);
+jQuery(".js-find-locations").on('click',function(){
+    if(!jQuery(".js-find-locations-zip").hasClass('hide')) {
+        exports.getLocationsWithZip(jQuery(".js-find-locations-zip").val());
+        return
+    }
+    jQuery(".js-find-locations-zip").removeClass('hide')
+
+});
 jQuery(".js-find-locations-zip").keyup(function (e) {
     if (e.keyCode == 13) {
         toastr.info("... Looking up your zip");
