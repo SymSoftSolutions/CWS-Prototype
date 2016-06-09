@@ -16,6 +16,24 @@
     padding: 1em;
 }
 
+#edit_avatar_link {
+    position: absolute;
+    bottom: 0;
+    right: 8px;
+    color: $secondary-blue;
+}
+#edit_avatar_link:hover {
+    text-decoration: none;
+    color: $primary-blue;
+}
+
+#avatar_loading_msg {
+    display: none;
+    color: $secondary-blue;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
 /* Hide file input */
 
 .cropit-preview {

@@ -94,6 +94,9 @@ $(function() {
 
     $('.js-avatar-update').on('click touchstart', function(){
 
+        $("#avataredit .modal-footer button").addClass("hidden");
+        $("#avataredit #avatar_loading_msg").fadeIn();
+
         // have to use formData inorder for multi-part to work
         var data = new FormData();
 
@@ -123,6 +126,9 @@ $(function() {
     });
 
     $('.js-avatar-delete').on('click touchstart', function(){
+        $("#avataredit .modal-footer button").addClass("hidden");
+        $("#avataredit #avatar_loading_msg").fadeIn();
+
         var deletePromise = $.ajax({
             'type':'DELETE',
             'url':'/avatar',
@@ -131,9 +137,10 @@ $(function() {
 
         deletePromise.then(function() {
             // Display a success toast, with a title
-            toastr.info('Avatar Deleted')
-            modalHide.trigger('click');
+            toastr.info('Avatar Deleted');
+            window.setTimeout(function(){
+                location.reload();
+            },1000);
         })
     });
 });
-

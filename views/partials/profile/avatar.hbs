@@ -23,19 +23,20 @@
 
                 <div class="image-editor">
 
-                    <input type="file" class="cropit-image-input">
-                    <div class="cropit-preview"></div>
+                    <input type="file" class="cropit-image-input center-block"><br/>
+                    <div class="cropit-preview center-block"></div>
+                    <br/>
+                    <input type="range" class="cropit-image-zoom-input">
                     <div class="image-size-label">
                         Resize image
                     </div>
-                    <input type="range" class="cropit-image-zoom-input">
 
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary js-avatar-update" >Save</button>
+                <button type="button" class="btn btn-primary js-avatar-update">Save</button>
                 <button type="button" class="btn btn-delete js-avatar-delete">Delete</button>
-
+                <span id="avatar_loading_msg">Loading...&nbsp;</span>
             </div>
         </div>
     </div>
