@@ -15,7 +15,7 @@ function setInboxRowHandler() {
           $("#inbox_message .curr-msg-img").attr("src",'');
       }
       $("#inbox_message .curr-msg-from").text(parent.find(".msg-from").text());
-      $("#inbox_message .curr-msg-date").text(parent.find(".msg-long-date").text());
+      $("#inbox_message .curr-msg-date").html(parent.find(".msg-long-date").html());
       $("#inbox_message .curr-msg-subject").text(parent.find(".msg-subject").text());
       $("#inbox_message .curr-msg-body").html(parent.find(".msg-body").html());
       var fromID = parent.find(".msg-from-id").text();
@@ -115,7 +115,12 @@ function getInboxMessages(url) {
                   } else {
                       date = m_names[curr_month] + " " + curr_date;
                   }
-                  var fullDate =  curr_hour + ":" + (curr_min < 10 ? "0" + curr_min : curr_min) + " " + a_p + " " + m_names[curr_month] + " " + curr_date;
+                  var fullDate;
+                  if($(window).width() < 768) {
+                      fullDate = m_names[curr_month] + " " + curr_date + "<br/>" + curr_hour + ":" + (curr_min < 10 ? "0" + curr_min : curr_min) + " " + a_p;
+                  } else {
+                      fullDate = curr_hour + ":" + (curr_min < 10 ? "0" + curr_min : curr_min) + " " + a_p + " " + m_names[curr_month] + " " + curr_date;
+                  }
                   $.ajax({
                     method: "POST",
                     async: false,
