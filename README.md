@@ -35,7 +35,7 @@ To quickly design and develop a working prototype from start to finish, we used 
 
 [**Discovery Phase**] (/docs/discovery_phase/readme.md)
 
-In this phase we [reviewed the project requirements and learned about Foster Care](CWS-Prototype/docs/discovery_phase/readme.md) in order to:
+In this phase we [reviewed the project requirements and learned about Foster Care](/docs/discovery_phase) in order to:
 
 * Understand the project requirements
 * Learn about Foster Care resources
