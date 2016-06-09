@@ -84,6 +84,8 @@ function getInboxMessages(url) {
       type: "POST",
       success: function (response) {
           var msgsArr = response.data;
+          $("#inbox_message").hide();
+          $("#inbox_table").show();
           if(msgsArr && msgsArr.length > 0) {
               msgsArr.reverse();
               dataTable.clear().draw();
@@ -289,6 +291,7 @@ $(document).ready(function() {
               $("#new_msg_div").fadeOut();
               $("#response_msg_body").val('');
               $("#response_msg_alert").addClass("hidden");
+              $("#inbox_message .curr-msg-back").trigger('click');
             }, 2000);
             if($("#sent_msg_list").hasClass('active')) {
                 getInboxMessages("/sendMessages");

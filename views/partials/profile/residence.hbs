@@ -1,4 +1,5 @@
 <fieldset class="js-residence-about">
+    <p>Find foster agencies near your home, and get started with home visits by providing your address.</p>
 
     <label for="address-input">Street Address:</label>
     <input type="text" name="userDetails[residence][address]" value="{{residence.address}}" id="address-input"/>
@@ -13,26 +14,23 @@
             {{> states  selected=residence.state name="userDetails[residence][state]" }}
 
     <label>Type of Residence</label>
-    <div class="row residence-radio-group ">
-        <div class="col-xs-4 ">
+    <div class="row residence-radio-group form--inline">
             <label for="res-own-radio">Own</label>
             <input type="radio" name="userDetails[residence][type]" value="own" {{checkedIfEqual residence.type "own"}} id="res-own-radio" />
-        </div>
-        <div class="col-xs-4">
+
             <label for="res-rent-radio">Rent</label>
             <input type="radio" name="userDetails[residence][type]" value="rent" {{checkedIfEqual residence.type "rent"}}   id="res-rent-radio" />
-        </div>
-        <div class="col-xs-4">
+
             <label for="res-lease-radio">Lease</label>
             <input type="radio" name="userDetails[residence][type]" value="lease" {{checkedIfEqual residence.type "lease"}}  />
-        </div>
     </div>
 
+    <label>Do you have weapons at home?</label>
     <div class="form--inline">
-        <label for="weapons-input">Weapons in Home?</label>
-        <input type="checkbox" name="userDetails[residence][weapons]" value="true" {{checkedIfEqual residence.weapons "true" }} />
+        <label for="weapons_yes">Yes</label>
+        <input type="radio" value="yes" id="weapons_yes" name="userDetails[residence][weapons]" {{checkedIfEqual residence.weapons "yes"}}>
+        <label for="weapons_no">No </label>
+        <input type="radio" value="no" id="weapons_no" name="userDetails[residence][weapons]" {{checkedIfEqual residence.weapons "no"}}>
     </div>
 
 </fieldset>
-
-
