@@ -5,7 +5,6 @@
 
   * [Sprint Level Definition of Done](#sprint-done-definition)
   * [User Stories and Acceptance Criteria](#user-stories)
-  * [Code Standards and Design Guidelines](#code-design)
   * [Release Level Definition of Done](#done-definition)
   * [Continuous Integration & Deployment ](#ci_cd)
   * [Application Architecture and Technology Stack ](#arch-tech)
@@ -43,9 +42,6 @@ After the discovery phase was completed and during the Sprint 0 we created the f
 
 A PDF with the complete description of user stories and acceptance criteria can be downloaded from [this link](/docs/sprint_0/process/pdfs/initial-product-backlog.pdf).
 
-
-## Code Standards and Design Guidelines <a id="code-design"></a>
-
 ## Release Level Definition of Done <a id="done-definition"></a>
 1.	All the user stories and tasks committed for the release are completed
 2.	All the code has been pushed to the master branch and it included relevant comments
@@ -61,7 +57,7 @@ A PDF with the complete description of user stories and acceptance criteria can 
 
 ## Continuous Integration & Deployment <a id="ci_cd"></a>
 
-Our continuous delivery strategy enabled us to get visibility of the progress, get feedback early and deliver value fast.
+During sprint 0 we defined a continuous delivery strategy which enabled us to get visibility of the progress, get feedback early and deliver value fast.
 By making use of multiple configuration tools we automated the process for running unit test and deploy the stable code to the testing instances without requiring additional effort from de the development team.
 
 The following diagram illustrates our continuous delivery strategy:
