@@ -5,7 +5,7 @@
 .animated-accordion__header {
     display: block;
     cursor: pointer;
-
+    text-align: center;
     &:not(:first-child):not(:last-child) {
         margin-top: unitSize(3);
         margin-bottom: unitSize(2);
@@ -23,6 +23,7 @@
 
 /* title opened */
 .animated-accordion__header[aria-expanded="true"] {
+
     h3:before {
         content: "- ";
     }
@@ -59,6 +60,11 @@
     transition-delay: 0s;
     margin: 0;
     padding: 0;
+    border: 1.5px solid #909090;
+    border-top: 0;
+    padding-top: 0;
+    padding: 1em;
+    padding-top: 0;
 }
 /* This is the hidden state */
 [aria-hidden=true].animated-accordion__panel {
