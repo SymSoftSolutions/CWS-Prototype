@@ -160,4 +160,10 @@ $('.profile-container').on('click', '.js-profile-editing-cancel', function(e){
     e.preventDefault();
     e.stopPropagation();
     $(this).closest('.profile-editing-info').remove();
-})
+});
+
+$('#avataredit').on('show.bs.modal', function (event) {
+  console.log("123");
+    $("#avataredit .modal-footer button").removeClass("hidden");
+    $("#avataredit #avatar_loading_msg").hide();
+});
