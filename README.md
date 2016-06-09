@@ -132,7 +132,7 @@ You will more than likely need to modify the configuration of the project to mat
 ```
 npm start
 ```
- The site should will now be running on `http://localhost:8000`
+ The site should now be running on `http://localhost:8000`
 
 ## License <a id="license"></a>
 
